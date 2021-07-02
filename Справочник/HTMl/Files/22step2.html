@@ -1,0 +1,92 @@
+<html>
+<head>
+
+
+<TITLE>Первые шаги - Ступенька двацать вторая, как создавать таблицы.</TITLE>    
+<META HTTP-EQUIV="Content-Type" Content="text/html; Charset=Windows-1251">
+<META Name="copyright" Content="Алленова Наталья">
+<META NAME="author" CONTENT="Алленова Наталья Email: seagull@pisem.net"><META NAME="keywords" CONTENT="графика, хтмл, для, начинающий, начинающих, чайников, новичков, просто, основа, основы, страница, домашний, домашняя, сайт, новый, новичок, html, обучение, учеба, пример, веб, мастер, веб-мастер, дизайн, веб-дизайн, вебдизайн, дезайн, веб-дезайн, вебдезайн, дезайнер, дизайнер, ступени, тэги, тэг, теги, тег, аттрибут, атрибуты, парамет, design, web, help, помощь, icq, e-mail, guest, book, guestbook, гостевая, книга, форум, аська, контакт, ссылка, link, links, banner, обмен, баннер, баннерами, банер, baner, друзья, friends, почитать, написать, вопросы, вопрос, ответ, проект, ступени, словарь"> <META NAME="description" CONTENT="Основы хтмл (html) для чайников. Просто, доступно. Создайте свою домашнюю страничку своими руками и без хтмл (html) редакторов. Что может быть проще? Также вы здесь найдете полезные ссылки для вашего сайта, но это уже не главное...">
+
+
+
+</head>
+<body bgcolor="#ffffff" link="#000000" alink="#000000" vlink="#000000">
+
+
+<table>
+
+	<tr>
+	<td width="600">
+<font face="times new roman"><hr noshade size="1">
+<a href="index.html">Главная</a> | <a href="content2.html">Оглавление</a> | <a href="alltags2.html">Словарь</a><hr noshade size="1"><p align="JUSTIFY">
+Когда мы учились делать таблицы, то я упоминала о вложенных таблицах. Что же это такое и в чем их особенность? - это обычные таблицы, которые располагаются в ячейках другой таблицы, и больше ничего особенного в них нет... почти.
+<br><br>
+Допустим у нас уже есть большая таблица, две колонки которой забиты текстом какого-то отчета, а третья между ними для красоты:
+<br><br>
+<table>
+<tr>
+<td width="200" valign="top" background="step4.gif" align="center"><font face="times new roman">С каждым днем в интернете появляется все больше бяк и бук. Это особенные существа, роль которых в развитии современного общества не понятна, но тем не менее само их присутсвие заметно. Буки и бяки требуют особого обращения к себе, если обращаться к ним как к нормальным человеческим особям, то вы поняты не будете.</font></td>
+<td width="10" background="step5.gif">&nbsp;</td>
+<td width="200" valign="top" background="step4.gif" align="center"><font face="times new roman">Вот таблица, которая показывает сколько бук, бяк и других обитает в интернете:</font><br><br>
+<table cellspacing="3">
+<tr>
+<td width="50" background="step5.gif"><font face="times new roman">буки</font></td><td background="step5.gif"><font face="times new roman">65% населения</font></td>
+</tr>
+<tr><td width="50" background="step5.gif"><font face="times new roman">бяки</font></td><td background="step5.gif"><font face="times new roman">20% населения</font></td></tr>
+<tr><td width="50" background="step5.gif"><font face="times new roman">др.</font></td><td background="step5.gif"><font face="times new roman">15% населения</font></td></tr>
+</table>
+<br><br><font face="times new roman">
+За сим все</font>
+</td>
+</tr>
+</table>
+<br>
+
+Итак, перед нами таблица из одного ряда, с тремя ячейками (столбцами), в третьей ячейке нельзя не  заметить вложенную таблицу. Теперь код:
+</font>
+</p>
+<tt>
+&lt;table&gt;<br>
+&lt;tr&gt;<br>
+&lt;td width="200" valign="top" <b>background="blue.gif" align="center"</b>&gt;С каждым днем в интернете появляется все больше бяк и бук. Это особенные существа, роль которых в развитии современного общества не понятна, но тем не менее само их присутсвие заметно. Буки и бяки требуют особого обращения к себе, если обращаться к ним как к нормальным человеческим особям, то вы поняты не будете.&lt;/td&gt;<br>
+<b>&lt;td width="10" background="white.gif"&gt;&amp;nbsp;&lt;/td&gt;</b><br>
+&lt;td width="200" valign="top" background="blue.gif" align="center"&gt;Вот таблица, которая показывает сколько бук, бяк и других обитает в интернете:<br>&lt;br&gt;&lt;br&gt;<br><br>
+<b>&lt;table cellspacing="3"&gt;<br>
+&lt;tr&gt;<br>
+&lt;td width="50" background="white.gif"&gt;буки&lt;/td&gt;&lt;td background="white.gif"&gt;65% населения&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;tr&gt;<br>&lt;td width="50" background="white.gif"&gt;бяки&lt;/td&gt;&lt;td background="white.gif"&gt;20% населения&lt;/td&gt;<br>&lt;/tr&gt;<br>
+&lt;tr&gt;<br>&lt;td width="50" background="white.gif"&gt;др.&lt;/td&gt;&lt;td background="white.gif"&gt;15% населения&lt;/td&gt;<br>&lt;/tr&gt;<br>
+&lt;/table&gt;</b><br><br>
+&lt;br&gt;&lt;br&gt;<br>
+За сим все&lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;/table&gt;</tt>
+
+<p align="JUSTIFY"><font face="times new roman">
+Увы, код получился объемный, но зато в нем нет ничего сложного: вложенная таблица от обычной ничем не отличается. <br><br>Но все же здесь есть некоторые нюансы, на которые следует обратить внимание: background="картинка.gif" - раньше мы говорили о параметре bgcolor, который задает цвет фона для таблицы (ряда, ячейки), а параметр background задает фоновую картинку для таблицы (ряда, ячейки). <br><br>А теперь сам нюанс: вроде было бы логичнее прописать просто белый фон для вложенной таблицы (bgcolor="#ffffff"), а не мучаться, создавая просто белую картинку и делая ее фоном (background="white.gif"), ведь так оно быстрее. Да, быстрее, но дело в том, что если IE (Internet Explorer) отображает параметр bgcolor для вложенных таблиц, то NN (Netscape Navigator) этот параметр для вложенных таблиц отказывается отображать, поэтому приходиться идти обходным путем, используя background.  
+<br><br>
+Вот так мы и убили двух зайцев сразу: узнали, что можно задать background для таблиц, да при этом ознакомились с некоторыми тонкостями ремесла :). Теперь будем добивать оставшихся заек:
+</p>
+</font>
+<tt>&lt;td width="10" background="white.gif"&gt;&amp;nbsp;&lt;/td&gt;</tt>
+
+<p align="JUSTIFY"><font face="times new roman">
+
+Давайте обратимся к коду нашей таблицы и вспомним, что эту ячейку мы ввели для красоты. Чтобы ячейка не пустовала, в нее введен &amp;nbsp; (символ неразрывного пробела). Это не просто так. Дело в том, что есть любители использовать конструкцию типа: &lt;td&gt;&lt;/td&gt;. Вот такую конструкцию NN просто напросто игнорирует, т.к. не любит пустых ячеек, поэтому для корректного отображения вашей таблицы везде вставляйте в пустые ячейки или &amp;nbsp;, или мелкую картинку 1х1 пикселов.
+<br><br>
+И последняя зайка: align="center" (right, left). Помните, мы уже говорили о параметре align, так вот, как видите, его можно задать для содержимого ячейки (см. наш пример), только вот удобного align="justify" тут нет.
+<br><br>
+Вот, пожалуй, и все. Охота за зайками переноситься в следующие главы.
+</p>
+<center><a href="21step2.html">Назад</a> | <a href="23step2.html">Шагнуть на следующую ступеньку</a></center>
+</font>
+
+</td>
+
+	</tr>
+ </table>
+
+
+</body>
+</html>

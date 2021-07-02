@@ -1,0 +1,115 @@
+<html><head>
+
+
+
+
+
+
+<title>Встраивание в HTML-документ </title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4>2.10. Встраивание в HTML-документ</h4>
+<P ALIGN="JUSTIFY">Для встраивания скриптов в тело HTML-документа используется контейнер SCRIPT. Не все программы просмотра способны распознавать и исполнять скрипты, поэтому само тело скрипта помещается в контейнер комментария. Для определенности рассмотрим небольшой пример:
+<i><P ALIGN="JUSTIFY">Пример 2.2
+</i><pre>
+	&lt;HTML&gt;
+	&lt;!--
+	Author:&#9;Pavel Khramtsov
+	Date:&#9;March 5, 1996
+	--&gt;
+	&lt;HEAD&gt;
+	&lt;TITLE&gt;Registration&lt;/TITLE&gt;
+	&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+	&lt;!-- The JavaScript Functions Definition
+	function help_win()
+	            {
+	Help = window.open("reg_help.htm","Help","scrollbars=yes,resizable=yes")
+	            }
+	function main_menu()
+	            {
+	             Main_menu = window.open("main_m.htm","Main_menu")
+	            }
+	// The end of JavaScript Functions Definition --&gt;
+	&lt;/SCRIPT&gt;
+	&lt;/HEAD&gt;
+	&lt;BODY&gt;
+	&lt;CENTER&gt;
+	&lt;TABLE&gt;
+	&lt;TR&gt;&lt;TH&gt;&lt;IMG 	SRC="radleg3.gif"&gt;&lt;/TH&gt;&lt;TH&gt;&lt;H2&gt;ISTC.
+	Project	RADLEG(#245)&lt;/H2&gt;
+	RRC "Kurchatov Institute"&lt;BR&gt;
+	&lt;I&gt;Dec, 25, 1995&lt;/I&gt;
+	&lt;/TH&gt;&lt;/TR&gt;
+	&lt;/TABLE&gt;
+	&lt;/CENTER&gt;
+	&lt;HR&gt;
+	&lt;CENTER&gt;
+	&lt;h2&gt;Registration Form&lt;/h2&gt;
+	&lt;hr&gt;
+	......
+	Текст страницы.
+	.....
+	&lt;hr&gt;
+	&lt;FORM NAME=help_call&gt;
+	&lt;TABLE BORDER=0&gt;
+	&lt;TR&gt;
+	&lt;TD&gt;&lt;INPUT NAME=next TYPE=button VALUE=Next onClick="main_menu()"&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=help TYPE=button VALUE=Help onClick="help_win()"&gt;&lt;/TD&gt;
+	&lt;/TR&gt;
+	&lt;/TABLE&gt;
+	&lt;/FORM&gt;
+	&lt;hr&gt;
+	&lt;/CENTER&gt;
+	&lt;/BODY&gt;
+	&lt;/HTML&gt;</Pre>
+<P ALIGN="JUSTIFY">В данном примере в заголовок документа (контейнер HEAD) включен контейнер SCRIPT. До недавнего времени атрибут LANGUAGE в этом контейнере не являлся обязательным. Но с момента появления VBSCRIPT смысл в указании типа языка появился - Navigator не понимает скриптов на других языках. Отсутствие атрибута может привести к ошибкам при отображении гипертекстовых страниц.
+<P ALIGN="JUSTIFY">Далее в тексте страницы определен комментарий, в который включен текст скрипта. Начинается комментарий со строки:
+<pre>
+	&lt;!-- The JavaScript Functions Definition</Pre>
+и кончается строкой:
+<pre>
+	// The end of JavaScript Functions Definition --&gt;</Pre>
+<P ALIGN="JUSTIFY">Внутри контейнера скрипта определены две функции пользователя: help_win() и main_menu(). Смысл этих функций достаточно прозрачен. Help_win() предназначена для организации контекстно зависимого help, а main_menu() осуществляет допуск пользователя к главному меню Website. Обе функции используют один и тот же метод open (встроенную в JavaScript функцию, которая определена над объектом window) для того, чтобы открыть новое окно Netscape Navigator и загрузить в него гипертекстовые документы. При этом функция main_menu порождает стандартное окно (с кнопочками, иконками и т.п.), а функция help_win() окно без стандартных атрибутов. У этого окна имеются только линейки прокрутки (scroll bars).
+<P ALIGN="JUSTIFY">Вызов функций осуществляется после нажатия на соответствующую кнопку, которые определены в HTML-форме help_call. Таким образом выполнение функций будет осуществлено только в том случае, если произойдет событие, описанное атрибутом onClick в контейнере INPUT соответствующего поля формы.
+<P ALIGN="JUSTIFY">Если быть более точным, то приведенный пример - это фрагмент, реализующий регистрацию пользователя. К моменту его выполнения окно главного меню уже открыто, поэтому создание этого окна при выборе кнопки "NEXT" не происходит, а текст загружается в уже открытое окно.
+<p><center><p>
+<font size=-1>
+<a href="glava2_9.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava2~2.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

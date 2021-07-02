@@ -1,0 +1,1 @@
+Just a few in-game screen shots in this folder, they are not important (Yet). Later on in the game, there will be a register option, if you do not register, not all the levels will be available, and you will have to see the screen shots go past the screen! :)

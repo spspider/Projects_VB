@@ -1,0 +1,113 @@
+<html><head>
+
+
+
+
+
+
+<title> Графика</title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4>2.5. Графика</h4>
+<P ALIGN="JUSTIFY">До Navigator 3.0 в JavaScript использовались только встроенные объекты типа Image. В новой версии языка появился конструктор для этого типа объектов:
+<pre>
+	new_image = new Image()
+	new_image = new Image (width,height)</Pre>
+<P ALIGN="JUSTIFY">Часто для целей создания мультипликации создают массивы графических объектов, которые потом прокручивают один за другим:
+<pre>
+	img_array = new Array()
+	img_array[0] = new Image(50,100)
+	img_array[1] = new Image(50,100)
+	....
+	img_array[99] = new Image(50,100)</Pre>
+<P ALIGN="JUSTIFY">У объекта Image существует 10 свойств, из которых, пожалуй, самым важным является src. Так, для присваивания конкретных картинок элементам массива img_array следует воспользоваться следующей последовательностью команд:
+<pre>
+	img_array[0].src = "image1.gif"
+	img_array[1].src = "image2.gif"
+	...
+	img_array[99].src = "image100.gif"</Pre>
+<P ALIGN="JUSTIFY">В данном случае можно было воспользоваться и циклом для присвоения имен, так как они могут быть составлены из констант и значения индексной переменной. В новой версии языка объект типа Image можно поименовать в HTML-теге IMG. После этого можно обращаться к нему по имени. При этом следует учитывать, что если Image используется внутри формы, то он является свойством этой формы. Это значит, что для следующего графического объекта должны быть использованы разные составные имена:
+<pre>
+	&lt;img name=car src=car.gif&gt; &lt;--- Встроенный в документ объект
+	document.car.src = "car1.gif"
+	&nbsp;
+	&lt;form name=kuku&gt;
+	&lt;img name=car src=car.gif&gt;   &lt;-- Встроенный в форму документ.
+	&lt;/form&gt;
+	document.kuku.car.src = "car1.gif"</Pre>
+<P ALIGN="JUSTIFY">Однако, наиболее часто в примерах использования скриптов можно встретить обращение к Image по индексу в массиве всех графических объектов данной страницы. Если наш объект, например, является вторым Image на странице, то будь он внутри формы или за ее пределами, к нему всегда можно обратиться по индексу:
+<pre>
+	document.images[1].src = "car1.gif"</Pre>
+<P ALIGN="JUSTIFY">Расширяя наш пример с массивом Image построим теперь документ, в котором будет встроена мультипликация, определенная нашим массивом:
+<i><P ALIGN="JUSTIFY">Пример 2.1
+</i><pre>
+	&lt;HTML&gt;
+	&lt;HEAD&gt;
+	&lt;SCRIPT&gt;
+	function multi_pulti()
+	{
+	img_array = new Array()
+	img_array[0] = new Image(50,100)
+	....
+	img_array[99] = new Image(50,100)
+	img_array[0].src = "image1.gif"
+	...
+	img_array[99].src = "image100.gif"
+	n=0
+	while(n==0)
+	{
+	document.images[0].src = img_array[0].src
+	...
+	}
+	}
+	&lt;/SCRIPT&gt;
+	&lt;/head&gt;
+	&lt;body onLoad="multi_pulti()"&gt;
+	&lt;img src=image1.gif&gt;
+	&lt;/body&gt;
+	&lt;/html&gt;</Pre>
+<P ALIGN="JUSTIFY">Довольно часто используют не мультипликацию, а выбор картинки через OPTION, другой новый объект JavaScript. При этом можно через поле формы SELECT менять не только саму картинку, но и гипертекстовую ссылку, которая может быть связана с этой картинкой. На гипертекстовую ссылку также можно ссылаться по индексу:
+<pre>
+	document.links[index].href = kuku.html</Pre>
+<P ALIGN="JUSTIFY">Данный прием оправдан и с точки зрения интерфейса навигатора. При использовании такого сорта массивов ссылок не требуется их длительное перечисление и листание страницы в рабочей области навигатора - можно просто выбрать ссылку из "выпадающего" меню. Другой способ для сокращения числа нажатий на клавиши - использование событий. В том же объекте OPTION можно использовать событие onChange, что делает необязательным нажатие кнопок типа submit. В этом случае достаточно будет просто выбрать альтернативу и перейти к новой странице сразу после выбора.
+<p><center><p>
+<font size=-1>
+<a href="glava2_4.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava2_6.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

@@ -1,0 +1,1140 @@
+													
+      
+													
+App Name	Visual Studio 6.0 Service Pack 4
+App Version	6.0.0.0.0606 (1033)
+Frame Caption	Visual Studio 6.0 Service Pack 4 Setup
+Dialog Caption Base	 Visual Studio 6.0 Service Pack 4 
+About Box String	Microsoft Visual Studio 6.0 Service Pack 4 Setup\n\nCopyright (C) 2000 Microsoft Corporation.													
+Check Modules	ThunderRT5Main,Microsoft Visual Basic,ThunderRTMain,Microsoft VB Runtime,RaidClass,Microsoft Raid,MSVCED50,Microsoft Developer Studio,wndclass_desked_gsk,Microsoft Development Environment							
+Check Modules2	Fox_4000001,Microsoft Visual FoxPro, graph, MS Graph, ed, MS Draw, msinfo, MS Info,odbcad32,ODBC administrator,odbcjt32, ODBC Driver, !Microsoft Exchange!, Microsoft Exchange
+Check Modules3	OMain,Microsoft Access, msaccess,MS Access,msarn110,MS Access Runtime,msarn200,MS Access Runtime,MS:SCC:REFRESH,Microsoft Visual SourceSafe,MSOfficeWClass,Microsoft Office Manager
+Check Modules4	VFP66400000,Microsoft Visual FoxPro,valecstart,Visual Studio Analyzer Server
+MSAPPS Mode	local
+Suppress Copy Disincentive Dialogs
+Suppress Serial Number Dialog
+Inf File Name	sp498vbo.inf
+Maximum Object ID	1320
+Floppy Mode Root Object ID	11 
+Batch Mode Root Object ID	11 
+Setup Version	3.0.0.1210
+ObjID	Install During Batch Mode	Title	Descr	Type	Data	BMP Id	Vital	Shared	Dir Chang	Dest Dir	Check Dir	Installed By Us
+													
+ 														
+	=== sp4 Install Modes (sp4main2.etf) ===													
+													
+11	yes	Floppy Install		AppMainDlg	13 12 				No	%m				
+12	yes	&Complete	Complete install of VS 6.0 Service Pack 4	Group	 13 38 36 45 47 50 	sp498vbo.dll,104								
+13				Group	28 32 33 29 30 26 27 14 25 17 15 34 21 22   
+14				CustomAction	"""sp498vbo.dll"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup,VSCommonDir"" "					%d\Common				
+15				CustomAction	"""sp498vbo.dll"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual Studio,ProductDir"" "					%d				
+16				CustomAction	"""sp498vbo.dll"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual C++,ProductDir"" "					%d\VC98				
+17				CustomAction	"""sp498vbo.dll"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual Basic,ProductDir"" "					%d\VB98				
+18				CustomAction	"""sp498vbo.dll"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual InterDev,ProductDir"" "					%d\VIntDev98				
+19				CustomAction	"""sp498vbo.dll"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual J++,ProductDir"" "					%d\VJ98				
+20				CustomAction	"""sp498vbo.dll"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual FoxPro,ProductDir"" "					%d\Vfp98				
+21				CustomAction	"""sp498vbo.dll"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual SourceSafe,ProductDir"" "					%14\VSS				
+22				CustomAction	"""sp498vbo.dll"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual SourceSafe Server,ProductDir"" "					%14\VSS				
+23				CustomAction	"""sp498vbo.dll"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual InterDev Server,ProductDir"" "					%d				
+24				CustomAction	"""sp498vbo.dll"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Setup\Microsoft Visual J++,ProductDir"" "					%d				
+25				CustomAction	"""sp498vbo.dll"", ""GetPathFromReg"", ""HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\Windows\CurrentVersion,CommonFilesDir"" "					%p\Common<%p\Common Files>				
+26		IsWin95		CustomAction	"sp498vbo.dll,DetectOS,Win95 "									
+27				CustomAction	"""sp498vbo.dll"",""DetectOS"",winnt50"
+28				CustomAction	"sp498vbo.dll,LicenseDlg,Setup;eula_txt_4"									
+29		VSProdInstalledLang.  		CustomAction	"sp498vbo.dll,VSProdInstalledLang,enu"									
+30			Detect VsCommonDir	Depend	"14 ?  : 31" 					
+31				CustomAction	"sp498vbo.dll,ExitInFinalize,35"
+32		IsWin95		CustomAction	"sp498vbo.dll,CheckForMDAC"									
+33				CustomAction	"sp498vbo.dll,MoveRegData,""LOCAL,Software\Microsoft\Windows\CurrentVersion\Run,Machine Debug Manager,LOCAL,Software\Microsoft\Windows\CurrentVersion\RunServices,Machine Debug Manager"""									
+34		Check Adminstrator		CustomAction	"sp498vbo.dll,DetectAdminPrivileges"									
+35				DetectOlderFile	"setup.stf"					%14\Setup\1033			
+36			Detect VS	Depend	"15 ? 37" 					%15
+37	yes			Group	 521 511 541 561 1309  	 	
+38			Detect VB	Depend	"17 ? 40" 					%17
+39				DetectOlderFile	"setup.stf"					%17\Setup\1033			
+40			Detect VBSTF	Depend	"39 ? 42 : 41" 					%17
+41			Detect VSSTF	Depend	"35 ? 42" 					%17
+42	yes			Group	1031 1061 1071 43 44 1101 1091 941 991
+43	yes			Group	801 591 791 841 611 621 651 851 661 671 681 701 731 871  781 751   	
+44	yes			Group	 881 951 571 761   961 831 971 1011 1021 1041 901     	
+45			Detect VSS	Depend	"21 ? 46" 					%21
+46	yes			Group	1231 1251 1181 1191 1201 1211 1301	
+47			Detect VSSSS	Depend	"22 ? 48" 					%22
+48	yes			Group	1236 1255 1185 1195 1205 1216 1305 1111
+49	yes			Group	501					%14\IDE\IDE98\Redist
+50	yes			Group	51 91 211 1261 61 221 1161 231 101 1171 81 52 53 1271 
+51	yes			Group	241  491  421 251  271 281 481 461 441 391 371 351 331 321 311 301 931 921 911 1001 
+52				AddRegData	"HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\VisualStudio\6.0\ServicePacks,sp4"									
+53				AddRegData	"HKEY_LOCAL_MACHINE,SOFTWARE\Microsoft\VisualStudio\6.0\ServicePacks,latest,""4"",REG_DWORD"																						
+													
+ 														
+													
+	 													
+														
+  														
+														
+  														
+														
+ 			
+					
+	=== VB OLEAUT32 Files (vboleaut.etf)===													
+61				Group	62 63 64 65 66 68 70 									
+62				InstallSysFile	"VB Oleaut Files,oleaut32_dll"					%M				
+63				InstallSysFile	"VB Oleaut Files,stdole2_tlb"					%M				
+64				InstallSysFile	"VB Oleaut Files,olepro32_dll_2"					%M				
+65				InstallSysFile	"VB Oleaut Files,asycflt_dll"					%M				
+66				Depend	"62 ? 67"								
+67				AddRegData	"""LOCAL"",""Software\Microsoft\Windows\CurrentVersion\RunOnce"",""RunOnceOleaut32"",""%s\regsvr32.exe /s %s\oleaut32.dll"""					%M									
+68				Depend	"64 ? 69"								
+69				AddRegData	"""LOCAL"",""Software\Microsoft\Windows\CurrentVersion\RunOnce"",""RunOnceOlepro32"",""%s\regsvr32.exe /s %s\olepro32.dll"""					%M
+70				Depend	"63 ? 71"								
+71				AddRegData	"""LOCAL"",""Software\Microsoft\Windows\CurrentVersion\RunOnce"",""RunOnceStdole2"",""%W\regtlib.exe %s\stdole2.tlb"""					%M
+													
+	=== VB Runtime (vbruntm.etf)===													
+81				Group	82 83 									
+82				InstallSysFile	"VB Runtime,msvbvm50_dll"		Vital			%M				
+83		msvbvm60.dll		CustomAction	"sp498vbo.dll,RegisterFile,""VB Runtime,msvbvm50_dll,2"""					%82				
+														
+	=== vc MSVCRT40.DLL Sys ===														
+91				CopyFile	"vc MSVCRT40 DLL,msvcrt40_dll"		vital			%M				
+														
+	====MSDN HTML HELP Component (hhelp.etf) ======											
+											
+101				Group	102 103 104 106 111 112 113					%D		
+102				InstallSysFile	"HTML Help,itircl_dll"							
+103				InstallSysFile	"HTML Help,itss_dll"							
+104				Group	105					%D		
+105				CopyFile	"HTML Help,hh_exe"					%W		
+											
+106				Group	107 109							
+											
+107				Depend	102 ? 108							
+108		itircl.dll		SelfReg	"HTML Help,itircl_dll,,"					%102		
+											
+109				Depend	103 ? 110							
+110		itss.dll		SelfReg	"HTML Help,itss_dll,,"					%103		
+111				Group	114 117 120 123 126 129 132 135 138 141 144 147 150 153 156					%D		
+112				Group	159 162 165 168 171 174 177 180 183 186 189 192 195					%D		
+113				Group	115 199					%D		
+114				CustomAction	"sp498vbo.dll,LangCheckCAH,ARA"									
+115				Depend	"114 ? 116 : 118"									
+116				InstallSysFile	"HTML Help, hhctrl_ocx_ara"					%M				
+117				CustomAction	"sp498vbo.dll,LangCheckCAH,BAS"									
+118				Depend	"117 ? 119 : 121"									
+119				InstallSysFile	"HTML Help, hhctrl_ocx_bas"					%M				
+120				CustomAction	"sp498vbo.dll,LangCheckCAH,CAT"									
+121				Depend	"120 ? 122 : 124"									
+122				InstallSysFile	"HTML Help, hhctrl_ocx_cat"					%M				
+123				CustomAction	"sp498vbo.dll,LangCheckCAH,CHS"									
+124				Depend	"123 ? 125 : 127"									
+125				InstallSysFile	"HTML Help, hhctrl_ocx_chs"					%M				
+126				CustomAction	"sp498vbo.dll,LangCheckCAH,CHT"									
+127				Depend	"126 ? 128 : 130"									
+128				InstallSysFile	"HTML Help, hhctrl_ocx_cht"					%M				
+129				CustomAction	"sp498vbo.dll,LangCheckCAH,CSY"									
+130				Depend	"129 ? 131 : 133"									
+131				InstallSysFile	"HTML Help, hhctrl_ocx_csy"					%M				
+132				CustomAction	"sp498vbo.dll,LangCheckCAH,DAN"									
+133				Depend	"132 ? 134 : 136"									
+134				InstallSysFile	"HTML Help, hhctrl_ocx_dan"					%M				
+135				CustomAction	"sp498vbo.dll,LangCheckCAH,DEU"									
+136				Depend	"135 ? 137 : 139"									
+137				InstallSysFile	"HTML Help, hhctrl_ocx_deu"					%M				
+138				CustomAction	"sp498vbo.dll,LangCheckCAH,ELL"									
+139				Depend	"138 ? 140 : 142"									
+140				InstallSysFile	"HTML Help, hhctrl_ocx_ell"					%M				
+141				CustomAction	"sp498vbo.dll,LangCheckCAH,ENU"									
+142				Depend	"141 ? 143 : 145"									
+143				InstallSysFile	"HTML Help, hhctrl_ocx_enu"					%M				
+144				CustomAction	"sp498vbo.dll,LangCheckCAH,ESP"									
+145				Depend	"144 ? 146 : 148"									
+146				InstallSysFile	"HTML Help, hhctrl_ocx_esp"					%M				
+147				CustomAction	"sp498vbo.dll,LangCheckCAH,FIN"									
+148				Depend	"147 ? 149 : 151"									
+149				InstallSysFile	"HTML Help, hhctrl_ocx_fin"					%M				
+150				CustomAction	"sp498vbo.dll,LangCheckCAH,FRA"									
+151				Depend	"150 ? 152 : 154"									
+152				InstallSysFile	"HTML Help, hhctrl_ocx_fra"					%M				
+153				CustomAction	"sp498vbo.dll,LangCheckCAH,HEB"									
+154				Depend	"153 ? 155 : 157"									
+155				InstallSysFile	"HTML Help, hhctrl_ocx_heb"					%M				
+156				CustomAction	"sp498vbo.dll,LangCheckCAH,HUN"									
+157				Depend	"156 ? 158 : 160"									
+158				InstallSysFile	"HTML Help, hhctrl_ocx_hun"					%M				
+159				CustomAction	"sp498vbo.dll,LangCheckCAH,ITA"									
+160				Depend	"159 ? 161 : 163"									
+161				InstallSysFile	"HTML Help, hhctrl_ocx_ita"					%M				
+162				CustomAction	"sp498vbo.dll,LangCheckCAH,JPN"									
+163				Depend	"162 ? 164 : 166"									
+164				InstallSysFile	"HTML Help, hhctrl_ocx_jpn"					%M				
+165				CustomAction	"sp498vbo.dll,LangCheckCAH,KOR"									
+166				Depend	"165 ? 167 : 169"									
+167				InstallSysFile	"HTML Help, hhctrl_ocx_kor"					%M				
+168				CustomAction	"sp498vbo.dll,LangCheckCAH,NLD"									
+169				Depend	"168 ? 170 : 172"									
+170				InstallSysFile	"HTML Help, hhctrl_ocx_nld"					%M				
+171				CustomAction	"sp498vbo.dll,LangCheckCAH,NOR"									
+172				Depend	"171 ? 173 : 175"									
+173				InstallSysFile	"HTML Help, hhctrl_ocx_nor"					%M				
+174				CustomAction	"sp498vbo.dll,LangCheckCAH,PLK"									
+175				Depend	"174 ? 176 : 178"									
+176				InstallSysFile	"HTML Help, hhctrl_ocx_plk"					%M				
+177				CustomAction	"sp498vbo.dll,LangCheckCAH,PTB"									
+178				Depend	"177 ? 179 : 181"									
+179				InstallSysFile	"HTML Help, hhctrl_ocx_ptb"					%M				
+180				CustomAction	"sp498vbo.dll,LangCheckCAH,PTG"									
+181				Depend	"180 ? 182 : 184"									
+182				InstallSysFile	"HTML Help, hhctrl_ocx_ptg"					%M				
+183				CustomAction	"sp498vbo.dll,LangCheckCAH,RUS"									
+184				Depend	"183 ? 185 : 187"									
+185				InstallSysFile	"HTML Help, hhctrl_ocx_rus"					%M				
+186				CustomAction	"sp498vbo.dll,LangCheckCAH,SKY"									
+187				Depend	"186 ? 188 : 190"									
+188				InstallSysFile	"HTML Help, hhctrl_ocx_sky"					%M				
+189				CustomAction	"sp498vbo.dll,LangCheckCAH,SLV"									
+190				Depend	"189 ? 191 : 193"									
+191				InstallSysFile	"HTML Help, hhctrl_ocx_slv"					%M				
+192				CustomAction	"sp498vbo.dll,LangCheckCAH,SVE"									
+193				Depend	"192 ? 194 : 196"									
+194				InstallSysFile	"HTML Help, hhctrl_ocx_sve"					%M				
+195				CustomAction	"sp498vbo.dll,LangCheckCAH,TRK"									
+196				Depend	"195 ? 197 : 198"									
+197				InstallSysFile	"HTML Help, hhctrl_ocx_trk"					%M				
+198				InstallSysFile	"HTML Help, hhctrl_ocx_enu"					%M				
+199				Group	200					%D		
+200				CustomAction	"sp498vbo.dll,QuietReg,""%s\hhctrl.ocx"""					%m
+											
+	=== ATL Component (mfc40.etf) ===
+211				Group	212					%M				
+212				Group	213 216 217					%d				
+213				Depend	"26 ? : 214 215"							
+214				CopyFile	"MFC 40 Dll,mfc40u_dll"					%M				
+215		mfc40u.dll		CustomAction	"sp498vbo.dll,RegisterFile,""MFC 40 Dll,mfc40u_dll,3"""					%214				
+216				CopyFile	"MFC 40 Dll,mfc40_dll_4"					%M				
+217		mfc40.dll		CustomAction	"sp498vbo.dll,RegisterFile,""MFC 40 Dll,mfc40_dll_4,3"""					%216				
+													
+	=== RegSvr32 Component ( RegSvr32.etf ) ===													
+													
+221				Group	222 									
+222		regsvr32.exe		InstallSysFile	"Sys Files - Regsrv32, regsvr32_exe_3"					%m				
+													
+comment :	=====vc MFC Os Unicode Retail (unirtail.etf)========													
+													
+231				Group	233									
+													
+232				DetectOlderFile	"mfc42u.dll"					%M
+233				Depend	"232 ? 234"
+234				InstallSysFile	"VC MFC OS Unicode Retail,mfc42u_dll"									
+													
+	=== launch VM Component (launchvm.etf) ===													
+241				Group	242 243					%d 			 
+242				CustomAction	"sp498vbo.dll,VersionCompare,""msjava.dll;%s\MSJavx86.exe"""					%S
+243				Depend	"242 ? 244 245" 					
+244		MSJavx86.exe		CustomAction	"sp498vbo.dll,SyncEXECalloutCAH,""""""%s\MSJavx86.exe"""" /q:a /r:n /C:""""javatrig.exe /exe /l /q /qsfp"""""""					%s
+245		Reboot		CustomAction	"sp498vbo.dll,ForceAcmeRestart,"
+											
+	=== MSMASK32.OCX (vbmsmask.etf) ===											
+251				Group	252 256 260							
+252				Group	253 254 					%d 			 
+253				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msmask32.ocx,Path"" "					%d				
+254				Depend	"253 ? 255"					%d				
+255				CopyFile	"VB MSMASK32 , msmask32_ocx"					%253
+256				Group	257 258 					%d 			 
+257				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msmask32.dep,Path"" "					%d				
+258				Depend	"257 ? 259"					%d				
+259				CopyFile	"VB MSMASK32 , msmask32_dep"					%257
+260				Depend	"255?261"							
+261		msmask32.ocx		SelfReg	"VB MSMASK32,msmask32_ocx,,, "					%255		
+											
+	=== MSSTDFMT (vbstdfmt.etf) ===													
+271				Group	272 273									
+272				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msstdfmt.dll,Path"" "					%M
+273				Depend	"272?274 275 276"									
+274				CopyFile	"VB STDFMT,msstdfmt_dll"					%M				
+275				CopyFile	"VB STDFMT,msstdfmt_dep"					%274				
+276		msstdfmt.dll		CustomAction	"sp498vbo.dll,RegisterFile,""VB STDFMT,msstdfmt_dll,3"""					%274				
+													
+	=== PICCLP32.OCX (vbpicclp.etf) ===											
+281				Group	282 286 290 							
+282				Group	283 284 					%d 			 
+283				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\picclp32.ocx,Path"" "					%d				
+284				Depend	"283 ? 285"					%d				
+285				CopyFile	"VB PICCLP32 , picclp32_ocx"					%283
+286				Group	287 288 					%d 			 
+287				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\picclp32.dep,Path"" "					%d				
+288				Depend	"287 ? 289"					%d				
+289				CopyFile	"VB PICCLP32 , picclp32_dep"					%287
+290				Depend	"285?291"							
+291		picclp32.ocx		SelfReg	"VB PICCLP32,picclp32_ocx,,, "					%285		
+											
+	=== RICHTX32.OCX (vbrichtx.etf) ===											
+301				Group	302							
+302				Group	303 304 306 307 							
+303				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\richtx32.ocx,Path"" "					%d
+304				Depend	"303 ? 305 309"
+305				CopyFile	"VB RICHTX32,richtx32_ocx"					%303				
+306				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\richtx32.dep,Path"" "					%d
+307				Depend	"306 ? 308"
+308				CopyFile	"VB RICHTX32,richtx32_dep"					%306		
+309		richtx32.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""VB RICHTX32,richtx32_ocx,3"""					%305				
+												
+	=== MSCHART.OCX (vbmschrt.etf) ===											
+311				Group	312 313 315 316					%M							
+312				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mschrt20.ocx,Path"" "					%d
+313				Depend	"312 ? 314 318"
+314				CopyFile	"VB MSCHART,mschart_ocx"					%312				
+315				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mschrt20.dep,Path"" "					%d
+316				Depend	"315 ? 317"
+317				CopyFile	"VB MSCHART,mschart_dep"					%315	
+318		mschrt20.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""VB MSCHART,mschart_ocx,3"""					%314				
+											
+	=== MCI32.OCX (vbmci32.etf) ===											
+321				Group	322 323 325 326					%M							
+322				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mci32.ocx,Path"" "					%d
+323				Depend	"322 ? 324 328"
+324				CopyFile	"VB MCI32,mci32_ocx"					%322				
+325				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mci32.dep,Path"" "					%d
+326				Depend	"325 ? 327"
+327				CopyFile	"VB MCI32,mci32_dep"					%325	
+328		mci32.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""VB MCI32,mci32_ocx,3"""					%324				
+								
+	=== MSDATLST.OCX (vbdatlst.etf) ===											
+331				Group	332 338
+332				Group	333 334									
+333				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msdatlst.ocx,Path"" "					%d
+334				Depend	"333 ?  335 336"									
+335				CopyFile	"VB MSDATLST,datalist_ocx"					%333				
+336				Depend	"335 ?  337"									
+337		msdatlst.ocx		SelfReg	"VB MSDATLST,datalist_ocx,,, "					%335		
+338				Group	339 340									
+339				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\MSDatLst.dep,Path"" "					%d
+340				Depend	"339 ?  341"									
+341				CopyFile	"VB MSDATLST,datalist_dep"					%339				
+												
+	=== DATAGRID.OCX (vbdatagd.etf) ===											
+351				Group	352 358							
+352				Group	353 354									
+353				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\MSDatGrd.ocx,Path"" "					%d
+354				Depend	"353 ?  355 356"									
+355				CopyFile	"VB DATAGRID,datagrid_ocx"					%353				
+356				Depend	"355 ?  357"									
+357		MSDatGrd.ocx		SelfReg	"VB DATAGRID,datagrid_ocx,,, "					%355		
+358				Group	359 360									
+359				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msdatgrd.dep,Path"" "					%d
+360				Depend	"359 ?  361"									
+361				CopyFile	"VB DATAGRID,msdatgrd_dep"					%359				
+											
+	=== COMDLG32.OCX (vbcomdlg.etf) ===											
+371				Group	372 378							
+372				Group	373 374							
+373				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\comdlg32.ocx,Path"" "					%d
+374				Depend	"373 ?  375 376"									
+375				CopyFile	"VB COMDLG32,comdlg32_ocx"					%373				
+376				Depend	"375 ?  377"									
+377		comdlg32.ocx		SelfReg	"VB COMDLG32,comdlg32_ocx,,, "					%375		
+378				Group	379 380							
+379				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\comdlg32.dep,Path"" "					%d
+380				Depend	"379 ?  381"									
+381				CopyFile	"VB COMDLG32,comdlg32_dep"					%379				
+											
+	=== COMCTL32.OCX (vbcomctl.etf) ===											
+391				Group	 392 403							
+392				Group	393 399							
+393				Group	394 395							
+394				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\comctl32.ocx,Path"" "					%d
+395				Depend	"394 ?  396 397"									
+396				CopyFile	"VB COMCTL32,comctl32_ocx_3"					%394				
+397				Depend	"396 ?  398"									
+398		comctl32.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""VB COMCTL32,comctl32_ocx_3,3"""					%396				
+399				Group	400 401							
+400				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\comctl32.dep,Path"" "					%d
+401				Depend	"400 ?  402"									
+402				CopyFile	"VB COMCTL32,comctl32_dep_2"					%400				
+403				Group	404 410							
+404				Group	405 406							
+405				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mscomctl.ocx,Path"" "					%d
+406				Depend	"405 ?  407 408"									
+407				CopyFile	"VB COMCTL32,mscomctl_ocx"					%405				
+408				Depend	"407 ?  409"									
+409		mscomctl.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""VB COMCTL32,mscomctl_ocx,3"""					%407				
+410				Group	411 412							
+411				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\MSComCtl.dep,Path"" "					%d
+412				Depend	"411 ?  413"									
+413				CopyFile	"VB COMCTL32,mscomctl_dep"					%411				
+												
+	=== COMCT332.OCX (vbcomct3.etf) ===													
+421				Group	422 428									
+422				Group	423 424									
+423				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\comct332.ocx,Path"" "					%d
+424				Depend	"423 ?  425 426"									
+425				CopyFile	"VB COMCT332,comct332_ocx"					%423				
+426				Depend	"425 ?  427"									
+427		comct332.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""VB COMCT332,comct332_ocx,3"" "					%425				
+428				Group	429 430									
+429				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\comct332.dep,Path"" "					%d
+430				Depend	"429 ?  431"									
+431				CopyFile	"VB COMCT332,comct332_dep"					%429				
+													
+	=== COMCT232.OCX (vbcomct2.etf) ===											
+441				Group	442							
+442				Group	443 449							
+443				Group	444 445									
+444				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mscomct2.ocx,Path"" "					%d
+445				Depend	"444 ?  446 447"									
+446				CopyFile	"VB COMCT232,mscomct2_ocx"					%444				
+447				Depend	"446 ?  448"									
+448		mscomct2.ocx		SelfReg	"VB COMCT232,mscomct2_ocx,,, "					%446		
+449				Group	450 451									
+450				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\MSComCt2.dep,Path"" "					%d
+451				Depend	"450 ?  452"									
+452				CopyFile	"VB COMCT232,mscomct2_dep"					%450				
+												
+	=== ADODC.OCX (vbadodc.etf) ===											
+461				Group	462 468							
+462				Group	463 464									
+463				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msadodc.ocx,Path"" "					%d
+464				Depend	"463 ?  465 466"									
+465				CopyFile	"VB ADODC,adodc_ocx"					%463				
+466				Depend	"465 ? 467"									
+467		msadodc.ocx		SelfReg	"VB ADODC,adodc_ocx,,, "					%465		
+468				Group	469 470									
+469				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msadodc.dep,Path"" "					%d
+470				Depend	"469 ?  471"									
+471				CopyFile	"VB ADODC,adodc_dep"					%469				
+												
+	=== dag Jet (jet.etf) ===													
+													
+481				Group	482 483 484 485 486					%M				
+													
+482				CopyFile	"dag Jet, msjet35_dll"					%M				
+483		msjet35.dll		CustomAction	"sp498vbo.dll,RegisterFile,""dag Jet,msjet35_dll,3"""					%482				
+												
+484				CopyFile	"dag Jet, msrepl35_dll"					%M				
+485				InstallSysFile	"dag Jet, msjt4jlt_dll"					%M				
+486		msjt4jlt.dll		CustomAction	"sp498vbo.dll,RegisterFile,""dag Jet,msjt4jlt_dll,3"""					%485				
+														
+	=== Additional VBA Files (vbvbaadd.etf)===													
+491				Group	492									
+492				CopyFile	"VBA Additional Files,expsrv_dll"					%M				
+													
+	=== Component (JavaVm.etf) ===													
+501				Group	502 503 					%d 			 
+502				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\VisualStudio\6.0\Redistributables\javavmINF\Filelist,"" "					%d				
+503				Depend	"14 ? 505 : 508"					%D				
+504				DetectOlderFile	"MSJavx86.exe"					%d				
+505				Depend	"504 ? 506"					%D				
+506				CopyFile	"Java VM Redist , msjavx86_exe"					%d
+507				DetectOlderFile	"MSJavx86.exe"					%502				
+508				Depend	"507 ? 509"					%D				
+509				CopyFile	"Java VM Redist , msjavx86_exe"					%502
+ 
+	=== Vegas Shell - Localized components === <fn: locshell.etf>
+ 
+511				Group	512					%d\resources\1033 			 	
+ 
+512				Group	513 514 					%d 			 
+513				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\htmedui.dll(enu),Path"" "					%d				
+514				Depend	"513 ? 515"					%d				
+515				CopyFile	"Loc Vegas Shell , htmedui_dll_enu"					%513
+ 
+ 
+ 
+ 
+	=== Environment - Vegas Shell === <fn: shellenv.etf>
+ 
+521				Group	523					%d 			 	
+522				DetectOlderFile	"mdm.exe"					%M
+523				Depend	522 ? 524    					%D				
+524				Group	525 526 527 528 529 530 532 533 534 535					%d 			 	
+525				CopyFile	"environment , mdm_exe"					%m
+526				CopyFile	"environment , msdbg_dll"					%m
+527		javale.dll		InstallSysFile	"environment,javale_dll"					%m				
+528		scriptle.dll		InstallSysFile	"environment,scriptle_dll"					%m				
+529		pdm.dll		InstallSysFile	"environment,pdm_dll"					%m				
+ 														
+530				Group	531  									
+531				CustomAction	"sp498vbo.dll,SyncEXECalloutCAH,""""""%s\mdm.exe"""" -regserver"""					%525				
+												
+532		msdbg.dll		SelfReg	"""environment"",""msdbg_dll"","""","""","""""					%526				
+533		pdm.dll		SelfReg	"""environment"",""pdm_dll"","""","""","""""					%529				
+534		javale.dll		SelfReg	"""environment"",""javale_dll"","""","""","""""					%527				
+535		scriptle.dll		SelfReg	"""environment"",""scriptle_dll"","""","""","""""					%528				
+ 
+ 
+ 
+	=== msenv component - Vegas Shell === <fn: msenv.etf>
+ 
+541				Group	542 543 548 549 					%d 			 	
+542				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msenv.dll,Path"" "					%d				
+543				Depend	"542 ? 544 545 546"					%d				
+544		msenv.dll		CopyFile	"msenv,msenv_dll"					%542				
+ 
+545		msenv.dll		SelfReg	"""msenv"",""msenv_dll"","""","""","""""					%544				
+546				Depend	"544 ? 547"									
+547				CustomAction	"""sp498vbo.dll"", ""RestoreRes"", ""544,106,196"" "
+ 
+548				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\devenv.exe,Path"" "					%d				
+549				Depend	"548 ? 550 551"					%d				
+550				CopyFile	"msenv,devenv_exe"					%548
+551				CustomAction	"sp498vbo.dll,SyncEXECalloutCAH,""""""%s\devenv.exe"""" /setup"""					%548				
+ 
+ 
+													
+	=== MSInfo (vbmssrpt.etf)===													
+561				Group	562 					%M				
+562				Group	563 564 					%d 			 
+563				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msscript.ocx,Path"" "					%d				
+564				Depend	"563 ? 565 566"					%d				
+565				CopyFile	"VB MSSCRIPT , msscript_ocx"					%563
+566		msscript.ocx		SelfReg	"VB MSSCRIPT,msscript_ocx,,,"					%565				
+													
+	=== Repository Shared Files Component (repossh.etf) ===													
+571				Group	572 577 581 					%h\Repostry			 
+572				Group	573 574 					%d 			 
+573				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\repodbc.dll_v6,Path"" "					%d				
+574				Depend	"573 ? 575 576"					%d				
+575				CopyFile	"(vsee) Repository Shared Files , repodbc_dll"					%573
+576		repodbc.dll		SelfReg	"(vsee) Repository Shared Files,repodbc_dll ,,,,"					%575									
+577				Group	578 579 					%d 			 
+578				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\reprc.dll_v6,Path"" "					%d				
+579				Depend	"578 ? 580"					%d				
+580				CopyFile	"(vsee) Repository Shared Files , reprc_dll"					%578
+581				Group	582 583 					%d 			 
+582				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\insrepim.dll,Path"" "					%d				
+583				Depend	"582 ? 584 585"					%d				
+584				CopyFile	"(vsee) Repository Shared Files , insrepim_dll"					%582
+585		insrepim.dll		SelfReg	"(vsee) Repository Shared Files,insrepim_dll"					%584				
+	=== ATL Component (atl.etf) ===
+591				Group	592					%d				
+	...copying files (atl.etf)
+592				Group	593					%d				
+593				Depend	"26 ? 594 595 : 598 599"							
+594				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\atl.dll,Path"" "					%M
+595				Depend	"594 ? 596 597"
+596				CopyFile	"ATL,atl_dll_1"					%594				
+597		atl.dll		SelfReg	"ATL,""atl_dll_1"","""","""","""""					%596		
+598				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\atl.dll,Path"" "					%M
+599				Depend	"598 ? 600 601"
+600				CopyFile	"ATL,atl_dll_2"					%598				
+601		atl.dll		SelfReg	"ATL,""atl_dll_2"","""","""","""""					%600		
+ 
+ 
+	=== Active Scripting SCRRUN Component (scrrun.etf) ===
+611				Group	613					%d				
+612				DetectOlderFile	"scrrun.dll"					%M
+613				Depend	"612 ? 614 615 "
+614		scrrun.dll		InstallSysFile	"Active Scripting SCRRUN,scrrun_dll"					%m				
+615		scrrun.dll		SelfReg	"""Active Scripting SCRRUN"",""scrrun_dll"","""","""","""""					%614				
+ 
+ 
+ 
+	=== Active Scripting Files Component === <fn: script.etf>
+621				Group	623 					%d				
+622				DetectOlderFile	"dispex.dll"					%m			
+623				Depend	622 ? 624 641 
+624				Group	625 629 630 631 					%d				
+ 
+	...copying files
+625				Group	626 627 628					%d				
+626		dispex.dll		InstallSysFile	"Script Engine files,dispex_dll"					%m				
+627		jscript.dll		InstallSysFile	"Script Engine files,jscript_dll"					%m				
+628		vbscript.dll		InstallSysFile	"Script Engine files,vbscript_dll"					%m				
+ 
+	...registering files
+629		dispex.dll		SelfReg	"""Script Engine files"",""dispex_dll"","""","""","""""					%626				
+630		jscript.dll		SelfReg	"""Script Engine files"",""jscript_dll"","""","""","""""					%627				
+631		vbscript.dll		SelfReg	"""Script Engine files"",""vbscript_dll"","""","""","""""					%628				
+ 
+ 
+													
+	=== Scriptoids - scrobj (scrobj.etf) ===
+													
+641				Group	642 643 					%m		
+													
+642				CopyFile	"Scriptoids,scrobj_dll_1"					%m				
+													
+643				Depend	"642 ? 644"									
+644		scrobj.dll		SelfReg	"""Scriptoids"",""scrobj_dll_1"","""","""","""""					%642		
+ 
+													
+         
+	=== Davinci Wrapper (davwrap.etf) ===													
+            
+651				Group	652 653					%m 			 
+    
+652				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2fw95.dll,Path"" "					%d
+653				Depend	"652 ? 654"
+654				CopyFile	"Davinci Wrappers,mdt2fw95_dll"					%652				
+    
+    
+	=== Davinci Query (davquery.etf) ===													
+    
+661				Group	662 666					%d 			 
+    
+662				Group	663 664  					%d 			 
+663				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2qd.dll,Path"" "					%d				
+664				Depend	"663 ? 665"					%d				
+665				CopyFile	"Davinci Query , mdt2qd_dll"					%663
+    
+666				Group	667					%d 			 
+667				Depend	"665 ? 668"							
+668				CustomAction	"sp498vbo.dll,RegSvrCAH,""""""%s\mdt2qd.dll"""""""					%665
+    
+													
+	=== daVinci dds grid (davddsgr.etf)===													
+													
+671				Group	672 676					%d 			 	
+													
+672				Group	673 674 					%d 			 
+673				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2g.dll,Path"" "					%d				
+674				Depend	"673 ? 675"					%d				
+675				CopyFile	"Davinci DDS GRID , mdt2g_dll"					%673
+													
+676				Group	677 678 					%d 			 
+677				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2gkor.dll,Path"" "					%d				
+678				Depend	"677 ? 679"					%d				
+679				CopyFile	"Davinci DDS GRID , mdt2gkor_dll"					%677
+													
+         
+	=== Davinci Framework (davfwk.etf) ===													
+         
+681				Group	682 686 690					%d 			 
+      
+682				Group	683 684 					%d 			 
+683				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2fw.dll,Path"" "					%d				
+684				Depend	"683 ? 685"					%d				
+685				CopyFile	"Davinci Framework , mdt2fw_dll"					%683
+686				Group	687 688 					%d 			 
+687				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2fwui.dll(enu),Path"" "					%d				
+688				Depend	"687 ? 689"					%d				
+689				CopyFile	"Davinci Framework , mdt2fwui_dll_enu"					%687
+690				Depend	"685 ? 691"							
+691				CustomAction	"sp498vbo.dll,RegSvrCAH,""""""%s\mdt2fw.dll"""""""					%685
+													
+	=== daVinci DDS (davdds.etf) ===													
+													
+701				Group	702 715					%d 			 	
+													
+702				Group	703  707 711					%d 			 	
+703				Group	704 705 					%d 			 
+704				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2dd.dll,Path"" "					%d				
+705				Depend	"704 ? 706"					%d				
+706				CopyFile	"Davinci DDS , mdt2dd_dll"					%704
+707				Group	708 709 					%d 			 
+708				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2gddo.dll,Path"" "					%d				
+709				Depend	"708 ? 710"					%d				
+710				CopyFile	"Davinci DDS , mdt2gddo_dll"					%708
+711				Group	712 713 					%d 			 
+712				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2gddr.dll,Path"" "					%d				
+713				Depend	"712 ? 714"					%d				
+714				CopyFile	"Davinci DDS , mdt2gddr_dll"					%712
+													
+715				Group	716 718 720					%d 			 	
+716				Depend	"706 ? 717"									
+717				CustomAction	"sp498vbo.dll,RegSvrCAH,""""""%s\mdt2dd.dll"""""""					%706
+718				Depend	"710 ? 719"									
+719				CustomAction	"sp498vbo.dll,RegSvrCAH,""""""%s\mdt2gddo.dll"""""""					%710
+720				Depend	"714 ? 721"									
+721				CustomAction	"sp498vbo.dll,RegSvrCAH,""""""%s\mdt2gddr.dll"""""""					%714
+													
+	=== daVinci dds forms (davddsfm.etf)===													
+													
+731				Group	732 736 740 					%d 			 
+732				Group	733 734 					%d 			 
+733				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2df.dll,Path"" "					%d				
+734				Depend	"733 ? 735"					%d				
+735				CopyFile	"Davinci DDS FORMS , mdt2df_dll"					%733
+736				Group	737 738 					%d 			 
+737				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2dfx.dll,Path"" "					%d				
+738				Depend	"737 ? 739"					%d				
+739				CopyFile	"Davinci DDS FORMS , mdt2dfui_dll"					%737
+													
+740				Group	741 					%d 			 	
+741				Depend	"735 ? 742"									
+742				CustomAction	"sp498vbo.dll,RegSvrCAH,""""""%s\mdt2df.dll"""""""					%735
+													
+	=== Component (DavSchma.etf) ===													
+751				Group	752  756 					%d 			 
+752				Group	753 754 					%d 			 
+753				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2db.dll,Path"" "					%d				
+754				Depend	"753 ? 755"					%d				
+755				CopyFile	"Davinci Schema , mdt2db_dll"					%753
+756				Group	757					%d 			 	
+757				Depend	"755 ? 758"									
+758				CustomAction	"sp498vbo.dll,RegSvrCAH,""""""%s\mdt2db.dll"""""""					%755
+													
+	=== Davinci Data Tool Specific (davdts.etf)===													
+													
+761				Group	762 766 770					%d 			 	
+													
+762				Group	763 764 					%d 			 
+763				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2dbns.dll,Path"" "					%d				
+764				Depend	"763 ? 765"					%d				
+765				CopyFile	"Davinci Data Tool Specific , mdt2dbns_dll"					%763
+766				Group	767 768 					%d 			 
+767				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mdt2fref.dll,Path"" "					%d				
+768				Depend	"767 ? 769"					%d				
+769				CopyFile	"Davinci Data Tool Specific , mdt2fref_dll"					%767
+													
+770				Group	771 773					%d 			 	
+771				Depend	"765 ? 772"									
+772				CustomAction	"sp498vbo.dll,RegSvrCAH,""""""%s\mdt2dbns.dll"""""""					%765
+773				Depend	"769 ? 774"									
+774				CustomAction	"sp498vbo.dll,RegSvrCAH,""""""%s\mdt2fref.dll"""""""					%769
+													
+	=== MSFLXGRD.OCX (vbflxgrd.etf) ===											
+781				Group	782 783 785 786					%M							
+782				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msflxgrd.ocx,Path"" "					%d
+783				Depend	"782 ? 784 788"
+784				CopyFile	"VB MSFLXGRD,msflxgrd_ocx"					%782				
+785				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msflxgrd.dep,Path"" "					%d
+786				Depend	"785 ? 787"
+787				CopyFile	"VB MSFLXGRD,msflxgrd_dep"					%785	
+788		msflxgrd.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""VB MSFLXGRD,msflxgrd_ocx,3"""					%784				
+											
+	=== VB Wizard Host Files (vbwzhost.etf) ===													
+791				Group	792 793									
+792				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\Hostwiz.dll,Path"" "					%d
+793				Depend	"792 ?  794 795"									
+794				CopyFile	"Wizard Host,hostwiz_dll"					%792				
+795				Depend	"794?796"									
+796		Hostwiz.dll		CustomAction	"sp498vbo.dll,RegisterFile,""Wizard Host,hostwiz_dll,3"""					%794				
+													
+	=== Remote Data Access (RDO and RDC) (vbrda.etf)===													
+801				Group	810 802 814									
+													
+	=== Remote Data Objects (vbrda.etf) ===													
+802				Group	803 804 807 									
+803				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msrdo20.dll,Path"" "					%M
+804				Depend	"803 ? 805 809"
+805				CopyFile	"Remote Data Access,msrdo20_dll"					%803				
+806				DetectOlderFile	"Rdocurs.dll"					%M
+807				Depend	"806 ? 808"
+808				CopyFile	"Remote Data Access,rdocurs_dll"					%M				
+809		msrdo20.dll		CustomAction	"sp498vbo.dll,RegisterFile,""Remote Data Access,msrdo20_dll,3"""					%805				
+810				Group	811 812 					%d 			 
+811				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msrdo20.dep,Path"" "					%d				
+812				Depend	"811 ? 813"					%d				
+813				CopyFile	"Remote Data Access , msrdo20_dep"					%811
+	=== Remote Data Controls (vbrda.etf) ===													
+814				Group	815 816 817 819					%M									
+815				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msrdc20.ocx,Path"" "					%d
+816				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msrdc20.dep,Path"" "					%d
+817				Depend	"815 ? 818 821"
+818				CopyFile	"Remote Data Access,msrdc20_ocx"					%815				
+819				Depend	"816 ? 820"
+820				CopyFile	"Remote Data Access,msrdc20_dep"					%816				
+821		msrdc20.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""Remote Data Access,msrdc20_ocx,3"""					%818				
+														
+	=== Binding Manager (vbbndmgr.etf)===													
+831				Group	832 833							
+832				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msbind.dll,Path"" "					%M
+833				Depend	"832?834 835 836"							
+834				CopyFile	"VB Binding Manager,msbind_dll"					%M				
+835		msbind.dll		SelfReg	"VB Binding Manager,msbind_dll,,, "					%834		
+836				CopyFile	"VB Binding Manager,msbind_dep"					%834				
+													
+	=== Data Access Object (dao360.etf) ===											
+841				Group	842 843							
+842				InstallShared	"DAO,dao360_dll,dao360.dll,,482"					%H\DAO		
+843				Depend	"842 ? 844"							
+844		dao360.dll		SelfReg	"DAO,dao360_dll,,, "					%842		
+											
+	=== TABCTL32.OCX (vbtabctl.etf) ===											
+851				Group	852 856 860 							
+852				Group	853 854 					%d 			 
+853				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\tabctl32.ocx,Path"" "					%d				
+854				Depend	"853 ? 855"					%d				
+855				CopyFile	"VB TABCTL32 , tabctl32_ocx"					%853
+856				Group	857 858 					%d 			 
+857				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\tabctl32.dep,Path"" "					%d				
+858				Depend	"857 ? 859"					%d				
+859				CopyFile	"VB TABCTL32 , tabctl32_dep"					%857
+860				Depend	"855?861"							
+861		tabctl32.ocx		SelfReg	"VB TABCTL32,tabctl32_ocx,,, "					%855		
+											
+	=== dag Data Environment Control (datactrl.etf) ===											
+871				Group	872 876					%M				
+872				Group	873 874 					%d 			 
+873				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mshflxgd.ocx,Path"" "					%d				
+874				Depend	"873 ? 875"					%d				
+875				CopyFile	"dag Data Env Control , mshflxgd_ocx"					%873
+876				Depend	875 ? 877 878 									
+877		mshflxgd.ocx		SelfReg	"dag Data Env Control,mshflxgd_ocx"					%875				
+878				CopyFile	"dag Data Env Control,mshflxgd_dep"					%M				
+												
+	=== Data Environment Core (dataenv.etf) ===											
+881				Group	882 883 885 886 889 890					%25\designer		
+	
+882				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msdeui.dll(enu),Path"" "					%d
+883				Depend	"882 ? 884"
+884				CopyFile	"dag Data Env,msdeui_dll_enu"					%882				
+885				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msde.dll,Path"" "					%d
+886				Depend	"885 ? 887 888"
+887				CopyFile	"dag Data Env,msde_dll"					%885				
+888		msde.dll		CustomAction	"sp498vbo.dll,RegisterFile,""dag Data Env,msde_dll,3"""					%887				
+889				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msderun.dll,Path"" "					%d
+890				Depend	"889 ? 891 892 893"
+891				CopyFile	"dag Data Env,msderun_dll"					%885				
+892		msde.dll		CustomAction	"sp498vbo.dll,RegisterFile,""dag Data Env,msderun_dll,3"""					%891				
+893				CopyFile	"dag Data Env,msderun_dep"					%891				
+												
+	=== vi Editor: TriEdit (vitriedt.etf) ===													
+901				Group	902 903					%h\Triedit				
+902				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\triedit.dll,Path"" "					%d				
+903				Depend	"902 ? 904 905"					%d				
+904				CopyFile	"viEditor - TriEdit, triedit_dll"					%902
+905				Depend	"904 ? 906"									
+906		triedit.dll		SelfReg	"""viEditor - TriEdit"",""triedit_dll"","""","""","""""					%904				
+													
+	=== MSWINSCK.OCX (vbwinsck.etf) ===											
+911				Group	912 913 917 918
+912				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mswinsck.ocx,Path"""					%d
+913				Depend	"912 ? 914 915"
+914				CopyFile	"VB MSWINSCK,mswinsck_ocx_1"					%912		
+915				Depend	"914 ? 916"
+916		mswinsck.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""VB MSWINSCK,mswinsck_ocx_1,3"" "					%914		
+917				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mswinsck.dep,Path"""					%d
+918				Depend	"917 ? 919"
+919				CopyFile	"VB MSWINSCK,mswinsck_dep_1"					%917		
+											
+	=== MSINET.OCX (vbmsinet.etf) ===											
+921				Group	922 923 927 928
+922				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msinet.ocx,Path"""					%d
+923				Depend	"922 ? 924 925"
+924				CopyFile	"VB MSINET,msinet_ocx_1"					%922		
+925				Depend	"924 ? 926"
+926		msinet.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""VB MSINET,msinet_ocx_1,3"" "					%924		
+927				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msinet.dep,Path"""					%d
+928				Depend	"927 ? 929"
+929				CopyFile	"VB MSINET,msinet_dep_1"					%927		
+											
+	=== vb wizards tlbinf32 (tlbinf32.etf) ===											
+931				Group	932 933							
+932				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\tlbinf32.dll,Path"" "					%d				
+933				Depend	"932 ? 934 935"
+934				CopyFile	"VB TLBINF32,tlbinf32_dll_1"					%932		
+935				Depend	"934 ? 936"							
+936		tlbinf32.dll		CustomAction	"sp498vbo.dll,RegisterFile,""VB TLBINF32,tlbinf32_dll_1,3"""					%934		
+											
+	=== Wizards (vbepwiz.etf)===													
+941				Group	942  944 					%D\Wizards				
+942				CopySection	"Wizards"					%D				
+943				CopySection	"Wizards Template Files"					%D\Template				
+													
+944				Group	 945  946 947									
+945		dataform.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""Wizards, dataform_ocx_1,3"""					%942				
+946				AddRegData	"""HKEY_CURRENT_USER"",""Software\Microsoft\Visual Basic\6.0\AddInToolbar\VB Data Form Wizard"",""ProgID"",""DataFormWizard.Wizard"","""""									
+947				AddRegData	"""HKEY_CURRENT_USER"",""Software\Microsoft\Visual Basic\6.0\AddInToolbar\VB Data Form Wizard"",""ShowOnToolbar"",""1"","""""									
+													
+	=== Compiler Files (vbcomplr.etf)===													
+951				Group	953					%D 			 	
+952				DetectOlderFile	"link.exe"					%D				
+953				Depend	"952 ? 954" 									
+954				CopySection	"Compiler Files"					%D				
+									%D				
+													
+	=== Page Designer (vbpdsgnr.etf) ===											
+961				Group	962 963 965 							
+962				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\htmutil.dll,Path"" "					%m
+963				Depend	"962?964"							
+964				CopyFile	"VB Page Designer,htmutil_dll_1"					%M		
+965				Depend	"964?966"							
+966		htmutil.dll		SelfReg	"VB Page Designer,htmutil_dll_1,,,"					%964		
+											
+	=== VB Core (vbcore.etf) ===													
+971				Group	973					%D				
+972				DetectOlderFile	"vb6.exe"					%D
+973				Depend	"972?974 975 977 978 979 980"									
+974				CopyFile	"VB Core Files,vb6_exe"					%D				
+975				Depend	"974 ? 976"									
+976				CustomAction	"""sp498vbo.dll"", ""RestoreRes"", ""974,106,196"" "
+977				CopyFile	"VB Core Files,vb6debug_dll"					%974				
+978				CopyFile	"VB Core Files,vba6_dll"					%D				
+979				CopyFile	"VB Core Files,vb6ide_dll"					%D				
+980				CopyFile	"VB Core Files,ado210_chm"					%W\Help				
+														
+	=== Connection Designer (vbcondes.etf)===													
+991				Group	992 993 997 998									
+992				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mscdrun.dll,Path"""					%d
+993				Depend	"992 ? 994 995"
+994				CopyFile	"Connection Designer, mscdrun_dll_2"					%992				
+995				Depend	"994 ? 996"									
+996		mscdrun.dll		CustomAction	"sp498vbo.dll,RegisterFile,""Connection Designer, mscdrun_dll_2,3"" "					%994		
+997				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\mscdrun.dep,Path"""					%d
+998				Depend	"997 ? 999"
+999				CopyFile	"Connection Designer, mscdrun_dep_2"					%997				
+													
+	=== Automation Manager (vbautmgr.etf) ===											
+1001				Group	1002
+1002				Group	1003 1004					%M
+1003				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\autmgr32.exe,Path"""					%d
+1004				Depend	"1003 ? 1005 1006"
+1005				CopyFile	"Automation Manager,autmgr32_exe_3"					%1003		
+1006				Depend	"1005?1007"							
+1007				CustomAction	"sp498vbo.dll,SelfRegExeCAH,""%s\autmgr32.exe"""					%1005		
+												
+	=== VB Data Binding Files (vbmsbind.etf) ===											
+1011				Group	1013							
+1012				DetectOlderFile	"dbadapt.dll"					%M
+1013				Depend	"1012 ? 1014 1015"
+1014				CopyFile	"VB DataBind,dbadapt_dll_1"					%M		
+1015				Depend	"1014 ? 1016"
+1016		dbadapt.dll		CustomAction	"sp498vbo.dll,RegisterFile,""VB DataBind,dbadapt_dll_1,3"" "					%1014				
+											
+	=== TSQL Debugger (vbtsql.etf)===													
+1021				Group	1023					%D\Tsql				
+1022				DetectOlderFile	"vbsdidb.dll"					%D			
+1023				Depend	"1022 ? 1024 1025"							
+1024				CopyFile	"VB TSQL,vbsdidb_dll"					%D				
+1025		vbsdidb.dll		CustomAction	"sp498vbo.dll,RegSvrCAH,""""""%s\vbsdidb.dll"""""""					%1024				
+													
+	=== Sqlparse (vbsqlpar.etf) ===											
+1031				Group	1032 1033 1035							
+1032				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\sqlparse.dll,Path"" "					%d				
+1033				Depend	"1032 ? 1034"					%d				
+1034				CopyFile	"VB SQL Debugging,sqlparse_dll"					%1032		
+1035				Depend	"1034?1036"							
+1036		sqlparse.dll		SelfReg	"VB SQL Debugging,sqlparse_dll,,,"					%1034		
+												
+	=== Control/Report (vbctlrpt.etf) ===													
+1041				Group	1042 1048									
+1042				Group	1043 1044					%M
+1043				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msdbrpt.dll,Path"""					%d
+1044				Depend	"1043 ? 1045 1046"
+1045				CopyFile	"VB Control/Report,msdbrpt_dll_1"					%1043				
+1046				Depend	"1045 ? 1047"									
+1047		msdbrpt.dll		CustomAction	"sp498vbo.dll,RegisterFile,""VB Control/Report,msdbrpt_dll_1,3"""					%1045				
+1048				Group	1049 1050 1054 1055					%M
+1049				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msdbrptr.dll,Path"""					%d
+1050				Depend	"1049 ? 1051 1052"
+1051				CopyFile	"VB Control/Report,msdbrptr_dll_1"					%1049				
+1052				Depend	"1051?1053 1056"									
+1053		msdbrptr.dll		CustomAction	"sp498vbo.dll,RegisterFile,""VB Control/Report,msdbrptr_dll_1,4"""					%1051				
+1054				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\msdbrptr.dep,Path"""					%d
+1055				Depend	"1054 ? 1056"
+1056				CopyFile	"VB Control/Report,msdbrptr_dep_1"					%1054				
+													
+	=== Wizards for all editions (vbappwiz.etf)===													
+1061				Group	1063					%D\Wizards				
+1062				DetectOlderFile	"appwiz.ocx"					%d
+1063				Depend	"1062 ? 1064 1065"
+1064				CopySection	"AllVer Wizards"					%D				
+1065		resedit.dll		CustomAction	"sp498vbo.dll,RegisterFile,""AllVer Wizards,resedit_dll,3"""					%1064				
+													
+	=== Setup Toolkit (vbsupkit.etf) ===													
+1071				Group	1073 					%d\Wizards\PDWizard				
+1072				DetectOlderFile	"PDAddin.dll"					%d				
+1073				Depend	1072 ? 1074							
+1074				Group	1075 1076 1077 1078 1079 1080 1081 					%d				
+1075				CopySection	"Setupkit Binary"					%D				
+1076		PDAddin.dll		CustomAction	"sp498vbo.dll,RegisterFile,""Setupkit Binary,pdaddin_dll,3"""					%1075		
+1077		PDWizard.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""Setupkit Binary,pdwizard_ocx,3"""					%1075		
+1078		dlgobjs.dll		SelfReg	"Setupkit Binary,dlgobjs_dll,,, "					%1075		
+1079				CopyFile	"Setupkit Vb5stkit,vb5stkit_dll"					%M				
+1080				CopySection	"Setupkit Source"					%D\Setup1				
+1081				CopySection	"Setupkit Redist"					%D\Redist				
+													
+	=== Dataview (vbdatavw.etf) ===													
+1091				Group	1092 1093					%17									
+1092				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Shared Tools\dataview.dll,Path"" "					%d
+1093				Depend	"1092 ?  1094 1095"
+1094				CopyFile	"VB Dataview,dataview_dll"					%1092				
+1095		dataview.dll		CustomAction	"sp498vbo.dll,RegisterFile,""VB Dataview,dataview_dll,3"""					%1094				
+													
+	=== VB Conversation Object Component (vbconobj.etf) ===													
+													
+1101				Group	1103 					 			 	
+													
+1102				DetectOlderFile	"mswcrun.dll"					%25\designer
+1103				Depend	"1102 ? 1104 1105 1106"
+1104				CopySection	"VB Conversation Object"					%25\designer			
+1105		mswcrun.dll		CustomAction	"sp498vbo.dll,RegisterFile,""VB Conversation Object, mscnvman_dll,3"""					%1104				
+1106		wbclsdsr.ocx		CustomAction	"sp498vbo.dll,RegisterFile,""VB Conversation Object, wbclsdsr_ocx,3"""					%1104				
+													
+	=== This component creates the CD image on SvrSetup  (vssnetset.etf) ===													
+													
+1111				Group	1113 					%d\netsetup.x86 			 	
+													
+1112				DetectOlderFile	"netsetup.exe" 					%22				
+1113				Depend	"1112 ? 1114 1115 1116 1117" 					%d				
+													
+1114				Group	1118 					%D 			 	
+1115				Group	1119 					%D\setup				
+1116				Group	1120 1121 1122 1123 					%D\VSS\win32 			 	
+1117				Group	1124 1125 1126 1127 1128 1129					%D\os\system				
+													
+1118				CopySection	"VSS Server NetSetup Root"									
+													
+1119				CopySection	"VSS Server NetSetup Setup"									
+													
+1120				CopySection	"VSS Client"									
+1121				CopySection	"VSS Shared C/S"									
+1122				CopySection	"VSS - SSUSDLL"									
+1123				CopySection	"VSS - IntegrationWin32"									
+													
+1124				CopySection	"Sys Files - CRT Dlls"									
+1125				CopySection	"vc MFC Os Retail"									
+1126				CopyFile	"HTML Help,itircl_dll"									
+1127				CopyFile	"HTML Help,itss_dll"									
+1128				CopyFile	"HTML Help,hh_exe"									
+1129				Group	1130 1131 1132 1133 1134 1135 1136 1137 1138 1139 1140 1141 1142 1143 1144 1145 1146 1147 1148 1149 1150 1151 1152 1153 1154 1155 1156 1157					%D\resource				
+1130				CopyFile	"HTML Help, hhctrl_ocx_ara"					%d\1025				
+1131				CopyFile	"HTML Help, hhctrl_ocx_bas"					%d\1069				
+1132				CopyFile	"HTML Help, hhctrl_ocx_cat"					%d\1027				
+1133				CopyFile	"HTML Help, hhctrl_ocx_chs"					%d\2052				
+1134				CopyFile	"HTML Help, hhctrl_ocx_cht"					%d\1028				
+1135				CopyFile	"HTML Help, hhctrl_ocx_csy"					%d\1029				
+1136				CopyFile	"HTML Help, hhctrl_ocx_dan"					%d\1030				
+1137				CopyFile	"HTML Help, hhctrl_ocx_deu"					%d\1031				
+1138				CopyFile	"HTML Help, hhctrl_ocx_ell"					%d\1032				
+1139				CopyFile	"HTML Help, hhctrl_ocx_enu"					%d\1033				
+1140				CopyFile	"HTML Help, hhctrl_ocx_esp"					%d\3082				
+1141				CopyFile	"HTML Help, hhctrl_ocx_fin"					%d\1035				
+1142				CopyFile	"HTML Help, hhctrl_ocx_fra"					%d\1036				
+1143				CopyFile	"HTML Help, hhctrl_ocx_heb"					%d\1037				
+1144				CopyFile	"HTML Help, hhctrl_ocx_hun"					%d\1038				
+1145				CopyFile	"HTML Help, hhctrl_ocx_ita"					%d\1040				
+1146				CopyFile	"HTML Help, hhctrl_ocx_jpn"					%d\1041				
+1147				CopyFile	"HTML Help, hhctrl_ocx_kor"					%d\1042				
+1148				CopyFile	"HTML Help, hhctrl_ocx_nld"					%d\1043				
+1149				CopyFile	"HTML Help, hhctrl_ocx_nor"					%d\1044				
+1150				CopyFile	"HTML Help, hhctrl_ocx_plk"					%d\1045				
+1151				CopyFile	"HTML Help, hhctrl_ocx_ptb"					%d\1046				
+1152				CopyFile	"HTML Help, hhctrl_ocx_ptg"					%d\2070				
+1153				CopyFile	"HTML Help, hhctrl_ocx_rus"					%d\1049				
+1154				CopyFile	"HTML Help, hhctrl_ocx_sky"					%d\1051				
+1155				CopyFile	"HTML Help, hhctrl_ocx_slv"					%d\1060				
+1156				CopyFile	"HTML Help, hhctrl_ocx_sve"					%d\1053				
+1157				CopyFile	"HTML Help, hhctrl_ocx_trk"					%d\1055				
+													
+	=== vc MFC Os Ansi Retail component (OSRETAIL.ETF) ===													
+ 														
+1161				Group	1162									
+ 														
+1162				CopyFile	"vc MFC Os Retail, mfc42_dll"					%M				
+1163		mfc42.dll		CustomAction	"sp498vbo.dll,RegisterFile,""vc MFC Os Retail, mfc42_dll,1"""					%1162				
+													
+	=== VC MSVC[I]RT.DLL Sys (crtdll.etf) ===													
+1171				Group	1172 									
+													
+1172		msvcrt.dll		InstallSysFile	"Sys Files - CRT Dlls,msvcrt_dll"					%m				
+													
+	=== VSS Create DB win32 Component ( vssDBwin32.etf )===													
+													
+1181				Group	1183 					%d\win32				
+1182				DetectOlderFile	"ddconv.exe"					%d			
+1183				Depend	1182 ? 1184  
+1184				CopySection	"VSS Create DB win32"									
+1185				Group	1187 					%d\win32				
+1186				DetectOlderFile	"ddconv.exe"					%d			
+1187				Depend	1186 ? 1188  
+1188				CopySection	"VSS Create DB win32"									
+														
+	=== VSS Client Win32 Component (vssCW32.etf) ===													
+													
+1191				Group	1193  					%D\win32				
+1192				DetectOlderFile	"ss.exe"					%d			
+1193				Depend	1192 ? 1194  
+													
+1194				CopySection	"VSS Client"					%d		
+1195				Group	1197  					%D\win32				
+1196				DetectOlderFile	"ss.exe"					%d			
+1197				Depend	1196 ? 1198  
+													
+1198				CopySection	"VSS Client"					%d			
+														
+	=== vss Ssus.dll Component ( vssSsus.etf ) ===													
+1201				Group	1203					%D\win32
+1202				DetectOlderFile	"ssus.dll"					%D
+1203				Depend	1202 ? 1204
+1204				CopyFile	"VSS - SSUSDLL,ss_dll_enu"					%D
+													
+1205				Group	1207					%D\win32
+1206				DetectOlderFile	"ssus.dll"					%D
+1207				Depend	1206 ? 1208
+1208				CopyFile	"VSS - SSUSDLL,ss_dll_enu"					%D
+													
+	=== VSS Integration  Win32 Component ( vssIW32.etf ) ===													
+1211				Group	1213					%D\win32				
+1212				DetectOlderFile	"ssscc.dll"					%D
+1213				Depend	1212 ? 1214 1215
+1214				CopySection	"VSS - IntegrationWin32"					%D
+													
+1215		ssscc.dll		SelfReg	"VSS - IntegrationWin32,ssscc_dll"					%1214				
+1216				Group	1218					%D\win32				
+1217				DetectOlderFile	"ssscc.dll"					%D
+1218				Depend	1217 ? 1219 1220
+1219				CopySection	"VSS - IntegrationWin32"					%D
+													
+1220		ssscc.dll		SelfReg	"VSS - IntegrationWin32,ssscc_dll"					%1219				
+													
+	=== Component (vsssharec-s.etf) ===													
+1231				Group	1233					%D\win32			 
+1232				DetectOlderFile	"ssapi.dll"					%d			
+1233				Depend	1232 ? 1234 1235  
+1234				CopySection	"VSS Shared C/S"					%d
+1235		ssapi.dll		SelfReg	"VSS Shared C/S,ssapi_dll ,,,,"					%d		
+1236				Group	1238					%D\win32			 
+1237				DetectOlderFile	"ssapi.dll"					%d			
+1238				Depend	1237 ? 1239 1240  
+1239				CopySection	"VSS Shared C/S"					%d
+1240		ssapi.dll		SelfReg	"VSS Shared C/S,ssapi_dll ,,,,"					%d				
+														
+	=== VSS Admin win32 Component ( vssadm32.etf )===													
+													
+1251				Group	1253 					%d\win32				
+1252				DetectOlderFile	"analyze.exe"					%d			
+1253				Depend	1252 ? 1254  
+1254				CopySection	"VSS Admin win32"					%d			
+1255				Group	1257 					%d\win32				
+1256				DetectOlderFile	"analyze.exe"					%d			
+1257				Depend	1256 ? 1258  
+1258				CopySection	"VSS Admin win32"					%d		
+													
+	=== Regtlib Component ( Regtlib.etf ) ===													
+													
+1261				Group	1262 									
+1262				CopyFile	"Sys Files - Regtlib,regtlib_exe"					%W				
+													
+ 														
+													
+	=== ODBC SETUP FILES (odbcstp.etf) ===
+1271				Group	1272 1273
+1272				Group	1274 1275 1276 1277 1278 1279					%14\Setup\1033				
+1273				Group	1280 1281 1282 1283 1284 1285										
+1274				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\CurrentVersion\Uninstall\Visual Basic 6.0 Working Model Edition ,UninstallString"" "					%d
+1275				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\CurrentVersion\Uninstall\Visual Basic 6.0 Professional Edition ,UninstallString"" "					%d
+1276				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\CurrentVersion\Uninstall\Visual Basic 6.0 Enterprise Edition ,UninstallString"" "					%d
+1277				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\CurrentVersion\Uninstall\Visual SourceSafe 6.0 ,UninstallString"" "					%d
+1278				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\CurrentVersion\Uninstall\Visual SourceSafe NetSetup ,UninstallString"" "					%d
+1279				CustomAction	"""sp498vbo.dll"", ""GetFolderFromReg"", ""HKEY_LOCAL_MACHINE,Software\Microsoft\Windows\CurrentVersion\Uninstall\Visual SourceSafe Server ,UninstallString"" "					%d
+1280				Depend	"1274 ? 1286"
+1281				Depend	"1275 ? 1287"
+1282				Depend	"1276 ? 1288"
+1283				Depend	"1277 ? 1289"
+1284				Depend	"1278 ? 1290"
+1285				Depend	"1279 ? 1291"
+1286				CopyFile	"dag ODBC CAH,odbcstf_dll"					%1274
+1287				CopyFile	"dag ODBC CAH,odbcstf_dll"					%1275
+1288				CopyFile	"dag ODBC CAH,odbcstf_dll"					%1276
+1289				CopyFile	"dag ODBC CAH,odbcstf_dll"					%1277
+1290				CopyFile	"dag ODBC CAH,odbcstf_dll"					%1278
+1291				CopyFile	"dag ODBC CAH,odbcstf_dll"					%1279
+														
+ 														
+	=== ReadMe files (readme.etf) ===													
+1301				Group	1303					%21
+1302				DetectOlderFile	readmess.htm					%21
+1303				Depend	"1302 ? 1304"
+1304				CopyFile	"VSS Server NetSetup Root,readmess_htm"					%21
+1305				Group	1307					%22
+1306				DetectOlderFile	readmess.htm					%22
+1307				Depend	"1306 ? 1308"
+1308				CopyFile	"VSS Server NetSetup Root,readmess_htm"					%22
+1309				Group	1311					%15
+1310				DetectOlderFile	readmess.htm					%1309
+1311				Depend	"1310 ? 1312"
+1312				CopyFile	"VSS Server NetSetup Root,readmess_htm"					%1309
+ 														
+ 														

@@ -1,0 +1,1 @@
+Static (Non moving, or single cell) bitmaps for the APE engine

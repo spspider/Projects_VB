@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB Tutorial -> Часть #5</title>
+</head>
+<style> body {scrollbar-3dlight-color:white; scrollbar-arrow-color:white; scrollbar-base-color:black;scrollbar-darkshadow-color:black;scrollbar-track-color:#000000;scrollbar-highlight-color:black;scrollbar-shadow-color:white}
+a {text-decoration:none;color:white}
+a:hover {text-decoration:underline}
+</style>
+
+
+
+</head>
+
+<body bgcolor="#000000">
+
+<script language = "javascript">
+window.status = "CopyLeft (v) Loginov Vladimir"
+</script>
+
+<left><A Href="index.htm"><img src="logocb.jpg" alt="Мастерская Visual Basic" border="0"></A></left>
+
+<table width="100%" bordercolor="#ffffff" align="center" cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td width="150" align="left" valign="top"><table cellspacing="0" cellpadding="3" border="0">
+<tr>
+<td> <A Href="vb1.htm"><img src="arrow.gif" alt="Часть #1" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb1.htm">Часть #1</a></font></td>
+</tr>
+<tr>
+<td><a href="vb2.htm"><img src="arrow.gif" alt="Часть #2" border="0"></a></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb2.htm">Часть #2</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb3.htm"><img src="arrow.gif" alt="Часть #3" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><A Href="vb3.htm">Часть #3</A></font></td>
+</tr>
+<tr>
+<td><A Href="vb5.htm"><img src="arrow.gif" alt="Часть #4" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb4.htm">Часть #4</a></font></td>
+</tr>
+<tr>
+<td><img src="arrow.gif" alt="Часть #5" border="0"></td>
+<td><font size="3" color="gray" face="Courier New,Arial,Verdana">Часть #5</font></td>
+</tr>
+<td><A Href="vb6.htm"><img src="arrow.gif" alt="Часть #6" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb6.htm">Часть #6</a></font></td>
+<tr>
+<td><A Href="vb7.htm"><img src="arrow.gif" alt="Часть #7" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb7.htm">Часть #7</a></font></td>
+<tr>
+<td><A Href="api.htm"><img src="arrow.gif" alt="API" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="api.htm">API</a></font></td>
+<tr>
+<td><A Href="author.htm"><img src="arrow.gif" alt="Автор" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="author.htm">Автор</a></font></td>
+
+
+
+
+</table>
+</td>
+<td align="left" valign="top">
+<table cellspacing="2" cellpadding="2" border="0" align="left" valign="top">
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">
+<img src="arrow.gif" alt="ну, началось!" border="0">&nbsp;не опаздывай!<br>В этой части мы познакомимся с меню: тем, которое под заголовком, и тем, которое контекстное; поработаем с датами и анимацией.
+<br>
+<br><img src="arrow.gif" alt="Создание меню" border="0"> Создание меню
+<br>Если ты добросовестный ученик, то ты должно  быть заметил, что в последнем исходнике прошлой части (tech-pad), у меня есть меню под заголовком, и сейчас ты сам научишся строить такие.
+<br>Для начала открой вот это окно:
+<br><Img Src="menu-edit.gif" Border="0">
+<br>Открыть его можно нажатием [Ctrl]+[E] или на пиктограму <Img Src="mnu-pic.gif" Border="0">
+<br>Самое верхнее текстовое поле это заголовок, т. е. то, что будет видно в прогарамме, а текстовое поле, что пониже - программное имя.
+<br>Чтобы сделать подменю, нужно только нажать стрелочку вправо (и так работать со всеми стрелочками). Сейчас сделай такое же меню, как и у меня на картинке, выбери на форме подменю [Да], после чего тебя выкинет в код: там просто напиши /End/. Должно получиться следующее:
+<br>
+<br><font face="Courier New">Private Sub mnuYes_Click()
+<br>End
+<br>End Sub</font>
+<br>
+<br>{<A Href="mnu-ex.zip">исходный файл</A>}
+<br>
+<br><img src="arrow.gif" alt="Контекстное меню" border="0"> Контекстное меню
+<br>Как и было обещено, сейчас мы займёмся созданием контекстного меню, т. е. такого меню, которое всплывает при нажатии на правую кнопку мыши в этом же месте.
+<br>К нашей прошлой проге прибавь ещё один пункт меню [Выйти сразу] с именем /mnuSrazu/ и между двумя пунктами меню сделай разделительную полоску, для этого в имени введи /-/ и поставь любое имя. Для [Выйти сразу] напиши строчку выхода /End/.
+<br>Теперь главное - сними у меню [Прога] флажок из чекбокса /Visible/. Теперь всё дело за кодом:
+<br>Для формы создай событие /MouseUp/ и впиши туда следующий код:
+<br>
+<br><font face="Courier New">Private Sub Form_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+<br>If Button = vbRightButton Then 'если нажата правая кнопка мыши, то...
+<br>Me.PopupMenu mnuProg, , , , mnuSrazu 'открываем /mnuProg/, а выделенным меню (меню по умолчанию) будет /mnuSrazu/
+<br>End If
+<br>End Sub</font>
+<br>
+<br>Если ты хочешь воспользоваться не правой кнопкой мыши, а любой другой - воспользуйся следующей таблицей:
+<br><table bordercolor="#ffffff" align="left" cellspacing="2" cellpadding="2" border="1">
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana">Левая</td>
+    <td><font color="#ffffff" size="2" face="Verdana">vbLeftButton</td>
+    <td><font color="#ffffff" size="2" face="Verdana">1</td>
+</tr>
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana">Средняя</td>
+    <td><font color="#ffffff" size="2" face="Verdana">vbMiddleButton</td>
+    <td><font color="#ffffff" size="2" face="Verdana">2</td>
+</tr>
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana">Правая</td>
+    <td><font color="#ffffff" size="2" face="Verdana">vbRightButton</td>
+    <td><font color="#ffffff" size="2" face="Verdana">3</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>Как видишь, можно и не писать долгие имена, а просто поставить номер.
+<br>
+<br>{<A Href="mnu-kon.zip">исходный файл</A>}
+<br>
+<br><img src="arrow.gif" alt="Работа с датами" border="0"> Работа с датами
+<br>Умение работать с датами необходимо при написании всевозможных календарей. Давай разберёмся с некоторыми функциями.
+<br>
+<br><img src="arrow.gif" alt="Функция /Date/" border="0"> Функция /Date/
+<br>Ты наверное понял, функция нужна для отображения даты. Вот пример:
+<br>
+<br><font face="Courier New">Label1.Caption = Date</font>
+<br>
+<br><img src="arrow.gif" alt="Функция /WeekDay/" border="0"> Функция /WeekDay/
+<br>Эта функция нужна для определения дня недели.
+<br>Как обычно, разобраться во всём нам поможет прога. Расположи на форме метку и пиши следующий код:
+<br>
+<br><font face="Courier New">Private Sub Form_Load()
+<br>a = Weekday(Date, vbMonday) 'обозначаем первый день недели
+<br>If a = 1 Then Label1.Caption = "Понедельник" 'если день недели первый, то в метке будет светиться /Понедельник/
+<br>If a = 2 Then Label1.Caption = "Вторник" '...
+<br>If a = 3 Then Label1.Caption = "Среда"
+<br>If a = 4 Then Label1.Caption = "Четверг"
+<br>If a = 5 Then Label1.Caption = "Пятница"
+<br>If a = 6 Then Label1.Caption = "Суббота"
+<br>If a = 7 Then Label1.Caption = "Воскресенье"
+<br>End Sub</font>
+<br>
+<br>Можешь сделать расписание уроков или что-нибудь эдакое.
+<br>
+<br><img src="arrow.gif" alt="Анимация" border="0"> Анимация
+<br>Ура!!! Я так долго ждал этого момента! Сейчас ты научишься работать с анимацией.
+<br>Как мы все знаем фильм это набор картинок, последовательно сменяющих друг друга. В VB картинки сменяться будут с помощью таймера - оно и понятно, любое движение это движение во времени.
+<br>Сейчас мы сделаем мультик из девятнадцати кадров, для этого расположи двадцать объектов Image. Для удобства у первого изображения оставь стандартное имя, а у остальных с img1 до img19 и присвой каждой по последовательной картинке соответственно. Расположи на форме таймер и установиу него Interval как 1 и выключи его. Расположи на форме кнопку, по нажатии которой мы и включим наш таймер. 
+<br>Не буду тебя долго мучить, вот код для мультика:
+<br>
+<br><font face="Courier New">Dim a As Integer
+<br>
+<br>Private Sub Command1_Click()
+<br>Timer1.Enabled = True
+<br>a = 19
+<br>Command1.Visible = False
+<br>End Sub
+<br>
+<br>Private Sub Timer1_Timer()
+<br>a = a - 1
+<br>
+<br>If a = 19 Then
+<br>Image1.Picture = img1.Picture
+<br>End If
+<br>If a = 18 Then
+<br>Image1.Picture = Img2.Picture
+<br>End If
+<br>If a = 17 Then
+<br>Image1.Picture = Img3.Picture
+<br>End If
+<br>If a = 16 Then
+<br>Image1.Picture = Img4.Picture
+<br>End If
+<br>If a = 15 Then
+<br>Image1.Picture = Img5.Picture
+<br>End If
+<br>If a = 14 Then
+<br>Image1.Picture = Img6.Picture
+<br>End If
+<br>If a = 13 Then
+<br>Image1.Picture = Img7.Picture
+<br>End If
+<br>If a = 12 Then
+<br>Image1.Picture = Img8.Picture
+<br>End If
+<br>If a = 11 Then
+<br>Image1.Picture = img9.Picture
+<br>End If
+<br>If a = 10 Then
+<br>Image1.Picture = img10.Picture
+<br>End If
+<br>If a = 9 Then
+<br>Image1.Picture = img11.Picture
+<br>End If
+<br>If a = 8 Then
+<br>Image1.Picture = img12.Picture
+<br>End If
+<br>If a = 7 Then
+<br>Image1.Picture = img13.Picture
+<br>End If
+<br>If a = 6 Then
+<br>Image1.Picture = img14.Picture
+<br>End If
+<br>If a = 5 Then
+<br>Image1.Picture = img15.Picture
+<br>End If
+<br>If a = 4 Then
+<br>Image1.Picture = img16.Picture
+<br>End If
+<br>If a = 3 Then
+<br>Image1.Picture = img17.Picture
+<br>End If
+<br>If a = 2 Then
+<br>Image1.Picture = img18.Picture
+<br>End If
+<br>If a = 1 Then
+<br>Image1.Picture = img19.Picture
+<br>End If
+<br>If a = 1 Then
+<br>a = 19
+<br>End If
+<br>End Sub</font>
+<br>
+<table cellspacing="2" cellpadding="2" border="0" align="center" valign="top">
+<td><img src="zamet.gif" alt="Заметь!" border="0"></td>
+<td><font color="#ffffff" size="2" face="Verdana">Никогда не используй для анимации картинки формата Jpeg (*.jpg) или прочие сжатые файлы! При распаковке получается эффект мерцания, это занимет дополнительные ресурсы процессора и памяти! Используй только "чистые"  картинки (*.bmp).
+<br>Запомни! Сэкономишь на размере - потеряешь в качестве, а на качестве не экономят!!!
+</Table>
+<br>Роль таймера здесь должна тебе быть понятна (если, конечно, ты читал учебник сначала).
+<br>
+<br>{<A Href="beach_ball.zip">исходный файл</A>}
+<br>
+<br>Эта часть наиболее короткая, это из-за того, что ты стал опытен и даже силён в кодинге. Заданий давать тебе я не буду - надо что-нибудь, сделай сам, если будет что-то стоящее и твоё шли на <A Href="mailto: web-svalka@narod.ru">ящик сайта</A>.
+<br>Ты наверное и сам уже знаешь, что VB содержит и дополнительные объекты, но о них в <A Href="vb6.htm">следующей части</A>.
+
+
+
+
+
+</font></td>   
+</tr>          
+</td>          
+</table>       
+               
+</body>        
+</html>        

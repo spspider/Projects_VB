@@ -1,0 +1,92 @@
+<html><head>
+
+
+
+
+
+
+<title> Апплеты</title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4>1.7. Апплеты </h4>
+<P ALIGN="JUSTIFY">Собственно и не стоило бы говорить о Java, если бы не возможность использования небольших мобильных программ, которые можно передавать по сети и исполнять на компьютере пользователя. Эти программы в терминологии Java называются апплетами (яблочками). Для встраивания вызовов апплетов в текст НТМL-документа и отведения места для отображаемой апплетом информации в НТМL был введен контейнер АРРLЕТ, который начинается тагом &lt;аррlet&gt; и кончается тагом &lt;/аррlet&gt;. В общем виде документ, содержащий ссылки на апплеты будет выглядеть так, как это представлено в примере. 
+<P ALIGN="JUSTIFY">В данном примере после заглавия документа (таг H1) и горизонтальной черты начинается поле апплета шириной 200 пикселей и высотой 100 пикселей. В данное поле загружается аррlet с именем hello (файл hello.class). Текст между тагами начала и конца контейнера аррlet используется для размещения встраиваемых контейнеров и текста, который отображается броузерами, не позволяющими использовать Java. 
+<i><P ALIGN="JUSTIFY">Пример 1.27
+</i><pre>
+	&lt;HTML> 
+	&lt;HEAD> 
+	&lt;TITLE>Документ со встроенной ссылкой на applet.&lt;/TITLE>
+	&lt;/HEAD> 
+	&lt;BODY bgcolor=#FFFFFF> 
+	&lt;CENTER> 
+	&lt;H1>Документ со встроенным апплетом hello Java&lt;/H1> 
+	&lt;HR> 
+	&lt;APPLET CODE=hello width=200 height=100> 
+	Аррlet будет отображаться в этом месте, если Ваш браузер интерпретирует Java 
+	&lt;/APPLET> 
+	&lt;HR> 
+	&lt;/BODY) 
+	&lt;/HTML>
+</Pre>
+<P ALIGN="JUSTIFY">В результате ссылки на такой документ сначала будет загружен текст документа. За тем будет обнаружен контейнер аррlet, и произойдет загрузка кода апплета. Файл hello.class должен в этом случае находиться там же, где и НТМL-файл, в котором есть на него ссылка. После приема апплета браузер отведет под него место в своей рабочей области и только после этого начнет его исполнение. 
+<P ALIGN="JUSTIFY">В общем случае контейнер АРРЕЕТ имеет следующий вид: 
+<pre>
+	&lt;applet 
+	[codebase = codebase url]
+	code = applet.class 
+	[alt = text] 
+	[name= applet name] 
+	width = number of pixels
+	height = number of pixels
+	[align = alignment] 
+	[vspace=number of picsels] 
+	[hspace=number of pixels] 
+	[&lt;param name=param name value=param value>]
+	[HTML text] 
+	&lt;/applet>
+ </Pre>
+<P ALIGN="JUSTIFY">Параметр соdebase задает базу для поиска кода апплета, соdе - это имя файла апплета, которое должно иметь расширение сlass, аlt - альтернативный текст - отображается в том случае когда выполнение апплета запрещено, name - имя контейнера аррlet, используется для ссылки на контейнер, widthт - ширина области отображения апплета, height - высота области отображения апплета, аlign - управляет выравниванием области отображения апплета внутри рабочей области браузера, vspase и hspase - указывают на отступ от текста НТМL-документа (вертикальный и горизонтальный, соответственно). 
+<P ALIGN="JUSTIFY">Использование контейнера РАRАМ позволяет передавать параметры внутрь апплета и НТМL-документа. Это аналогично вызову команды с различными аргументами командной строки. Для того, чтобы получить эти параметры внутри апплета, следует использовать метод getParametr (). 
+<P ALIGN="JUSTIFY">Из атрибутов контейнера АРРLЕТ обязательными являются только соdе, width и height Все остальные атрибуты (они заключены в квадратные скобки "[ ]") можно опускать. Большинство систем разработки Java-программ сами генерируют НТМL-документ, точнее его макет, для тестирования Java-апплетов. Так поступают, например, в АDК (Аррlet Development Kit) компании IВМ. 
+<P ALIGN="JUSTIFY">Для получения URL документа, из которого вызван аррlet можно использовать метод getDocumentBase и getCodeBase. Первый определяет базу адреса для документа, в то врeмя как второй определяет базу самого апплета. Применение этих методов необходимо для обращения за данными (текст или графика), которые могут храниться там жe, где и документ аррlet. 
+<p><center><p>
+<font size=-1>
+<a href="glava1_6.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava1_8.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

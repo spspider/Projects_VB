@@ -1,0 +1,93 @@
+<html>
+<head>
+
+
+<TITLE>Первые шаги - Ступенька двадцатая, как создавать таблицы.</TITLE>    
+<META HTTP-EQUIV="Content-Type" Content="text/html; Charset=Windows-1251">
+<META Name="copyright" Content="Алленова Наталья">
+<META NAME="author" CONTENT="Алленова Наталья Email: seagull@pisem.net"><META NAME="keywords" CONTENT="графика, хтмл, для, начинающий, начинающих, чайников, новичков, просто, основа, основы, страница, домашний, домашняя, сайт, новый, новичок, html, обучение, учеба, пример, веб, мастер, веб-мастер, дизайн, веб-дизайн, вебдизайн, дезайн, веб-дезайн, вебдезайн, дезайнер, дизайнер, ступени, тэги, тэг, теги, тег, аттрибут, атрибуты, парамет, design, web, help, помощь, icq, e-mail, guest, book, guestbook, гостевая, книга, форум, аська, контакт, ссылка, link, links, banner, обмен, баннер, баннерами, банер, baner, друзья, friends, почитать, написать, вопросы, вопрос, ответ, проект, ступени, словарь"> <META NAME="description" CONTENT="Основы хтмл (html) для чайников. Просто, доступно. Создайте свою домашнюю страничку своими руками и без хтмл (html) редакторов. Что может быть проще? Также вы здесь найдете полезные ссылки для вашего сайта, но это уже не главное...">
+
+
+
+</head>
+<body bgcolor="#ffffff" link="#000000" alink="#000000" vlink="#000000">
+
+
+<table>
+
+	<tr>
+	<td width="600">
+<font face="times new roman"><hr noshade size="1">
+<a href="index.html">Главная</a> | <a href="content2.html">Оглавление</a> | <a href="alltags2.html">Словарь</a><hr noshade size="1"><p align="JUSTIFY">
+В этой главе мы поговорим о параметрах colspan и rowspan. Colspan - определяет количество столбцов, на которые простирается данная ячейка, а rowspan - количество рядов (эти параметры могут принимать значение от 2 и больше, т.е. наша ячейка может растягиваться на два и более столбца (ряда)). Теперь чтобы было все понятно обратимся к примерам.
+<br><br>
+<img src="20tab1.gif">
+
+<br><br>
+
+В этом примере мы использовали параметр colspan=2, прописав его для ячейки 1х1. Код будет выглядеть следующим образом:</font>
+</P>
+
+<tt>
+
+&lt;table&gt;<br>
+&lt;tr&gt;<br>
+&lt;td  height="35" bgcolor="#FFCC33" <b>colspan="2"</b>&gt; &lt;center&gt;1x1&lt;/center&gt; &lt;/td&gt;<br>
+&lt;td width="50" bgcolor="#336699"&gt; &lt;center&gt;1x2&lt;/center&gt; &lt;/td&gt;<br>
+
+&lt;/tr&gt;<br>
+&lt;tr&gt;<br>
+&lt;td height="35" width="50" bgcolor="#336699"&gt; &lt;center&gt;2x1&lt;/center&gt; &lt;/td&gt;<br>
+&lt;td width="50" bgcolor="#FFCC33"&gt; &lt;center&gt;2x2&lt;/center&gt; &lt;/td&gt;<br>
+&lt;td width="50" bgcolor="#336699"&gt; &lt;center&gt;2x3&lt;/center&gt; &lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;/table&gt;
+
+</tt>
+
+<p align="JUSTIFY"><font face="times new roman">
+
+Прошу вас обратить внимание, на то, что параметр width для ячейки 1х1 в нашем примере не указан, если вас так тянет задавать этот параметр, то в нашем примере для ячейки 1х1 его надо было бы прописать равным 100 пикселям, т.к. все-таки ячейка 1х1 длинее других в два раза.<script language="javascript"> 
+u="u1242.91.spylog.com";d=document;nv=navigator;na=nv.appName;p=1; 
+bv=Math.round(parseFloat(nv.appVersion)*100); 
+n=(na.substring(0,2)=="Mi")?0:1;rn=Math.random();z="p="+p+"&rn="+rn;y=""; 
+y+="<a href='http://"+u+"/cnt?f=3&p="+p+"&rn="+rn+"' target=_blank>"; 
+y+="<img src='http://"+u+"/cnt?"+z+ 
+"&r="+escape(d.referrer)+"&pg="+escape(window.location.href)+"' border=0 width=1 height=1 alt='SpyLOG'>"; 
+y+="</a>"; d.write(y);if(!n) { d.write("<"+"!--"); }//--></script><noscript> 
+<a href="http://u1242.91.spylog.com/cnt?f=3&p=1" target=_blank> 
+<img src="http://u1242.91.spylog.com/cnt?p=1" alt='нужная весчь' border='0' width=1 height=1 > 
+</a></noscript><script language="javascript1.2"><!-- 
+if(!n) { d.write("--"+">"); }//--></script> 
+<br><br>
+И второе на что прошу вас обратить внимание, в нашем примере нет ячейки 1х3, т.е. в первом ряду всего лишь две ячейки, т.к. ячейка 1х1 равна сама по себе двум ячейкам по длинне (что мы и указали параметром colspan). Если бы мы прописали ячейку 1х3,  тогда у нас получилась бы такая ерунда:
+<br><br>
+<img src="20tab2.gif">
+<br><br>
+
+Теперь, когда мы разбрались с параметром colspan, разберемся с параметром rowspan. Принцип действия тут тот же:
+
+
+<br><br>
+<img src="20tab3.gif">
+<br><br>
+
+Попробуйте сами написать код для такой таблицы (подсказываю, тут у нас должна исчезнуть ячейка 2х3). А для полного закрепления  полученных знаний можете написать еще и код для такой таблицы (я не издеваюсь, просто вы так лучше усвоите): 
+
+<br><br>
+<img src="20tab4.gif">
+
+<br><br>
+Если ничего не получится, то вы можете посмотреть <a href="20step2a.html">ответы здесь</a>, а кто все понял, тот молодец и может подняться на следущую ступеньку.
+</P>
+
+</font>
+<center><a href="19step2.html">Назад</a> | <a href="21step2.html">Шагнуть на следующую ступеньку</a></center>
+</td>
+
+	</tr>
+ </table>
+
+
+</body>
+</html>

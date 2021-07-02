@@ -1,0 +1,269 @@
+
+<html><head>
+<style type="text/css">
+.part2{color:#4173a3;font-weight:900;}
+.part2:hover{color:red;font-weight:880}
+.cd{font-size:18px;color:black;}
+.c2{font-size:18px;color:black;}
+.c1{font-size:45pt;}
+.cc{font-size:13pt;font-weight:bold}
+.t{color:red;}
+.a9{color:#4173a3;font-weight:bold;}
+.a9:hover{color:red;font-weight:880}
+h2{font-size:21pt;font-weight:bold}
+h3{font-size:17pt;font-weight:bold}
+.a19{color:#4173a3;font-size:18px}
+.a19:hover{color:red;font-size:18px}
+body{
+BORDER-RIGHT: 0px;
+SCROLLBAR-FACE-COLOR: #CFDEEB;
+PADDING-BOTTOM: 0px;
+SCROLLBAR-HIGHLIGHT-COLOR: #CFDEEB;
+VERTICAL-ALIGN: middle;
+BORDER-LEFT: 0px;
+SCROLLBAR-SHADOW-COLOR: black;
+SCROLLBAR-ARROW-COLOR: black;
+PADDING-TOP: 0px;
+BORDER-BOTTOM: 0px;
+SCROLLBAR-BASE-COLOR: black;
+scrollbar-3dlight-color: #4173a3;
+scrollbar-dark-shadow-color: #4173a3;}
+</style>
+
+<title>Программируем на Visual Basic'e</title>
+</head>
+<body background="1.jpeg">
+<em >
+<a href="http://vbstreets.narod.ru" class="a9">Главная</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7132" class="a9">Гостевая</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7137" class="a9">Форум</a>
+<a href="INFA.htm" class="a9">INFA</a>
+</em>
+
+<H1 ><font size=6>Программируем на Visual Basic'e:</font></H1>
+
+<p style="font-weight:bold; font-size:21px" >
+
+<a href="vbasic.htm" class="part2">Часть 1</a>/<a href="vbasic2.htm" class="part2">Часть 2</a>/<a href="vbasic3.htm" class="part2">Часть 3</a>/<a href="vbasic4.htm" class="part2">Часть 4</a>/<a href="vbasic5.htm" class="part2">Часть 5</a>/<a href="vbasic6.htm" class="part2">Часть 6</a>/<a href="vbasic7.htm" class="part2">Часть 7</a>/<a href="vbasic8.htm" class="part2">Часть 8</a>/<a href="vbasic9.htm" class="part2">
+Часть 9</a>/<a href="vbasic10.htm" class="part2">Часть 10</a>/Часть 11/<a href="vbasic12.htm" class="part2">Часть 12</a>/<a href="vbasic13.htm" class="part2">Часть 13</a>/<a href="vbasic14.htm" class="part2">Часть 14</a>/<a href="vbasic15.htm" class="part2">Часть 15</a></font>
+</p>
+
+
+
+
+
+<h2>ШАГ 101:</h2>
+<h3>OTHERS</h3><p class="c2">
+В этом шаге я немного расскажу тебе о самом редакторе Визуал Басика (как говорят ботаны Вижуал Бейсик (Ботаны - необижайтесь...)), начнем мы с удаления форм, модулей... Для удаления файла проекта, в поле Project - Project, выбирай любой файл, щелкай правой кнопкой по нему, и в открывшейся менюшке кликай по Remove Объект. Вот например, в этом рисунке показано как я удаляю Форму:<br>
+<img src="Remove.jpg" title="Удаляем Форму"><br>
+И также как и я удалил форму, ты можешь удалять и другие файлы.
+<br>
+Теперь перейдем к переименованию проекта. Чтобы переименовать проект тебе надо войти в Project/Project1 Properties... и в открывшемся окне, в поле Project Name - введи любое имя.
+<br>
+<img src="Name.jpg" title="Удаляем Форму"><br>
+Ну пока все.
+
+
+
+<h2>ШАГ 102</h2>
+<h3>Свойства Height, Width</h3><p class="c2">
+Свойства Height, Width - возвращают горизонтальный и вертикальный размеры бумаги в принтере, установленном в Windows. Пример:  На форму кинь 2 Текстовых Поля, и кнопку, и впиши эту дрянь:<br>
+Private Sub Command1_Click()<br>
+Text1.Text = Printer.Height<font color="green"> 'Узнаем высоту бумаги</font><br>
+Text2.Text = Printer.Width<font color="green"> 'Узнаем ширину бумаги</font><br>
+End Sub<br>
+Ну это свойство не нужно, т.к. большая часть нашей страны использует формат A4.
+<h2>ШАГ 103</h2>
+<h3>Устанавливаем качество печати</h3><p class="c2">
+Для установки качества печати, в VB есть спец свойство PrintQuality, его значения смотри в таблице:<br><br>
+<TABLE BORDER COLS=3 WIDTH="100%" >
+<TR><TD><CENTER><B><FONT size=4>Константа</FONT></B></CENTER></TD><TD><CENTER><B><FONT size=4>Значение</FONT></B></CENTER></TD><TD><CENTER><B><FONT size=4>Описание</FONT></B></CENTER></TD></TR><TR >
+<TD><FONT size=4>vbPRPQDraft</FONT></TD><TD >
+<CENTER><FONT size=4>1</FONT></CENTER>
+</TD><TD ><FONT size=4>Черновая печать</FONT></TD></TR><TR>
+<TD><FONT size=4>vbPRPQLow</FONT></TD><TD >
+<CENTER><FONT size=4>2</FONT></CENTER>
+</TD><TD ><FONT size=4>Низкое разрешение</FONT></TD>
+</TR><TR><TD><FONT size=4>vbPRPQMedium</FONT></TD>
+<TD ><CENTER><FONT size=4>3</FONT></CENTER>
+</TD><TD ><FONT size=4>Среднее разрешение</FONT></TD>
+</TR><TR><TD><FONT size=4>vbPRPQHigh</FONT></TD>
+<TD ><CENTER><FONT size=4>4</FONT></CENTER>
+</TD><TD ><FONT size=4>Высокое разрешение</FONT></TD>
+</TR>
+</TABLE>
+
+<br>
+Например:<br>
+Printer.PrintQuality = 1<font color="green"> 'Печатаем текст черным цветом</font><br>
+
+<h2>ШАГ 104</h2>
+<h3>Смотрим кол - во установленных принтеров</h3><p class="c2">
+Чтобы узнать сколько принтеров стоит в винде, кинь на форму текстовое поле, и кнопку, введи этот код:<br>
+Private Sub Command1_Click()<br>
+Text1.Text = Printers.Count<font color="green"> 'В текстовом поле появится цифра, обозначающая кол - во принтеров</font><br>
+End Sub<br>
+А, бля, ко мне в бошку, как всегда не во время,  пришла мысль. Ты наверное при печати заметил, что принтер печатает текст очень близко к верхушке. А это все потому, что принтер надо ввести в состояние готовности. Для этого перед печатью прогоним строку<br>
+Printer.Print " ";<br>
+А только потом начнем печатать. Все - на принтерах закончили, перейдем к сканерам (Шутка).
+<h2>ШАГ 105</h2>
+<h3>Компонент Microsoft Calendar Control 8.0. Делаем Календарь.</h3><p class="c2">
+Как ты наверное понял из названия, этот компонент нужен для создания календаря. Помню когда - то в древности, ты сделал календарь(2 часть), при этом ты потратил много времени (т.к. не знал об этом компоненте...). Начнем. Создай новый проект(Standart EXE, или что - то вроде этого...), на форму запульни Таймер(Interval = 60000(1 мин (если поставить 1 сек, или меньше, то он будет моргать, мерцать, пищать...))). Добавь компонент Microsoft Calendar Control 8.0(для этого войди в Project >> Components и выбери Microsoft Calendar Control 8.0(подробнее в Шаге 34)).<br>
+
+<img src = "84.JPG" title = "Microsoft Calendar Control 8.0"><br>
+
+Ну что подключил? Отлично! Теперь в Панели инструментов у тебя появится объект Calendar(<img src = "calendar.JPG" title = "Calendar">), кидай его на форму, растягивай, подтягивай, пока по виду нормальный не станет. У тебя получится такая херня:<br>
+
+<img src = "calendar1.JPG" title = "Microsoft Calendar Control 8.0"><br>
+Теперь мы сделаем так, чтоб он каждую минуту обновлялся. Для этого впиши код:<br>
+Private Sub Timer1_Timer()<br>
+Calendar1.Today<font color="green"> 'Обновляем наш календарь (вообще метод Today это не обновление (обновление - Refresh) ,а этот метод настраивает календарь на текущую дату)</font><br>
+End Sub<br>
+Все календарь создан, исходник качай <а href="kalendar.zip" class="a19">Отсюда</a>
+<br>
+Теперь настраивай его как хочешь (меняй цвета, размеры шрифта..., для этого есть спец свойства (с ними ознакомляйся сам)).<br>
+Исходник - 
+<a href="kalendar.zip" class="a19">Здесь</a><br>
+
+<h2>ШАГ 106</h2>
+<h3>Переход на VB6 & VB7</h3><p class="c2">
+Если ты программируешь на VB5, то тебе уже давно пора переходить на VB6(я уже перешел), т.к. VB6 продолжение VB5, там намного больше компонентов, библиотек, и он как - то удобнее(т.к. я скачал русификатор для VB6(он на VBNet.ru, в разделе программы), и теперь мой Басик русский), хотя разницы я особой не почувствовал, все теже кнопки, тоже меню... Ну если бабла не очень много, то можешь и на пятой посидеть. Теперь о VB7. Подробно о VB7 читай
+на VBNet.ru - "Мое первое впечатление о VBNet" и "Мое второе впечатление о VBNet"), скажу только что на стремный комп он скорее всего не пайдет(как на мой старый 166MHZ), и ты сможешь писать проги пока только для себя, т.к. чтобы твоя прога пошла, на другом компе должна быть установленна спец прога(а она пока не у всех есть), но зато твои проги будут идти не только под виндом, но и под юниксом..., но это только при наличии проги(которая занимает около 100 MB), но мож Билл Гейц включит ее в следующий винд. Но купить наверное стоит, сам пока не знаю, т.к. только купил VB6. 
+
+<h2>ШАГ 107</h2>
+<h3>Exit Sub</h3><p class="c2">
+Опертор Exit Sub нужен для Аварийного выхода из проги. Много о нем я говорить не буду(сам не знаю), но чтобы понять для чего он нужен сделаем прогу. Смысл нашей проги будет в том, что при нажатии на кнопку, у ней свойство Caption = "padre03@mail.ru", при повторном нажатии Caption = "VBStreets.Narod.Ru", потом опять = "padre03@mail.ru", и так до упора. Можешь попробовать сам сделать эту прогу, НО в любом случае этот шаг прочитай. На форму кинь кнопку, и впиши код:<br>
+<br>
+Dim QW1 As Long, QW2 As Long<br><br>
+
+Private Sub Command1_Click()<br>
+If QW1 = 1 Then<br>
+Command1.Caption = "padre03@mail.ru"<br>
+QW2 = 1<br>
+QW1 = 0<br>
+Exit Sub<br>
+End If<br><br>
+
+If QW2 = 1 Then<br>
+Command1.Caption = "VBStreets.Narod.Ru"<br>
+QW2 = 0<br>
+QW1 = 1<br>
+Exit Sub<br>
+End If<br>
+End Sub<br><br>
+
+Private Sub Form_Load()<br>
+QW1 = 1<br>
+End Sub<br><br>
+Не буду объяснять, сам должен разобраться.
+Исходник - 
+<a href="exit.zip" class="a19">Здесь</a><br>
+
+
+<br>
+<br>
+
+
+<h2>ШАГ 108</h2>
+<h3>События</h3><p class="c2">
+<b>События MouseDown/MouseUp</b> Эти события действуют тогда, когда кнопка мыши нажата(MouseDown),и когда отжата(MouseUp). Для примера сделаем прогу(при нажатии на кнопку будет двигатся фигура, а при отжатии останавливатся): На форму кинь кнопку, Shape, и таймер. Создай событие MouseDown и MouseUp(меню Events(2 часть)). И впиши код:
+
+Private Sub Command1_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single) <font color="green">' Если нажата кнопка наведенной мыши на кнопку то мы включаем таймер</font><br>
+Timer1.Interval = 1<br>
+End Sub<br><br>
+
+Private Sub Command1_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)<font color="green"> ' Если отжата то выключаем</font><br>
+Timer1.Interval = 0<br>
+End Sub<br><br>
+
+Private Sub Timer1_Timer()<br>
+Shape1.Left = Shape1.Left + 30<br>
+End Sub<br><br>
+<a href="mouse.zip" class="a19">Скачать Исходник</a>
+
+<br><br>
+<b>События Resize</b> - это событие есть только у формы, оно действует тогда, когда юзер пытается размеры окна изменить. Вот пример кода проги, у которой при изменении размера окна, возвращаются начальные размеры:<br>
+Private Sub Form_Resize()<br>
+Form1.Width = 4800<br>
+Form1.Height = 3600<br>
+End Sub<br><br>
+Теперь попробуй растени или сузь форму.
+
+
+
+<h2>ШАГ 109</h2>
+<h3>Событие GotFocus и LostFocus</h3><p class="c2">
+Событие GotFocus происходит тогда, когда объекту передается фокус(т.е. если текстовое поле, то когда на нем курсор появляется, если кнопка, то тогда, когда она выделяется), а LostFocus когда фокус теряется.
+<br>
+Сделаем прогу. На форму кинь 2 текстовых поля и кнопку. Вот код:<br><br>
+
+Dim x As Long<br>
+Private Sub Command1_GotFocus() <font color="green"> ' Если кнопке фокус передается то меняем надпись на кнопке</font><br>
+Command1.Caption = "Событие GotFocus"<br>
+End Sub<br><br>
+
+Private Sub Text1_GotFocus() <font color="green"> ' Если текстовому полю передается фокус, то:</font><br>
+Text1.SelStart = 0 <font color="green"> ' Ставим курсор в самое начало</font><br>
+Text1.SelLength = Len(Text1.Text) <font color="green"> ' Выделяем текст</font><br>
+End Sub<br><br>
+
+Private Sub Text2_LostFocus()<font color="green"> ' Если текстовое поле теряет фокус, то:</font><br>
+    x = Text2.SelStart<font color="green">  ' Сохраняем в переменную x позицию курсора</font><br>
+End Sub
+<br><br>
+
+Private Sub Text2_GotFocus() <font color="green"> ' Если текстовому полю передается фокус, то:</font><br>
+    On Error Resume Next<font color="green">' Если ошибка происходит, то игнорируем следующюю строчку</font><br>
+    Text2.SelStart = x <font color="green"> ' Ставим курсор в ту позицию, в которой он был перед потерем фокуса</font><br>
+End Sub<br><br>
+
+Исходник качай <a href="GotFocus.zip" class="a19">сдесь</a>
+
+<h2>ШАГ 110</h2>
+<h3>Событие DragDrog и DragOver</h3><p class="c2">
+Эти события происходят каждый раз при перетаскивании объекта. Например при перетаскивании окна, значка... происходит это событие.
+Ну короче делаем прогу. На форму кинь объект Image(Picture = "Любая картинка.jpg"), и чтобы ее(картинку) можно было перетаскивать поставь свойство DragMode = 1 - Automatic. Теперь запусти проект, и попробуй перетащить картинку. Ну что получилось? Отлично! Теперь сделаем так чтоб картинку можно было не только перетаскивать, а еще и останавливать в том месте куда ты перетащил.<br> У формы в списке Events выбери событие DragDrog, и у тебя автоматом сгенерируется процедура DragDrog. В ней впиши:
+Image1.Left = X<br>
+Image1.Top = Y<br><br>
+Вот весь код:<br><br>
+Private Sub Form_DragDrop(Source As Control, X As Single, Y As Single) <font color="green"> 'Если на форме происходит событие DragDrog то:</font><br>
+
+<font color="green"> 'Перемещаем картинку</font><br>
+Image1.Left = X<br>
+Image1.Top = Y<br>
+End Sub<br><br>
+Тока если ты заметил, что картинка при перемещении находится в каком - то квадрате, чтобы его убрать поставь свойство DragIcon  = той же картинке что и свойство Picture. А если поставишь другую картинку, то при перемещении картинка изменится.<br>
+А событие DragOver присходит тогда, когда объект перемещается.<br>
+И эти события можно делать не только у формы, а и у других объектов.
+Исходник качай<a href="DragDrog.zip" class="a19"> сдесь</a>
+
+
+
+
+
+
+
+<em><p class="cc">автор учебника: Падре</em>
+<br>
+Дата создания: 24 Апреля 2003 года<br></em>
+<br></p>
+
+<center>
+<table width=468 height=60 border=2 bordercolor="#4173a3"><td  bordercolor="#4173a3"><center>
+<p class="c2">Место под Банеры
+</td>
+<tr><td>
+<center>
+<a href="INFA.htm" target="0">
+<img src="baner.gif" alt="Официальный сайт учебника - 'Программируем на Visual Basic'" border=0>
+</a></center>
+</td></table>
+
+
+
+
+
+
+
+</body>
+</html>

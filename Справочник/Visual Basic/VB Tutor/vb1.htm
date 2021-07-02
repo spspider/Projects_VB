@@ -1,0 +1,409 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB Tutorial -> Часть #1</title>
+</head>
+<style> body {scrollbar-3dlight-color:white; scrollbar-arrow-color:white; scrollbar-base-color:black;scrollbar-darkshadow-color:black;scrollbar-track-color:#000000;scrollbar-highlight-color:black;scrollbar-shadow-color:white}
+a {text-decoration:none;color:white}
+a:hover {text-decoration:underline}
+</style>
+
+
+
+</head>
+
+<body bgcolor="#000000">
+
+<script language = "javascript">
+window.status = "CopyLeft (v) Loginov Vladimir"
+</script>
+
+<left><A Href="index.htm"><img src="logocb.jpg" alt="Мастерская Visual Basic" border="0"></A></left>
+
+<table width="100%" bordercolor="#ffffff" align="center" cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td width="150" align="left" valign="top"><table cellspacing="0" cellpadding="3" border="0">
+<tr>
+<td> <img src="arrow.gif" alt="Часть #1" border="0"></td>
+<td><font size="3" color="gray" face="Courier New,Arial,Verdana">Часть #1</font></td>
+</tr>
+<tr>
+<td><A Href="vb2.htm"><img src="arrow.gif" alt="Часть #2" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb2.htm">Часть #2</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb3.htm"><img src="arrow.gif" alt="Часть #3" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb3.htm">Часть #3</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb4.htm"><img src="arrow.gif" alt="Часть #4" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb4.htm">Часть #4</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb5.htm"><img src="arrow.gif" alt="Часть #5" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb5.htm">Часть #5</a></font></td>
+</tr>
+<td><A Href="vb6.htm"><img src="arrow.gif" alt="Часть #6" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb6.htm">Часть #6</a></font></td>
+<tr>
+<td><A Href="vb7.htm"><img src="arrow.gif" alt="Часть #7" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb7.htm">Часть #7</a></font></td>
+<tr>
+<td><A Href="api.htm"><img src="arrow.gif" alt="API" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="api.htm">API</a></font></td>
+<tr>
+<td><A Href="author.htm"><img src="arrow.gif" alt="Автор" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="author.htm">Автор</a></font></td>
+
+
+
+
+</table>
+</td>
+<td align="left" valign="top">
+<table cellspacing="2" cellpadding="2" border="0" align="left" valign="top">
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">
+<img src="arrow.gif" alt="первые впечатления..." border="0">&nbsp;первые впечатления...<br>Сегодня мы будем рассматривать четыре первых инструмента, это: TextBox; Picture; Label; Frame. Вот так они выглядят:
+<br><Img Src="tplf.gif" Border="0">
+Мы начнём по-порядку.<br>
+[TextBox] Текстовое поле служит для ввода информации. Как и у любого объекта у TextBox'а есть свойства. Закинь на форму TextBox. В нём автоматом появиться текст Text1 - этот текст изменяется в свойстве Text (Меню Свойств). 
+<br><img src="arrow.gif" alt="Свойство" border="0"> Так же имеется свойство Name - это имя объекта, оно может быть написано только латинскими буквами и/или цифрами.
+<br><img src="arrow.gif" alt="Свойство" border="0"> MultiLine: true(истина) - многострочный режим ввода текста; false(ложь) - однстрочный режим ввода текста.
+<br><img src="arrow.gif" alt="Свойство" border="0"> MaxLenght: ограничитель выводимых символов, т. е. если это свойство равно 5, то больше пяти символов в текстовое поле будет ввести нельзя.
+<br><img src="arrow.gif" alt="Свойство" border="0"> PasswordChar: маска выводимых символов, т. е. если если он будет равен '*', то все введёные символы будут прятаться под звёздочками и так же идентично с остальными символами.
+<br><img src="arrow.gif" alt="Свойство" border="0"> ScrollBars: это свойство нужно для установки скроллбаров (полос прокрутки).
+<br><br>
+[Picture] Полное название [PictureBox], но мы не будем сильно напрягаться. Основные свойства:
+<br><img src="arrow.gif" alt="Свойство" border="0"> Picture: собственно картинка.
+<br><img src="arrow.gif" alt="Свойство" border="0"> AutoSize: авторазмер, т. е. размер компонента будет соответствовать размеру вставленной в неё картинки.
+<br><img src="arrow.gif" alt="Свойство" border="0"> Appearance: режим компонента - 3D (вмятый) или Flat (плоский).
+<br><img src="arrow.gif" alt="Свойство" border="0"> BorderStyle: Fixed Single (вмятый) или None (нет никакого, т. е. плоский, но не как Flat).
+<br><br>
+[Label] Метка. В программе, где есть метка нельзя её менять. Свойства:
+<br><img src="arrow.gif" alt="Свойство" border="0"> Caption: собственно текст на метке.
+<br><img src="arrow.gif" alt="Свойство" border="0"> AutoSyze: авторазмер под написанный текст.
+<br><img src="arrow.gif" alt="Свойство" border="0"> BackStyle: режим прозрачности или наоборот.
+<br><img src="arrow.gif" alt="Свойство" border="0"> Font: шрифт, его размер и свойства.
+<br><img src="arrow.gif" alt="Свойство" border="0"> ForeColor: цвет шрифта.
+<br><br>
+[Frame] Фрэйм нужен в основном для оформления. Свойства:
+<br><img src="arrow.gif" alt="Свойство" border="0"> Caption: надпись на фрейме.
+<br><br>
+Вот мы и рассмотрели четыре первых компонента VB6. Тебе надо усвоить главную вещь - существуют свойства индивидуальные и есть такие свойства, которые присуствуют почти у каждого компонента, это:
+<br><img src="arrow.gif" alt="Свойство" border="0"> Enabled: True (включено) или False (отключено).
+<br><img src="arrow.gif" alt="Свойство" border="0"> Visible: True (виден) или False(не виден).
+<br><img src="arrow.gif" alt="Свойство" border="0"> Name: имя.
+<br><img src="arrow.gif" alt="Свойство" border="0"> Width: ширина.
+<br><img src="arrow.gif" alt="Свойство" border="0"> Height: высота.
+<br><img src="arrow.gif" alt="Свойство" border="0"> Left: положение, относительно оси X.
+<br><img src="arrow.gif" alt="Свойство" border="0"> Top: положение, относительно оси Y.
+
+<table cellspacing="2" cellpadding="2" border="0" align="center" valign="top">
+<td><img src="zamet.gif" alt="Заметь!" border="0"></td>
+<td><font color="#ffffff" size="2" face="Verdana">В VB6 координаты начинаются с верхнего левого угла формы (0,0), а координаты и размеры выражаются в Твипах (Twip); ты, конечно, можешь поменять эту единицу измерения на любую доступную, но учить этому я тебя не буду, т. к. работать мы будем только с Твипами.
+</Table>
+
+Всего четыре компонента, а уже можно делать прогу!
+<br>Перед тем, как что-то сделать нужно поставить задачу перед собой и ответить на основные вопросы, что мы сейчас и сделаем:
+<br>Что будет делать программа: прога будет переводить текст из текстового поля в метку.
+<br>Какая прога, такие и вопросы! Ну всё, приступим:
+<br>Создай стандартный проект, после чего размести на форме Текстовое поле и метку. Сделай метку прозрачной и так, что-бы метка автоматически подстраивалась размером под написанный в ней текст.
+<br><Img Src="!.gif" Border="0"> Если ты чего-то не понимаешь, то внимательне прочитай о свойствах этих (да и всех изученных) обьектов.
+<br>Получилось? Ну, а теперь код. Видишь в левом верхнем углу окна Плана проекта три кнопочки (последняя с вжатая с изображение папки), так вот - первая кнопка это режим написания кода, а вторая окно формы.
+<br>Кликни два раза по форме и перед тобой откроется окно написания кода. Заметь, после двух щелчков по форме автоматом вставляется готовый код формы, нужно только вписать событие, и мы это сейчас сделаем:
+<br><br><font face="Courier New">Private Sub Form_Load() 'Событие: При загрузке формы...</font>
+<br><font face="Courier New">Label1.Caption = Text1.Text '...надпись Метки будет равна надписи Текстового поля</font>
+<br><font face="Courier New">End Sub 'Событие завершено</font>
+<br><br>Теперь выйди обратно в окно формы и вызови код Текстового поля.<br>
+<br><font face="Courier New">Private Sub Text1_Change() 'Событие: при изменении тектса в текстовом поле...</font>
+<br><font face="Courier New">Label1.Caption = Text1.Text '...текст Метки будет равен тексту Текстового поля</font>
+<br><font face="Courier New">End Sub 'Событие завершено</font>
+<br><br>Код целиком:
+<br><font face="Courier New">Private Sub Form_Load()</font>
+<br><font face="Courier New">Label1.Caption = Text1.Text</font>
+<br><font face="Courier New">End Sub</font>
+<br>
+<br><font face="Courier New">Private Sub Text1_Change()</font>
+<br><font face="Courier New">Label1.Caption = Text1.Text</font>
+<br><font face="Courier New">End Sub</font>
+<br><br> Что-бы запустить прогу нажми на кнопку под главным меню [Старт] (она похожа на кнопку видеомагнитофона [Play]): <Img Src="play.gif" Border="0">. После испытания выключи её.
+<br>Что-бы откомпилировать программу в главном меню выбери [Файл -> Делать Project1.exe].
+<br>{<A Href="text_change.zip">исходный файл</A>}
+
+<table cellspacing="2" cellpadding="2" border="0" align="center" valign="top">
+<td><img src="zamet.gif" alt="Заметь!" border="0"></td>
+<td><font color="#ffffff" size="2" face="Verdana">В коде VB6 свойства объекта пишуться через точку, например для Text1 это /Text1.Text/, т. е. /Имя.Свойство/. В редакторе кода после ввода имени и точки всплывает меню со свойствами, если ты быстро печатаешь, то достаточно ввести несколько первых букв, а после того, как нужное свойство установиться достаточно нажать [Tab].
+</Table>
+
+
+<img src="arrow.gif" alt="ещё не надоело?" border="0">&nbsp;ещё не надоело?..<br>Сейчас мы будем рассматривать ещё четыре немаловажных объекта, это: CommandButton; CheckBox; OptionButton; Timer. Вот так они выглядят:
+<br><Img Src="ccot.gif" Border="0">
+По традиции начнём по-порядку.
+<br>[CommandButton] Очень важный объект для создания приложений, простое название - кнопка. Свойства:
+<br><img src="arrow.gif" alt="Свойство" border="0"> Caption: текст на кнопке.
+<br><img src="arrow.gif" alt="Свойство" border="0"> Style: стандартная кнопка и графическая.
+<br><img src="arrow.gif" alt="Свойство" border="0"> Picture: картинка на кнопке, работает только в графическом режиме.
+<br><img src="arrow.gif" alt="Свойство" border="0"> DownPicture: картинка на нажатой кнопке, так же работает только в графическом режиме.
+<br><img src="arrow.gif" alt="Свойство" border="0"> BackColor: цвет кнопки, и опять, работает только в графическом режиме.
+<br><br>
+[CheckBox] Ну, и с этим ты встречался, но раньше ты называл это флажок, а теперь придётся Чекбокс, т. к. флажок - это галочка внутри, а не сам объект. Свойства:
+<br><img src="arrow.gif" alt="Свойство" border="0"> Alignment: свойство изменения отношения текста к Чекбоксу.
+<br><img src="arrow.gif" alt="Свойство" border="0"> Value: это, пожалуй, главное свойство Чекбокса - установка флажка Unchecked (не выбран), Checked (выбран), Grayed ("на половину").
+<br><br>
+[OptionButton] Радиокнопка - выбрать можно только одну из множества или одну из множества во фрейме. Свойства:
+<br><img src="arrow.gif" alt="Свойство" border="0"> Value: может принимать значения True (точка есть) или False (точки нет). В коде можно записать 1 (точка есть) или 0 (точки нет).
+[Timer] Таймер - служит для установки переменных во времени. Свойства:
+<br><img src="arrow.gif" alt="Свойство" border="0"> Interval: интервал времени в миллисекундах.
+<br><br>
+Ты наверное заметил, что с каждым новым объектом мы рассматриваем всё меньше и меньше свойств, а всё это потому, что свойства очень похожи, и иногда и идентичны.
+<br>Мы рассмотрели несколько новых объектов и должны сделать программу, но сначала я познакомлю тебя с Сообщениями:
+<br>Ты, наверное, работая с различными программами всречался с ними - это небольшие окна с  сообщения то об ошибке, то о чём-нибудь другом. В коде VB6 они выглядят так:
+<br><font face="Courier New">MsgBox "текст сообщения",тип окна,"титл"</font>
+<br>Типы окна можно записать по разному, например vbCritical это тоже, что и 16.
+<br>Специально для тебя я сделал табличку:
+
+
+
+
+
+<table bordercolor="#ffffff" align="left" cellspacing="2" cellpadding="2" border="1">
+
+<tr>
+<td><Img Src="crit.gif" Border="0"></td>
+<td><font color="#ffffff" size="2" face="Verdana">16</td>
+<Td><font color="#ffffff" size="2" face="Verdana">vbCritical</Td>
+</tr>
+<tr>
+
+<td><Img Src="quest.gif" Border="0"></td>
+<td><font color="#ffffff" size="2" face="Verdana">32</td>
+<Td><font color="#ffffff" size="2" face="Verdana">vbQuestion</Td>
+</tr>
+<tr>
+<td><Img Src="voskl.gif" Border="0"></td>
+<td><font color="#ffffff" size="2" face="Verdana">48</td>
+<Td><font color="#ffffff" size="2" face="Verdana">vbExclamation</Td>
+</tr>
+<tr>
+<td><Img Src="info.gif" Border="0"></td>
+<td><font color="#ffffff" size="2" face="Verdana">64</td>
+<Td><font color="#ffffff" size="2" face="Verdana">vbInformation</Td>
+</tr>
+</table>
+<br><br><br><br><br><br><br><br><br><br><br><br>На каждом окне сообщения есть и кнопки. Вот таблица для них:
+<table bordercolor="#ffffff" align="left" cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">[Ok]</td>
+<td><font color="#ffffff" size="2" face="Verdana">0</td>
+</tr>
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">[Ok] [Отмена]</td>
+<td><font color="#ffffff" size="2" face="Verdana">1</td>
+</tr>
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">[Стоп] [Повтор] [Пропустить]</td>
+<td><font color="#ffffff" size="2" face="Verdana">2</td>
+</tr>
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">[Да] [Нет] [Отмена]</td>
+<td><font color="#ffffff" size="2" face="Verdana">3</td>
+</tr>
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">[Да] [Нет]</td>
+<td><font color="#ffffff" size="2" face="Verdana">4</td>
+</tr>
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">[Повтор] [Отмена]</td>
+<td><font color="#ffffff" size="2" face="Verdana">5</td>
+</tr>
+</table>
+<br><br><br><br><br><br><br><br><br><br>
+<br>Сейчас, я научу тебя пользоваться этими таблицами.
+<br>Создай стандартный проект и вызови код формы. Сейчас ты сделаешь Сообщение с любой картинкой, для этого в тип окна ты поставишь число картинки, дальше + и число набора кнопок. В моём примере получилось так:
+<br><br><font face="Courier New">Private Sub Form_Load() 'При загрузке формы...</font>
+<br><font face="Courier New">MsgBox "Example",16 + 1,"Example" '...загружается Сообщение.</font>
+<br><font face="Courier New">End Sub 'Событие завершается.</font>
+<br><br>Плюс ты можешь и не писать, а просто складывай эти два числа, например 16 + 1 = 17
+<br>{<A Href="msgbox.zip">исходный файл</A>}
+<br><br>Иногда может и пригодиться знать коды ображения к кнопкам... Вот тебе и таблица:
+
+
+<table bordercolor="#ffffff" align="left" cellspacing="2" cellpadding="2" border="1">
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana">[Ok]</td>
+    <td><font color="#ffffff" size="2" face="Verdana">1</td>
+</tr>
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana">[Отмена]</td>
+    <td><font color="#ffffff" size="2" face="Verdana">2</td>
+</tr>
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana">[Стоп]</td>
+    <td><font color="#ffffff" size="2" face="Verdana">3</td>
+</tr>
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana">[Повтор]</td>
+    <td><font color="#ffffff" size="2" face="Verdana">4</td>
+</tr>
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana">[Пропустить]</td>
+    <td><font color="#ffffff" size="2" face="Verdana">5</td>
+</tr>
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana">[Да]</td>
+    <td><font color="#ffffff" size="2" face="Verdana">6</td>
+</tr>
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana">[Нет]</td>
+    <td><font color="#ffffff" size="2" face="Verdana">7</font></td>
+</tr>
+</table>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+"А как к этим кнопкам обращаться-то?" - спросишь ты и будеш прав. Давай сделаем прогу, при выходе из которой прога выдаст такой диалог 'Вы действительно хотите выйти? [Да] [Нет]'
+Создавай стандартный проект и размети на форме кнопку с надписью [Выход]. В её код впиши:
+<br><br><font face="Courier New">a = MsgBox("Вы действительно хотите выйти?", 20, "Выход") 'Приравниваем Сообщение к a
+<br>If a = 6 Then 'Если код нажатой кнопки Сообщения будет равен 6 [Да], то...
+<br>End '...закрываем прогу
+<br>End If 'Ну это ты уже должен знать!!!
+<br>End Sub</font>
+<br><br>Сейчас ты узнал ещё одну примочку, да - да, это /End/. /End/ служит для выхода из проги - аналог /Unload Me/ или /Unload (Объект)/.
+<br><br>Сам собой возникает вопрос - "А если юзер нажмёт на крестик в углу окошка?". Есть два выхода из сложившейся ситуации: запретить юзеру нажать этот крестик (ты должен был сам разобраться со свойствами формы!!!) или... ввести подобный код для события /Unload/ формы. Можно, конечно /Unload/ и так написать, но лучше выбрать в окне кода правое верхнее меню (там есть нижнее?) и там ты найдёшь, что искал.
+<br><br><font face="Courier New">Private Sub Form_Unload(Cancel As Integer)
+<br>a = MsgBox("Вы действительно хотите выйти?", 20, "Выход")
+<br>If a = 6 Then
+<br>End
+<br>End If
+<br>End Sub</font>
+<br><br>Ну разве не то же самое?
+<br><br>Код полностью:
+<br><br><font face="Courier New">Private Sub Command1_Click()
+<br>a = MsgBox("Вы действительно хотите выйти?", 20, "Выход") 'Приравниваем Сообщение к a
+<br>If a = 6 Then 'Если код нажатой кнопки Сообщения будет равен 6 [Да], то...
+<br>End '...закрываем прогу
+<br>End If 'Ну это ты уже должен знать!!!
+<br>End Sub
+<br><br>Private Sub Form_Unload(Cancel As Integer)
+<br>a = MsgBox("Вы действительно хотите выйти?", 20, "Выход")
+<br>If a = 6 Then
+<br>End
+<br>End If
+<br>End Sub</font>
+<br><br>Ну, я думаю ты узнал много интересного, а разобраться тебе поможет исходник.
+<br>{<A Href="yes-no.zip">исходный файл</A>}
+<br><br>Теперь ты знаешь и Сообщения, и восемь Объектов, так давай замастрячим прогу! По ходу ты узнаешь про условный оператор!
+<br>Эта будет игра, где тебе придётся угадывать загаданное компьютером число.
+<br><br><font face="Courier New">Dim a As Integer 'Объявляем переменную искомого числа
+<br>Dim b As Integer 'Количество нажатий на кнопку [Ввод]
+<br>Dim c As String 'Объявляем переменную для символов
+<br>
+<br>Private Sub Command1_Click() 'При нажатии на кнопку [Загадай число]...
+<br>Randomize '...срабатывает оператор случайных чисел, для генерации разных чисел
+<br>a = Fix(Rnd * 100) 'Фиксируем случайное число командой Fix.
+<br>b = 0 'Число нажатий на кнопку [Ввод].
+<br>Text1.Text = "" 'Опустошаем текстовое поле.
+<br>End Sub 'Завершаем событие.
+<br>
+<br>Private Sub Command2_Click() 'При нажатии на кнопку [Ввод].
+<br>b = b + 1 '...включаем счетчик, каждый раз при нажатии на кнопку к переменной b будет прибавляться 1
+<br><br>If b = 1 Then 'Если(If) b будет = 1 то(Then)...
+<br>c = "Супер-Мега Хацкер" '...c = "Супер-Мега Хакер".
+<br>End If 'Закрываем этот условный оператор.
+<br><br>If b <= 3 Then 'Здесь всё аналогично
+<br>c = "Хакер"
+<br>End If
+<br><br>If b >= 5 Then
+<br>c = "Кодер"
+<br>End If
+<br><br>If b >= 7 Then
+<br>c = "Юзверь"
+<br>End If
+<br><br>
+<br>If b >= 10 Then
+<br>c = "Ламер"
+<br>End If
+<br><br>
+<br>If Val(Text1.Text) = a Then 'Если Text1.Text = a то... /Val/ переводит строковые значения в цифровые
+<br>MsgBox "Ты победил за " & b & " раз " + c, 32 '...компьютер выводит Сообщение о количестве нажатых раз на [Ввод] т.е. b
+<br>End If
+<br><br>
+<br>If Val(Text1.Text) < a Then 'Если загаданное число больше введённого, то...
+<br>MsgBox "Бери больше", 32 '...комп выдаёт сообщение.
+<br>End If
+<br><br>
+<br>If Val(Text1.Text) > a Then
+<br>MsgBox "Бери меньше", 32
+<br>End If
+<br>End Sub</font>
+<br><br>
+Я сразу начал со сложного примера, но, что-бы ты понял как он работает я расскажу о переменных.
+<br>Объявлять переменные следует со слова /Dim/, затем идёт имя переменной, после идёт слово /As/, т. е. /Как/, а дальше тип переменной. Вот они все:
+<br>Integer - число.
+<br>Long - длинное число.
+<br>String - строка (любые символы).
+<br>Variant - либо первое, либо второе, либо третье, но использовать его не стоит, т. к. этот тип занимает много памяти.
+<br>В моём исходнике в текстовое поле нельзя ввести больше трёх цифр - сделай то же самое.
+<br>{<A Href="ugad.zip">исходный файл</A>}
+<br><br>Может показаться, что я забыл про таймер, но это не так. Сейчас мы будем делать часы.
+<br>Расположи на форме Таймер, интервал выставь в одну мс; так же расположи метку. В коде Таймера пиши:
+<br><br><font face="Courier New">Label1.Caption = Time</font>
+<br><br>Код полностью:
+<br><br><font face="Courier New">Private Sub Timer1_Timer()
+<br>Label1.Caption = Time
+<br>End Sub</font>
+<br><br>
+В этом примере сложно не разобраться, но если ты посмотришь в мой исходник, то найдёшь там несколько прикольных эффектов, заодно попробуй сам разобраться со свойствами формы.
+<br>{<A Href="clock.zip">исходный файл</A>}
+<br><br>Давай сделаем таймер, заодно ты научишься работать с переменными.
+<br><br><font face="Courier New">Dim a As Integer 'Объявляем переменную
+<br>
+<br>Private Sub Form_Load()
+<br>a = 10
+<br>Label1.Caption = Str(a) 'Придаём надписи метки строковое значение переменной /a/
+<br>End Sub
+<br>
+<br>Private Sub Timer1_Timer()
+<br>Label1.Caption = Str(a)
+<br>a = a - 1 'Вычетаем по одной единице
+<br>If a = 0 Then
+<br>MsgBox "Time Out", 64, "Time Out"
+<br>End If
+<br>End Sub</font>
+<br>{<A Href="timer.zip">исходный файл</A>}
+<br>
+<br><Img Src="!.gif" Border="0"> Задание: Сделай в таймере текстовое поле для ввода начального значения таймера - подумай, это очень просто.
+<br><Img Src="!.gif" Border="0"> Задание: Разберись сам с чекбоксом и радиокнопками.
+<br>С чекбоксами поможет разобраться переделанный исходник части одной из моих игр.
+<br>{<A Href="och_hands.zip">исходный файл</A>}
+<br><br>После того, как ты полностью разберёшься с этой частью - можешь переходить к <a href="vb2.htm">следующей</a>.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</font></td>
+</tr>
+</td>
+</table>
+
+</body>
+</html>

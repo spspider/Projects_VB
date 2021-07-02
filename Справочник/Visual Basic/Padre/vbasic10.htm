@@ -1,0 +1,266 @@
+
+<html><head>
+<style type="text/css">
+.part2{color:#4173a3;font-weight:900;}
+.part2:hover{color:red;font-weight:880}
+.cd{font-size:18px;color:black;}
+.c2{font-size:18px;color:black;}
+.c1{font-size:45pt;}
+.cc{font-size:13pt;font-weight:bold}
+.t{color:red;}
+.a9{color:#4173a3;font-weight:bold;}
+.a9:hover{color:red;font-weight:880}
+h2{font-size:21pt;font-weight:bold}
+h3{font-size:17pt;font-weight:bold}
+.a19{color:#4173a3;font-size:18px}
+.a19:hover{color:red;font-size:18px}
+body{
+BORDER-RIGHT: 0px;
+SCROLLBAR-FACE-COLOR: #CFDEEB;
+PADDING-BOTTOM: 0px;
+SCROLLBAR-HIGHLIGHT-COLOR: #CFDEEB;
+VERTICAL-ALIGN: middle;
+BORDER-LEFT: 0px;
+SCROLLBAR-SHADOW-COLOR: black;
+SCROLLBAR-ARROW-COLOR: black;
+PADDING-TOP: 0px;
+BORDER-BOTTOM: 0px;
+SCROLLBAR-BASE-COLOR: black;
+scrollbar-3dlight-color: #4173a3;
+scrollbar-dark-shadow-color: #4173a3;}
+</style>
+
+<title>Программируем на Visual Basic'e</title>
+</head>
+<body background="1.jpeg">
+<em >
+<a href="http://vbstreets.narod.ru" class="a9">Главная</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7132" class="a9">Гостевая</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7137" class="a9">Форум</a>
+<a href="INFA.htm" class="a9">INFA</a>
+</em>
+
+<H1 ><font size=6>Программируем на Visual Basic'e:</font></H1>
+
+<p style="font-weight:bold; font-size:21px" >
+
+<a href="vbasic.htm" class="part2">Часть 1</a>/<a href="vbasic2.htm" class="part2">Часть 2</a>/<a href="vbasic3.htm" class="part2">Часть 3</a>/<a href="vbasic4.htm" class="part2">Часть 4</a>/<a href="vbasic5.htm" class="part2">Часть 5</a>/<a href="vbasic6.htm" class="part2">Часть 6</a>/<a href="vbasic7.htm" class="part2">Часть 7</a>/<a href="vbasic8.htm" class="part2">Часть 8</a>/<a href="vbasic9.htm" class="part2">
+Часть 9</a>  /Часть 10/<a href="vbasic11.htm" class="part2">Часть 11</a>/<a href="vbasic12.htm" class="part2">Часть 12</a>/<a href="vbasic13.htm" class="part2">Часть 13</a>/<a href="vbasic14.htm" class="part2">Часть 14</a>/<a href="vbasic15.htm" class="part2">Часть 15</a></font>
+</p>
+
+
+<h2>ШАГ 91</h2>
+<h3>Убираем эту уродскую Data</h3><p class="c2">
+Почему злой дядька Билл Гейц сделал такую уродскую Data? На этот вопрос может ответить только он сам, но к счастью у Date есть несколько свойств, и c помощью них можно заменить Data, на свои кнопки. Для этого усовершенствуем прогу, которую ты сделал на 70 шаге. У объекта Data свойство Visible = False, это чтоб ее скрыть, на форму кинь 4 кнопки. У 1 - ой кнопке свойство Caption = "<", у 2 - ой = ">", у 3 - ей = "|<", у 4 - ой = ">|".<br>
+
+
+
+Private Sub Command1_Click()<br>
+Data1.Recordset.MovePrevious<font color="green"> 'Предыдущая запись</font><br>
+If Data1.Recordset.BOF Then Data1.Recordset.MoveNext<font color="green"> 'Тут, если дошло до самой первой записи, и ты еще 2 раза нажмешь на кнопку, то выскочит Error, и чтобы этого не произошло, мы каждый раз, когда запись равна первой, и ты еще раз жмешь на кнопку, сдвигаем ее в перед.</font><br>
+End Sub<br>
+<br>
+Private Sub Command2_Click()<br>
+ Data1.Recordset.MoveNext<font color="green"> 'Следующая запись</font><br>
+If Data1.Recordset.EOF Then Data1.Recordset.MovePrevious<font color="green"> 'Здесь все тоже самое, только наоборот</font><br>
+End Sub<br>
+<br>
+Private Sub Command3_Click()<br>
+Data1.Recordset.MoveFirst<font color="green"> 'Первая запись</font><br>
+End Sub<br><br>
+
+Private Sub Command4_Click()<br>
+Data1.Recordset.MoveLast<font color="green"> 'Последняя запись</font><br>
+End Sub<br>
+Исходник проги - <a href="bd2.zip" class="a19">Здесь</a>
+Теперь научимся Удалять и создавать новые записи.
+
+
+
+<h2>ШАГ 92</h2>
+<h3>Создание & Удаление записей</h3><p class="c2">
+Для добавления & удаления записи усовершенствуем наш проект (см. выше), добавь туда 2 кнопки, у 1 свойство Caption = "New Запись", у 2 - ой = "Del Запись". Код:<br>
+Private Sub Command5_Click()<br>
+Data1.Recordset.AddNew<font color="green"> 'Добавляем запись</font><br>
+End Sub<br><br>
+
+Private Sub Command6_Click()<font color="green"> 'Последняя запись</font><br>
+'чтобы выполнить последовательность инструкций над<br>
+  'одиночным объектом Data1,  не перечисляя его каждый<br>
+  'раз, используем инструкцию With<br>
+  With Data1.Recordset<br>
+    .Delete<br>
+    .MoveNext<br><br>
+    If .EOF Then .MoveLast<br>
+  End With<br>
+End Sub<br>
+
+<h2>ШАГ 93</h2>
+<h3>Задание:</h3><p class="c2">
+Т.к. мне было лень писать этот шаг, я решил дать тебе задание, СДЕЛАЙ ТЕЛЕФОННЫЙ СПРАВОЧНИК!!!
+Но не просто справочник, а чтоб туда E - Mail поместился. Делай. Если что - то не получиться мыль мне, и я подскажу. Мой E - Mail: <a href="mailto:padre03@mail.ru" class=a19>padre03@mail.ru</a>. Жду.
+
+<h2>ШАГ 94</h2>
+<h3>Закладки</h3><p class="c2">
+Например, если в Базе очень много записей, и тебе надо от одной записи вертеть несколько сотен до другой, то проще будет на одну запись кинуть закладку, и потом с любой записи одним щелчком попасть на запись, на которой стоит закладка. Ты что - нибудь понял? Ну, если не понял то сам разбирайся. Опять усовершенствуем наш проект, добавим туда еще 2 кнопки. У первой кнопки Caption = "Закладка", у 2 - ой = "Переход". Код:<br>
+Dim qw As String<font color="green"> 'Объявляем переменную qw для хранения наше закладки</font><br>
+<br><br>
+Private Sub Command7_Click()<br>
+qw = Data1.Recordset.Bookmark<font color="green"> 'Устанавливаем закладку</font><br>
+End Sub<br>
+<br>
+Private Sub Command8_Click()<br>
+Data1.Recordset.Bookmark = qw<font color="green"> 'Переходим к ней</font><br>
+End Sub<br>
+Теперь ставь закладку на любую запись, и потом на другой записи жми Переход, и ты попадешь на ту запись, где стояла закладка.
+
+
+
+
+
+<h2>ШАГ 95</h2>
+<h3>Поиск в записях</h3><p class="c2">
+Т.к. базы нужны в основном для фирм (туда имена, адреса... вносят, что не видел на рынках ими торгуют?), то когда накапливается очень много имен, то поиск может занять несколько часов, и для этого иногда программеры делают кнопочку поиск, вот и мы щас такую сделаем.<br>
+
+ Представьте себе, что тебе нужно найти конкретное имя автора из тысяч других... WOW!!! :-)) Представили? Ну, так вот листать - вроде совсем не интересно... Нужно воспользоваться одним из способов нахождения: 
+FindFirst, FindLast, FindNext или FindPrevious. В этой таблице представлены их значения:
+        <table border="1" width="50%">
+            <tr>
+                <td><font size="4" ><b>Метод</b></font>
+                </td>
+                <td><font size="4" ><b>Пояснение</b></font>
+                </td>
+            </tr>
+            <tr>
+                <td><font size="4" ><b>FindFirst</b></font>
+                </td>
+                <td><font size="4" >Ищет
+                первую запись в БД</font></td>
+            </tr>
+            <tr>
+                <td><font size="4" ><b>FindLast</b></font>
+                </td>
+                <td><font size="4" >Ищет
+                последнюю запись в БД</font></td>
+            </tr>
+            <tr>
+                <td><font size="4" ><b>FindNext</b></font>
+                </td>
+                <td><font size="4" >Ищет
+                каждую следующую запись в
+                БД</font></td>
+            </tr>
+            <tr>
+                <td><font size="4" ><b>FindPrevious</b></font>
+                </td>
+                <td><font size="4" >Ищет
+                предыдущую запись в БД</font></td>
+            </tr>
+        </table>
+
+
+
+
+<p><font color="#000099" size="4">Private Sub</font><font
+        size="4" > cmdFind_Click()</font>
+        <br>
+        <font color="#006600" size="4" >   
+        'у пользователя запрашивается
+        имя  а потом происходит</font>
+        <br>
+        <font color="#006600" size="4">   
+        'поиск его в БД</font> <br>
+        <font size="4" >   
+        Data1.Recordset.FindFirst &quot;Author = '&quot; _</font>
+        <br>
+        <font size="4" >    &amp;
+        Trim(InputBox(&quot;Введите имя
+        &quot;)) &amp; &quot;'&quot;</font> <br>
+        <font color="#006600" size="4" >   
+        'если запись не найдена
+        появляется следующая надпись:</font>
+        <br>
+        <font size="4" >   </font><font
+        color="#000099" size="4" > If</font><font
+        size="4" >
+        Data1.Recordset.NoMatch </font><font color="#000099"
+        size="4" >Then </font><font
+        size="4" >MsgBox &quot;Имя
+        не найдено&quot;</font> <br>
+        <font color="#000099" size="4" >End
+        Sub</font> </p>
+<h2>ШАГ 96</h2>
+<h3>Объект OLE</h3><p class="c2">
+Этот объект, очень стремный, но иногда без него не обойтись (я им пользовался только 1 раз, когда прихватило:-)). С помощью этого объекта, можно из других прог что - нибудь вставлять. Например из Worda, мы сможем вставить текст, или его знаменитые объемные рисунки. Начнем. На форму кинь объект OLE(<img src="ole.jpg" title="Объект OLE">).Жди. Через 5-15 сек. появится окно Вставка объекта, там ты выбираешь прогу, из которой будет вставлен объект. В нем крути в самый конец, там найди Рисунок Word, и нажми ОК. От куда не возьмись, появляется окошко, да не простое, а вордовское. В нем впиши текст, впихни рисунки... и закрой его. Теперь вернись в VB, в объекте OLE появился твой текст! Отлично! 
+
+<h2>ШАГ 97</h2>
+<h3>Объект PrintForm</h3><p class="c2">
+Т.к. Басик входит в 5 лучших языков, то он и должен уметь работать с принтером. Ты понял на что я намекаю? А я намекаю на то, что этот и последующие шаги будут посвещены ПРИНТЕРАМ. Если у тебя нет принтера, то срочно купи, а то несколько следующих шагов тебе придется пропустить. Так что, быстро бери бабки, и беги в магазин :-)). Начнем с печати всей формы. Для этого у формы есть свойство PrintForm(Печать формы).<br>
+Form1.PrintForm<font color="green"> 'Печатаем форму</font><br>
+Ну это все фигня, т.к. форму почти ни кто не когда не печатает, а люди обычно печатают текст :-)).
+
+<h2>ШАГ 98</h2>
+<h3>Печать текста</h3><p class="c2">
+Ну если есть в текстовых полях текст, значит его  можно отпечатать, и не обязательно в текстовых полях, а можно просто текст. Ну короче, не буду тянуть, для работы с принтером, есть спец объект - Printer, а у этого объекта уже есть свойства и методы для управления им. Первый метод который ты узнаешь в этом шаге будет Print(Печать). На форму кинь 1 Текстовое поле, и 1 кнопку (я специально не сказал Войди в VB(Standart EXE), не маленький, должен запомнить:-)).)
+
+<br>
+Private Sub Command1_Click()<br>
+Printer.Print Text1.Text <font color="green"> 'Печатаем текст введенный в Текстовое поле</font><br>
+End Sub<br>
+
+
+Ну что печатает? Не знаю как у тебя, а я, у себя заметил глюк (у меня VB5 - но я не америкос (Почему - то в инете принято считать, что если у тебя VB5 - то ты америкос, наверное это придумали те у кого VB6...)), я нажимаю на кнопку, и не печатает, надо обязательно выйти из проги, и только тогда принтер зафурычит.
+
+<h2>ШАГ 99</h2>
+<h3>Устанавливаем свойства шрифта, который будет отпечатан</h3><p class="c2">
+Ты наверное скажешь: "Не фига себе заголовок" - и ты будешь прав, т.к. ни чего лучше я не придумал, но зато как сказал - не в бровь а в глаз:-)). Например: <br>
+
+Printer.Font.Name = "Script" <font color="green"> 'Буде использован шрифт Script</font><br>
+Printer.Font.Size = 18  <font color="green"> 'Текст будет размером = 18</font><br>
+
+<h2>ШАГ 100</h2>
+<h3>Определяем тип принтера (цветной, монохромный)</h3><p class="c2">
+Это свойство уже почти не используется, т.к. монохромные принтеры остались только в музеях, и в моей школе:-)). Но я все равно тебе о нем расскажу. На форму кинь текстовое поле, и кнопку. И впиши:<br>
+Private Sub Command1_Click()<br>
+Text1.Text = Printer.ColorMode<font color="green"> 'В текстовом поле появится цифра 1,или 2.Это тип принтера. Если появится 1 значит принтер монохромный, если 2 - то цветной. </font><br>
+End Sub<br>
+
+
+
+
+
+
+
+
+
+<br><br>
+Если у тебя есть вопросы, пожелания, и т.д., то 
+оставляй их на форуме, гостевой книге, или пиши в наглую на е - мэйл: <a href="mailto:padre03@mail.ru" class=a19>padre03@mail.ru</a>.  И если ты зайдешь на мой сайт, кликни плиз по банеру Porta(сиреневый), мне за это немного бабла отвалется(2 цента). И если ты захочешь поддержать Отечественного производителя(т.е. Меня), то кликай по банеру раз в месяц. А если ты очень богатый, то не просто кликни, а еще что - нибудь купи.
+
+<br>
+<br>
+
+
+
+
+
+<em><p class="cc">автор учебника: Падре</em>
+<br>
+Дата создания: 12 апреля 2003 года<br></em>
+<br></p>
+<center>
+<table width=468 height=60 border=2 bordercolor="#4173a3"><td  bordercolor="#4173a3"><center>
+<p class="c2">Место под Банеры
+</td>
+<tr><td>
+<center>
+<a href="INFA.htm" target="0">
+<img src="baner.gif" alt="Официальный сайт учебника - 'Программируем на Visual Basic'" border=0>
+</a></center>
+</td></table>
+
+
+
+
+</body>
+</html>

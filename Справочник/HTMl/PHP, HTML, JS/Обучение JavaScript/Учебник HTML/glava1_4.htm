@@ -1,0 +1,123 @@
+<html><head>
+
+
+
+
+
+
+<title> Использование таблиц в дизайне страницы</title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4>1.4. Использование таблиц в дизайне страницы</h4>
+<P ALIGN="JUSTIFY">Приятное свойство таблиц состоит в том, что если вы захотите, то можете сделать их границы невидимыми. Это позволяет с помощью тага &lt;ТАВLЕ&gt; красиво размещать на странице текст и графику. До сих пор таг &lt;ТАВLЕ&gt; остается единственным мощным средством форматирования в HTML. Дизайнеры Web-страниц сейчас обладают практически такой же свободой использования &lt;пустого пространства&gt;, что и создатели печатных страниц. Таблицы в большей мере, чем что-либо другое, помогают отойти от иерархического размещения текста на Web-страницах. 
+<P ALIGN="JUSTIFY">Если броузер вообще поддерживает таблицы, он обычно правильно отображает наиболее интересные эффекты, полученные с помощью таблиц. 
+<i><P ALIGN="JUSTIFY">Пример 1.20
+</i><pre>
+	&lt;HTML> 
+	&lt;BODY> 
+	&lt;CENTER> 
+	&lt;TABLE CELLPADDING=10 CELLSPACING=0 BORDER=16> 
+	&lt;TR> 
+	&lt;TD ALIGN=CENTER> 
+	&lt;H1>ПЕРФОРАТОР&lt;/H1> 
+	&lt;H3>Только сегодня!&lt;/H3> 
+	&lt;TABLE BORDER WIDTH=100%> 
+	&lt;TR>&lt;TD ALIGN=CENTER>&lt;I>Почти бесплатно!&lt;/I>&lt;/TD>
+	&lt;/TR> 
+	&lt;/TABLE> 
+	&lt;/TD> 
+	&lt;/TR >
+	&lt;/TABLE>
+	&lt;/CENTER >
+	&lt;/BODY>
+	&lt;/HTML>
+</pre>
+<P ALIGN="CENTER"><IMG SRC="_pic_/image416.gif">
+<i><P ALIGN="CENTER">Рис. 1.21. Создание выпуклых элементов</i>
+<h4><i>Создание разноцветных таблиц </i></h4>
+<P ALIGN="JUSTIFY">Ведущие броузеры, позволяют отображать некоторые цвета. Есть несколько способов раскрасить таблицу, в основном они зависят от используемого броузера. 
+<h4><i>Цветные границы в Netscape Navigator </I></h4>
+<P ALIGN="JUSTIFY">Вы не только можете окружить таблицу красивой рамкой, но еще и задать для нее цвет, отличный от цветов текста и фона. Создайте простой серый GIF (или любой GIF, который вы хотели бы иметь в качестве фона) и определите его в таге &lt;ВODY&gt; как фон страницы. Затем задайте цвет фона страницы. В результате ваш таг &lt;ВОDY&gt; будет выглядеть примерно так: 
+<pre>
+	&lt;BODY ВАСКGROUND="сооlbg.gif" ВGCOLOR=" # FF0000">  </Pre>
+<P ALIGN="JUSTIFY">Вы создали двойной фон - GIF и заданный цвет. В результате фоновый цвет будет виден на всех границах таблиц и горизонтальных линиях (&lt;НR&gt;). Вне зависимости от того, является ли ваш фоновый GIF серым или нет, цветные линии и границы таблиц будут заметно выделяться. Если фоновый GIF не слишком сложно устроен, время загрузки страницы лишь немного возрастет. На приведенном ниже примере показано какие, широкие возможности дает использование цвета в HTML и в частности в таблицах. 
+<i><P ALIGN="JUSTIFY">Пример 1.21
+</i><pre>
+	&lt;HTML> 
+	&lt;BODY BACKGROUND="bgr.gif"  BGCOLOR="YELLOW" > 
+	&lt;CENTER>
+	&lt;TABLE BORDER=3 CELLPADDING=20>
+	&lt;CAPTION ALIGN=TOP>&lt;H2>Как просверлить бетонную
+	 стену&lt;/H2>&lt;/CAPTION>
+	&lt;TR>
+	&lt;TD BGCOLOR=GRAY> 
+	&lt;TABLE CELLPADDING=10 CELLSPACING=0 BORDER=16> 
+	&lt;TD BGCOLOR=RED ALIGN=CENTER> 
+	&lt;H1>ПЕРФОРАТОР&lt;/H1> 
+	&lt;H3>Только сегодня!&lt;/H3> 
+	&lt;TABLE BORDER WIDTH=100%> 
+	&lt;TR> 
+	&lt;TD BGCOLOR=AQUA ALIGN=CENTER>&lt;I>Почти бесплатно!&lt;/I>&lt;/TD>
+	&lt;/TR> 
+	&lt;/TABLE> 
+	&lt;/TABLE>
+	&lt;TD WIDTH=50% BGCOLOR=BROWN ALIGN=CENTER>
+	&lt;IMG SRC="perfor1.gif" WIDTH=200 HEIGHT=150>
+	&lt;/TD> 
+	&lt;/TR>
+	&lt;TR>
+	&lt;TD BGCOLOR=PINK>
+	&lt;FONT SIZE=6 COLOR=BLUE>От 6 до 20 мм&lt;/FONT>
+	&lt;/TD>
+	&lt;TD  BGCOLOR=BLUE>
+	&lt;FONT SIZE=6 COLOR=PINK>Просверлим все&lt;/FONT>
+	&lt;/TD>
+	&lt;/TR>
+	&lt;/TABLE> 
+	&lt;/CENTER > 
+	&lt;/BODY> 
+	&lt;/HTML>
+</pre>
+<P ALIGN="CENTER"><IMG SRC="_pic_/image417.gif">
+<i><P ALIGN="CENTER">Рис. 1.22. Пример разноцветной таблицы</i>
+<p><center><p>
+<font size=-1>
+<a href="glava1_3.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava1_5.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

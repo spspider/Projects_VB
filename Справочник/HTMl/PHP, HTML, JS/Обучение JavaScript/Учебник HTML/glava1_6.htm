@@ -1,0 +1,108 @@
+<html><head>
+
+
+
+
+
+
+<title> Формы </title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4>1.6. Формы </h4>
+<P ALIGN="JUSTIFY">Интерактивные формы позволяют читателям Web-страниц легко общаться с их владельцами. Благодаря простоте использования тага &lt;mailto:&gt; и форм стал возможен двусторонний диалог между владельцами Web-узлов и их читателями. Это открывает для Web-навигаторов увлекательные перспективы и коммерческие возможности.  К сожалению, многие старые броузеры не поддерживают таг &lt;mailto:&gt;.
+<h4><i>Как сделать так, чтобы ваша форма хорошо смотрелась </i></h4>
+<P ALIGN="JUSTIFY">Один из способов свести все трудности к минимуму состоит в том, чтобы разместить области ввода и выпадающие меню в левой части страницы, а весь сопроводительный текст - справа. Поскольку ширину областей ввода можно задать с помощыо атрибута SIZЕ=, вы по крайней мере выровняете строки слева, а текст справа будет невыровненным - как в большинстве документов. Такая форма выглядит несколько аккуратнее. Не забудьте оставить промежуток между текстом и областью ввода формы. Другой несколько более сложный способ - разместить элементы формы в ячейки таблицы. Это позволяет разместить сопроводительный текст слева, а области ввода справа. Это показано в примере.
+<i><P ALIGN="JUSTIFY">Пример 1.26
+</i><pre>
+	&lt;HTML>
+	&lt;HEAD>
+	&lt;TITLE>Коментарии&lt;/TITLE>
+	&lt;/HEAD>
+	&lt;BODY>
+	&lt;H1>Коментарии&lt;/H1>
+	&lt;BR>Пожалуйста сообщите нам, что вы думаете о нашем web сайте, компании,
+	продукции, или услугах. Если вы сообщите нам свою контактную информацию, 
+	у нас будет возможность связаться с вами и ответить на ваши вопросы.&lt;/p>
+	&lt;FORM METHOD="POST" action="mailto: yourname@your.email.address">
+	&lt;H3>Контактная информация&lt;/H3>
+	&lt;TABLE BORDER="0">
+	&lt;TR>
+	&lt;TD ALIGN="right">&lt;em>Имя&lt;/em>&lt;/td>
+	&lt;TD>&lt;input type="text" size="35" name="Name">&lt;/td>
+	&lt;/TR>
+	&lt;TR>
+	&lt;TD ALIGN="right">&lt;em>Тема&lt;/em>&lt;/td>
+	&lt;TD>&lt;input type="text" size="35" name="Title">&lt;/td>
+	&lt;/TR>
+	&lt;TR>
+	&lt;TD ALIGN="right">&lt;em>Компания&lt;/em>&lt;/td>
+	&lt;TD>&lt;input type="text" size="35" name="Company">&lt;/td>
+	&lt;/TR>
+	&lt;TR>
+	&lt;TD ALIGN ="right">&lt;em>Адрес&lt;/em>&lt;/td>
+	&lt;TD>&lt;input type="text" size="35" name="Address">&lt;/td>
+	&lt;/TR>
+	&lt;TR>
+	&lt;TD ALIGN ="right">&lt;em>Телефон&lt;/em>&lt;/td>
+	&lt;TD>&lt;input type="text" size="35" name="Telephone">&lt;/td>
+	&lt;/TR>
+	&lt;TR>
+	&lt;TD ALIGN ="right">&lt;em>Факс&lt;/em>&lt;/td>
+	&lt;TD>&lt;input type="text" size="35" name="FAX">&lt;/td>
+	&lt;/TR>
+	&lt;TR>
+	&lt;TD ALIGN ="right">&lt;em>E-mail&lt;/em>&lt;/td>
+	&lt;TD>&lt;input type="text" size="35" name="Email">&lt;/td>
+	&lt;/TR>
+	&lt;/TABLE>
+	&lt;p><input type="submit" value="Послать сообщение"> 
+	&lt;input type="reset" value="Очистить форму"> &lt;/p>
+	&lt;/FORM>
+	&lt;/BODY>
+	&lt;/HTML>
+</pre>
+<P ALIGN="CENTER"><IMG SRC="_pic_/image422.gif">
+<i><P ALIGN="CENTER">Рис 2.27. Вид формы на экране</i>
+<h4><i>Как заставить формы работать </i></h4>
+<P ALIGN="JUSTIFY">Возможно, это именно тот раздел, которого вы ждете - как сделать так, чтобы формы отсылали на сервер введенные данные. На самом деле заставить форму пересылать данные довольно просто. Главная проблема - понять, куда их пересылать. Формально вы просто пишете в таге &lt;FORM&gt; атрибут АСТION= и задаете ссылку на URL программы, которая может обработать входные данные и сделать с ними что-нибудь полезное.
+<p><center><p>
+<font size=-1>
+<a href="glava1_5.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava1_7.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

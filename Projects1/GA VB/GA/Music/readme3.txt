@@ -1,0 +1,1 @@
+This folder contains all the MIDI music files in the game

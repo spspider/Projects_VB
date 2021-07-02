@@ -1,0 +1,115 @@
+<html>
+<head>
+
+
+<TITLE>Первые шаги - Ступенька шестая, параграфы, центрирование, расположение текста по левому, по правому краю, по центру.</TITLE>      
+<META HTTP-EQUIV="Content-Type" Content="text/html; Charset=Windows-1251">
+<META Name="copyright" Content="Алленова Наталья">
+<META NAME="author" CONTENT="Алленова Наталья Email: seagull@pisem.net"><META NAME="keywords" CONTENT="графика, хтмл, для, начинающий, начинающих, чайников, новичков, просто, основа, основы, страница, домашний, домашняя, сайт, новый, новичок, html, обучение, учеба, пример, веб, мастер, веб-мастер, дизайн, веб-дизайн, вебдизайн, дезайн, веб-дезайн, вебдезайн, дезайнер, дизайнер, ступени, тэги, тэг, теги, тег, аттрибут, атрибуты, парамет, design, web, help, помощь, icq, e-mail, guest, book, guestbook, гостевая, книга, форум, аська, контакт, ссылка, link, links, banner, обмен, баннер, баннерами, банер, baner, друзья, friends, почитать, написать, вопросы, вопрос, ответ, проект, ступени, словарь"> <META NAME="description" CONTENT="Основы хтмл (html) для чайников. Просто, доступно. Создайте свою домашнюю страничку своими руками и без хтмл (html) редакторов. Что может быть проще? Также вы здесь найдете полезные ссылки для вашего сайта, но это уже не главное...">
+
+
+
+</head>
+<body bgcolor="#ffffff" link="#000000" alink="#000000" vlink="#000000">
+
+
+<table>
+
+	<tr>
+	<td width="600">
+
+
+<font face="times new roman"><hr noshade size="1">
+<a href="index.html">Главная</a> | <a href="content2.html">Оглавление</a> | <a href="alltags2.html">Словарь</a><hr noshade size="1"><p align="JUSTIFY">
+В этой главе мы поговорим о параграфах. Параграфы вводятся тэгом:
+<br><br></font>
+<tt>&lt;p&gt;&lt;/p&gt;</tt>
+<br><br><font face="times new roman">
+С помощью параграфов мы можем центрировать текст:
+<br><br></font>
+<tt>&lt;p align="center"&gt;текст&lt;/p&gt;</tt>
+<br><br><font face="times new roman">
+С помощью параграфов мы можем выровнять текст по левому краю:
+<br><br></font>
+<tt>&lt;p align="left"&gt;текст&lt;/p&gt;</tt>
+<br><br><font face="times new roman">
+Или по правому краю документа:
+<br><br></font>
+<tt>&lt;p align="right"&gt;текст&lt;/p&gt;</tt>
+<br><br><font face="times new roman">
+Теперь введем параграфы в наш документ и посмотрим наглядно, что получится (в наш пример я подставила параграф с параметром центрирования текста (center), попробуйте подставить в параграф другие параметры со значениями Left или Right).
+</font></p>
+
+<img src="step4.gif" align="left" width="20" height="184">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Мой первый шаг &lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body text="#336699" bgcolor="#000000"&gt;<br>
+<b>&lt;p align="center"&gt;</b><br>
+<font color="#336699">
+Здравствуйте, это моя первая страница.</font><br>
+&lt;br&gt;<br>
+&lt;font color="#CC0000"&gt;<font color="#CC0000"> Добро пожаловать!</font>&lt;/font&gt; <font color="#336699">:) </font><b>&lt;/p&gt;</b><br>
+&lt;/body&gt;<br>
+&lt;/html&gt; (<a href="primtocode4.html" target="_blank">прим.</a>)</tt>
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Заметьте, что текст в документе, если не задавать параграфы, всегда выравнивается по умолчанию по левому краю. Также запомните, что к параграфу уже не нужен тэг &lt;br&gt; для переноса строки, т.к.  перенос задается по умолчанию. Но что делать, если вам этот перенос никак не нужен? Есть тэг альтернативный &lt;p align="center"&gt;:
+<br><br></font>
+<tt>&lt;center&gt;текст&lt;/center&gt;</tt>
+</p>
+
+<img src="step4.gif" align="left" width="20" height="184">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Мой первый шаг &lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body text="#336699" bgcolor="#000000"&gt;<br><b>
+&lt;center&gt;</b><br>
+<font color="#336699">
+Здравствуйте, это моя первая страница.</font><br>
+&lt;br&gt;<br>
+&lt;font color="#CC0000"&gt;<font color="#CC0000"> Добро пожаловать!</font>&lt;/font&gt; <font color="#336699">:) </font><b>&lt;/center&gt;</b><br>
+&lt;/body&gt;<br>
+&lt;/html&gt; (<a href="primtocode42.html" target="_blank">прим.</a>)</tt>
+<br><br><p align="JUSTIFY"><font face="times new roman">
+
+Все было бы хорошо, и можно было бы шагнуть на следущую ступеньку, если бы у тэга &lt;p&gt; не существовало бы еще и четвертого, но опасного значения (атрибута):
+<br><br></font>
+<tt>&lt;p align="justify"&gt;текст&lt;/p&gt;</tt>
+<br><br><font face="times new roman">
+Это мой любимый атрибут параграфа, он выравнивает текст по обоим краям документа, и все становится милым и аккуратным. Почему же это опасный атрибут? Да не работает он в старых версиях броузеров, поэтому у тех, кто использует старые броузеры, он может не дейcтвовать (не отображаться), и вся красота-ляпота да аккуратность сойдет на нет (т.е. текст выровняется в таком случае по левому краю документа). Тем не менее я атрибутом justify злоупотребляю:)
+</font></p>
+
+<img src="step4.gif" align="left" width="20" height="310">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Мой первый шаг &lt;/title&gt;<br>
+&lt;/head&gt;<br>
+&lt;body text="#336699" bgcolor="#000000"&gt;<br>
+&lt;center&gt;<br>
+<font color="#336699">
+Здравствуйте, это моя первая страница.</font><br>
+&lt;br&gt;<br>
+&lt;font color="#CC0000"&gt;<font color="#CC0000"> Добро пожаловать!</font>&lt;/font&gt; <font color="#336699">:) </font>&lt;/center&gt;<br><b>
+&lt;p align="justify"&gt;</b><br><font color="#336699">
+Я совсем недавно начал(а) знакомиться с виртуальной жизнью, но мне по давней традиции тоже захотелось создать свою домашнюю  страничку для моих новых виртуальных друзей и знакомых, чтобы они могли посмотреть мои фотографии, почитать обо мне, черкнуть пару строчек в мою гостевую книгу. А может и просто случайный посетитель вдруг захочет познакомится со мной, и у меня появться еще один виртуальный друг? :)</font><br><b>&lt;/p&gt;</b>
+<br>&lt;/body&gt;<br>
+&lt;/html&gt; (<a href="primtocode43.html" target="_blank">прим.</a>)</tt>
+<br><br><br><p align="JUSTIFY"><font face="times new roman">
+Я тут за вас набросала примерный текст вступления (вы придумаете, конечно, что-нибудь свое). Теперь вставьте пример в наш документ и посмотрите за что я так люблю justify:)
+<br><br>
+Посмотрели? - Шагаем дальше.
+</p>
+
+
+<center><a href="5step2.html">Назад</a> | <a href="7step2.html">Шагнуть на следующую ступеньку</a></center></font>
+
+</td>
+
+	</tr>
+ </table>
+
+
+</body>
+</html>

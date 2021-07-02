@@ -1,0 +1,18 @@
+Line 31: Class NCTAUDIODESIGN2LibCtl.NCTTimeDisplay2 of control NC2Y was not a loaded control class.
+Line 39: Class NCTAUDIODESIGN2LibCtl.NCTStepButton2 of control NY was not a loaded control class.
+Line 56: Class NCTAUDIODESIGN2LibCtl.NCTTimeDisplay2 of control NC2X was not a loaded control class.
+Line 64: Class NCTAUDIODESIGN2LibCtl.NCTEqualizer2 of control B1 was not a loaded control class.
+Line 73: Class NCTAUDIODESIGN2LibCtl.NCTStepButton2 of control NX was not a loaded control class.
+Line 118: Class NCTAUDIODESIGN2LibCtl.NCTTimeDisplay2 of control Ti1 was not a loaded control class.
+Line 126: Class NCTAUDIODESIGN2LibCtl.NCTVolumeButtonA2 of control NK1 was not a loaded control class.
+Line 140: Class NCTAUDIODESIGN2LibCtl.NCTCMU2 of control NC1 was not a loaded control class.
+Line 149: Class NCTAUDIODESIGN2LibCtl.NCTAmpBar2 of control N1 was not a loaded control class.
+Line 34: The property name OleObjectBlob in NC2Y is invalid.
+Line 42: The property name OleObjectBlob in NY is invalid.
+Line 59: The property name OleObjectBlob in NC2X is invalid.
+Line 67: The property name OleObjectBlob in B1 is invalid.
+Line 76: The property name OleObjectBlob in NX is invalid.
+Line 121: The property name OleObjectBlob in Ti1 is invalid.
+Line 129: The property name OleObjectBlob in NK1 is invalid.
+Line 144: The property name OleObjectBlob in NC1 is invalid.
+Line 153: The property name OleObjectBlob in N1 is invalid.

@@ -1,0 +1,103 @@
+<html>
+<head>
+
+
+<TITLE>Первые шаги - Ступенька четрынадцатая, о списках.</TITLE>    
+<META HTTP-EQUIV="Content-Type" Content="text/html; Charset=Windows-1251">
+<META Name="copyright" Content="Алленова Наталья">
+<META NAME="author" CONTENT="Алленова Наталья Email: seagull@pisem.net"><META NAME="keywords" CONTENT="графика, хтмл, для, начинающий, начинающих, чайников, новичков, просто, основа, основы, страница, домашний, домашняя, сайт, новый, новичок, html, обучение, учеба, пример, веб, мастер, веб-мастер, дизайн, веб-дизайн, вебдизайн, дезайн, веб-дезайн, вебдезайн, дезайнер, дизайнер, ступени, тэги, тэг, теги, тег, аттрибут, атрибуты, парамет, design, web, help, помощь, icq, e-mail, guest, book, guestbook, гостевая, книга, форум, аська, контакт, ссылка, link, links, banner, обмен, баннер, баннерами, банер, baner, друзья, friends, почитать, написать, вопросы, вопрос, ответ, проект, ступени, словарь"> <META NAME="description" CONTENT="Основы хтмл (html) для чайников. Просто, доступно. Создайте свою домашнюю страничку своими руками и без хтмл (html) редакторов. Что может быть проще? Также вы здесь найдете полезные ссылки для вашего сайта, но это уже не главное...">
+
+
+
+</head>
+<body bgcolor="#ffffff" link="#000000" alink="#000000" vlink="#000000">
+
+
+<table>
+
+	<tr>
+	<td width="600">
+<font face="times new roman"><hr noshade size="1">
+<a href="index.html">Главная</a> | <a href="content2.html">Оглавление</a> | <a href="alltags2.html">Словарь</a><hr noshade size="1"><p align="JUSTIFY">
+Вот мы добрались и до не очень часто используемых тэгов. Как же так? - возмутится бедный мой спутник - А таблицы? А фреймы? - Ну, это темы других лестничных пролетов, а мы еще и первого не одолели:) Теперь, когда я вас порадовала этим фактом, продолжим обучение:)
+<br><br>
+Я думаю: самая пора поговорить о списках. Что такое списки? Это лучше демонстрировать на наглядном примере:</font></P> 
+<tt>
+
+<li>Текст один</li>
+<li>Текст другой</li>
+<li>Текст сякой</li>
+<li>Текст эдакий</li>
+
+</tt><br><br>
+<font face="times new roman"><p align="JUSTIFY">
+Скорее всего вы с этим сталкивались. Все это удобно в определенных ситуациях. В каких? Загляните, например, в раздел <a href="content2.html">Оглавление</a> и увидите:) 
+<br><br>
+Теперь разберемся, какими же тэгами обозначаются списки:
+</font></P> 
+<tt>
+&lt;li&gt;Текст один&lt;/li&gt;<br>
+&lt;li&gt;Текст другой&lt;/li&gt;<br>
+&lt;li&gt;Текст сякой&lt;/li&gt;<br>
+&lt;li&gt;Текст эдакий&lt;/li&gt;<br>
+</tt><br>
+<font face="times new roman"><p align="JUSTIFY">
+Да-да, вcе опять оказалось очень простым:) Именно тэгом &lt;li&gt;&lt;/li&gt; они и задаются. Возникает вопрос: можно ли помимо закрашенного кружочка поописать еще  чего-нибудь подобное?
+</font></P> <tt>
+<li type="disk">По умолчанию - (1)</li>
+<li type="circle">Полый кружок - (2)</li>
+<li type="square">Не будь таким квадратным - (3)</li><br><br>
+</tt>
+<font face="times new roman"><p align="JUSTIFY">
+У тэга &lt;li&gt; есть параметр type:</font></P> 
+<tt>
+В случае (1) - &lt;li type="disk"&gt;, <br>в случае (2) - &lt;li type="circle"&gt;, <br>в случае (3) - &lt;li type="square"&gt;.
+</tt><br><br>
+<font face="times new roman"><p align="JUSTIFY">
+Это один из вариантов. Если вы пользовались текстовыми редакторами (допустим Вордом), то бы знаете, что такое Табуляция (это когда вы жмете на кнопочку Tab и весь текст сдвигается в право). Похожая фунция есть и в хтмл:
+</font><br><br>
+<tt>&lt;ul&gt;Ваш текст&lt;/ul&gt;</tt><br><br>
+<font face="times new roman">
+Чтобы отступ (табуляция) был больше надо вкладывать тэг &lt;ul&gt; в самого себя:
+</font>
+<br><br><tt>
+&lt;ul&gt;&lt;ul&gt;Два отступа&lt;/ul&gt;&lt;/ul&gt;<br>
+&lt;ul&gt;&lt;ul&gt;&lt;ul&gt;Три отступа&lt;/ul&gt;&lt;/ul&gt;&lt;/ul&gt;
+</tt><br><br>
+<font face="times new roman">
+Зачем я завела разговор об этом тэге, вместо того, чтобы рассказать о том, что еще можно сделать со списками? Хм:) ну, у меня все со злым умыслом:</p>
+</font>
+<tt>
+<ul><li type="disk">Сдвиг один</li></ul>
+<ul><ul><li>Сдвиг другой</li></ul></ul>
+<ul><ul><ul><li>Сдвиг сякой</li></ul></ul></ul>
+
+</tt>
+<br><font face="times new roman"><p align="JUSTIFY">
+Хочу обратить ваше внимание, что это прописано без параметра type, но при помощи тэга &lt;ul&gt;:
+</font></p>
+
+
+<tt>
+&lt;ul&gt;&lt;li&gt;Сдвиг один&lt;/li&gt;&lt;/ul&gt;<br>
+&lt;ul&gt;&lt;ul&gt;&lt;li&gt;Сдвиг другой&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;<br>
+&lt;ul&gt;&lt;ul&gt;&lt;ul&gt;&lt;li&gt;Сдвиг сякой&lt;/li&gt;&lt;/ul&gt;&lt;/ul&gt;&lt;/ul&gt;<br>
+</tt><br><p align="JUSTIFY">
+<font face="times new roman">
+Я думала, что глава о списках получится короткой, но как видите ошиблась:). Если не устали, то переходите к следущей ступеньке, если устали, то отдохните чуток.
+<br><br>
+- <a href="http://html.manual.ru/book/html/body/lists.php" target="_blank">Списки (от Manual.ru)</a>
+<br>
+- <a href="http://pwd.boom.ru/html/2_html.htm" target="_blank">Списки (от Html - Начальный курс)</a>
+</p>
+
+<center><a href="13step2.html">Назад</a> | <a href="15step2.html">Шагнуть на следующую ступеньку</a></center></font>
+
+</td>
+
+	</tr>
+ </table>
+
+
+</body>
+</html>

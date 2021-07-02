@@ -1,0 +1,105 @@
+<html><head>
+
+
+
+
+
+
+<title>Контейнеры HTML-документа </title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4><i>Таги, характеризующие тип информации</h4></I>
+<p><table border=1> 
+<tr valign=top><th>Таг</th><th>Значение</th></TR>
+<tr valign=top><td>&lt;ЕМ&gt;... &lt;/ЕМ&gt;</td><td>
+Типографское усиление</td></TR>
+<tr valign=top><td>&lt;СIТЕ&gt;...&lt;/СIТЕ&gt;</td><td>
+Цитирование</td></TR>
+<tr valign=top><td>&lt; STRONG &gt;.&lt;/ STRONG &gt;</td><td>
+Усиление</td></TR>
+<tr valign=top><td>&lt;СODE&gt;... &lt;/СОDE&gt;</td><td>
+Отображает примеры кода (например, коды программ)</td></TR>
+<tr valign=top><td>&lt;SАМР&gt;... &lt;/SАМР&gt;</td><td>
+Последовательность литералов</td></TR>
+<tr valign=top><td>&lt;КВD&gt;... &lt;/КВD&gt;</td><td>
+Пример ввода символов с клавиатуры -</td></TR>
+<tr valign=top><td>&lt;VAR&gt;...&lt;/VAR&gt;</td><td>
+Переменная</td></TR>
+<tr valign=top><td>&lt;DFN&gt;... &lt;/DFN&gt;</td><td>
+Определение</td></TR>
+<tr valign=top><td>&lt;Q&gt;- &lt;/Q&gt;</td><td>
+Текст, заключенный в скобки</td></TR>
+</TABLE>
+<p align=justify>Все эти таги допускают вложенность и пересечение друг другом, поэтому все они имеют таг начала и конца. При использовании этих тагов следует помнить, что их отображение зависит от настроек программы-интерфейса пользователя, которые могут и не совпадать с настройками программы-разработчика гипертекста. Использование стилей, которые подменяют настройки интерфейса, в настоящий момент проблематично. 
+<i><P ALIGN="JUSTIFY">Пример 1.5. </i>Использование тагов, управляющих формой отображения.
+<pre>
+	&lt;HTML>
+	&lt;HEAD>
+	&lt;TITLE> Главная страница&lt;/TITLE>
+	&lt;/HEAD>
+	&lt;BODY>
+	&lt;H1 ALIGN=CENTER>Компания.&lt;/H1>
+	&lt;H3 ALIGN=LEFT>&lt;I>Открытое акционерное общество Компания осно-ванная в
+ 	1996 году, является одним из ведущих поставщиков  бытовой электроники в 
+	России.&lt;/I>&lt;/H3>
+	&lt;H3 ALIGN=RIGHT>&lt;B>Основными направлениями деятельности Компании 
+	являются&lt;/B>:
+	реализация бытовой электроники ведущих фирм мира через сеть магазинов; 
+	создание сервисных центров по обслуживанию бытовой электроники;&lt;/H3>
+	&lt;H3>&lt;U> Компания ищет агентов по сбыту  бытовой  электроники.&lt;/U>&lt;/H3>
+	&lt;H5 ALIGN=CENTER>&lt;TT>Контактная информация&lt;/TT>
+	&lt;DL>Telephone (123) 123-34-56
+	&lt;DL>FAX (123) 123-34-56
+	&lt;DL>Почтовый адрес 123456 г. Город, ул Лесная, 106
+	Электронная почта
+	&lt;DL>Общая информация: abc@abc.su
+	&lt;DL>Продажи: abc@abc.abc.su&lt;/DL>
+	Copyright © 1997 Компания&lt;/H5>
+	&lt;/BODY>
+	&lt;/HTML>
+</pre>
+<P ALIGN="CENTER"><IMG SRC="_pic_/image400.gif">
+<i><P ALIGN="CENTER">Рис. 1.5. Таги отображения стилей текста</i>
+<h4><i>Таг &lt;DL&gt;</i></h4>
+<P ALIGN="JUSTIFY">Использование тага списка (Definition List: &lt;DL&gt;) напоминает применение отступов в обычных текстовых редакторах. Таг &lt;DL&gt; был создан для форматирования текста, определяющего какой-то термин. Определяемый термин записывается на одной строке, а его определение на следующей, с небольшим отступом вправо. Таг &lt;DL&gt; позволяет создавать отдельные абзацы с отступом без нумерации или маркеров. Отступ делается от левого края. Если у вас на странице несколько тагов &lt;DL&gt;, то текст постепенно сдвигается все больше вправо. В конце определения поместите закрывающий таг &lt;/DL&gt;. Помните, что таг &lt;DL&gt; сдвигает только левую границу абзаца. 
+<p><center><p>
+<font size=-1>
+<a href="glava1~6.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava1~8.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

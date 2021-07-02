@@ -1,0 +1,75 @@
+<html><head>
+
+
+
+
+
+
+<title> Массивы</title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4>2.4. Массивы</h4>
+<P ALIGN="JUSTIFY">Первый тип новых объектов, которые мы рассмотрим, являются массивы. Тип "Array" введен в JavaScript 1.1 для возможности манипулирования самыми разными объектами, которые отображаются Navigator'ом. Это - список всех гипертекстовых ссылок данной страницы Website, список всех картинок на данной странице, список всех applet'ов данной страницы, список всех элементов формы и т.п. Пользователь может создать и свой собственный массив, используя конструктор Array(). Делается это следующим образом:
+<pre>
+	new_array = new Array()
+	new_array5 = new Array(5)
+	colors = new Array ("red","white","blue")</Pre>
+<P ALIGN="JUSTIFY">Размерность массива может динамически изменяться. Можно сначала определить массив, а потом присвоить одному из его элементов значение. Как только это значение будет присвоено, изменится и размерность массива:
+<pre>
+	colors = new Array()
+	colors[5] = "red"</Pre>
+<P ALIGN="JUSTIFY">В данном случае массив будет состоять из 6 элементов, т.к. первым элементом массива считается элемент с индексом 0. Для массивов определены три метода: join, reverse, sort. Join объединяет элементы массива в строку символов, в качестве аргумента в этом методе задается разделитель:
+<pre>
+	colors = new Array("red","white","blue")
+	string = acolors.join("+")</Pre>
+<P ALIGN="JUSTIFY">В результате выполнения присваивания значения строке символов string мы получим следующую строку:
+<pre>
+	string = "red + white + blue"</Pre>
+<P ALIGN="JUSTIFY">Другой метод, reverse, изменяет порядок элементов массива на обратный, а метод sort отсортировывает их в порядке возрастания. У массивов есть два свойства: length и prototype. Length определяет число элементов массива. Если нужно выполнить некоторую рутинную операцию над всеми элементами массива, то можно воспользоваться циклом типа:
+<pre>
+	color = new Array("red","white","blue")
+	n = 0
+	while(n != colors.length)
+	{.... операторы тела цикла ...}</Pre>
+<P ALIGN="JUSTIFY">Свойство prototype позволяет добавить свойства к объектам массива. Однако наиболее часто, в программе на JavaScript используются встроенные массивы, главным образом графические образы (Images) и гипертекстовые ссылки (Links).
+<p><center><p>
+<font size=-1>
+<a href="glava2_3.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava2_5.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

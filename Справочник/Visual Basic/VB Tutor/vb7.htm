@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB Tutorial -> Часть #7</title>
+</head>
+<style> body {scrollbar-3dlight-color:white; scrollbar-arrow-color:white; scrollbar-base-color:black;scrollbar-darkshadow-color:black;scrollbar-track-color:#000000;scrollbar-highlight-color:black;scrollbar-shadow-color:white}
+a {text-decoration:none;color:white}
+a:hover {text-decoration:underline}
+</style>
+
+
+
+</head>
+
+<body bgcolor="#000000">
+
+<script language = "javascript">
+window.status = "CopyLeft (v) Loginov Vladimir"
+</script>
+
+<left><A Href="index.htm"><img src="logocb.jpg" alt="Мастерская Visual Basic" border="0"></A></left>
+
+<table width="100%" bordercolor="#ffffff" align="center" cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td width="150" align="left" valign="top"><table cellspacing="0" cellpadding="3" border="0">
+<tr>
+<td> <A Href="vb1.htm"><img src="arrow.gif" alt="Часть #1" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb1.htm">Часть #1</a></font></td>
+</tr>
+<tr>
+<td><a href="vb2.htm"><img src="arrow.gif" alt="Часть #2" border="0"></a></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb2.htm">Часть #2</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb3.htm"><img src="arrow.gif" alt="Часть #3" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><A Href="vb3.htm">Часть #3</A></font></td>
+</tr>
+<tr>
+<td><A Href="vb5.htm"><img src="arrow.gif" alt="Часть #4" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb4.htm">Часть #4</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb5.htm"><img src="arrow.gif" alt="Часть #5" border="0"></A></td>
+<td><a href="vb5.htm"><font face="Courier New,Arial,Verdana">Часть #5</a></font></td>
+</tr>
+<td><A Href="vb6.htm"><img src="arrow.gif" alt="Часть #6" border="0"></A></td>
+<td><font size="3" size="3" face="Courier New,Arial,Verdana"><a href="vb6.htm">Часть #6</a></font></td>
+<tr>
+<td><img src="arrow.gif" alt="Часть #7" border="0"></td>
+<td><font size="3" color="gray" face="Courier New,Arial,Verdana">Часть #7</font></td>
+<tr>
+<td><A Href="api.htm"><img src="arrow.gif" alt="API" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="api.htm">API</a></font></td>
+<tr>
+<td><A Href="author.htm"><img src="arrow.gif" alt="Автор" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="author.htm">Автор</a></font></td>
+
+
+
+
+</table>
+</td>
+<td align="left" valign="top">
+<table cellspacing="2" cellpadding="2" border="0" align="left" valign="top">
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">
+<img src="arrow.gif" alt="не для слабаков" border="0">&nbsp;не для слабаков.
+<br>Эта часть наиболее серьёзная - для разработки хороших программ мало знать чистый VB - надо знать и API декларации, уметь их объявлять и так далее и тому подобное...
+<br>
+<br><img src="arrow.gif" alt="Модули: введение" border="0"> Модули: введение
+<br>Модули нужны для объявления глобальных переменных и констант, т. е. таких, которые будут использоваться во всём проекте, во всех его частях.
+<br>Существует два способо объявления - /Private/, /Public/, первый нужен для объвления переменных в самом модуле, а второй для объявления глобальных переменных.
+<br>Создаётся модуль очень просто, как и новая форма: щёлкни правой кнопкой мыши на плане проекта и выбери [Добавить] -> [Модуль]. Всё, ты создал модуль.
+<br>Давай сделаем прогу с двумя формами, на каждой форме по кнопке, на первой будет складывать переменные, а на второй отнимать первую от второй.
+<br>Создай модуль и ещё одну форму, на формах расположи по кнопке. Код который должен получится:
+<br>
+<br><font face="Courier New">Для модуля:
+<br>
+<br>Public a As Integer 'глобальная переменная a
+<br>Public b As Integer 'глобальная переменная b
+<br>
+<br>Для первой формы:
+<br>
+<br>Private Sub Command1_Click()
+<br>MsgBox a + b, 64, "Сложение"
+<br>End Sub
+<br>
+<br>Private Sub Form_Load()
+<br>Form2.Show
+<br>a = 7
+<br>b = 3
+<br>End Sub
+<br>
+<br>Для второй формы:
+<br>
+<br>Private Sub Command1_Click()
+<br>MsgBox a - b, 64, "Вычитание"
+<br>End Sub</font>
+<br>
+<br>Вот и весь пример.
+<br>
+<br>{<A Href="module.zip">исходный файл</A>}
+<br>
+<br><img src="arrow.gif" alt="Изучаем API" border="0"> Изучаем API
+<br>VB бывает просто не под силу справиться с некоторыми проблемами - в этом помогают API декларации. В Форточках API около десятка тысяч, но многие из них просто не нужны. В комплекте с VB устанавливается программа /API Text Viewer/ - она предназначена для просмотра API деклараций, и иногда бывает просто незаменима.
+<br>Мы не зря учились работать с модулями, так как API с префиксом /Public/ можно создавать только в модулях.
+<br>Я не буду писать как переместить курсор назаданную позицию - это и многое другое ты найдёшь в разделе <A Href="api.htm">API</A>.
+<br>
+<br><img src="arrow.gif" alt="Манипуляторы окна" border="0"> Манипуляторы окна
+<br>Каждый объект это окно, будь то ткстовое поле или кнопка, система классифицирует их (текстовое поле - EDIT, кнопка - BUTTON и т. д.). У каждого объекта в системе есть манипулятор окна - сокращённо он обозначается как /hWnd/.
+<br>Сейчас мы напишем прогу, которая ищет окно по его заголовку, а затем изменяет его.
+<br>Размести на форме два текстовых поля и кнопку; введи следующий код:
+<br>
+<br><font face="Courier New">Option Explicit
+<br>Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String, ByVal lpWindowName As String) As Long 'функция для поиска окна первого уровня
+<br>Private Declare Function SetWindowText Lib "user32" Alias "SetWindowTextA" (ByVal hwnd As Long, ByVal lpString As String) As Long 'функция для изменения заголовка окна
+<br>
+<br>Private Sub Command1_Click()
+<br>Dim hwn As Long 'ищем окно по его заголовку
+<br>hwn = FindWindow(vbNullString, Text1) 'изеняем заголовок окна
+<br>SetWindowText hwn, Text2
+<br>End Sub</font>
+<br>
+<br>Вот и с этим немного разобрались.
+<br>
+<br>{<A Href="hwnd.zip">исходный файл</A>}
+<br>
+<br><img src="arrow.gif" alt="Создаём DLL" border="0"> Создаём DLL
+<br>Ты наверное не раз встречался с dll файлами.
+<br>DLL (Dynamic Link Library) - библиотека процедур и функций, которыми могут пользоваться программы.
+<br>Давай сделаем прогу, которая будет вызывать процедуры из dll.
+<br>Сделай стандартный проект. В этом проекте будут тестироваться созданные в DLL проекте функции. Затем добавьте новый проект - ActiveX DLL: [Файл] -> [Добавить] -> [ActiveX DLL]. В простейшем случае проект ActiveX DLL состоит из одного модуля класса. По сути, модуль класса представляет собой объект, включающий свойства, методы и события. Теперь придумаем название DLL проекту. В плане проекта выберете /Project2/. В окне свойств введите имя TestDLL. Подключим эту библиотеку к первому проекту. Перейди к первому проекту кликнув два раза по /Project1/ в плане. Выбери [Проект] -> [Ссылки] в главном меню. 
+<br>В открывшемся окне поставь галочку напротив нашего /TestDLL/. Теперь в этот класс напиши следующее:
+<br>
+<br><font face="Courier New">Public Function Sum(ByVal a As Integer, ByVal b As Integer) As Integer
+<br>Sum = a + b
+<br>End Function</font>
+<br>                         
+<br>Теперь вызовем эту функцию из формы:
+<br>
+<br><font face="Courier New">Private Sub Form_Load()
+<br>Dim Class As New Class1
+<br>MsgBox Class.Sum(7, 3)
+<br>End Sub</font>
+<br>
+<br>В сообщении при загрузке формы появиться /10/.
+<br>Библиотеки могут использоваться всеми программами, компиляторы которых поддерживающие ActiveX.
+<br>Библиотека компилируется также, как и проект.
+<br>
+<br>Ну вот ты и дочитал учебник, если что будет не в порядке - <A Href="mailto:web-svalka@narod.ru">пиши</A>.
+
+</font></td>   
+</tr>          
+</td>          
+</table>       
+               
+</body>        
+</html>        

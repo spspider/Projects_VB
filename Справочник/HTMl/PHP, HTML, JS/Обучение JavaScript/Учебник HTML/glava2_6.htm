@@ -1,0 +1,57 @@
+<html><head>
+
+
+
+
+
+
+<title> Стеки гипертекстовых ссылок</title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4>2.6. Стеки гипертекстовых ссылок</h4>
+<P ALIGN="JUSTIFY">Не обошли своим внимание авторы JavaScript и стеки гипертекстовых ссылок. В язык теперь введен новый тип объектов типа Area. Area - это элемент контейнера MAP, который определяет client-site imagemap. Собственно, главное достоинство такого объекта состоит в том, что гипертекстовые ссылки, которые определены в AREA, стали доступны для переопределения. Они появляются в массиве обычных ссылок страницы, и можно как получить значение URL, так и переопределить его. К объекту AREA нельзя обратиться по имени. Можно использовать только индекс массива гипертекстовых ссылок документа.
+<P ALIGN="JUSTIFY">В контексте стека гипертекстовых ссылок интересно рассмотреть еще одну возможность JavaScript, связанную с переходом по гипертекстовой ссылке вообще. В обычном случае параметр HREF контейнера A должен иметь какое-нибудь значение. Если, например, по событию onClick необходимо открыть новое окно и в старом сохранить отображенный документ, то его URL следует указывать в качестве значения HREF. В противном случае, в старое окно будет загружена пустая страница, если HREF=" ". В новой версии JavaScript введена функция void. Точнее тип void, который означает отсутствие какого-либо значения. Если нам необходимо выполнить некоторые действия при выборе гипертекстовой ссылки, но при этом не перегружать текущие страницы, то в параметре HREF можно указать конструкцию:
+<pre>
+	&lt;A HREF="javascript:void(0)"&gt;kuku&lt;/A&gt;</Pre>
+<P ALIGN="JUSTIFY">Таким приемом часто пользуются при программировании событий, связанных с проходом манипулятора мыши через поле гипертекстовой ссылки.
+<p><center><p>
+<font size=-1>
+<a href="glava2_5.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava2_7.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

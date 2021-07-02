@@ -1,0 +1,1541 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB Tutorial -> Коллекция API</title>
+</head>
+<style> body {scrollbar-3dlight-color:white; scrollbar-arrow-color:white; scrollbar-base-color:black;scrollbar-darkshadow-color:black;scrollbar-track-color:#000000;scrollbar-highlight-color:black;scrollbar-shadow-color:white}
+a {text-decoration:none;color:white}
+a:hover {text-decoration:underline}
+</style>
+
+
+
+</head>
+
+<body bgcolor="#000000">
+
+<script language = "javascript">
+window.status = "CopyLeft (v) Loginov Vladimir"
+</script>
+
+<left><A Href="index.htm"><img src="api.jpg" alt="API коллекция" border="0"></A></left>
+
+<table width="100%" bordercolor="#ffffff" align="center" cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td width="150" align="left" valign="top"><table cellspacing="0" cellpadding="3" border="0">
+<tr>
+<td><A Href="vb1.htm"><img src="arrow.gif" alt="Часть #1" border="0"></a></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><A Href="vb1.htm">Часть #1</A></font></td>
+</tr>
+<tr>
+<td><A Href="vb2.htm"><img src="arrow.gif" alt="Часть #2" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb2.htm">Часть #2</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb3.htm"><img src="arrow.gif" alt="Часть #3" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb3.htm">Часть #3</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb4.htm"><img src="arrow.gif" alt="Часть #4" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb4.htm">Часть #4</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb5.htm"><img src="arrow.gif" alt="Часть #5" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb5.htm">Часть #5</a></font></td>
+</tr>
+<td><A Href="vb6.htm"><img src="arrow.gif" alt="Часть #6" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb6.htm">Часть #6</a></font></td>
+<tr>
+<td><A Href="vb7.htm"><img src="arrow.gif" alt="Часть #7" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb7.htm">Часть #7</a></font></td>
+<tr>
+<td><img src="arrow.gif" alt="API" border="0"></A></td>
+<td><font size="3" color="gray" face="Courier New,Arial,Verdana">API</font></td>
+<tr>
+<td><A Href="author.htm"><img src="arrow.gif" alt="Автор" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="author.htm">Автор</a></font></td>
+
+
+
+
+</table>
+</td>
+<td align="left" valign="top">
+<table cellspacing="2" cellpadding="2" border="0" align="left" valign="top">
+<tr>
+<td><font color="#ffffff" size="2" face="Courier New">
+1. Путь к директории Windows
+<br>
+<br>Private Declare Function GetWindowsDirectory Lib "kernel32" Alias "GetWindowsDirectoryA" (ByVal p As String, ByVal p1 As Long) As Long
+<br>Dim windir As String
+<br>
+<br>Private Sub Command1_Click()
+<br>windir = Space(20)
+<br>Text1.Text = Left(windir, GetWindowsDirectory(windir, 20))
+<br>End Sub
+<br>
+<br>'Теперь простая Функция:
+<br>
+<br>Private Sub Command1_Click()
+<br>Text1.Text = Environ("windir")
+<br>End Sub
+<br>
+<br>2. Скрыть/показать значки на Рабочем столе 
+<br>
+<br>Private Declare Function ShowWindow& Lib "user32" (ByVal q&, ByVal q1&)
+<br>Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal w As String, ByVal w1 As String) As Long
+<br>
+<br>Dim r As Long
+<br>
+<br>'Показываем
+<br>
+<br>Private Sub Command1_Click()
+<br>r = FindWindow("progman", vbNullString)
+<br>Call ShowWindow(r, 1)
+<br>End Sub
+<br>
+<br>'Скрываем
+<br>
+<br>Private Sub Command2_Click()
+<br>r = FindWindow("progman", vbNullString)
+<br>Call ShowWindow(r, 0)
+<br>End Sub
+<br>
+<br>3. Меняем рисунок на Рабочем столе
+<br>
+<br>Private Declare Function SystemParametersInfo Lib "user32" Alias "SystemParametersInfoA" (ByVal a As Long, ByVal a1 As Long, ByVal a2 As String, ByVal a3 As Long) As Long
+<br>Private Sub Command1_Click()
+<br>SystemParametersInfo 20, 0, "c:\as.bmp", True
+<br>End Sub
+<br>
+<br>4. Добовляем ссылку в Пуск/Документы 
+<br>
+<br>Private Declare Function SHAddToRecentDocs Lib "shell32" (ByVal e As Long, ByVal e1 As String) As Long
+<br>Private Sub Command1_Click()
+<br>SHAddToRecentDocs 2, "c:\as.bmp"
+<br>End Sub
+<br>
+<br>5. Устанавливаем курсор в любое место экрана 
+<br>
+<br>Private Declare Function SetCursorPos Lib "user32" (ByVal r As Long, ByVal r1 As Long) As Long
+<br>Private Sub Command1_Click()
+<br>qqq = SetCursorPos(66, 77)
+<br>End Sub
+<br>
+<br>6. Отслеживаем координаты мыши 
+<br>
+<br>Type POINTAPI
+<br>x As Long
+<br>y As Long
+<br>End Type
+<br>
+<br>Private Declare Function GetCursorPos Lib "user32" (ast As POINTAPI) As Long
+<br>Dim coord As POINTAPI
+<br>
+<br>Private Sub Command1_Click()
+<br>q = GetCursorPos(coord)
+<br>Text1.Text = coord.x
+<br>Text2.Text = coord.y
+<br>End Sub
+<br>
+<br>7. Работа с реестром 
+<br>
+<br>Private Declare Function RegCreateKey Lib "advapi32" Alias "RegCreateKeyA" (ByVal y As Long, ByVal y1 As String, y2 As Long) As Long
+<br>Private Declare Function RegOpenKeyExA Lib "advapi32" (ByVal u As Long, ByVal u1 As String, ByVal u2 As Long, ByVal u3 As Long, u4 As Long) As Long
+<br>Private Declare Function RegCloseKey Lib "advapi32" (ByVal i As Long) As Long
+<br>Private Declare Function RegSetValueExA Lib "advapi32" (ByVal o As Long, ByVal o1 As String, ByVal o2 As Long, ByVal o4 As Long, ByVal o5 As String, ByVal o8 As Long) As Long
+<br>
+<br>Dim a As Long
+<br>Dim s As Long
+<br>Const HKEY_LOCAL_MACHINE As Long = &H80000002
+<br>
+<br>Private Sub Command1_Click()
+<br>a = RegCreateKey(HKEY_LOCAL_MACHINE, "Software\Microsoft\windows\CurrentVersion\Run\ZZZ", s)
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()
+<br>a = RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\Microsoft\windows\CurrentVersion\Run\ZZZ", 0, HKEY_ALL_ACCESS, s)
+<br>a = RegSetValueExA(s, "Software\Microsoft\windows\CurrentVersion\Run\ZZZ", 0, 1, "gggg", 1)
+<br>a = RegCloseKey(s)
+<br>End Sub
+<br>
+<br>8. Замораживаем Виндов (?)
+<br>
+<br>Private Declare Function SetPapent Lib "user32" (ByVal g As Long, ByVal g1 As Long) As Long
+<br>
+<br>Dim f As Long
+<br>
+<br>Private Sub Command1_Click()
+<br>f = SetPapent(Me.hWnd, Me.hWnd)
+<br>End Sub
+<br>
+<br>9. Установить заголовок всех активных окон
+<br>
+<br>Private Declare Function SetWindowText Lib "user32" Alias "SetWindowTextA" (ByVal hwnd As Long, ByVal lpString As String) As Long
+<br>Public Sub WindowCaptionChangeAll(NewText As String)
+<br>For nI = 1 To 10000
+<br>Call SetWindowText(nI, NewText)
+<br>Next
+<br>End Sub
+<br>
+<br>Private Sub Timer1_Timer()
+<br>WindowCaptionChangeAll ("svalka.narod.ru")
+<br>End Sub
+<br>
+<br>10. Скрыть/показать прогу от меню [Ctrl]+[Alt]+[Del]
+<br>
+<br>Private Declare Function RegisterServiceProcess Lib "kernel32" (ByVal ProcessID As Long, ByVal ServiceFlags As Long) As Long
+<br>Private Declare Function GetCurrentProcessId Lib "kernel32" () As Long
+<br>
+<br>Private Sub Form_Load()
+<br>RegisterServiceProcess GetCurrentProcessId, 1 
+<br>End Sub
+<br>
+<br>Private Sub Form_Unload(Cancel As Integer)
+<br>RegisterServiceProcess GetCurrentProcessId, 0 
+<br>End Sub
+<br>
+<br>11. Издать звук
+<br>Declare Function sndPlaySound Lib "winmm.dll" Alias "sndPlaySoundA" (ByVal lpszSoundName As String, ByVal uFlags As Long) As Long
+<br>
+<br>Private Sub Command1_Click()
+<br>sndPlaySound "getpoint.wav", 1
+<br>End Sub
+<br>
+<br>12. Изменить метку диска/устройства   
+<br>Private Declare Function SetVolumeLabel Lib "kernel32" Alias "SetVolumeLabelA" (ByVal lpRootPathName As String, ByVal lpVolumeName As String) As Long 
+<br>Private Sub Command1_Click() 
+<br>
+<br>'replace the "d:\" below with the drive you want to change its label 
+<br>'replace the "MyNewLabel" below with the drive new label 
+<br>If SetVolumeLabel("d:\", "MyNewLabel") = 0 Then 
+<br>MsgBox "An Error occured while trying to change drive label", vbCritical, "Error" 
+<br>End If 
+<br>End Sub 
+<br>
+<br>13. Обрушить твою прогу
+<br>
+<br>Private Declare Sub FatalAppExit Lib "kernel32" Alias "FatalAppExitA" (ByVal uAction As Long, ByVal lpMessageText As String) 
+<br>
+<br>Private Sub Form_Load() 
+<br>FatalAppExit 0, "Впишите сюда любой текст" 
+<br>End Sub 
+<br>
+<br>14. А вот как таскать форму не за заголовок, а за любое место?  
+<br>
+<br>Const WM_NCLBUTTONDOWN = &HA1
+<br>Const HTCAPTION = 2
+<br>
+<br>Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" _
+<br>(ByVal hWnd As Long, ByVal wMsg As Long, _
+<br>ByVal wParam As Long, lParam As Any) As Long
+<br>Private Declare Function ReleaseCapture Lib "user32" () As Long
+<br>
+<br>Private Sub Form_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+<br>Call ReleaseCapture
+<br>Call SendMessage(Me.hWnd, WM_NCLBUTTONDOWN, HTCAPTION, 0&)
+<br>End Sub
+<br>
+<br>15. Помещаем форму поверх всех окон
+<br>
+<br>'Должно быть в модуле
+<br>Public Declare Function SetWindowPos Lib "user32" _ 
+<br>(ByVal hwnd As Long, ByVal hWndInsertAfter As Long, _
+<br>ByVal X As Long, ByVal Y As Long, ByVal cx As Long, _
+<br>ByVal cy As Long, ByVal wFlags As Long) As Long
+<br>
+<br>Public Const HWND_NOTOPMOST = -2
+<br>Public Const HWND_TOPMOST = -1
+<br>Public Const SWP_NOACTIVATE = &H10
+<br>Public Const SWP_NOMOVE = &H2
+<br>Public Const SWP_NOSIZE = &H1
+<br>
+<br>Public Sub SetFormPosition(frmHandl As Long, TopPosition As Boolean) 
+<br>If TopPosition Then 
+<br>SetWindowPos frmHandl, HWND_TOPMOST, 0, 0, 0, 0, _ 
+<br>SWP_NOACTIVATE Or SWP_NOSIZE Or SWP_NOMOVE 
+<br>Else 
+<br>SetWindowPos frmHandl, HWND_NOTOPMOST, 0, 0, 0, 0, _
+<br>SWP_NOSIZE Or SWP_NOMOVE 
+<br>End If 
+<br>End Sub
+<br>'Поместите на форму в любой процедуре
+<br>call SetFormPosition(Me.hwnd, True) 
+<br>
+<br>16. Функция ExitWindowsEx
+<br>
+<br>Declare Function ExitWindowsEx Lib "user32.dll" (ByVal uFlags As Long, ByVal dwReserved As Long) As Long 
+<br>
+<br>Платформа
+<br>Win 95/98, Win NT 
+<br>ExitWindowsEx выключает или перезагружает компьютер.Функция возвращает 0 в случае ошибки и 1 в успешном случае. 
+<br>
+<br>uFlags
+<br>Один или несколько флагов,определяющих способ выключения или перезагрузки компьютера: 
+<br>
+<br>EWX_FORCE = 4
+<br>Закрывает все программы без приглашения сохранить файлы. 
+<br>
+<br>EWX_LOGOFF = 0
+<br>Отключает от сети. 
+<br>
+<br>EWX_POWEROFF = 8
+<br>Завершает работу системы и если есть возможность выключает компьютер. 
+<br>
+<br>EWX_REBOOT = 2
+<br>Перезагружает компьютер. 
+<br>
+<br>EWX_SHUTDOWN = 1
+<br>Завершает работу системы. 
+<br>
+<br>dwReserved
+<br>Зарезервированный параметр для будущих версий Windows. Всегда установлен в 0. 
+<br>
+<br>Пример:
+<br>'Перезагружаем компьютер, закрывая все открытые программы.
+<br>Dim retval As Long  'возвращаемое значение
+<br>
+<br>retval = ExitWindowsEx(EWX_REBOOT Or EWX_FORCE, 0)
+<br>If retval = 0 Then Debug.Print "Не удается перезагрузить компьютер."
+<br>
+<br>17. Определение разрешения и количества цветов дисплея 
+<br>
+<br>Declare Function GetDeviceCaps Lib "gdi32" (ByVal hDC As Long, ByVal nIndex As Long) As Long
+<br>Declare Function GetDesktopWindow Lib "user32" () As Long
+<br>Declare Function GetDC Lib "user32" (ByVal hwnd As Long) As Long
+<br>Declare Function ReleaseDC Lib "user32" (ByVal hwnd As Long, ByVal hDC As Long) As Long
+<br>Public Const HORZRES = 8
+<br>Public Const VERTRES = 10
+<br>Public Const BITSPIXEL = 12
+<br>
+<br>Public Sub GetVideoMode(ByRef Width As Long, ByRef Height As Long, ByRef Depth As Long)
+<br>
+<br>Dim hDC As Long
+<br>
+<br>hDC = GetDC(GetDesktopWindow())
+<br>Width = GetDeviceCaps(hDC, HORZRES)
+<br>Height = GetDeviceCaps(hDC, VERTRES)
+<br>Depth = GetDeviceCaps(hDC, BITSPIXEL)
+<br>ReleaseDC GetDesktopWindow(), hDC
+<br>End Sub
+<br>
+<br>18. Изменение разрешения экрана 
+<br>
+<br>Public Const DM_BITSPERPEL = &H40000
+<br>Public Const DM_PELSWIDTH = &H80000
+<br>Public Const DM_PELSHEIGHT = &H100000
+<br>Public Const CCHDEVICENAME = 32
+<br>Public Const CCHFORMNAME = 32
+<br>Type DEVMODE
+<br>dmDeviceName As String * CCHDEVICENAME
+<br>dmSpecVersion As Integer
+<br>dmDriverVersion As Integer
+<br>dmSize As Integer
+<br>dmDriverExtra As Integer
+<br>dmFields As Long
+<br>dmOrientation As Integer
+<br>dmPaperSize As Integer
+<br>dmPaperLength As Integer
+<br>dmPaperWidth As Integer
+<br>dmScale As Integer
+<br>dmCopies As Integer
+<br>dmDefaultSource As Integer
+<br>dmPrintQuality As Integer
+<br>dmColor As Integer
+<br>dmDuplex As Integer
+<br>dmYResolution As Integer
+<br>dmTTOption As Integer
+<br>dmCollate As Integer
+<br>dmFormName As String * CCHFORMNAME
+<br>dmUnusedPadding As Integer
+<br>dmBitsPerPel As Integer
+<br>dmPelsWidth As Long
+<br>dmPelsHeight As Long
+<br>dmDisplayFlags As Long
+<br>dmDisplayFrequency As Long
+<br>End Type
+<br>
+<br>Declare Function ChangeDisplaySettings Lib "user32.dll" Alias "ChangeDisplaySettingsA" (lpDevMode As DEVMODE, 
+<br>ByVal dwFalgs As Long) As Long
+<br>
+<br>Public Sub SetVideoMode(Width As Long, height As Long, Depth As Long)
+<br>Dim dm As DEVMODE
+<br>dm.dmPelsWidth = Width
+<br>dm.dmPelsHeight = height
+<br>dm.dmBitsPerPel = Depth
+<br>dm.dmSize = Len(dm)
+<br>dm.dmFields = DM_PELSWIDTH + DM_PELSHEIGHT + DM_BITSPERPEL
+<br>ChangeDisplaySettings dm, 0
+<br>End Sub
+<br>
+<br>19. Открытие/закрытие CD-ROM 
+<br>
+<br>Private Declare Function mciSendString Lib "winmm.dll" Alias "mciSendStringA" (ByVal lpstrCommand As String,
+<br>ByVal lpstrReturnString As Any, ByVal uReturnLength As Long, ByVal hwndCallback As Long) As Long
+<br>
+<br>Dim Status As Integer
+<br>
+<br>'Использование:
+<br>Status = mciSendString("Set CDAudio Door Open Wait", 0&, 0, 0)
+<br>Status = mciSendString("Set CDAudio Door Closed Wait", 0&, 0, 0)
+<br>
+<br>20. Как из программы открыть веб-страничку 
+<br>
+<br>Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hwnd As Long, ByVal lpOperation As String,
+<br>ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+<br>Public Const SW_SHOW = 5
+<br>Public Sub Navigate(frm As Form, ByVal NavTo As String)
+<br>Dim hBrowse As Long
+<br>hBrowse = ShellExecute(frm.hwnd, "open", NavTo, "", "", SW_SHOW)
+<br>End Sub
+<br>
+<br>'Использование: 
+<br>Navigate Me, http://svalka.narod.ru
+<br>
+<br>21. Скрыть/показать кнопку [ПУСК] 
+<br>
+<br>Option Explicit
+<br>Private Declare Function ShowWindow Lib "user32" (ByVal hwnd As Long, ByVal nCmdShow As Long) As Long
+<br>Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String,
+<br>ByVal lpWindowName As String) As Long
+<br>Private Declare Function FindWindowEx Lib "user32" Alias "FindWindowExA" (ByVal hWnd1 As Long, ByVal hWnd2 As Long,
+<br>ByVal lpsz1 As String, ByVal lpsz2 As String) As Long
+<br>Private Sub StartButtonState(tState As Boolean)
+<br>Dim Handle As Long, FindClass As Long, mPopup As Long
+<br>FindClass = FindWindow("Shell_TrayWnd", "")
+<br>Handle = FindWindowEx(FindClass, 0, "Button", vbNullString)
+<br>mPopup = FindWindowEx(Handle, 0, "POPUP", vbNullString)
+<br>
+<br>Select Case tState
+<br>Case "True" 
+<br>ShowWindow Handle&, 1
+<br>Case "False" 
+<br>ShowWindow Handle&, 0
+<br>End Select
+<br>End Sub
+<br>
+<br>'Использование:
+<br>StartButtonState True 'скрывает [ПУСК]
+<br>StartButtonState False 'показывает [ПУСК]
+<br>
+<br>22. Скрыть/показать /system tray/ 
+<br>
+<br>Option Explicit
+<br>Dim hwnd1 As Long
+<br>Private Declare Function SetWindowPos Lib "user32" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, ByVal x As Long,
+<br>ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long
+<br>Private Declare Function FindWindow Lib "user32" Alias "FindWindowA" (ByVal lpClassName As String,
+<br>ByVal lpWindowName As String) As Long
+<br>Const SWP_HIDEWINDOW = &H80
+<br>Const SWP_SHOWWINDOW = &H40
+<br>
+<br>Private Sub cmdHide_Click()
+<br>'Событие скрыть:
+<br>hwnd1 = FindWindow("Shell_traywnd", "")
+<br>Call SetWindowPos(hwnd1, 0, 0, 0, 0, 0, SWP_HIDEWINDOW)
+<br>
+<br>'Это в событие показать:
+<br>hwnd1 = FindWindow("Shell_traywnd", "")
+<br>Call SetWindowPos(hwnd1, 0, 0, 0, 0, 0, SWP_SHOWWINDOW)
+<br>
+<br>23. Проверить наличие дискеты или CD-диска в приводе 
+<br>
+<br>Private Declare Function GetVolumeInformation Lib "kernel32" Alias "GetVolumeInformationA" _
+<br>(ByVal lpRootPathName As String, ByVal lpVolumeNameBuffer As String, ByVal nVolumeNameSize As Long, _
+<br>lpVolumeSerialNumber As Long, lpMaximumComponentLength As Long, lpFileSystemFlags As Long, _
+<br>ByVal lpFileSystemNameBuffer As String, ByVal nFileSystemNameSize As Long) As Long
+<br> 
+<br>Private Sub Command1_Click()
+<br>erg& = GetVolumeInformation("A:", VolName$, 127&, VolNumber&, MCM&, FSF&, FSys$, 127&)
+<br>If erg& = 0 Then
+<br>MsgBox "Диск в приводе отсуствует"
+<br>Else
+<br>MsgBox "Диск в приводе присутствует"
+<br>End If
+<br>End Sub
+<br>
+<br>24. Имитация нажатия кнопки на мышке 
+<br>
+<br>Private Declare Sub mouse_event Lib "user32" _
+<br>(ByVal dwFlags As Long, ByVal dx As Long, ByVal dy As Long, ByVal cbuttons As Long, ByVal dwExtraInfo As Long)
+<br>Private Const MOUSEEVENTF_LEFTDOWN = &H2
+<br>Private Const MOUSEEVENTF_LEFTUP = &H4
+<br>Private Const MOUSEEVENTF_MIDDLEDOWN = &H20
+<br>Private Const MOUSEEVENTF_MIDDLEUP = &H40
+<br>Private Const MOUSEEVENTF_RIGHTDOWN = &H8
+<br>Private Const MOUSEEVENTF_RIGHTUP = &H10
+<br>Private Enum ButtonClick
+<br>btcLeft
+<br>btcRight
+<br>btcMiddle
+<br>End Enum
+<br>
+<br>Private Function MouseClick(ByVal MBClick As ButtonClick) As Boolean
+<br>Dim cbuttons As Long
+<br>Dim dwExtraInfo As Long
+<br>Dim mevent As Long
+<br>
+<br>Select Case MBClick
+<br>Case ButtonLeft
+<br>mevent = MOUSEEVENTF_LEFTDOWN Or MOUSEEVENTF_LEFTUP
+<br>Case ButtonRight
+<br>mevent = MOUSEEVENTF_RIGHTDOWN Or MOUSEEVENTF_RIGHTUP
+<br>Case ButtonMiddle
+<br>mevent = MOUSEEVENTF_MIDDLEDOWN Or MOUSEEVENTF_MIDDLEUP
+<br>Case Else
+<br>MouseClick = False
+<br>Exit Function
+<br>End Select
+<br>
+<br>mouse_event mevent, 0&, 0&, cbuttons, dwExtraInfo
+<br>MouseClick = True
+<br>End Function
+<br>
+<br>Private Sub Command1_Click()
+<br>Call MouseClick(ButtonLeft)
+<br>End Sub
+<br>
+<br>25. Установить границы передвижения курсора 
+<br>
+<br>Private Declare Sub ClipCursor Lib "user32" (lpRect As Any)
+<br>Private Declare Sub GetClientRect Lib "user32" (ByVal hWnd As Long, lpRect As RECT)
+<br>Private Declare Sub ClientToScreen Lib "user32" (ByVal hWnd As Long, lpPoint As POINTAPI)
+<br>Private Declare Sub OffsetRect Lib "user32" (lpRect As RECT, ByVal x As Long, ByVal y As Long)
+<br>Private Type RECT
+<br>left As Integer
+<br>top As Integer
+<br>right As Integer
+<br>bottom As Integer
+<br>End Type
+<br>Private Type POINTAPI
+<br>x As Long
+<br>y As Long
+<br>End Type
+<br>
+<br>Private Sub Form_Load()
+<br>Command1.Caption = "Ограничить передвижение!"
+<br>Command2.Caption = "Снять ограничение!"
+<br>End Sub
+<br>
+<br>Private Sub Form_Unload(Cancel As Integer)
+<br>ClipCursor ByVal 0&
+<br>End Sub
+<br>
+<br>Private Sub Command1_Click()
+<br>Dim client As RECT
+<br>Dim upperleft As POINTAPI
+<br>GetClientRect Me.hWnd, client
+<br>upperleft.x = client.left
+<br>upperleft.y = client.top
+<br>ClientToScreen Me.hWnd, upperleft
+<br>OffsetRect client, upperleft.x, upperleft.y
+<br>ClipCursor client
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()
+<br>ClipCursor ByVal 0&
+<br>End Sub 
+<br>
+<br>26. Переключение раскладки клавиатуры
+<br>
+<br>'Расположите на форме 2 элемента CommandButton. 
+<br>Private Declare Function LoadKeyboardLayout Lib "user32" Alias "LoadKeyboardLayoutA" _
+<br>(ByVal pwszKLID As String, ByVal flags As Long) As Long
+<br>Private Const KLF_ACTIVATE = 1
+<br>
+<br>Private Sub Command1_Click()
+<br>LoadKeyboardLayout "00000419", KLF_ACTIVATE
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()
+<br>LoadKeyboardLayout "00000409", KLF_ACTIVATE
+<br>End Sub
+<br>
+<br>27. Какая раскладка клавиатуры включена в данный момент 
+<br>
+<br>Private Declare Function GetKeyboardLayoutName Lib "user32" Alias "GetKeyboardLayoutNameA" (ByVal pwszKLID As String) As Long
+<br>
+<br>Private Sub Form_Load()
+<br>Dim KeybLayoutName As String
+<br>KeybLayoutName = String(9, 0)
+<br>GetKeyboardLayoutName KeybLayoutName
+<br>If CStr(CLng(left$(KeybLayoutName, InStr(1, KeybLayoutName, Chr(0)) - 1))) = 409 Then MsgBox "Текущая раскладка - Английская"
+<br>If CStr(CLng(left$(KeybLayoutName, InStr(1, KeybLayoutName, Chr(0)) - 1))) = 419 Then MsgBox "Текущая раскладка - Русская"
+<br>End Sub 
+<br>
+<br>28. Скорость повтора ввода символов 
+<br>
+<br>Const SPI_GETKEYBOARDSPEED = 10
+<br>Private Declare Function SystemParametersInfo Lib "user32" Alias "SystemParametersInfoA" _
+<br>(ByVal uAction As Long, ByVal uParam As Long, lpvParam As Any, ByVal fuWinIni As Long) As Long
+<br>
+<br>Private Sub Form_Load()
+<br>Dim X As Long
+<br>Xx = SystemParametersInfo(SPI_GETKEYBOARDSPEED, 0, X, 0)
+<br>MsgBox "Скорость повтора - " & X & " символов.",64,"Скорость повтора"
+<br>End Sub
+<br>
+<br>29. Удаление всех файлов из директории
+<br>
+<br>Kill ("c:\1\*.*"). 
+<br>
+<br>30. Открыть любой файл/директорию
+<br>
+<br>Под Windos NT: 
+<br>Shell "cmd /X /C start c:\mydoc\example.doc"
+<br>
+<br>Под Windos 9x:
+<br>Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hWnd As Long, ByVal lpOperation As String, _
+<br>ByVal lpFile As String, ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+<br>
+<br>Private Sub Command1_Click()
+<br>ShellExecute 0, vbNullString, "C:\" & sFile, vbNullString, vbNullString, vbNormalFocus
+<br>End Sub
+<br>
+<br>Или без API:
+<br>Shell "start c:\mydoc\example.doc"
+<br>
+<br>31. Функция удаляет только папку, не содержающую файлов !
+<br>
+<br>Private Declare Function RemoveDirectory Lib "kernel32.dll" Alias "RemoveDirectoryA" (ByVal lpPathName As String) As Long
+<br>
+<br>Private Sub Command1_Click()
+<br>retval = RemoveDirectory("D:\ХХХ")
+<br>If retval = 1 Then
+<br>MsgBox "Папка была удалена", 64, "Выполнено"
+<br>Else
+<br>MsgBox "Операция провалилась", 16, "Не выполнено"
+<br>End If
+<br>End
+<br>End Sub
+<br>
+<br>32. Изменение атрибутов файла
+<br>
+<br>'Замените "C:\Scan Port.exe" на полный путь к своему файлу.
+<br>SetAttr "C:\Scan Port.exe", vbReadOnly 'Поставить атрибут "Только чтение"
+<br>SetAttr "C:\Scan Port.exe", GetAttr("C:\Scan Port.exe") And (Not vbReadOnly) 'Очистить атрибут "Только чтение"
+<br>SetAttr "C:\Scan Port.exe", vbArchive  'Поставить атрибут "Архивный"
+<br>SetAttr "C:\Scan Port.exe", GetAttr("C:\Scan Port.exe") And (Not vbArchive) 'Очистить атрибут "Архивный"
+<br>
+<br>SetAttr "C:\Scan Port.exe", vbHidden 'Поставить атрибут "Скрытый"
+<br>SetAttr "C:\Scan Port.exe", GetAttr("C:\Scan Port.exe") And (Not vbHidden) 'Очистить атрибут "Скрытый"
+<br>
+<br>33. Получение полного пути exe-файла из его хэндла
+<br>
+<br>Const TH32CS_SNAPPROCESS As Long = 2&
+<br>Const MAX_PATH As Long = 260
+<br>
+<br>Private Type PROCESSENTRY32
+<br>dwSize As Long
+<br>cntUsage As Long
+<br>th32ProcessID As Long
+<br>th32DefaultHeapID As Long
+<br>th32ModuleID As Long
+<br>cntThreads As Long
+<br>th32ParentProcessID As Long
+<br>pcPriClassBase As Long
+<br>dwflags As Long
+<br>szexeFile As String * MAX_PATH
+<br>End Type
+<br>
+<br>Private Declare Function GetWindowThreadProcessId Lib "user32" (ByVal hwnd As Long, lpdwProcessId As Long) As Long
+<br>Private Declare Function CreateToolhelpSnapshot Lib "Kernel32" Alias "CreateToolhelp32Snapshot" (ByVal lFlgas As Long, ByVal lProcessID As Long) As Long
+<br>Private Declare Function ProcessFirst Lib "Kernel32" Alias "Process32First" (ByVal hSnapshot As Long, uProcess As PROCESSENTRY32) As Long
+<br>Private Declare Function ProcessNext Lib "Kernel32" Alias "Process32Next" (ByVal hSnapshot As Long, uProcess As PROCESSENTRY32) As Long
+<br>Private Declare Sub CloseHandle Lib "Kernel32" (ByVal hPass As Long)
+<br>
+<br>Private Function GetExeFromHandle(hwnd As Long) As String
+<br>Dim threadID As Long, processID As Long, hSnapshot As Long
+<br>Dim uProcess As PROCESSENTRY32, rProcessFound As Long
+<br>Dim i As Integer, szExename As String
+<br>
+<br>threadID = GetWindowThreadProcessId(hwnd, processID)
+<br>If threadID = 0 Or processID = 0 Then Exit Function
+<br>hSnapshot = CreateToolhelpSnapshot(TH32CS_SNAPPROCESS, 0&)
+<br>If hSnapshot = -1 Then Exit Function
+<br>uProcess.dwSize = Len(uProcess)
+<br>rProcessFound = ProcessFirst(hSnapshot, uProcess)
+<br>Do While rProcessFound
+<br>If uProcess.th32ProcessID = processID Then
+<br>i = InStr(1, uProcess.szexeFile, Chr(0))
+<br>If i > 0 Then szExename = Left$(uProcess.szexeFile, i - 1)
+<br>Exit Do
+<br>Else
+<br>rProcessFound = ProcessNext(hSnapshot, uProcess)
+<br>End If
+<br>Loop
+<br>Call CloseHandle(hSnapshot)
+<br>GetExeFromHandle = szExename
+<br>End Function
+<br>
+<br>Private Sub Command1_Click()
+<br>MsgBox GetExeFromHandle(Me.hwnd)
+<br>End Sub 
+<br>
+<br>34. Создание директории
+<br>
+<br>Sub MakeDir(dirname As String)
+<br>Dim i As Long, path As String
+<br>Do
+<br>i = InStr(i + 1, dirname & "\", "\")
+<br>path = Left$(dirname, i - 1)
+<br>If Right$(path, 1) <> ":" And Dir$(path, vbDirectory) = "" Then
+<br>MkDir path
+<br>End If
+<br>Loop Until i >= Len(dirname)
+<br>End Sub
+<br>
+<br>Private Sub Command1_Click()
+<br>Call MakeDir("C:\X\YYY\AAA\BBB\")
+<br>End Sub
+<br>
+<br>35. 'Сохранение файла из Интернета
+<br>
+<br>Private Declare Function URLDownloadToFile Lib "urlmon" Alias "URLDownloadToFileA" (ByVal pCaller As Long, ByVal szURL As String, ByVal szFileName As String, ByVal dwReserved As Long, ByVal lpfnCB As Long) As Long
+<br>Public Event ErrorDownload(FromPathName As String, ToPathName As String)
+<br>Public Event DownloadComplete(FromPathName As String, ToPathName As String)
+<br>Public Function DownloadFile(FromPathName As String, ToPathName As String)
+<br>If URLDownloadToFile(0, FromPathName, ToPathName, 0, 0) = 0 Then
+<br>DownloadFile = True
+<br>RaiseEvent DownloadComplete(FromPathName, ToPathName)
+<br>Else
+<br>DownloadFile = False
+<br>RaiseEvent ErrorDownload(FromPathName, ToPathName)
+<br>End If
+<br>End Function
+<br>
+<br>Private Sub Command1_Click()
+<br>Call DownloadFile("http://svalka.narod.ru/svalka.jpg", "c:\svalka.jpg")
+<br>End Sub
+<br>
+<br>36. Получить имя компьютера и имя пользователя
+<br>
+<br>Private Declare Function GetComputerNameA Lib "kernel32" (ByVal lpBuffer As String, nSize As Long) As Long
+<br>Private Declare Function WNetGetUserA Lib "mpr.dll" (ByVal lpName As String, ByVal lpUserName As String, lpnLength As Long) As Long
+<br>Function GetComputerName() As String
+<br>Dim sBuffer As String * 255
+<br>If GetComputerNameA(sBuffer, 255&) <> 0 Then
+<br>GetComputerName = Left$(sBuffer, InStr(sBuffer, vbNullChar) - 1)
+<br>End If
+<br>End Function
+<br>
+<br>Function GetUserName() As String
+<br>Dim sUserNameBuff As String * 255
+<br>sUserNameBuff = Space(255)
+<br>Call WNetGetUserA(vbNullString, sUserNameBuff, 255&)
+<br>GetUserName = Left$(sUserNameBuff, InStr(sUserNameBuff, vbNullChar) - 1)
+<br>End Function
+<br>
+<br>37. Получить IP адресc
+<br>
+<br>'Вставьте следующий код в событие формы
+<br>Private Sub Form_Load()
+<br>MsgBox "IP Host Name: " & GetIPHostName()
+<br>MsgBox "IP Address: " & GetIPAddress()
+<br>End Sub
+<br>
+<br>'Добавьте модуль в проект
+<br>Public Const MAX_WSADescription = 256
+<br>Public Const MAX_WSASYSStatus = 128
+<br>Public Const ERROR_SUCCESS As Long = 0
+<br>Public Const WS_VERSION_REQD As Long = &H101
+<br>Public Const WS_VERSION_MAJOR As Long = WS_VERSION_REQD \ &H100 And &HFF&
+<br>Public Const WS_VERSION_MINOR As Long = WS_VERSION_REQD And &HFF&
+<br>Public Const MIN_SOCKETS_REQD As Long = 1
+<br>Public Const SOCKET_ERROR As Long = -1
+<br>Public Type HOSTENT
+<br>hName As Long
+<br>hAliases As Long
+<br>hAddrType As Integer
+<br>hLen As Integer
+<br>hAddrList As Long
+<br>End Type
+<br>Public Type WSADATA
+<br>wVersion As Integer
+<br>wHighVersion As Integer
+<br>szDescription(0 To MAX_WSADescription) As Byte
+<br>szSystemStatus(0 To MAX_WSASYSStatus) As Byte
+<br>wMaxSockets As Integer
+<br>wMaxUDPDG As Integer
+<br>dwVendorInfo As Long
+<br>End Type
+<br>
+<br>Public Declare Function WSAGetLastError Lib "WSOCK32.DLL" () As Long
+<br>Public Declare Function WSAStartup Lib "WSOCK32.DLL" (ByVal 
+<br>wVersionRequired As Long, lpWSADATA As WSADATA) As Long
+<br>Public Declare Function WSACleanup Lib "WSOCK32.DLL" () As Long
+<br>Public Declare Function gethostname Lib "WSOCK32.DLL" (ByVal szHost As 
+<br>
+<br>String, ByVal dwHostLen As Long) As Long
+<br>Public Declare Function gethostbyname Lib "WSOCK32.DLL" (ByVal szHost As 
+<br>String) As Long
+<br>Public Declare Sub CopyMemory Lib "kernel32" Alias "RtlMoveMemory" 
+<br>(hpvDest As Any, ByVal hpvSource As Long, ByVal cbCopy As Long)
+<br>Public Function GetIPAddress() As String
+<br>Dim sHostName As String * 256
+<br>Dim lpHost As Long
+<br>Dim HOST As HOSTENT
+<br>Dim dwIPAddr As Long
+<br>Dim tmpIPAddr() As Byte
+<br>Dim i As Integer
+<br>Dim sIPAddr As String
+<br>If Not SocketsInitialize() Then
+<br>GetIPAddress = ""
+<br>Exit Function
+<br>End If
+<br>If gethostname(sHostName, 256) = SOCKET_ERROR Then
+<br>GetIPAddress = ""
+<br>MsgBox "Windows Sockets error " & Str$(WSAGetLastError()) & " has 
+<br>occurred. Unable to successfully get Host Name."
+<br>SocketsCleanup
+<br>Exit Function
+<br>End If
+<br>sHostName = Trim$(sHostName)
+<br>lpHost = gethostbyname(sHostName)
+<br>If lpHost = 0 Then
+<br>GetIPAddress = ""
+<br>MsgBox "Windows Sockets are not responding. " & "Unable to successfully 
+<br>get Host Name."
+<br>SocketsCleanup
+<br>Exit Function
+<br>End If
+<br>CopyMemory HOST, lpHost, Len(HOST)
+<br>CopyMemory dwIPAddr, HOST.hAddrList, 4
+<br>ReDim tmpIPAddr(1 To HOST.hLen)
+<br>CopyMemory tmpIPAddr(1), dwIPAddr, HOST.hLen
+<br>For i = 1 To HOST.hLen
+<br>sIPAddr = sIPAddr & tmpIPAddr(i) & "."
+<br>Next
+<br>GetIPAddress = Mid$(sIPAddr, 1, Len(sIPAddr) - 1)
+<br>SocketsCleanup
+<br>End Function
+<br>Public Function GetIPHostName() As String
+<br>Dim sHostName As String * 256
+<br>If Not SocketsInitialize() Then
+<br>GetIPHostName = ""
+<br>Exit Function
+<br>End If
+<br>If gethostname(sHostName, 256) = SOCKET_ERROR Then
+<br>GetIPHostName = ""
+<br>MsgBox "Windows Sockets error " & Str$(WSAGetLastError()) & " has 
+<br>occurred. Unable to successfully get Host Name."
+<br>SocketsCleanup
+<br>Exit Function
+<br>End If
+<br>GetIPHostName = Left$(sHostName, InStr(sHostName, Chr(0)) - 1)
+<br>SocketsCleanup
+<br>End Function
+<br>Public Function HiByte(ByVal wParam As Integer)
+<br>HiByte = wParam \ &H100 And &HFF&
+<br>End Function
+<br>Public Function LoByte(ByVal wParam As Integer)
+<br>LoByte = wParam And &HFF&
+<br>End Function
+<br>Public Sub SocketsCleanup()
+<br>If WSACleanup() <> ERROR_SUCCESS Then
+<br>MsgBox "Socket error occurred in Cleanup."
+<br>End If
+<br>End Sub
+<br>Public Function SocketsInitialize() As Boolean
+<br>Dim WSAD As WSADATA
+<br>Dim sLoByte As String
+<br>Dim sHiByte As String
+<br>If WSAStartup(WS_VERSION_REQD, WSAD) <> ERROR_SUCCESS Then
+<br>MsgBox "The 32-bit Windows Socket is not responding."
+<br>SocketsInitialize = False
+<br>Exit Function
+<br>End If
+<br>If WSAD.wMaxSockets < MIN_SOCKETS_REQD Then
+<br>MsgBox "This application requires a minimum of " & CStr(MIN_SOCKETS_REQD) 
+<br>& " supported sockets."
+<br>SocketsInitialize = False
+<br>Exit Function
+<br>End If
+<br>If LoByte(WSAD.wVersion) < WS_VERSION_MAJOR Or (LoByte(WSAD.wVersion) = 
+<br>WS_VERSION_MAJOR And HiByte(WSAD.wVersion) < WS_VERSION_MINOR) Then
+<br>sHiByte = CStr(HiByte(WSAD.wVersion))
+<br>sLoByte = CStr(LoByte(WSAD.wVersion))
+<br>MsgBox "Sockets version " & sLoByte & "." & sHiByte & " is not supported 
+<br>by 32-bit Windows Sockets."
+<br>SocketsInitialize = False
+<br>Exit Function
+<br>End If
+<br>SocketsInitialize = True
+<br>End Function
+<br> 
+<br>38. Определение имени или IP-адреса удаленного компьютера
+<br>
+<br>'Добавьте модуль, и CommandButton. 
+<br>'КОД ФОРМЫ
+<br>Private Sub Command1_Click()
+<br>'Вначале вы должны инициализировать winsock
+<br>WinsockInit
+<br>'Определение имени машины, зная ее IP-адрес
+<br>MsgBox HostByAddress("192.168.1.1")
+<br>MsgBox HostByAddress("192.168.1.2")
+<br>
+<br>'Определение IP-адреса машины, зная ее имя
+<br>MsgBox HostByName("GARIK")
+<br>MsgBox HostByName("OKSANA")
+<br>
+<br>'В конце работы вы должны использовать функцию WSACleanUp
+<br>WSACleanUp
+<br>End Sub
+<br>
+<br>'КОД МОДУЛЯ
+<br>Option Explicit
+<br>Public Const SOCKET_ERROR = -1
+<br>Public Const AF_INET = 2
+<br>Public Const PF_INET = AF_INET
+<br>Public Const MAXGETHOSTSTRUCT = 1024
+<br>Public Const SOCK_STREAM = 1
+<br>Public Const MSG_PEEK = 2
+<br>Private Type SockAddr
+<br>sin_family As Integer
+<br>sin_port As Integer
+<br>sin_addr As String * 4
+<br>sin_zero As String * 8
+<br>End Type
+<br>Private Type T_WSA
+<br>wVersion As Integer
+<br>wHighVersion As Integer
+<br>szDescription(0 To 255) As Byte
+<br>szSystemStatus(0 To 128) As Byte
+<br>iMaxSockets As Integer
+<br>iMaxUdpDg As Integer
+<br>lpVendorInfo As Long
+<br>End Type
+<br>Dim WSAData As T_WSA
+<br>Type Inet_Address
+<br>Byte4 As String * 1
+<br>Byte3 As String * 1
+<br>Byte2 As String * 1
+<br>Byte1 As String * 1
+<br>End Type
+<br>Public IPStruct As Inet_Address
+<br>Public Type T_Host
+<br>h_name As Long
+<br>h_aliases As Long
+<br>h_addrtype As Integer
+<br>h_length As Integer
+<br>h_addr_list As Long
+<br>End Type
+<br>
+<br>Declare Sub CopyMemory Lib "kernel32.dll" Alias "RtlMoveMemory" (Dest As 
+<br>Any, Src As Any, ByVal cb&)
+<br>Declare Function gethostbyaddr Lib "wsock32.dll" (addr As Long, ByVal 
+<br>addr_len As Long, ByVal addr_type As Long) As Long
+<br>Declare Function inet_addr Lib "wsock32.dll" (ByVal addr As String) As 
+<br>Long
+<br>Declare Function GetHostByName Lib "wsock32.dll" Alias "gethostbyname" 
+<br>(ByVal HostName As String) As Long
+<br>Declare Function GetHostName Lib "wsock32.dll" Alias "gethostname" (ByVal 
+<br>HostName As String, HostLen As Long) As Long
+<br>Declare Function WSAStartup Lib "wsock32.dll" (ByVal a As Long, b As 
+<br>T_WSA) As Long
+<br>Declare Function WSACleanUp Lib "wsock32.dll" Alias "WSACleanup" () As 
+<br>Integer
+<br>
+<br>Function HostByName(sHost As String) As String
+<br>Dim s As String
+<br>Dim p As Long
+<br>Dim Host As T_Host
+<br>Dim ListAddress As Long
+<br>Dim ListAddr As Long
+<br>Dim Address As Long
+<br>
+<br>s = String(64, 0)
+<br>sHost = sHost + Right(s, 64 - Len(sHost))
+<br>p = GetHostByName(sHost)
+<br>If p = SOCKET_ERROR Then
+<br>Exit Function
+<br>Else
+<br>If p <> 0 Then
+<br>CopyMemory Host.h_name, ByVal p, Len(Host)
+<br>ListAddress = Host.h_addr_list
+<br>CopyMemory ListAddr, ByVal ListAddress, 4
+<br>CopyMemory Address, ByVal ListAddr, 4
+<br>HostByName = InetAddrLongToString(Address)
+<br>Else
+<br>HostByName = "No DNS Entry"
+<br>End If
+<br>End If
+<br>End Function
+<br>
+<br>Private Function InetAddrLongToString(Address As Long) As String
+<br>CopyMemory IPStruct, Address, 4
+<br>InetAddrLongToString = CStr(Asc(IPStruct.Byte4)) + "." + 
+<br>CStr(Asc(IPStruct.Byte3)) + "." + CStr(Asc(IPStruct.Byte2)) + "." + 
+<br>CStr(Asc(IPStruct.Byte1))
+<br>End Function
+<br>
+<br>Function HostByAddress(ByVal sAddress As String) As String
+<br>Dim lAddress As Long
+<br>Dim p As Long
+<br>Dim HostName As String
+<br>Dim Host As T_Host
+<br>lAddress = inet_addr(sAddress)
+<br>p = gethostbyaddr(lAddress, 4, PF_INET)
+<br>If p <> 0 Then
+<br>CopyMemory Host, ByVal p, Len(Host)
+<br>HostName = String(256, 0)
+<br>CopyMemory ByVal HostName, ByVal Host.h_name, 256
+<br>If HostName = "" Then HostByAddress = "Unable to Resolve Address"
+<br>HostByAddress = Left(HostName, InStr(HostName, Chr(0)) - 1)
+<br>Else
+<br>HostByAddress = "No DNS Entry"
+<br>End If
+<br>End Function
+<br>
+<br>Public Sub WinsockInit()
+<br>WSAStartup &H101, WSAData
+<br>End Sub 
+<br>
+<br>39. Программно отсоединиться от Интернета
+<br>
+<br>'Добавьте на форму CommandButton
+<br>Const RAS_MAXENTRYNAME As Integer = 256
+<br>Const RAS_MAXDEVICETYPE As Integer = 16
+<br>Const RAS_MAXDEVICENAME As Integer = 128
+<br>Const RAS_RASCONNSIZE As Integer = 412
+<br>Const ERROR_SUCCESS = 0&
+<br>
+<br>Private Type RasEntryName
+<br>dwSize As Long
+<br>szEntryName(RAS_MAXENTRYNAME) As Byte
+<br>End Type
+<br>Private Type RasConn
+<br>dwSize As Long
+<br>hRasConn As Long
+<br>szEntryName(RAS_MAXENTRYNAME) As Byte
+<br>szDeviceType(RAS_MAXDEVICETYPE) As Byte
+<br>szDeviceName(RAS_MAXDEVICENAME) As Byte
+<br>End Type
+<br>
+<br>Private Declare Function RasEnumConnections Lib "rasapi32.dll" Alias 
+<br>"RasEnumConnectionsA" (lpRasConn As Any, lpcb As Long, lpcConnections As 
+<br>Long) As Long
+<br>Private Declare Function RasHangUp Lib "rasapi32.dll" Alias "RasHangUpA" 
+<br>(ByVal hRasConn As Long) As Long
+<br>Private gstrISPName As String
+<br>Public ReturnCode As Long
+<br>Public Sub HangUp()
+<br>Dim i As Long
+<br>Dim lpRasConn(255) As RasConn
+<br>Dim lpcb As Long
+<br>Dim lpcConnections As Long
+<br>Dim hRasConn As Long
+<br>lpRasConn(0).dwSize = RAS_RASCONNSIZE
+<br>lpcb = RAS_MAXENTRYNAME * lpRasConn(0).dwSize
+<br>lpcConnections = 0
+<br>ReturnCode = RasEnumConnections(lpRasConn(0), lpcb, lpcConnections)
+<br>If ReturnCode = ERROR_SUCCESS Then
+<br>For i = 0 To lpcConnections - 1
+<br>If Trim(ByteToString(lpRasConn(i).szEntryName)) = Trim(gstrISPName) Then
+<br>hRasConn = lpRasConn(i).hRasConn
+<br>ReturnCode = RasHangUp(ByVal hRasConn)
+<br>End If
+<br>Next i
+<br>End If
+<br>End Sub
+<br>
+<br>Public Function ByteToString(bytString() As Byte) As String
+<br>Dim i As Integer
+<br>ByteToString = ""
+<br>i = 0
+<br>While bytString(i) = 0&
+<br>ByteToString = ByteToString & Chr(bytString(i))
+<br>i = i + 1
+<br>Wend
+<br>End Function
+<br>
+<br>Private Sub Command1_Click()
+<br>Call HangUp
+<br>End Sub 
+<br>
+<br>40. Узнать есть ли активное соединение с Интернетом
+<br>
+<br>Private Declare Function RasEnumConnections Lib "RasApi32.dll" Alias 
+<br>"RasEnumConnectionsA" (lpRasCon As Any, lpcb As Long, lpcConnections As 
+<br>Long) As Long
+<br>Private Declare Function RasGetConnectStatus Lib "RasApi32.dll" Alias 
+<br>"RasGetConnectStatusA" (ByVal hRasCon As Long, lpStatus As Any) As Long
+<br>Private Const RAS95_MaxEntryName = 256
+<br>Private Const RAS95_MaxDeviceType = 16
+<br>Private Const RAS95_MaxDeviceName = 32
+<br>Private Type RASCONN95
+<br>dwSize As Long
+<br>hRasCon As Long
+<br>szEntryName(RAS95_MaxEntryName) As Byte
+<br>szDeviceType(RAS95_MaxDeviceType) As Byte
+<br>szDeviceName(RAS95_MaxDeviceName) As Byte
+<br>End Type
+<br>
+<br>Private Type RASCONNSTATUS95
+<br>dwSize As Long
+<br>RasConnState As Long
+<br>dwError As Long
+<br>szDeviceType(RAS95_MaxDeviceType) As Byte
+<br>szDeviceName(RAS95_MaxDeviceName) As Byte
+<br>End Type
+<br>
+<br>Public Function IsConnected() As Boolean
+<br>Dim TRasCon(255) As RASCONN95
+<br>Dim lg As Long
+<br>Dim lpcon As Long
+<br>Dim RetVal As Long
+<br>Dim Tstatus As RASCONNSTATUS95
+<br>TRasCon(0).dwSize = 412
+<br>lg = 256 * TRasCon(0).dwSize
+<br>RetVal = RasEnumConnections(TRasCon(0), lg, lpcon)
+<br>Tstatus.dwSize = 160
+<br>RetVal = RasGetConnectStatus(TRasCon(0).hRasCon, Tstatus)
+<br>If Tstatus.RasConnState = &H2000 Then
+<br>IsConnected = True
+<br>Else
+<br>IsConnected = False
+<br>End If
+<br>End Function
+<br>
+<br>Private Sub Form_Load()
+<br>'если есть соединение, то IsConnected() = True, иначе False
+<br>MsgBox IsConnected()
+<br>End Sub
+<br> 
+<br>41. Вызвать окно "Установка связи с Интернетом"
+<br>
+<br>Private Sub Form_Load()
+<br>Result = Shell("rundll32.exe rnaui.DLL,RnaDial", 1)
+<br>End Sub 
+<br>
+<br>42. Симулировать нажатия определенных клавиш 
+<br>
+<br>Private Declare Sub keybd_event Lib "user32" _ 
+<br>(ByVal bVk As Byte, ByVal bScan As Byte, ByVal dwFlags As Long, ByVal dwExtraInfo As Long)
+<br>'bVk - Виртуальный код клавиши для имитации нажатия и отпускания клавиши.
+<br>'bScan - Зарезервировано -- установлено в 0.
+<br>'dwFlags - Комбинация следующих флагов определяет различные способы имитации:
+<br>'KEYEVENTF_EXTENDEDKEY - Префикс скэн-кода с префиксным байтом, имеющим значение &HE0.
+<br>'KEYEVENTF_KEYUP - Клавиша, указанная в bVk будет отпущена. Если этот флажок не определен, клавиша будет нажата.
+<br>'dwExtraInfo - Дополнительное 32-разрядное значение, связанное с событием клавиатуры.
+<br>
+<br>Const KEYEVENTF_KEYUP = &H2 'событие отпускания клавиши
+<br>Const VK_CONTROL = &H11 'клавиша Ctrl
+<br>Const VK_ESCAPE = &H1B 'клавиша Escape
+<br>Эмулирующая нажатие кнопки ПУСК
+<br>
+<br>Private Sub ShowStartMenu()
+<br>'Функция эмулирует нажатие Ctrl + Esc
+<br>Call keybd_event(VK_CONTROL, 0, 0, 0) 'Hажимаем Ctrl
+<br>Call keybd_event(VK_ESCAPE, 0, 0, 0) 'Hажимаем Esc
+<br>Call keybd_event(VK_ESCAPE, 0, KEYEVENTF_KEYUP, 0) 'Отпускаем Esc
+<br>Call keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, 0) 'Отпускаем Ctrl
+<br>End Sub
+<br>
+<br>Private Sub Command1_Click()
+<br>ShowStartMenu
+<br>End Sub
+<br>
+<br>'эмуляция нажатия клавиши Alt
+<br>Call keybd_event(VK_ADD, 0, 0, 0)
+<br>Call keybd_event(VK_ADD, 0, KEYEVENTF_KEYUP, 0)
+<br>
+<br>'эмуляция нажатия левой кнопки с логотипом Windows
+<br>Call keybd_event(VK_LWIN, 0, 0, 0)
+<br>Call keybd_event(VK_LWIN, 0, KEYEVENTF_KEYUP, 0)
+<br>
+<br>'Запустить проводник
+<br>Call keybd_event(VK_LWIN, 0, 0, 0)
+<br>Call keybd_event(69, 0, 0, 0)
+<br>Call keybd_event(VK_LWIN, 0, KEYEVENTF_KEYUP, 0)
+<br>
+<br>'поиск файла
+<br>'Call keybd_event(VK_LWIN, 0, 0, 0)
+<br>'Call keybd_event(70, 0, 0, 0)
+<br>'Call keybd_event(VK_LWIN, 0, KEYEVENTF_KEYUP, 0)
+<br>
+<br>Private Const VK_ADD = &H6B
+<br>Private Const VK_ATTN = &HF6
+<br>Private Const VK_BACK = &H8
+<br>Private Const VK_CANCEL = &H3
+<br>Private Const VK_CAPITAL = &H14
+<br>Private Const VK_CLEAR = &HC
+<br>Private Const VK_CONTROL = &H11
+<br>Private Const VK_CRSEL = &HF7
+<br>Private Const VK_DECIMAL = &H6E
+<br>Private Const VK_DELETE = &H2E
+<br>Private Const VK_DIVIDE = &H6F
+<br>Private Const VK_DOWN = &H28
+<br>Private Const VK_END = &H23
+<br>Private Const VK_EREOF = &HF9
+<br>Private Const VK_ESCAPE = &H1B
+<br>Private Const VK_EXECUTE = &H2B
+<br>Private Const VK_EXSEL = &HF8
+<br>Private Const VK_F1 = &H70
+<br>Private Const VK_F10 = &H79
+<br>Private Const VK_F11 = &H7A
+<br>Private Const VK_F12 = &H7B
+<br>Private Const VK_F13 = &H7C
+<br>Private Const VK_F14 = &H7D
+<br>Private Const VK_F15 = &H7E
+<br>Private Const VK_F16 = &H7F
+<br>Private Const VK_F17 = &H80
+<br>Private Const VK_F18 = &H81
+<br>Private Const VK_F19 = &H82
+<br>Private Const VK_F2 = &H71
+<br>Private Const VK_F20 = &H83
+<br>Private Const VK_F21 = &H84
+<br>Private Const VK_F22 = &H85
+<br>Private Const VK_F23 = &H86
+<br>Private Const VK_F24 = &H87
+<br>Private Const VK_F3 = &H72
+<br>Private Const VK_F4 = &H73
+<br>Private Const VK_F5 = &H74
+<br>Private Const VK_F6 = &H75
+<br>Private Const VK_F7 = &H76
+<br>Private Const VK_F8 = &H77
+<br>Private Const VK_F9 = &H78
+<br>Private Const VK_HELP = &H2F
+<br>Private Const VK_HOME = &H24
+<br>Private Const VK_INSERT = &H2D
+<br>Private Const VK_LBUTTON = &H1
+<br>Private Const VK_LCONTROL = &HA2
+<br>Private Const VK_LEFT = &H25
+<br>Private Const VK_LMENU = &HA4
+<br>Private Const VK_LSHIFT = &HA0
+<br>Private Const VK_MBUTTON = &H4
+<br>Private Const VK_MENU = &H12
+<br>Private Const VK_MULTIPLY = &H6A
+<br>Private Const VK_NEXT = &H22
+<br>Private Const VK_NONAME = &HFC
+<br>Private Const VK_NUMLOCK = &H90
+<br>Private Const VK_NUMPAD0 = &H60
+<br>Private Const VK_NUMPAD1 = &H61
+<br>Private Const VK_NUMPAD2 = &H62
+<br>Private Const VK_NUMPAD3 = &H63
+<br>Private Const VK_NUMPAD4 = &H64
+<br>Private Const VK_NUMPAD5 = &H65
+<br>Private Const VK_NUMPAD6 = &H66
+<br>Private Const VK_NUMPAD7 = &H67
+<br>Private Const VK_NUMPAD8 = &H68
+<br>Private Const VK_NUMPAD9 = &H69
+<br>Private Const VK_OEM_CLEAR = &HFE
+<br>Private Const VK_PA1 = &HFD
+<br>Private Const VK_PAUSE = &H13
+<br>Private Const VK_PLAY = &HFA
+<br>Private Const VK_PRINT = &H2A
+<br>Private Const VK_PRIOR = &H21
+<br>Private Const VK_PROCESSKEY = &HE5
+<br>Private Const VK_RBUTTON = &H2
+<br>Private Const VK_RCONTROL = &HA3
+<br>Private Const VK_RETURN = &HD
+<br>Private Const VK_RIGHT = &H27
+<br>Private Const VK_RMENU = &HA5
+<br>Private Const VK_RSHIFT = &HA1
+<br>Private Const VK_SCROLL = &H91
+<br>Private Const VK_SELECT = &H29
+<br>Private Const VK_SEPARATOR = &H6C
+<br>Private Const VK_SHIFT = &H10
+<br>Private Const VK_SNAPSHOT = &H2C
+<br>Private Const VK_SPACE = &H20
+<br>Private Const VK_SUBTRACT = &H6D
+<br>Private Const VK_TAB = &H9
+<br>Private Const VK_UP = &H26
+<br>Private Const VK_ZOOM = &HFB 
+<br>
+<br>43. Подключение, отключение сетевого диска 
+<br>
+<br>Добавьте дополнительный модуль, и 2 элемента CommandButton. 
+<br>'КОД ФОРМЫ
+<br>Private Sub Command1_Click()
+<br>Call Module1.Connect("Sany\c$", "K:", "defaultsharename", "garik")
+<br>If (Module1.rc <> 0) And (Module1.rc <> 85) Then
+<br>MsgBox Module1.ErrorMsg
+<br>End If
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()
+<br>Call Module1.DisConnect("K:", True)
+<br>If (Module1.rc <> 0) And (Module1.rc <> 85) Then
+<br>MsgBox Module1.ErrorMsg
+<br>End If
+<br>End Sub
+<br>
+<br>'КОД МОДУЛЯ
+<br>Option Explicit
+<br>Public Declare Function WNetAddConnection2 Lib "mpr.dll" Alias "WNetAddConnection2A" (lpNetResource As NETRESOURCE, ByVal lpPassword As String, ByVal lpUsername As String, ByVal dwFlags As Long) As Long
+<br>Public Declare Function WNetCancelConnection2 Lib "mpr.dll" Alias "WNetCancelConnection2A" (ByVal lpName As String, ByVal dwFlags As Long, ByVal fForce As Long) As Long
+<br>Public ErrorNum As Long
+<br>Public ErrorMsg As String
+<br>Public rc As Long
+<br>Public RemoteName As String
+<br>Public Const ERROR_BAD_DEV_TYPE = 66&
+<br>Public Const ERROR_ALREADY_ASSIGNED = 85&
+<br>Public Const ERROR_ACCESS_DENIED = 5&
+<br>Public Const ERROR_BAD_NET_NAME = 67&
+<br>Public Const ERROR_BAD_PROFILE = 1206&
+<br>Public Const ERROR_BAD_PROVIDER = 1204&
+<br>Public Const ERROR_BUSY = 170&
+<br>Public Const ERROR_CANCEL_VIOLATION = 173&
+<br>Public Const ERROR_CANNOT_OPEN_PROFILE = 1205&
+<br>Public Const ERROR_DEVICE_ALREADY_REMEMBERED = 1202&
+<br>Public Const ERROR_EXTENDED_ERROR = 1208&
+<br>Public Const ERROR_INVALID_PASSWORD = 86&
+<br>Public Const ERROR_NO_NET_OR_BAD_PATH = 1203&
+<br>Public Const ERROR_NO_NETWORK = 1222&
+<br>Public Const ERROR_NO_CONNECTION = 8
+<br>Public Const ERROR_NO_DISCONNECT = 9
+<br>Public Const ERROR_DEVICE_IN_USE = 2404&
+<br>Public Const ERROR_NOT_CONNECTED = 2250&
+<br>Public Const ERROR_OPEN_FILES = 2401&
+<br>Public Const ERROR_MORE_DATA = 234
+<br> 
+<br>Public Const CONNECT_UPDATE_PROFILE = &H1
+<br>Public Const RESOURCETYPE_DISK = &H1
+<br>
+<br>Public Type NETRESOURCE
+<br>dwScope As Long
+<br>dwType As Long
+<br>dwDisplayType As Long
+<br>dwUsage As Long
+<br>lpLocalName As String
+<br>lpRemoteName As String
+<br>lpComment As String
+<br>lpProvider As String
+<br>End Type
+<br>
+<br>Public lpNetResourse As NETRESOURCE
+<br>Public Sub Connect(ByVal HostName As String, ByVal RemoteName As String, ByVal Username As String, ByVal Password As String)
+<br>Dim lpUsername As String
+<br>Dim lpPassword As String
+<br>On Error GoTo Err_Connect
+<br>ErrorNum = 0
+<br>ErrorMsg = ""
+<br>lpNetResourse.dwType = RESOURCETYPE_DISK
+<br>lpNetResourse.lpLocalName = RemoteName & Chr(0)
+<br>'Drive Letter to use
+<br>lpNetResourse.lpRemoteName = "\\" & HostName & Chr(0)
+<br>'Network Path to share
+<br>lpNetResourse.lpProvider = Chr(0)
+<br>lpPassword = Password & Chr(0)
+<br>'password on share pass "" if none
+<br>lpUsername = Username & Chr(0)
+<br>'username to connect as if applicable
+<br>rc = WNetAddConnection2(lpNetResourse, lpPassword, lpUsername, CONNECT_UPDATE_PROFILE)
+<br>If rc <> 0 Then GoTo Err_Connect
+<br>Exit Sub
+<br>
+<br>Err_Connect:
+<br>ErrorNum = rc
+<br>ErrorMsg = WnetError(rc)
+<br>End Sub
+<br>
+<br>Public Sub DisConnect(ByVal Name As String, ByVal ForceOff As Boolean)
+<br>On Error GoTo Err_DisConnect
+<br>ErrorNum = 0
+<br>ErrorMsg = ""
+<br>rc = WNetCancelConnection2(Name & Chr(0), CONNECT_UPDATE_PROFILE, ForceOff)
+<br>If rc <> 0 Then GoTo Err_DisConnect
+<br>Exit Sub
+<br>
+<br>Err_DisConnect:
+<br>ErrorNum = rc
+<br>ErrorMsg = WnetError(rc)
+<br>End Sub
+<br>
+<br>Private Function WnetError(Errcode As Long) As String
+<br>Select Case Errcode
+<br>Case ERROR_BAD_DEV_TYPE
+<br>WnetError = "Bad device."
+<br>Case ERROR_ALREADY_ASSIGNED
+<br>WnetError = "Already Assigned."
+<br>Case ERROR_ACCESS_DENIED
+<br>WnetError = "Access Denied."
+<br>Case ERROR_BAD_NET_NAME
+<br>WnetError = "Bad net name"
+<br>Case ERROR_BAD_PROFILE
+<br>WnetError = "Bad Profile"
+<br>Case ERROR_BAD_PROVIDER
+<br>WnetError = "Bad Provider"
+<br>Case ERROR_BUSY
+<br>WnetError = "Busy"
+<br>Case ERROR_CANCEL_VIOLATION
+<br>WnetError = "Cancel Violation"
+<br>Case ERROR_CANNOT_OPEN_PROFILE
+<br>WnetError = "Cannot Open Profile"
+<br>Case ERROR_DEVICE_ALREADY_REMEMBERED
+<br>WnetError = "Device already remembered"
+<br>Case ERROR_EXTENDED_ERROR
+<br>WnetError = "Device already remembered"
+<br>Case ERROR_INVALID_PASSWORD
+<br>WnetError = "Invalid Password"
+<br>Case ERROR_NO_NET_OR_BAD_PATH
+<br>WnetError = "Could not find the specified device"
+<br>Case ERROR_NO_NETWORK
+<br>WnetError = "No Network Present"
+<br>Case ERROR_DEVICE_IN_USE
+<br>WnetError = "Connection Currently in use "
+<br>Case ERROR_NOT_CONNECTED
+<br>WnetError = "No Connection Present"
+<br>Case ERROR_OPEN_FILES
+<br>WnetError = "Files open and the force parameter is false"
+<br>Case ERROR_MORE_DATA
+<br>WnetError = "Buffer to small to hold network name, make lpnLength bigger"
+<br>Case Else:
+<br>WnetError = "Unrecognized Error " + Str(Errcode) + "."
+<br>End Select
+<br>End Function 
+<br>
+<br>44. Установление анимированного курсора 
+<br>
+<br>Private Declare Function LoadCursorFromFile Lib "user32" Alias "LoadCursorFromFileA" (ByVal lpFileName As String) As Long
+<br>Private Declare Function SetClassLong Lib "user32" Alias "SetClassLongA" (ByVal hwnd As Long, ByVal nIndex As Long, ByVal dwNewLong As Long) As Long
+<br>Const GCL_HCURSOR = (-12)
+<br>Dim sCursorFile As String
+<br>Dim hCursor As Long
+<br>Dim hOldCursor As Long
+<br>Dim lReturn As Long
+<br>
+<br>Private Sub Command1_Click()
+<br>hCursor = LoadCursorFromFile(sCursorFile)
+<br>hOldCursor = SetClassLong(Form1.hwnd, GCL_HCURSOR, hCursor)
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()
+<br>lReturn = SetClassLong(Form1.hwnd, GCL_HCURSOR, hOldCursor)
+<br>End Sub
+<br>
+<br>Private Sub Form_Load()
+<br>'не забудьте указать свой путь к анимированному курсору
+<br>sCursorFile = "C:\WIN\CURSORS\GLOBE.ANI"
+<br>End Sub 
+<br>
+<br>45. Добавление иконки в трэйбар
+<br>
+<br>На форме размести три кнопки [Добавить] [Изменить] [Удалить]. Создай модуль и пиши в нём:
+<br>
+<br>Public Declare Function Shell_NotifyIcon Lib "shell32" Alias "Shell_NotifyIconA" (ByVal dwMessage As Long, pnid As NOTIFYICONDATA) As Boolean 'Константы для добавления, удаления и модификации вашей икноки:
+<br>Public Const NIM_ADD = 0
+<br>Public Const NIM_MODIFY = 1
+<br>Public Const NIM_DELETE = 2
+<br>'Константы ответственные за события происходящие внутри границ иконки, расположенной в Traybar:
+<br>Public Const WM_MOUSEMOVE = &H200
+<br>Public Const NIF_MESSAGE = 1
+<br>Public Const NIF_ICON = 2
+<br>Public Const NIF_TIP = 4
+<br>'Константы ответственные за события поведения мышки происходящие внутри границ иконки, ' расположенной в Traybar:
+<br>':
+<br>Public Const WM_LBUTTONDOWN = &H201
+<br>Public Const WM_LBUTTONUP = &H202
+<br>Public Const WM_LBUTTONDBLCLK = &H203
+<br>'Для правой клавиши мышки:
+<br>Public Const WM_RBUTTONDOWN = &H204
+<br>Public Const WM_RBUTTONUP = &H205
+<br>Public Const WM_RBUTTONDBLCLK = &H206
+<br>'Для средней клавиши мышки:
+<br>Public Const WM_MBUTTONDOWN = &H207
+<br>Public Const WM_MBUTTONUP = &H208
+<br>Public Const WM_MBUTTONDBLCLK = &H209
+<br>'Объявляем переменную определяемую пользователем:
+<br>Type NOTIFYICONDATA
+<br>cbSize As Long
+<br>hWnd As Long
+<br>uID As Long
+<br>uFlags As Long
+<br>uCallbackMessage As Long
+<br>hIcon As Long
+<br>szTip As String * 64
+<br>End Type
+<br>
+<br>Теперь переключись на форму, и в коде формы впиши код:
+<br>
+<br>'На форме в разделе General объявляем переменную определенную как тип пользователя:
+<br>Dim nid As NOTIFYICONDATA
+<br>
+<br>Private Sub Command1_Click()
+<br>' Добавить иконку формы в Traybar
+<br>nid.cbSize = Len(nid)
+<br>nid.hWnd = Form1.hWnd
+<br>nid.uID = vbNull
+<br>nid.uFlags = NIF_ICON Or NIF_TIP Or NIF_MESSAGE
+<br>nid.uCallbackMessage = WM_MOUSEMOVE
+<br>nid.hIcon = Form1.Icon
+<br>'При наведении курсора на Иконку, выдвинется текст: "И не забудь зайти на VBStreets.Narod.RU":
+<br>nid.szTip = "И не забудь зайти на VBStreets.Narod.RU" & vbNullChar
+<br>Shell_NotifyIcon NIM_ADD, nid
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()
+<br>nid.hIcon = Form1.Icon
+<br>nid.szTip = "New Icon" & vbNullChar
+<br>Shell_NotifyIcon NIM_MODIFY, nid
+<br>End Sub
+<br>
+<br>Private Sub Command3_Click()
+<br>Shell_NotifyIcon NIM_DELETE, nid
+<br>End Sub
+<br>
+<br>Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+<br>'Объявляем переменные:
+<br>
+<br>Dim msg As Long
+<br>Dim sFilter As String
+<br>
+<br>msg = X / Screen.TwipsPerPixelX
+<br>Select Case msg
+<br>Case WM_LBUTTONDOWN
+<br>'Сюда ты можешь вставить код, который захчешь:
+<br>MsgBox "Нажата левая кнопка мыши(Нажата)"
+<br>
+<br>Case WM_LBUTTONUP
+<br>'Сюда ты можешь вставить код, который захчешь:
+<br>MsgBox "Нажата левая кнопка мыши(Отжата)"
+<br>Case WM_LBUTTONDBLCLK
+<br>'Сюда ты можешь вставить код, который захчешь:
+<br>MsgBox "Ты кликнул 2 раза по ИКОНКЕ(Левой кнопкой)"
+<br>Case WM_RBUTTONDOWN
+<br>'Сюда ты можешь вставить код, который захчешь:
+<br>'Обычно это PopupMenu:
+<br>MsgBox "Нажата правая кнопка мыши(Нажата)"
+<br>Case WM_RBUTTONUP
+<br>'Сюда ты можешь вставить код, который захчешь:
+<br>MsgBox "Нажата левая кнопка мыши(Отжата)"
+<br>Case WM_RBUTTONDBLCLK
+<br>'Сюда ты можешь вставить код, который захчешь:
+<br>MsgBox "Ты кликнул 2 раза по ИКОНКЕ(Правой кнопкой)"
+<br>End Select
+<br>End Sub
+<br>
+<br>Теперь добавь еще одну форму, и поменяй у нее иконку, запусти прогу, и нажми на кнопку [Изменить], иконка должна измениться.
+
+</font></td>
+</tr>
+</td>
+</table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

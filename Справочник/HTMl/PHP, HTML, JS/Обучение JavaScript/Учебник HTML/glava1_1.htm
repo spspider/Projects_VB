@@ -1,0 +1,108 @@
+<html><head>
+
+
+
+
+
+
+<title> Группы тагов НТМL</title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4>1.1. Группы тагов НТМL </h4>
+<P ALIGN="JUSTIFY">Все таги НТМL по их назначению и области действия можно разделить на следующие основные группы 
+<UL>
+<li>определяющие структуру документа; 
+<li>оформление блоков гипертекста (параграфы, списки, таблицы, картинки); 
+<li>гипертекстовые ссылки и закладки; 
+<li>формы для организации диалога; 
+<li>вызов программ. </UL>
+<I><P ALIGN="JUSTIFY">Структура гипертекстовой сети</I> задается гипертекстовыми ссылками. Гипертекстовая ссылка - это адрес другого HTML документа или информационного ресурса Internet, который тематически, логически или каким-либо другим способом связан с документом, в котором ссылка определена.
+<P ALIGN="JUSTIFY">Для записи гипертекстовых ссылок в системе WWW была разработана специальная форма, которая называется Universe Resource Locator. Типичным примером использования этой записи можно считать следующий пример:
+<pre>
+	Этот текст содержит 
+	&lt;A HREF="http://polyn.net.kiae.su/altai/index.html">
+	гипертекстовую ссылку&lt;/A>
+</pre>
+<P ALIGN="JUSTIFY">В приведенном выше примере таг "A", который в HTML называют якорем (anchor), использует атрибут "HREF", который обозначает гипертекстовую ссылку (Hypertext Reference), для записи этой ссылки в форме URL. Данная ссылка указывает на документ с именем "index.html" в директории "altai" на сервере "polyn.net.kiae.su", доступ к которому осуществляется по протоколу "http".
+<P ALIGN="JUSTIFY">Гипертекстовые ссылки в HTML делятся на два класса: контекстные гипертекстовые ссылки и общие. Контекстные ссылки вмонтированы в тело документа, как это было продемонстрировано в предыдущем примере, в то время как общие ссылки связаны со всем документом в целом и могут быть использованы при просмотре любого фрагмента документа. Оба класса ссылок присутствуют в стандарте языка с самого его рождения, однако, первоначально наибольшей популярностью пользовались контекстные ссылки. Эта популярность привела к тому, что механизм использования общих ссылок практически полностью "атрофировался". Однако по мере стандартизации интерфейса пользователя и стилей представления информации разработчики языка снова вернулись к общим ссылкам и стремятся приспособить их к задачам управления этим интерфейсом. Справедливости ради, следует отметить, что общие гипертекстовые ссылки в большинстве броузеров не используются и не отображаются.
+<P ALIGN="JUSTIFY">Структура HTML-документа позволяет использовать вложенные друг в друга контейнеры. Собственно, сам документ - это один большой контейнер который начинается с тага &lt;HTML&gt; и заканчивается тагом &lt;/HTML&gt;:
+<pre>
+	&lt;HTML&gt; Содержание документа  &lt;/HTML&gt;</Pre>
+<P ALIGN="JUSTIFY">Контейнер HTML или гипертекстовый документ состоит из двух других вложенных контейнеров: заголовка документа (HEAD) и тела документа (BODY):
+<P ALIGN="JUSTIFY">Рассмотрим простейший пример классического документа:
+<i><P ALIGN="JUSTIFY">Пример 1.1
+</i><pre>
+	&lt;HTML>
+	&lt;HEAD>
+	&lt;TITLE>Simple Document&lt;/TITLE>
+	&lt;/HEAD>
+	&lt;BODY  text=#0000ff  BACKGROUND=#f0f0f0 >
+	&lt;H1>Пример простого документа&lt;/H1>
+	&lt;HR>
+	Формы HTML-документов
+	&lt;UL>
+	&lt;LI>Классическая
+	&lt;LI>Фреймовая
+	&lt;/UL>
+	&lt;HR>
+	&lt;/BODY>
+	&lt;/HTML>
+</pre>
+<P ALIGN="CENTER"><IMG SRC="_pic_/image396.gif">
+<i><P ALIGN="CENTER">Рис. 1.1. Пример простого документа
+</I><P ALIGN="JUSTIFY">Компания Netscape Communication расширила классическую форму документа возможностью организации фреймов (кадров), позволяющих разделить рабочее окно программы просмотра на несколько независимых фреймов. В каждый фрейм может быть загружена своя страница HTML. Приведем пример документа с фреймами.
+<i><P ALIGN="JUSTIFY">Пример 1.2
+</i><pre>
+	&lt;HTML>
+	&lt;HEAD>
+	&lt;TITLE>Frame Sample&lt;/TITLE>
+	&lt;/HEAD>
+	&lt;FRAMESET COLS="30%,*">
+	&lt;FRAME SRC=HTML-lecture.html NAME=LEFT>
+	&lt;FRAME SRC=HTML-lec-1.html NAME=RIGHT>
+	&lt;/FRAMESET>
+	&lt;/HTML>
+</Pre>
+<P ALIGN="CENTER"><IMG SRC="_pic_/image397.gif">
+<i><P ALIGN="CENTER">Рис. 1.2. Пример документа с фреймами</i>
+<p><center><p>
+<font size=-1>
+<a href="glava1.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava1_2.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

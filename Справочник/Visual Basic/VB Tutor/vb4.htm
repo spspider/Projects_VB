@@ -1,0 +1,344 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB Tutorial -> Часть #4</title>
+</head>
+<style> body {scrollbar-3dlight-color:white; scrollbar-arrow-color:white; scrollbar-base-color:black;scrollbar-darkshadow-color:black;scrollbar-track-color:#000000;scrollbar-highlight-color:black;scrollbar-shadow-color:white}
+a {text-decoration:none;color:white}
+a:hover {text-decoration:underline}
+</style>
+
+
+
+</head>
+
+<body bgcolor="#000000">
+
+<script language = "javascript">
+window.status = "CopyLeft (v) Loginov Vladimir"
+</script>
+
+<left><A Href="index.htm"><img src="logocb.jpg" alt="Мастерская Visual Basic" border="0"></A></left>
+
+<table width="100%" bordercolor="#ffffff" align="center" cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td width="150" align="left" valign="top"><table cellspacing="0" cellpadding="3" border="0">
+<tr>
+<td> <A Href="vb1.htm"><img src="arrow.gif" alt="Часть #1" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb1.htm">Часть #1</a></font></td>
+</tr>
+<tr>
+<td><a href="vb2.htm"><img src="arrow.gif" alt="Часть #2" border="0"></a></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb2.htm">Часть #2</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb3.htm"><img src="arrow.gif" alt="Часть #3" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><A Href="vb3.htm">Часть #3</A></font></td>
+</tr>
+<tr>
+<td><img src="arrow.gif" alt="Часть #4" border="0"></td>
+<td><font size="3" color="gray" face="Courier New,Arial,Verdana">Часть #4</font></td>
+</tr>
+<tr>
+<td><A Href="vb5.htm"><img src="arrow.gif" alt="Часть #5" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb5.htm">Часть #5</a></font></td>
+</tr>
+<td><A Href="vb6.htm"><img src="arrow.gif" alt="Часть #6" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb6.htm">Часть #6</a></font></td>
+<tr>
+<td><A Href="vb7.htm"><img src="arrow.gif" alt="Часть #7" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb7.htm">Часть #7</a></font></td>
+<tr>
+<td><A Href="api.htm"><img src="arrow.gif" alt="API" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="api.htm">API</a></font></td>
+<tr>
+<td><A Href="author.htm"><img src="arrow.gif" alt="Автор" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="author.htm">Автор</a></font></td>
+
+
+
+
+</table>
+</td>
+<td align="left" valign="top">
+<table cellspacing="2" cellpadding="2" border="0" align="left" valign="top">
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">
+<img src="arrow.gif" alt="ну, началось!" border="0">&nbsp;ну, началось!<br>Ты изучил только основы программирования, и то не полностью, а чтобы называть себя кодером нужно уметь работать с файлами, чем мы сейчас и займёмся.
+<br>
+<br><img src="arrow.gif" alt="Открытие файлов" border="0"> Открытие файлов
+<br>
+<br>Ты и сам понимаешь, что работать с файлами нужно, или просто необходимо.
+<br>Общий вид кода открытия файла:
+<br>
+<br><font face="Courier New">канал файла = Shell("start путь и имя файла", vbHide)</font>
+<br>
+<br>Не смущайся канала файла - вводи любую букву, но не идентичную переменной или чему-нибудь подобному.
+<br>Сейчас создай на винчестере текстовый файл 1.txt, а вот так вызываь его программно с помощью кнопки:
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>a = Shell("start c:\1.txt", vbHide)
+<br>End Sub</font>
+<br>
+<br>Думаю всё понятно без комментариев.
+<br>
+<br><img src="arrow.gif" alt="Редактирование" border="0"> Редактирование файлов
+<br>Общий вид:
+<br>
+<br><font face="Courier New">a = FreeFile 'объявляем путь a как свободный канал
+<br>Open "путь и имя файла" For Input/Output/Append As a 'открываем для
+<br>Print #a, "Вводимый текст" 'вводим текст в канал a
+<br>Close #a 'закрываем канал a</font>
+<br>
+<br>Всё почти ясно, хотя команду /Print/ можно заменить командой /Write/; /#/ перед номером канала обязательно!
+<br>Единственное, что нужно объяснить - как можно редактировать:
+<br>
+<br><font face="Courier New">Open "путь и имя файла" For Способ открытия As a</font>
+<br>
+<br>Редактировать файлы можно по разному:
+<br>
+<br>- только для чтения [Input]
+<br>- для замены [Output]
+<br>- для добавления [Append]
+<br>
+<br>
+<br><font face="Courier New">a = FreeFile
+<br>Open "c:/1.txt" For Append as a      
+<br>Print #a, "Вводимый текст"           
+<br>Close #a </font>                     
+<br>
+<br>Без комментариев...
+<br>
+<br><img src="arrow.gif" alt="Чтение" border="0"> Чтение
+<br>Так - же необходимо читатать текст из файлов, а для самого чтения служит оператор LOF. Общий вид:
+<br>
+<br><font face="Courier New">a = FreeFile
+<br>Open "путь и имя файла" For Input As a
+<br>объект для отображения = Input(LOF(a), a)
+<br>Close a</font>
+<br>
+<br>Ясно всё и так. Вот пример:       
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>f = FreeFile
+<br>Open "c:/1.txt" For Input As f
+<br>Text1.Text = Input(LOF(f), f)
+<br>Close f
+<br>End Sub</font>
+<br>
+<br>Файлы также можно перемещать, копировать, удалять, переименовывать.
+<br>
+<br><img src="arrow.gif" alt="Работа с файлами" border="0"> Работа с файлами
+<br>Вот примеры копирования, перемещения, удаления, переименовывания, создания новых директорий:
+<table bordercolor="#ffffff" align="left" cellspacing="2" cellpadding="2" border="1">
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana"><Img Src="copy.gif" alt="копирование" Border="0"></td>
+    <td><font color="#ffffff" size="2" face="Verdana">FileCopy "дир и имя", "дир и имя" </td>
+    <td><font color="#ffffff" size="2" face="Verdana">FileCopy "c:/1.txt", "d:/1.txt" </td>
+</tr>
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana"><Img Src="perem.gif" alt="перемещение" Border="0"></td>
+    <td><font color="#ffffff" size="2" face="Verdana">Name "дир и имя" As "дир и имя" </td>
+    <td><font color="#ffffff" size="2" face="Verdana">Name "c:/1.txt" As "d:/1.txt" </td>
+</tr>
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana"><Img Src="del.gif" alt="удаление" Border="0"></td>
+    <td><font color="#ffffff" size="2" face="Verdana">Kill "дир и имя" </td>
+    <td><font color="#ffffff" size="2" face="Verdana">Kill "c:/1.txt" </td>
+</tr>
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana"><Img Src="ren.gif" alt="переименовывание" Border="0"></td>
+    <td><font color="#ffffff" size="2" face="Verdana">Name "дир и имя1" As "дир и имя2" </td>
+    <td><font color="#ffffff" size="2" face="Verdana">Name "c:/1.txt" As "c:/2.txt" </td>
+</tr>
+<tr>
+    <td><font color="#ffffff" size="2" face="Verdana"><Img Src="newf.gif" alt="создание новой директории" Border="0"></td>
+    <td><font color="#ffffff" size="2" face="Verdana">MkDir "дир и имя новой директории"</td>
+    <td><font color="#ffffff" size="2" face="Verdana">MkDir "c:/1"</td>
+</tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>Помимо прочего у файла есть четыре атрибута: [Архивный] [Только чтение] [Скрытый] [Системный].
+<br>Вот таблица установки атрибутов:
+<table bordercolor="#ffffff" align="left" cellspacing="2" cellpadding="2" border="1">                                      
+<tr>                                                                                                                       
+    <td><font color="#ffffff" size="2" face="Verdana">Архивный</td>              
+    <td><font color="#ffffff" size="2" face="Verdana">SetAttr "c:/1.txt", vbArchive</td>                                
+</tr>                                                                                                                      
+<tr>                                                                                                                       
+    <td><font color="#ffffff" size="2" face="Verdana">Только чтение</td>                   
+    <td><font color="#ffffff" size="2" face="Verdana">SetAttr "c:/1.txt", vbReadOnly</td>                                               
+</tr>                                                                                                                      
+<tr>                                                                                                                       
+    <td><font color="#ffffff" size="2" face="Verdana">Скрытый</td>           
+    <td><font color="#ffffff" size="2" face="Verdana">SetAttr "c:/1.txt", vbHidden</td>                              
+</tr>                                                                                                                      
+<tr>                                                                                                                       
+    <td><font color="#ffffff" size="2" face="Verdana">Системный</td> 
+    <td><font color="#ffffff" size="2" face="Verdana">SetAttr "c:/1.txt", vbSystem</td>                         
+</tr>                                                                                                                      
+</table>                                                                                                                   
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>А вот таблица снятия атрибутов:
+<table bordercolor="#ffffff" align="left" cellspacing="2" cellpadding="2" border="1">                                      
+<tr>                                                                                                                       
+    <td><font color="#ffffff" size="2" face="Verdana">Архивный</td>              
+    <td><font color="#ffffff" size="2" face="Verdana">SetAttr "c:/1.txt", GetAttr("c:/1.txt") And (Not vbArchive)</td>                                
+</tr>                                                                                                                      
+<tr>                                                                                                                       
+    <td><font color="#ffffff" size="2" face="Verdana">Только чтение</td>                   
+    <td><font color="#ffffff" size="2" face="Verdana">SetAttr "c:/1.txt", GetAttr("c:/1.txt") And (Not vbReadOnly)</td>                                               
+</tr>                                                                                                                      
+<tr>                                                                                                                       
+    <td><font color="#ffffff" size="2" face="Verdana">Скрытый</td>           
+    <td><font color="#ffffff" size="2" face="Verdana">SetAttr "c:/1.txt", GetAttr("c:1.txt") And (Not vbHidden)</td>                              
+</tr>                                                                                                                      
+<tr>                                                                                                                       
+    <td><font color="#ffffff" size="2" face="Verdana">Системный</td> 
+    <td><font color="#ffffff" size="2" face="Verdana">SetAttr "c:/1.txt", GetAttr("c:1.txt") And (Not vbSystem)</td>                         
+</tr>                                                                                                                      
+</table>                                                                                                                   
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><img src="arrow.gif" alt="Работа с буфером обмена" border="0"> Работа с буфером обмена           
+<br>Специально для работы с буфером обмена есть функция /Clipboard/.                                 
+<br>Описывать всё подробно я не буду, давай просто сделаем прогу и ты всё поймёшь сам.               
+<br>Расположи на форме текстовое поле и три кнопки: [Копировать] [Вырезать] [Вставить]. Вот сам код: 
+<br> 
+<br><font face="Courier New">Private Sub Command1_Click()                                            
+<br>Clipboard.SetText Text1.Text                                                                     
+<br>End Sub                                                                                          
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()               
+<br>Clipboard.SetText Text1.Text               
+<br>Text1.SelText = ""                         
+<br>End Sub                                    
+<br>                                           
+<br>Private Sub Command3_Click()               
+<br>Text1.Text = Text1.Text + Clipboard.GetText
+</font>
+<br>
+<br>С вырезанием сложнее - нет функции /Вырезать/, а есть функция /Скопировать/, нужно просто после копирования удалить выделенный текст.
+<br>
+<br>{<A Href="buffer.zip">исходный файл</A>}
+<br>
+<br><img src="arrow.gif" alt="Работа со строками" border="0"> Работа со строками
+<br>От работы с файлами мы перейдём к работе со строками. Для работы со строками есть три функции: /Len/, /Left/, /Mid/. Начнём по порядку.
+<br>
+<br>/Len/ служит для определения количества символов в тексте. Общий вид:
+<br>
+<br>Для объекта:
+<br><font face="Courier New">
+<br>переменная или объект = Len(переменная или объект)
+<br></font>
+<br>
+<br>Для набора символов (слова):                                      
+<br><font face="Courier New">                         
+<br>переменная или объект = Len("слово")
+<br></font>                                           
+<br>
+<br>На практике это выглядит так:
+<br><font face="Courier New"> 
+<br>Text1.Text = Len(Text2.Text)
+<br></font>
+<br>
+<br>/Left/ служит для оставления определённого количества символов от конца:
+<br>
+<br>Для объекта:
+<br><font face="Courier New">
+<br>переменная или объект = Left(переменная или объект, количество оставляемых символов)
+<br></font>
+<br>
+<br>Для набора символов (слова):
+<br><font face="Courier New">
+<br>переменная или объект = Left("слово", количество оставляемых символов)
+<br></font>
+<br>
+<br>На практике это выглядит так:
+<br><font face="Courier New"> 
+<br>Text1.Text = Left("клавиатура", 4) 'после вырезания останется просто "клав"
+<br></font>
+<br>
+<br>/Mid/ похожа на предыдущую функцию, только после количества оставляемых символов указывается позиция:
+<br>
+<br>Для объекта:
+<br><font face="Courier New">
+<br>переменная или объект = Mid(переменная или объект, количество оставляемых символов, позиция)
+<br></font>
+<br>
+<br>Для набора символов (слова):
+<br><font face="Courier New">
+<br>переменная или объект = Mid("слово", количество оставляемых символов, позиция)
+<br></font>
+<br>
+<br>На практике это выглядит так:
+<br><font face="Courier New"> 
+<br>Text1.Text = Mid("клавиатура", 4, 3) 'после вырезания останется "виа"
+<br></font>
+<br>
+<br><img src="arrow.gif" alt="Функция /InStr/" border="0"> Функция /InStr/
+<br>Эта функция нужна для сверения двух слов и она широко распространена в различных поисках. Для полного усвоениясделаем прогу.
+<br>Размести на форме два текстовых поля и кнопку. Код:
+<br>
+<br><font face="Courier New">Private Sub Command1_Click() 'при нажатии на кнопку
+<br>If InStr(1, Text1.Text, Text2.Text) = 1 Then 'сверяем содержимое двух текстовых полей, если совпадает /1/, то...
+<br>MsgBox "совпало" 'выдаём сообщение о совпадении
+<br>Else 'наоборот: если не совпало...
+<br>MsgBox "не совпало" 'выдаём сообщение о несовпадении
+<br>End If
+<br>End Sub</font>
+<br>
+<br>{<A Href="instr.zip">исходный файл</A>}
+<br>
+<br>Главный недостаток (иногда достоинство) - регистр тоже учитывается! Чтобы этого не случалось достаточно только добавить следующую строчку в (General) (Declarations):
+<br><font face="Courier New">Option Compare Text</font>
+<br>
+<br>Как сделать поиск учить тебя я не буду, просто покажу код поиска моего текстового редактора [Tech-Pad]:
+<br>
+<br><font face="Courier New">Option Compare Text
+<br>Dim fin As Long 'объявляем переменную fin для работы с числами
+<br>Private Sub Command1_Click() 'при нажатии на кнопку
+<br>If InStr(fin, Form1.Text1.Text, Text1.Text) <> 0 Then 'cверяется 2 текстовых поля
+<br>Form1.Text1.SetFocus 'на Text2 ставим курсор
+<br>Form1.Text1.SelStart = InStr(fin, Form1.Text1.Text, Text1.Text) - 1 'устанавливаем курсор перед совпавшимся словом
+<br>Form1.Text1.SelLength = Len(Text1.Text) 'с помощью функции Len считаем сколько символов в Text1, и столько же выделяем
+<br>fin = InStr(fin, Form1.Text1.Text, Text1.Text) + Len(Text1.Text) ' изменяем переменную на позицию курсора
+<br>Else 'если в тексте больше нет искомого слова, то выводим об этом сообщение.
+<br>MsgBox "Не встречал", vbCritical, "Поиск завершён"
+<br>End If
+<br>End Sub</font>
+<br>
+<br>Полный результат моей работы можешь взять с <A Href="http://web-svalka.narod.ru/sources/tech-pad.zip">сайта</A> или здесь:
+<br>
+<br>{<A Href="tech-pad.zip">исходный файл</A>}
+<br>
+<br>Вот и закончилась очередная часть, полностью поствящённая работе с файлами и строками, если всё в порядке, можешь переходить к <A Href="vb5.htm">следующей</A>.
+
+
+
+</font></td>   
+</tr>          
+</td>          
+</table>       
+               
+</body>        
+</html>        

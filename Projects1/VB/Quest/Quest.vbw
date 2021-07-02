@@ -1,0 +1,10 @@
+frmGame = 44, 44, 379, 381, , 22, 22, 357, 359, C
+modMusicEngine = 66, 66, 409, 411, C
+modVariables = 88, 88, 423, 425, 
+modMaps = 88, 88, 431, 433, 
+modSpeech = 132, 132, 475, 477, 
+modChangeMap = 22, 22, 365, 367, 
+modSpells = 88, 88, 431, 433, C
+modItemStuff = 110, 110, 453, 455, 
+frmIntro = 22, 22, 365, 367, C, 0, 0, 343, 345, C
+modSaveLoad = 66, 66, 401, 403, C

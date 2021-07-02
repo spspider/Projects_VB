@@ -1,0 +1,44 @@
+h1 {
+FONT-FAMILY:verdana, sans-serif, Arial Cyr, sans-serif, helvetica; 
+FONT-SIZE: 10px; 
+margin-bottom:0; 
+color:#FFFFFF;
+}
+
+h2 {
+FONT-FAMILY:verdana, sans-serif, Arial Cyr, sans-serif, helvetica; 
+FONT-SIZE: 8pt; 
+font-weight: bold; 
+color:#D63027; 
+margin-bottom:0;
+}
+
+h3 {
+font-family:Tahoma,Verdana,Arial Cyr,Times New Roman; 
+font-size: 9pt;
+margin-bottom:0; 
+color:blue;
+font-weight:lighter;
+}
+
+.bigmenu {
+font-family:Verdana,Tahoma,Arial Cyr,Times New Roman; color=#EBEBF1; font-size:80%; font-weight:bold; text-decoration:none;
+}
+.menu {
+font-family:Tahoma,Verdana,Arial Cyr,Times New Roman; color=#526D8F; font-size:80%; font-weight:lighter;
+}
+.text {
+FONT-FAMILY:verdana, sans-serif, Arial Cyr, sans-serif, helvetica; FONT-SIZE: 8pt;
+}
+.ltext {
+FONT-FAMILY:Tahoma, Arial Cyr; FONT-SIZE: 11px; text-align:left; font-weight:lighter;
+}
+.title {
+COLOR: #ffffff; FONT-FAMILY: Tahoma, Verdana, Arial; FONT-SIZE: 10px; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.gf{
+FONT-FAMILY: Tahoma,Verdana,Arial Cyr,Times New Roman; color=#FBDD0B; font-weight:bold; text-align:right;
+}
+.yellow{
+background-color:#FBDD0B;
+}

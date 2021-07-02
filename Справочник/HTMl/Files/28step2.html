@@ -1,0 +1,91 @@
+<html>
+<head>
+
+
+<TITLE>Первые шаги - Ступенька двадцать восьмая, учимся создавать фреймы, параметры тэга frame.</TITLE>    
+<META HTTP-EQUIV="Content-Type" Content="text/html; Charset=Windows-1251">
+<META Name="copyright" Content="Алленова Наталья">
+<META NAME="author" CONTENT="Алленова Наталья Email: seagull@pisem.net"><META NAME="keywords" CONTENT="графика, хтмл, для, начинающий, начинающих, чайников, новичков, просто, основа, основы, страница, домашний, домашняя, сайт, новый, новичок, html, обучение, учеба, пример, веб, мастер, веб-мастер, дизайн, веб-дизайн, вебдизайн, дезайн, веб-дезайн, вебдезайн, дезайнер, дизайнер, ступени, тэги, тэг, теги, тег, аттрибут, атрибуты, парамет, design, web, help, помощь, icq, e-mail, guest, book, guestbook, гостевая, книга, форум, аська, контакт, ссылка, link, links, banner, обмен, баннер, баннерами, банер, baner, друзья, friends, почитать, написать, вопросы, вопрос, ответ, проект, ступени, словарь"> <META NAME="description" CONTENT="Основы хтмл (html) для чайников. Просто, доступно. Создайте свою домашнюю страничку своими руками и без хтмл (html) редакторов. Что может быть проще? Также вы здесь найдете полезные ссылки для вашего сайта, но это уже не главное...">
+
+
+
+</head>
+<body bgcolor="#ffffff" link="#000000" alink="#000000" vlink="#000000">
+
+
+<table>
+
+	<tr>
+	<td width="600">
+<font face="times new roman"><hr noshade size="1">
+<a href="index.html">Главная</a> | <a href="content2.html">Оглавление</a> | <a href="alltags2.html">Словарь</a><hr noshade size="1"><p align="JUSTIFY">
+Допустим, мы решили остановиться на последнем <a href="primtoframez6.html" target="_blank">варианте</a>, значит будем приводит это в более-менее нормальный вид. Для начала избавимся от полосы прокрутки (скрулинга) во фрейме с logo.html. 
+</p></font>
+<img src="step4.gif" align="left" width="20" height="230">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Хождение по фреймам&lt;/title&gt;<br>
+&lt;frameset cols="100,*"&gt;<br><br>
+&lt;frameset rows="100,*"&gt;<br>
+&lt;frame src="logo.html" <b>scrolling="no"</b>&gt;<br>
+&lt;frame src="menu.html"&gt;<br>
+&lt;/frameset&gt;<br>
+&lt;frame src="content.html"&gt;<br><br>
+&lt;/frameset&gt;<br>
+&lt;/head&gt;<br>
+&lt;/html&gt; (<a href="primtoframez7.html" target="_blank">прим.</a>)</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Scrolling - параметр тэга &lt;frame&gt;. Он может принимать несколько значений: no - это значит совсем не будет полосы прокрутки, ни при каких обстоятельствах; yes - это значит полоса прокрутки будет всегда; auto - полоса прокрутки появиться только тогда, когда она нужна. 
+<br><br>
+Собственно, параметр scrolling="auto", можно не прописывать, т.к. если параметр scrolling не задан, то полоса прокрутки появиться, если она нужна, а если нет - ее не будет.  
+<br><br>
+Теперь давайте избавимся от рамок между фреймами. Для этого мы используем параметр border, с которым мы раньше уже встречались. Итак, border="0".
+</p></font>
+<img src="step4.gif" align="left" width="20" height="230">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Хождение по фреймам&lt;/title&gt;<br>
+&lt;frameset cols="100,*" <b>border="0"</b>&gt;<br><br>
+&lt;frameset rows="100,*"&gt;<br>
+&lt;frame src="logo.html" scrolling="no"&gt;<br>
+&lt;frame src="menu.html"&gt;<br>
+&lt;/frameset&gt;<br>
+&lt;frame src="content.html"&gt;<br><br>
+&lt;/frameset&gt;<br>
+&lt;/head&gt;<br>
+&lt;/html&gt; (<a href="primtoframez9.html" target="_blank">прим.</a>)</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Так уже лучше :). Но все же, что-то еще хочеться исправить... А! Картинку с чёртом так и хочется прижать в левый верхний угол:
+</p></font>
+<img src="step4.gif" align="left" width="20" height="230">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Хождение по фреймам&lt;/title&gt;<br>
+&lt;frameset cols="100,*" border="0"&gt;<br><br>
+&lt;frameset rows="100,*"&gt;<br>
+&lt;frame src="logo.html" scrolling="no" <b>marginwidth="0" marginheight="0"</b>&gt;<br>
+&lt;frame src="menu.html"&gt;<br>
+&lt;/frameset&gt;<br>
+&lt;frame src="content.html"&gt;<br><br>
+&lt;/frameset&gt;<br>
+&lt;/head&gt;<br>
+&lt;/html&gt; (<a href="primtoframez10.html" target="_blank">прим.</a>)</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Прижали. Теперь давайте познакомимся с параметрами тэга &lt;frame&gt; marginheight и marginwidth.
+<br><br>
+Marginheight определяет ширину (в пикселах) верхнего и нижнего полей фрэйма, а  marginwidth определяет ширину левого и правого полей фрэйма. В нашем примере мы избавились от полей во фрейме, содержащим logo.html, задав значение marginheight и marginwidth равное нулю.
+<br><br>
+Вот такие пироги:) Остальное будет на других ступеньках.
+</p>
+<center><a href="27step2.html">Назад</a> | <a href="29step2.html">Шагнуть на следующую ступеньку</a></center>
+</font>
+
+
+</td>
+
+	</tr>
+ </table>
+
+
+</body>
+</html>

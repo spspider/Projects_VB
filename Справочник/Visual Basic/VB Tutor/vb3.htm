@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB Tutorial -> Часть #3</title>
+</head>
+<style> body {scrollbar-3dlight-color:white; scrollbar-arrow-color:white; scrollbar-base-color:black;scrollbar-darkshadow-color:black;scrollbar-track-color:#000000;scrollbar-highlight-color:black;scrollbar-shadow-color:white}
+a {text-decoration:none;color:white}
+a:hover {text-decoration:underline}
+</style>
+
+
+
+</head>
+
+<body bgcolor="#000000">
+
+<script language = "javascript">
+window.status = "CopyLeft (v) Loginov Vladimir"
+</script>
+
+<left><A Href="index.htm"><img src="logocb.jpg" alt="Мастерская Visual Basic" border="0"></A></left>
+
+<table width="100%" bordercolor="#ffffff" align="center" cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td width="150" align="left" valign="top"><table cellspacing="0" cellpadding="3" border="0">
+<tr>
+<td> <A Href="vb1.htm"><img src="arrow.gif" alt="Часть #1" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb1.htm">Часть #1</a></font></td>
+</tr>
+<tr>
+<td><img src="arrow.gif" alt="Часть #2" border="0"></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb2.htm">Часть #2</a></font></td>
+</tr>
+<tr>
+<td><img src="arrow.gif" alt="Часть #3" border="0"></td>
+<td><font size="3" color="gray" face="Courier New,Arial,Verdana">Часть #3</font></td>
+</tr>
+<tr>
+<td><a href="vb4.htm"><img src="arrow.gif" alt="Часть #4" border="0"></a></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb4.htm">Часть #4</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb5.htm"><img src="arrow.gif" alt="Часть #5" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb5.htm">Часть #5</a></font></td>
+</tr>
+<td><A Href="vb6.htm"><img src="arrow.gif" alt="Часть #6" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb6.htm">Часть #6</a></font></td>
+<tr>
+<td><A Href="vb7.htm"><img src="arrow.gif" alt="Часть #7" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb7.htm">Часть #7</a></font></td>
+<tr>
+<td><A Href="api.htm"><img src="arrow.gif" alt="API" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="api.htm">API</a></font></td>
+<tr>
+<td><A Href="author.htm"><img src="arrow.gif" alt="Автор" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="author.htm">Автор</a></font></td>
+
+
+
+
+</table>
+</td>
+<td align="left" valign="top">
+<table cellspacing="2" cellpadding="2" border="0" align="left" valign="top">
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">
+<img src="arrow.gif" alt="не сдавайся!" border="0">&nbsp;не сдавайся!<br>Ну вот что, кул-кодер, программировать ты немного умеешь давай займёмся оформлением. Для этих целей я припас четыре объекта, это HScrollBar; VScrollBar; ListBox; ComboBox:
+<br><Img Src="hvlc.gif" Border="0">
+<br>Давай отступимся от обычаев и разберём два последних объекта:
+<br>[ListBox] Мне он особо не нужен, но всё-таки давай изучим его главное свойство:
+<br><img src="arrow.gif" alt="Свойство" border="0"> List: это сам список
+<br>[ComboBox] Тоже, что и Листбокс, но только объекты списка скрыты и их можно вызвать с помощью менюшки (кнопочка со стрелкой). Свойства как и Листбокса, но есть ещё одно:
+<br><img src="arrow.gif" alt="Свойство" border="0"> Text: видимая надпись Комбобокса.
+<br>
+<br>Разобраться с Листбоксом поможет прога. С Комбобоксом писать ничего не будем, т. к. всё абсолютно идентично.
+<br>Итак, прога будет добавлять и удалять надписи Листбокса. Размести на форме текстовое поле, две кнопки [Добавить] и [Удалить] и, конечно же, сам листбокс.
+<br>Текст будет добавляться из текстового поля командой:
+<br><font face="Courier New">List1.AddItem (Text1.Text)</font>
+<br>
+<br>Удаляться будут выделенные объекты:
+<br><font face="Courier New">List1.RemoveItem (List1.ListIndex)</font>
+<br>
+<br>Я уверен, что ты понял куда и что писать, хотя я и оставляю код целиком:
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>List1.AddItem (Text1.Text)
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()
+<br>List1.RemoveItem (List1.ListIndex)
+<br>End Sub</font>
+<br>
+<br>{<A Href="listbox.zip">исходный файл</A>}
+<br>
+<br>Теперь разберём оставшиеся объекты - полосы прокрутки. Свойтва у них идентичны, поэтому разберём свойства только горизонтально полосы прокрутки:
+<br><img src="arrow.gif" alt="Свойство" border="0"> LargeChage: это свойство нужно для установки скорости передвижения ползунка при нажатии на саму полосы прокрутки.
+<br><img src="arrow.gif" alt="Свойство" border="0"> SmallChange: свойство для установки скорости передвижения ползунка при нажатии на стрелочки.
+<br><img src="arrow.gif" alt="Свойство" border="0"> TabStop: переключатель мигания ползунка
+<br><img src="arrow.gif" alt="Свойство" border="0"> Value: положение ползунка.
+<br>
+<br>Давай напишем прогу, в которой при изменении положения ползунка будет изменяться положения картинки.
+<br>Вот код:
+<br><font face="Courier New">Private Sub HScroll1_Change()
+<br>Image1.Left = HScroll1.Value / 10
+<br>End Sub
+<br>
+<br>Private Sub VScroll1_Change()
+<br>Image1.Top = VScroll1.Value / 10
+<br>End Sub</font>
+<br>
+<br>Если ничего не будет выходить, просто поменяй свойства LargeCange и SmallChange у полос прокрутки/
+<br>
+<br>{<A Href="scroll.zip">исходный файл</A>}
+<br>
+<br><img src="arrow.gif" alt="Конструкция /With/" border="0"> Конструкция /With/
+<br>Иногда просто необходимо изменение множества свойств у одного объекта одновременно, сам представь - придётся писать много похожего кода, и специально для этого есть конструкция /With/. Вот так ею пользоваться (на примере кнопки)
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>With Command1 'начинаем конструкцию с [Command1]
+<br>.Caption = "Кнопка" 'меняем свойства            
+<br>.FontBold = True                                
+<br>End With 'заканчиваем конструкцию               
+<br>End Sub</font>
+<br>
+<br>Вот, собственно, и всё на эту тему.
+<br>
+<br><img src="arrow.gif" alt="События" border="0"> Cобытия
+<br>События есть у каждого объекта, например у формы по умолчанию стоит /Load/, т. е. /Загрузка/; у полосы прокрутки /Change/, т. е. /Изменение/ и всё тому подобное. Изменяются события в окне кода:
+<br><Img Src="sub.gif" Border="0">
+<br>Можешь поэкспериментировать - выбирай разные свойства в комбобоксе.
+<br>
+<br><img src="arrow.gif" alt="Событие" border="0"> Событие Load
+<br>С этим событием мы уже всречались, а если ты ничего не понял, вот пример:
+<br>
+<br><font face="Courier New">Private Sub Form_Load()
+<br>MsgBox "При загрузке формы загружается это окошко", 64, "Форма загружена"
+<br>End Sub</font>
+<br>
+<br>При загрузке формы будет загружаться сообщение и что угодно (устанавливаться свойства объектов, значения переменных и т.д.)
+<br>
+<br><img src="arrow.gif" alt="Событие" border="0"> Событие Unload
+<br>Это событие обратное предыдущему, т. е. при закрытие программы будет что-то происходить. Мы уже делали это, но ничто не мешает нам повторить:
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>a = MsgBox("Вы действительно хотите выйти?", 20, "Выход")
+<br>If a = 6 Then
+<br>End
+<br>End If
+<br>End Sub
+<br>
+<br>Private Sub Form_Unload(Cancel As Integer)
+<br>a = MsgBox("Вы действительно хотите выйти?", 20, "Выход")
+<br>If a = 6 Then
+<br>End
+<br>End If
+<br>End Sub</font>
+<br>
+<br>При закрытии проги мы сможем выбрать действие - действительно выйти или нет.
+<br>
+<br>{<A Href="yes-no.zip">исходный файл</A>}
+<br>
+<br><img src="arrow.gif" alt="Событие" border="0"> Событие Resize
+<br>Событие служит для одновременного изменения размеров. Например, попробуй растянуть окно NotePad'а, как видишь текстовое поле тоже изменяет свой размер. Подробно расписывать не буду - разберись с кодом сам:
+<br>
+<br><font face="Courier New">Private Sub Form_Resize()
+<br>On Error Resume Next
+<br>Text1.Left = 20
+<br>Text1.Top = 1080
+<br>Text1.Width = Form1.Width - 140
+<br>Text1.Height = Form1.Height - 1500
+<br>End Sub</font>
+<br>
+<br>Отладка нужна для сворачивания, попробуй без неё - тебя будет выкидывать из проги при каждом сворачивании.
+<br>
+<br><img src="arrow.gif" alt="Событие" border="0"> Событие MouseMove
+<br>Выбери это событие для формы, т. к. сейчас мы будем отслеживать координаты мыши. Заметь, в скобках сразу же объявляются переменные для координат по оси X и Y.
+<br>Расположи на форме две метки и можешь приступать к написания кода. Должно получиться следующее:
+<br>
+<br><font face="Courier New">Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+<br>ScaleMode = 3 'координаты будут в пикселях
+<br>Label1.Caption = X
+<br>Label2.Caption = Y
+<br>End Sub</font>
+<br>
+<br>Один минус, что координаты будут отслеживаться только в пределах формы.
+<br>
+<br>{<A Href="mousemove.zip">исходный файл</A>}
+<br>
+<br><img src="arrow.gif" alt="Событие" border="0"> Событие DblClick
+<br>Дословно - двойной щелчок. Для полного понимания размести на форме семь меток и закрась их разным цветом, а при двойном щелчке будет вылазить сообщение. Вот код моего примера:
+<br>
+<br><font face="Courier New">Private Sub Form_DblClick()
+<br>MsgBox "Двойной щелчок по форме", 64, "DblClick"
+<br>End Sub
+<br>
+<br>Private Sub Label1_DblClick()
+<br>MsgBox "Красный", 64, "DblClick"
+<br>End Sub
+<br>
+<br>Private Sub Label2_DblClick()
+<br>MsgBox "Оранджевый", 64, "DblClick"
+<br>End Sub
+<br>
+<br>Private Sub Label3_DblClick()
+<br>MsgBox "Жёлтый", 64, "DblClick"
+<br>End Sub
+<br>
+<br>Private Sub Label4_DblClick()
+<br>MsgBox "Зелёный", 64, "DblClick"
+<br>End Sub
+<br>
+<br>Private Sub Label5_DblClick()
+<br>MsgBox "Голубой", 64, "DblClick"
+<br>End Sub
+<br>
+<br>Private Sub Label6_DblClick()
+<br>MsgBox "Синий", 64, "DblClick"
+<br>End Sub
+<br>
+<br>Private Sub Label7_DblClick()
+<br>MsgBox "Фиолетовый", 64, "DblClick"
+<br>End Sub</font>
+<br>
+<br>{<A Href="dblclick.zip">исходный файл</A>}
+<br>
+<br><img src="arrow.gif" alt="Событие" border="0"> Событие MouseDown/MouseUp
+<br>Событие выполняется тогда, когда нажата кнопка мыши.
+<br>В примере, который я сейчас дам, при нажатии кнопки картинка будет перемещаться вправо, а при отжатии кнопки - останавливаться.
+<br>Размести на форме картинку, таймер и кнопку.
+<br>
+<br><font face="Courier New">Private Sub Command1_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+<br>Timer1.Interval = 1
+<br>End Sub
+<br>
+<br>Private Sub Command1_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)
+<br>Timer1.Interval = 0
+<br>End Sub
+<br>
+<br>Private Sub Timer1_Timer()
+<br>Image1.Left = Image1.Left + 50
+<br>End Sub</font>
+<br>
+<br>{<A Href="mousedown.zip">исходный файл</A>}
+<br>
+<br>Больше событиями я тебя нагружать не буду, а если что-то понадобиться - разберись самостоятельно.
+<br>
+<br>На этом часть обрывается, так как в следующей мы будем подробно говорить о работе с файлами. Всё это только в <A Href="vb4.htm">следующей части</A>.
+</font></td>   
+</tr>          
+</td>          
+</table>       
+               
+</body>        
+</html>        

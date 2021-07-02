@@ -1,0 +1,4 @@
+modWizard = 0, 0, 0, 0, C
+frmWizard = 44, 58, 421, 488, C, 22, 29, 538, 459, C
+frmConfirm = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+Wizard = 0, 0, 0, 0, C, 0, 0, 0, 0, C

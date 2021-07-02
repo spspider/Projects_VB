@@ -1,0 +1,435 @@
+
+<html><head>
+<style type="text/css">
+.part2{color:#4173a3;font-weight:900;}
+.part2:hover{color:red;font-weight:880}
+.cd{font-size:18px;color:black;}
+.c2{font-size:18px;color:black;}
+.c1{font-size:45pt;}
+.cc{font-size:13pt;font-weight:bold}
+.t{color:red;}
+.a9{color:#4173a3;font-weight:bold;}
+.a9:hover{color:red;font-weight:880}
+h2{font-size:21pt;font-weight:bold}
+h3{font-size:17pt;font-weight:bold}
+.a19{color:#4173a3;font-size:18px}
+.a19:hover{color:red;font-size:18px}
+body{
+BORDER-RIGHT: 0px;
+SCROLLBAR-FACE-COLOR: #CFDEEB;
+PADDING-BOTTOM: 0px;
+SCROLLBAR-HIGHLIGHT-COLOR: #CFDEEB;
+VERTICAL-ALIGN: middle;
+BORDER-LEFT: 0px;
+SCROLLBAR-SHADOW-COLOR: black;
+SCROLLBAR-ARROW-COLOR: black;
+PADDING-TOP: 0px;
+BORDER-BOTTOM: 0px;
+SCROLLBAR-BASE-COLOR: black;
+scrollbar-3dlight-color: #4173a3;
+scrollbar-dark-shadow-color: #4173a3;}
+</style>
+
+<title>Программируем на Visual Basic'e</title>
+</head>
+<body background="1.jpeg">
+<em >
+<a href="http://vbstreets.narod.ru" class="a9">Главная</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7132" class="a9">Гостевая</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7137" class="a9">Форум</a>
+<a href="INFA.htm" class="a9">INFA</a>
+</em>
+
+<H1 ><font size=6>Программируем на Visual Basic'e:</font></H1>
+
+<p style="font-weight:bold; font-size:21px" >
+
+<a href="vbasic.htm" class="part2">Часть 1</a>/<a href="vbasic2.htm" class="part2">Часть 2</a>/<a href="vbasic3.htm" class="part2">Часть 3</a>/<a href="vbasic4.htm" class="part2">Часть 4</a>/<a href="vbasic5.htm" class="part2">Часть 5</a>/<a href="vbasic6.htm" class="part2">Часть 6</a>/<a href="vbasic7.htm" class="part2">Часть 7</a>/<a href="vbasic8.htm" class="part2">Часть 8</a>/<a href="vbasic9.htm" class="part2">
+Часть 9</a>/<a href="vbasic10.htm" class="part2">Часть 10</a>/<a href="vbasic11.htm" class="part2">Часть 11</a>/Часть 12/<a href="vbasic13.htm" class="part2">Часть 13</a>/<a href="vbasic14.htm" class="part2">Часть 14</a>/<a href="vbasic15.htm" class="part2">Часть 15</a></font>
+</p>
+<h2>ШАГ <font color="Red">111:</font></h2>
+<h3>Создание окна в форме круга, и др. :</h3>
+<p class="c2"> У Билл Гейца, когда он делал Винд, не хватило ума сделать круглые формы, а юзерам всего мира надоели квадратные окна, и они требуют круглые формы, и мы, программеры всего мира, должны удовлетворять потребности юзеров, т.к. все свои проги, мы делаем для них(ну и для ламеров вирусы...). И вот мы сейчас, с помощью спец. АПИ функции это исправим, для начала сделаем круглое окно, а потом ты сам будешь делать другие окна. Войди в VB, и впиши код:<br>
+<br><font color="green"> 'Декларируем АПИ:</font><br>
+Private Declare Function CreateEllipticRgn Lib "gdi32" (ByVal X1 As Long, ByVal Y1 As Long, ByVal X2 As Long, ByVal Y2 As Long) As Long<br>
+Private Declare Function SetWindowRgn Lib "user32" (ByVal hWnd As Long, ByVal hRgn As Long, ByVal bRedraw As Boolean) As Long 
+<br><br>
+
+Private Sub Form_Load()<font color="green"> 'При запуске формы, делаем ее круглой:</font><br>
+SetWindowRgn hWnd, CreateEllipticRgn(80, 0, 300, 200), True<font color="green"> 'Цифры в скобках означают что - то типо координат, например, изменив первую цифру(80), окно сузится, или расширится</font><br>
+End Sub <br><br>
+Теперь форма круглая! НО помойму, выглядит она не эффектно, и продвинутому юзеру может не понравиться(а простой юзер целыми днями будет на неё любоваться:-))), попробуй немного изменить координаты, короче в Form_Load впиши:<br>
+SetWindowRgn hWnd, CreateEllipticRgn(0, 0, 600, 450), True<br>
+Ну как? Помойму продвинутому юзеру понравиться! Поэксперементируй с координатами, и мож у тебя получится супер окно.
+<br>
+Исходник - 
+<a href="okno.zip" class="a19">Здесь</a><br>
+
+
+<h2>ШАГ 112:</h2>
+<h3>Окно с плавным переходом цвета(с верху вниз) :</h3>
+<p class="c2">
+Окно с плавным переходом цвета очень эффектная фенька, и она украшает наши проги. Для начало зальем форму с верху вниз, этот эффект очень часто используют в прогах типо Setup. У свойство AutoRedraw надо установить равным True(это чтоб при расширении окна эффект оставался). Код:
+<br><br>
+
+Private Sub Form_Resize()<font color="green"> 'Событие Resize нужно для того, чтоб при изменении размера формы, выполнялось какое - то действие</font><br>
+
+
+
+Dim X As Integer<font color="green"> 'Объявляем переменную - счётчик</font><br>
+
+
+For X = 0 To Height<font color="green"> 'Запускаем цикл, который повторяться столько раз какой высотой форма</font><br>
+
+
+Line (0, X)-(Width, X), X / (Height / 255)<font color="green"> ''рисуем линию от верха и до самого низа формы цвет линии постоянно меняется</font><br>
+Next<br>
+
+End Sub<br>
+<br>
+<img src="okno.jpg" title="Ну как?">
+<br>
+При использовании такого эффекта форма будет медленее грузиться. <br>
+Исходник - 
+<a href="okno2.zip" class="a19">Здесь</a><br>
+<h2>ШАГ 113:</h2>
+<h3>Окно с плавным переходом цвета(с лево на право) :</h3>
+<p class="c2">
+Здесь смысл такой же, так что я не буду по два раза объяснять, вот код:(и не забудь AutoRedraw = True)<br><br>
+Private Sub Form_Resize()<br>
+For X = 0 To Width<br>
+Line (X, 0)-(X, Height), X / (Width / 255)<br>
+Next<br>
+End Sub<br>
+<br>
+<img src="okno3.jpg" title="Ну как?"><br>
+<a href="okno3.zip" class="a19">Здесь</a><br>
+<h2>ШАГ 114:</h2>
+<h3>Окно с плавным переходом цвета(с верху вниз) :</h3>
+<p class="c2">Этот способ намного эффективнеe - заливается быстрее. Цвет – синий. Код:<br>
+<br>
+Private Sub Form_load()<br>
+AutoRedraw = False<br>
+End Sub<br>
+<br>
+Private Sub Form_Paint()<br>
+<font color="green"> 'Объявление переменных</font><br>
+
+Dim lY As Long<br>
+Dim lScaleHeight As Long<br>
+Dim lScaleWidth As Long<br>
+<br>
+
+ScaleMode = vbPixels<font color="green"> 'Единицу измерения устанавливаем равной пикселу</font><br>
+
+lScaleHeight = ScaleHeight<font color="green"> 'Получаем кол-во пикселов по высоте</font><br>
+
+lScaleWidth = ScaleWidth<font color="green"> 'Получаем кол-во пикселов по ширине</font><br>
+
+DrawStyle = vbInvisible<font color="green"> 'Устанавливаем стиль заливки и рисования</font><br>
+FillStyle = vbFSSolid<br>
+
+
+For lY = 0 To lScaleHeight<font color="green"> 'Запускаем цикл закраски</font><br>
+
+<font color="green"> 'Закрашиваем</font><br>
+FillColor = RGB(0, 0, 255 - (lY * 255) \ lScaleHeight)<br>
+Line (-1, lY - 1)-(lScaleWidth, lY + 1), , B<br>
+Next lY<br>
+
+End Sub<br>
+
+<br>
+<img src="okno4.jpg" title="Ну как?"><br>
+<a href="okno4.zip" class="a19">Здесь Исходник</a><br>
+<h2>ШАГ 115:</h2>
+<h3>Модный Выход из проги:</h3>
+<p class="c2">
+В предыдущих шагах мы украшали форму, и в этом шаге я решил продолжить эту тему. В этом шаге ты научишься модно выходить из проги. Войди в VB(Standart EXE) и впиши код:<br><br>
+Private Sub Form_Unload(Cancel As Integer)<font color="green"> 'При выходе из проги:</font><br>
+Form1.WindowState = 1<font color="green"> 'При выходе делается эффект сворачивания, если вместо 1 поставить 2 - то будет эффект разворачивания, а если 0 - то что - то типо мерцания.</font><br>
+End Sub<br><br>
+
+<h2>ШАГ 116:</h2> <h3>Окно, которое впереди всех:</h3> <p class="c2">
+Для создания такого окна используется функция API SetWindowPos из библиотеки user32.dll.
+<br><br>
+Private Declare Function SetWindowPos Lib "user32" (ByVal hwnd As Long, ByVal hWndInsertAfter As Long, 
+ByVal x As Long, ByVal y As Long, ByVal cx As Long, ByVal cy As Long, ByVal wFlags As Long) As Long<br>
+<br>
+
+Private Const HWND_TOPMOST = -1<br>
+Private Const HWND_NOTOPMOST = -2<br>
+Private Const SWP_NOMOVE = &H2<br>
+Private Const SWP_NOSIZE = &H1<br>
+Private Const SWP_NOACTIVATE = &H10<br>
+Private Const SWP_SHOWWINDOW = &H40<br>
+Private Const FLAGS = SWP_NOMOVE Or SWP_NOSIZE<br>
+<br><br>
+Private Sub Form_Load()<br>
+Call SetWindowPos(Me.hwnd, HWND_TOPMOST, 0, 0, 0, 0, FLAGS)<br>
+End Sub<br>
+<br>
+<h2>ШАГ 117:</h2> <h3>Заливка окна рисунуом:</h3> <p class="c2">
+Для заливки окна на форму запульни объект Image, и в Поинте нарисуй квадрат, если из тебя художник ни какой, то скачай исходник, и от туда возьми мой квадрат. Теперь впиши код:<br><br>
+Private Sub Form_Load()<font color="green"> 'Ставим Image в самое начало формы:</font><br>
+Image1.Left = 0<br>
+Image1.Top = 0<br>
+End Sub<br>
+<br>
+Private Sub Form_Paint()<font color="green"> 'Это событие помойму тоже самое что и Resize</font><br>
+<font color="green"> 'Объявляем переменные</font><br>
+Dim X As Integer, Y As Integer<br>
+Dim ImgW As Integer<br>
+Dim ImgH As Integer<br>
+Dim FrmW As Integer<br>
+Dim FrmH As Integer<br>
+<br>
+
+<font color="green"> 'Использование Image1 в PaintPicture methods:</font><br>
+
+ImgW = Image1.Width<br>
+ImgH = Image1.Height<br>
+FrmW = Form1.Width<br>
+FrmH = Form1.Height<br>
+<br>
+
+<font color="green"> 'Залить целую форму:</font><br>
+For X = 0 To FrmW Step ImgW<br>
+For Y = 0 To FrmH Step ImgH<br>
+PaintPicture Image1, X, Y<br>
+Next Y<br>
+Next X<br>
+    
+End Sub<br>
+
+
+
+
+
+<br>
+<img src="zalivka.jpg" title="Ну как?">
+<br>
+<a href="zalivka.zip" class="a19">Здесь Исходник</a><br>
+
+
+
+
+
+
+
+<h2>ШАГ 118:</h2> <h3>Перетаскивания формы за любое место:</h3> <p class="c2">
+Иногда надо сделать такую прогу, чтоб ее можно было перетащить за любое место, например, месяца 3 назад, я сделал Календарь, и там кстати эта АПИ тоже используется. Исходник проги(календарь) можешь скачать с <a href="http://vbstreets.narod.ru" class=a19>vbstreets.narod.ru</A>, и если ты туда зайдешь, не поленись, нажми на сиреневый банер Porta, и мне немного бабла отвалятся(2 цента), хоть это мало, но мне хватит(если ты хочешь поддержать отечественного производителя(т.е. Меня), то кликай по банеру 1 раз в месяц). Ну что - то я заговорился, войди в VB, и впиши код:<br><br>
+
+
+Const WM_NCLBUTTONDOWN = &HA1<br>
+Const HTCAPTION = 2<br>
+<br>
+Private Declare Function SendMessage Lib "user32" Alias "SendMessageA" _<br>
+ (ByVal hWnd As Long, ByVal wMsg As Long, ByVal wParam As Long, lParam As Any) As Long<br>
+<br><br>
+Private Declare Function ReleaseCapture Lib "user32" () As Long<br>
+<br>
+Private Sub Form_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)<br>
+
+Call ReleaseCapture<br>
+Call SendMessage(Me.hWnd, WM_NCLBUTTONDOWN, HTCAPTION, 0&)<br>
+
+End Sub<br><br>
+<a href="MoveForm.zip" class="a19">Здесь Исходник</a><br>
+
+
+<h2>ШАГ 119:</h2> <h3>Введение в Traybar. Добавление, изменение, удаление ИКОНКИ:</h3> <p class="c2">
+TrayBar находиться около часиков, с другой стороны от Пуска(короче как говорят БоТанЫ на ПАНЕЛИ ИНДЕКАЦИИ), вот оно:
+
+<img src="ind.jpg" title="TrayBar">. Ну что впечатляет? Естественно!!! И теперь наша миссия добавить туда свою ИКОНКУ. Ведь дохрена прог, которые туда так и наровятся закинуть свою иконку, и теперь наша очередь! Открой VB, на форму кинь 3 кнопки(У Первой Caption="Добавить", у 2 - ой = "Изменить", у 3 - ей = "Удалить"), и создай МоДулЬ. Теперь впиши в нем(В МоДулЕ) код:<br><br>
+
+
+Public Declare Function Shell_NotifyIcon Lib "shell32" Alias "Shell_NotifyIconA" (ByVal dwMessage As Long, pnid As NOTIFYICONDATA) As Boolean
+
+
+<font color="green"> 'Константы для добавления, удаления и модификации вашей икноки:</font><br>
+Public Const NIM_ADD = 0<br>
+Public Const NIM_MODIFY = 1<br>
+Public Const NIM_DELETE = 2<br>
+
+<font color="green"> 'Константы ответственные за события происходящие внутри границ иконки, расположенной в Traybar:</font><br>
+
+Public Const WM_MOUSEMOVE = &H200<br>
+Public Const NIF_MESSAGE = 1<br>
+Public Const NIF_ICON = 2<br>
+Public Const NIF_TIP = 4<br>
+<font color="green"> 'Константы ответственные за события поведения мышки происходящие внутри границ иконки,
+' расположенной в Traybar:</font><br>
+
+
+
+<font color="green"> ':</font><br>
+
+Public Const WM_LBUTTONDOWN = &H201<br>
+Public Const WM_LBUTTONUP = &H202<br>
+Public Const WM_LBUTTONDBLCLK = &H203<br>
+<font color="green"> 'Для  правой клавиши мышки:</font><br>
+
+Public Const WM_RBUTTONDOWN = &H204<br>
+Public Const WM_RBUTTONUP = &H205<br>
+Public Const WM_RBUTTONDBLCLK = &H206<br>
+<font color="green"> 'Для  средней клавиши мышки:</font><br>
+
+Public Const WM_MBUTTONDOWN = &H207<br>
+Public Const WM_MBUTTONUP = &H208<br>
+Public Const WM_MBUTTONDBLCLK = &H209<br>
+<font color="green"> 'Объявляем переменную определяемую пользователем:</font><br>
+
+Type NOTIFYICONDATA<br>
+
+  cbSize As Long<br>
+  hWnd As Long<br>
+  uID As Long<br>
+  uFlags As Long<br>
+  uCallbackMessage As Long<br>
+  hIcon As Long<br>
+  szTip As String * 64<br>
+
+End Type<br><br>
+Теперь переключись на форму, и в ней(ФОРМЕ) впиши код:<br>
+<br>
+
+
+
+
+
+
+<font color="green"> 'На форме в разделе General объявляем переменную определенную как тип пользователя:</font><br>
+
+
+Dim nid As NOTIFYICONDATA<br><br>
+
+
+
+Private Sub Command1_Click()<br>
+' Добавить иконку формы в Traybar<br>
+nid.cbSize = Len(nid)<br>
+nid.hWnd = Form1.hWnd<br>
+nid.uID = vbNull<br>
+nid.uFlags = NIF_ICON Or NIF_TIP Or NIF_MESSAGE<br>
+nid.uCallbackMessage = WM_MOUSEMOVE<br>
+nid.hIcon = Form1.Icon<br>
+
+<font color="green"> 'При наведении курсора на Иконку, выдвинется текст: "И не забудь зайти на VBStreets.Narod.RU":</font><br>
+
+
+nid.szTip = "И не забудь зайти на VBStreets.Narod.RU" & vbNullChar<br>
+
+Shell_NotifyIcon NIM_ADD, nid<br>
+
+End Sub<br>
+<br>
+Private Sub Command2_Click()<br>
+nid.hIcon = Form1.Icon<br>
+nid.szTip = "New Icon" & vbNullChar<br>
+Shell_NotifyIcon NIM_MODIFY, nid<br>
+End Sub<br>
+<br>
+Private Sub Command3_Click()<br>
+Shell_NotifyIcon NIM_DELETE, nid<br>
+End Sub<br>
+<br>
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)<br>
+<font color="green"> 'Объявляем переменные:</font><br>
+<br>
+Dim msg As Long<br>
+Dim sFilter As String<br>
+<br>
+msg = X / Screen.TwipsPerPixelX<br>
+Select Case msg<br>
+
+
+       Case WM_LBUTTONDOWN<br>
+
+<font color="green"> 'Сюда ты можешь вставить код, который захчешь:</font><br>
+
+       
+       MsgBox "Нажата левая кнопка мыши(Нажата)"<br>
+       <br>
+       
+       Case WM_LBUTTONUP<br>
+
+<font color="green">       'Сюда ты можешь вставить код, который захчешь:</font><br>
+
+      
+         MsgBox "Нажата левая кнопка мыши(Отжата)"<br>
+         
+         
+       Case WM_LBUTTONDBLCLK<br>
+
+<font color="green">   'Сюда ты можешь вставить код, который захчешь:</font><br>
+
+     MsgBox "Ты кликнул 2 раза по ИКОНКЕ(Левой кнопкой)"<br>
+       
+
+       Case WM_RBUTTONDOWN<br>
+
+<font color="green">        'Сюда ты можешь вставить код, который захчешь:</font><br>
+<font color="green">          'Обычно это PopupMenu:</font><br>
+    
+           
+             
+            MsgBox "Нажата правая кнопка мыши(Нажата)"<br>
+
+      
+       Case WM_RBUTTONUP<br>
+
+<font color="green">  'Сюда ты можешь вставить код, который захчешь:</font><br>
+
+           
+             MsgBox "Нажата левая кнопка мыши(Отжата)"<br>
+             
+       Case WM_RBUTTONDBLCLK<br>
+       
+
+<font color="green"> 'Сюда ты можешь вставить код, который захчешь:</font><br>
+
+           
+              MsgBox "Ты кликнул 2 раза по ИКОНКЕ(Правой кнопкой)"<br>
+End Select<br>
+
+End Sub<br><br>
+
+Теперь добавь еще одну форму, и поменяй у нее иконку(свойство Icon), запусти прогу, и нажми на кнопку Изменить, иконка должна измениться.<br>
+
+<br>
+<a href="TrayBar.zip" class="a19">Здесь Исходник</a><br>
+
+
+<h2>ШАГ 120:</h2> <h3>Задание:</h3> <p class="c2">
+Сделай прогу, чтобы при ее запуске иконка помещалась в TrayBar, и при ее нажатии(иконки) левой кнопкой, выдвигалось PopupMenu. 
+
+
+
+
+
+<br><br>
+<em><p class="cc">автор учебника: Падре</em>
+<br>
+Дата создания: 6 Мая 2003 года<br></em>
+<br></p>
+
+
+
+<center>
+<table width=468 height=60 border=2 bordercolor="#4173a3"><td  bordercolor="#4173a3"><center>
+<p class="c2">Место под Банеры
+</td>
+<tr><td>
+<center>
+<a href="INFA.htm" target="0">
+<img src="baner.gif" alt="Официальный сайт учебника - 'Программируем на Visual Basic'" border=0>
+</a></center>
+</td></table>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+Line 14: Class ComctlLib.Slider of control Slider1 was not a loaded control class.
+Line 79: Class ComctlLib.Slider of control Slider2 was not a loaded control class.
+Line 20: The property name _ExtentX in Slider1 is invalid.
+Line 21: The property name _ExtentY in Slider1 is invalid.
+Line 22: The property name _Version in Slider1 is invalid.
+Line 85: The property name _ExtentX in Slider2 is invalid.
+Line 86: The property name _ExtentY in Slider2 is invalid.
+Line 87: The property name _Version in Slider2 is invalid.
+Line 88: The property name Orientation in Slider2 is invalid.

@@ -1,0 +1,84 @@
+<html>
+<head>
+
+
+<TITLE>Первые шаги - Ступенька тридцать четвертая. Навигационные карты. Map. Как сделать часть картинки ссылкой, как сделать так, чтобы при нажатии в одно место на картинке мы попадали на одну страницу, а при нажатии на другую область картинки - на другую страницу.</TITLE>    
+<META HTTP-EQUIV="Content-Type" Content="text/html; Charset=Windows-1251">
+<META Name="copyright" Content="Алленова Наталья">
+<META NAME="author" CONTENT="Алленова Наталья Email: seagull@pisem.net"><META NAME="keywords" CONTENT="графика, хтмл, для, начинающий, начинающих, чайников, новичков, просто, основа, основы, страница, домашний, домашняя, сайт, новый, новичок, html, обучение, учеба, пример, веб, мастер, веб-мастер, дизайн, веб-дизайн, вебдизайн, дезайн, веб-дезайн, вебдезайн, дезайнер, дизайнер, ступени, тэги, тэг, теги, тег, аттрибут, атрибуты, парамет, design, web, help, помощь, icq, e-mail, guest, book, guestbook, гостевая, книга, форум, аська, контакт, ссылка, link, links, banner, обмен, баннер, баннерами, банер, baner, друзья, friends, почитать, написать, вопросы, вопрос, ответ, проект, ступени, словарь"> <META NAME="description" CONTENT="Основы хтмл (html) для чайников. Просто, доступно. Создайте свою домашнюю страничку своими руками и без хтмл (html) редакторов. Что может быть проще? Также вы здесь найдете полезные ссылки для вашего сайта, но это уже не главное...">
+
+
+
+</head>
+<body bgcolor="#ffffff" link="#000000" alink="#000000" vlink="#000000">
+
+
+<table>
+
+	<tr>
+	<td width="600">
+<font face="times new roman"><hr noshade size="1">
+<a href="index.html">Главная</a> | <a href="content2.html">Оглавление</a> | <a href="alltags2.html">Словарь</a><hr noshade size="1"><p align="JUSTIFY">
+
+
+Для создания круглой области нам нужны будут координаты ее центра (x и y) и длинна радиуса (R) в пикселях. Т.е. порядок записи следующий:
+</font></p>
+<tt>&lt;area shape="circle" <b>coords="x,y,R"</b>&gt;</tt><br>
+<p align="JUSTIFY"><font face="times new roman">
+Давайте будет опять работать с геометрической областью №1. В нашем случае координаты для маленького круга будут такие: x=46, y=48; а длинна радиуса - R=35. Запишем:
+</font></p>
+
+<tt><img src="step4.gif" align="left" width="20" height="50">
+&lt;map&gt;<br>
+&lt;area shape="circle" <b>coords="46,48,35"</b>&gt;<br>
+&lt;/map&gt;
+</tt><br>
+<p align="JUSTIFY"><font face="times new roman">
+Теперь, когда самое главное записано, пропишем имя карты, куда она ссылается и привяжем карту к рисунку:
+</font></p>
+
+<tt><img src="step4.gif" align="left" width="20" height="114">
+&lt;img src="mapcircle.gif" <b>usemap="#karta2"&gt;</b><br><br>
+... Куча текста и всякого содержания, или ничего...<br><br>
+&lt;map <b>name="karta2"</b>&gt;<br>
+&lt;area <b>href="drugoy_document_2.html"</b> shape="circle" coords="46,48,35"&gt;<br>
+&lt;/map&gt;
+</tt><br>
+<p align="JUSTIFY"><font face="times new roman">
+Кстати, для карты мы можем прописать ALT для каждой области, сейчас у нас только одна область, но все равно, пропишем для нее ALT:
+
+</font></p>
+
+<tt><img src="step4.gif" align="left" width="20" height="130">
+&lt;img src="mapcircle.gif" usemap="#karta2"&gt;<br><br>
+... Куча текста и всякого содержания, или ничего...<br><br>
+&lt;map name="karta2"&gt;<br>
+&lt;area href="drugoy_document_2.html" shape="circle" coords="46,48,35" <b>alt="маленький круг"</b>&gt;<br>
+&lt;/map&gt;
+</tt><br>
+<p align="JUSTIFY"><font face="times new roman">
+Теперь при наведении на область №1 будет всплывать подсказка, что же это такое :)
+<br><br>
+Давайте посмотрим результат (нажмите на первый круг):
+<br><br>
+<a name="1"></a>
+<img src="mapcircle.gif" usemap="#karta2" border="0">
+<map name="karta2">
+<area href="drugoy_document_2.html" shape="circle" coords="46,48,35" alt="маленький круг">
+</map>
+<br><br>
+Теперь вы самостоятельно сделаете ссылкой второй круг (x=158, y=75, R=53), чтобы закрепить пройденное.
+
+</p>
+<center><a href="33step2.html">Назад</a> | <a href="35step2.html">Шагнуть на следующую ступеньку</a></center>
+</font>
+
+
+</td>
+
+	</tr>
+ </table>
+
+
+</body>
+</html>

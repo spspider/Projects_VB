@@ -1,0 +1,57 @@
+<html><head>
+
+
+
+
+
+
+<title>Наследование кода скриптов различными страницами </title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4>2.8. Наследование кода скриптов различными страницами</h4>
+<P ALIGN="JUSTIFY">Отсутствие какого-либо наследования между различными страницами Website заставляло разработчиков перетаскивать из одной страницы в другую довольно большое количество часто используемых функций и переменных. Разговоры о том, что было бы неплохо получить возможность доступа к глобальным ресурсам или возможность определять такие глобальные ресурсы, ведутся с самого момента появления JavaScript. К сожалению, стройного логичного механизма передачи параметров, функций и переменных от одного окна или фрейма другому нет и в JavaScript 1.1. Однако, продвижение в этом направлении есть.
+<P ALIGN="JUSTIFY">У контейнера SCRIPT появился атрибут SRC. Это дает возможность авторам строить своеобразную библиотеку функций, к которым можно обращаться из любой страницы, в которой будет ссылка на такую библиотеку. При этом вовсе необязательно размещать саму библиотеку на том же сервере, где размещены и гипертекстовые страницы Website. Можно использовать и чужие функции, написанные кем-либо из ветеранов программирования на JavaScript на другом конце Земли. В атрибуте SRC используется обычный URL. Внутри файла скриптов не используются теги SCRIPT. Это обычный файл с использованием определений функций и переменных. Естественно, что использование чужих скриптов может обернуться не только полезными приобретениями, но и непредсказуемыми проблемами. Для обычных пользователей страниц Website подкачка большого количества скриптов может стать просто дополнительным источником затрат. Наиболее вероятным случаем может стать использование одной-двух функций из библиотеки на одной странице, а качать придется всю библиотеку. Другой новой возможностью работы с функциями стало введение нового объекта Function. Объект Function порождается конструктором Function:
+<pre>
+	new_Function = new Function(arg1,arg2,...,argn, function_body)</Pre>
+<P ALIGN="JUSTIFY">Главное отличие от обычного декларирования функции заключается в том, что в данном случае порождена переменная new_Function, с которой можно работать, как с любым другим объектом. При обычном переделении функции такой переменной не порождается. Как любой объект Function имеет свои свойства, но не имеет методов. В качестве свойств функции выступают аргументы и возможность назначения новых свойств через prototype. В заключении разговора о функциях и наследовании хочется еще раз обратить внимание на свойство opener окон и фреймов. Это свойство можно использовать при обращении к объектам страницы-родителя, что позволяет компенсировать отсутствие наследования и глобальных переменных в JavaScript.
+<p><center><p>
+<font size=-1>
+<a href="glava2_7.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava2_9.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

@@ -1,0 +1,8 @@
+<table width="100%" border="1" bordercolor="#000099" align="center"><tr><td colspan="2" align="center">
+<h2>$poll_header</h2></td></tr></table><table border="1" bordercolor="#000099" align="center" width="100%">
+<%start%>
+<tr><td width="$width2">$answer&nbsp;<font size="-1">[$amaunt_votes&nbsp;$orfo]&nbsp;</font></td><td>
+<img src="$image" width=$width height="10">&nbsp;[$width%]
+</td></tr>
+<%end%>
+<tr><td colspan="2" align="center">$all_votes:&nbsp;[$all_votes_count]</td></tr></table>

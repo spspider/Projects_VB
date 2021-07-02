@@ -1,0 +1,697 @@
+
+
+
+
+<html><head>
+<style type="text/css">
+.part2{color:#4173a3;font-weight:900;}
+.part2:hover{color:red;font-weight:880}
+.cd{font-size:18px;color:black;}
+.c2{font-size:18px;color:black;}
+.c1{font-size:45pt;}
+.cc{font-size:13pt;font-weight:bold}
+.t{color:red;}
+.a9{color:#4173a3;font-weight:bold;}
+.a9:hover{color:red;font-weight:880}
+h2{font-size:21pt;font-weight:bold}
+h3{font-size:17pt;font-weight:bold}
+.a19{color:#4173a3;font-size:18px}
+.a19:hover{color:red;font-size:18px}
+body{
+BORDER-RIGHT: 0px;
+SCROLLBAR-FACE-COLOR: #CFDEEB;
+PADDING-BOTTOM: 0px;
+SCROLLBAR-HIGHLIGHT-COLOR: #CFDEEB;
+VERTICAL-ALIGN: middle;
+BORDER-LEFT: 0px;
+SCROLLBAR-SHADOW-COLOR: black;
+SCROLLBAR-ARROW-COLOR: black;
+PADDING-TOP: 0px;
+BORDER-BOTTOM: 0px;
+SCROLLBAR-BASE-COLOR: black;
+scrollbar-3dlight-color: #4173a3;
+scrollbar-dark-shadow-color: #4173a3;}
+</style>
+
+<title>Программируем на Visual Basic'e</title>
+</head>
+<body background="1.jpeg">
+<em >
+<a href="http://vbstreets.narod.ru" class="a9">Главная</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7132" class="a9">Гостевая</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7137" class="a9">Форум</a>
+<a href="INFA.htm" class="a9">INFA</a>
+</em>
+
+<H1 ><font size=6>Программируем на Visual Basic'e:</font></H1>
+
+<p style="font-weight:bold; font-size:21px" >
+
+
+<a href="vbasic.htm" class="part2">Часть 1</a>/<a href="vbasic2.htm" class="part2">Часть 2</a>/<a href="vbasic3.htm" class="part2">Часть 3</a>/<a href="vbasic4.htm" class="part2">Часть 4</a>/<a href="vbasic5.htm" class="part2">Часть 5</a>/<a href="vbasic6.htm" class="part2">Часть 6</a>/<a href="vbasic7.htm" class="part2">Часть 7</a>/Часть 8/<a href="vbasic9.htm" class="part2">Часть 9</a>/<a href="vbasic10.htm" class="part2">
+Часть 10</a>  /<a href="vbasic11.htm" class="part2">Часть 11</a>/<a href="vbasic12.htm" class="part2">Часть 12</a>/<a href="vbasic13.htm" class="part2">Часть 13</a>/<a href="vbasic14.htm" class="part2">Часть 14</a>/<a href="vbasic15.htm" class="part2">Часть 15</a></font>
+</p>
+
+
+
+
+<h2>ШАГ 71:</h2>
+<h3>API - Начало:</h3>
+<p class="c2">
+Если у тебя нет духа программера, или ты по какой - то причине был непосвещен, то дальше МОЖЕШЬ НЕ ЧИТАТЬ!!! Т.к. API это не для чайников, а если ты не посвещен, то удивительно как ты вообще досюда дочитал. Вообще в API ни чего сложного нет, т.к. в них даже думать особо не надо. <br>
+Винд использует кучу АПИ(их около 10000), например для работы с реестром, установки рисунка на рабочем столе, изменения разрешения экрана...(не буду их всех перечислять, т.к. это займет много времени).
+И зачем писать огромный код, когда можно использовать АПИ винда. И VB невсегда может сделать то, что можно сделать с помощью АПИ. Вот так. 
+Теперь я дам тебе задание: "На рабочем столе создай текстовой документ(или какой - нибудь другой), назови его как - нибудь, в него ты будешь записывать все АПИ, которые ты считаешь нужными(т.к. есть еще куча не нужных)"
+Создал? Молодец, теперь запиши туда свою первую АПИ(см. ниже).
+<br>
+АПИ можно разделить на 2 части. В первой - мы ее декларируем, а во второй пишем код.
+Вот маленький пример функции, которая устанавливает курсор в любое место на экране:<br><br>
+Public Declare Function SetCursorPos Lib "user32" (ByVal r As Long, ByVal r1 As Long) As Long<FONT color=Green > 'Это как ты наверное понял(или нет?) процесс декларации, здесь я написал в самом начале Public, это означает что декларировать можно где хош, хоть в модуле(ой, сорри, ДЕКЛАРИРОВАТЬ МОЖНО ТОЛЬКО В МОДУЛЕ, но декларация будет глобальна...); если написать Private - то АПИ можно будет использовать только в том месте где находится код к ней(это обычно в форме); а если вообще ни чего не писать(оставить Declare...as Long), то декларировать можно будет только в Модуле</FONT><br>
+Private Sub Command1_Click()<FONT color=Green > 'При нажатии на кнопку устанавливаем курсор в координаты 66 и 77</FONT><br>
+qqq = SetCursorPos(66, 77)<br>
+End Sub<br>
+Мою коллекцию API ты можешь увидеть
+
+<a href="api.htm" class="a19">Здесь</a>. Сборник многих API ты можешь скачать с моего сайта - ИЩИ. 
+
+<br>
+
+
+
+<h2>ШАГ 72:</h2><h3>Узнаем дирку Винда:</h3><p class="c2">
+Т.к. у некоторых версий винда нестандартная дирка (у Винда95 - Win95, у других Windows...), наша цель узнать ее. Для этого можно использовать очень старую (еще с QBasic), и почти всеми забытою функцию Environ("windir")(Text1.Text = Environ("windir")), но истинный программер должен знать и API функцию.
+
+
+
+<FONT color=#ccffff 
+                                > </FONT><FONT 
+                                color=#000099 >GetWindowsDirectory</FONT><FONT 
+                                color=#ccffff >.</FONT> 
+                                <p class="c2"><FONT color=#000000. >На форму кидаем текстовое поле и кнопку. В модуле декларируем 
+                                API-функцию <FONT 
+                                color=#000099 >GetWindowsDirectory</FONT><FONT 
+                                color=#ccffff>:</FONT>.Для этого войди в Project/Add Module и нажми Module. Они нужны для объявления глобальных переменных и декларирования API функций.</FONT><FONT color=#ccffff 
+                                > </FONT> 
+                                
+                                <p class="c2"><FONT color=#000099>Declare Function</FONT><FONT 
+                                color=#ccffff > 
+                                </FONT><FONT color=#000000 >GetWindowsDirectory</FONT><FONT 
+                                color=#ccffff > 
+                                </FONT><FONT color=#000099 >Lib</FONT><FONT color=#ccffff 
+                                > </FONT><FONT 
+                                color=#000000 >"kernel32"</FONT><FONT color=#ccffff 
+                                > </FONT><FONT 
+                                color=#000099 >Alias 
+                                </FONT> <FONT color=#000000 
+                               >"GetWindowsDirectoryA"</FONT><FONT 
+                                color=#ccffff > 
+                                </FONT><FONT color=#000000 >(</FONT><FONT color=#000099 
+                                >ByVal </FONT><FONT 
+                                color=#000000 >lpBuffer</FONT><FONT color=#ccffff 
+                                > </FONT><FONT 
+                                color=#000099 >As 
+                                String</FONT><FONT color=#000000 
+                                >, </FONT><FONT 
+                                color=#000099 >ByVal 
+                                </FONT> <FONT color=#000000 
+>nSize</FONT><FONT 
+                                color=#ccffff> 
+                                </FONT><FONT color=#000099>As Long</FONT><FONT color=#000000 
+>)</FONT><FONT 
+                                color=#ccffff> 
+                                </FONT><FONT color=#000099 >As Long</FONT> <br>
+Теперь впиши эту феньку в окне кода проги:</P>
+                               <p class="c2">
+Private Sub Command1_Click()<br>
+<FONT color=#000099 >Dim</FONT><FONT color=#ccffff> </FONT><FONT 
+                                color=#000000 >WinDir 
+                                </FONT><FONT color=#000099 >As String</FONT>
+
+                                <p class="c2"><FONT color=#006600 >'Переменную, которую надо передать API, 
+                                мы уже</FONT> <BR><FONT color=#006600 >'объявили и теперь 
+                                заполняем пробелами.</FONT> <BR><FONT 
+                                color=#006600 >' 
+                                Пробелов должно быть примерно столько,</FONT> 
+                                <BR><FONT color=#006600 >'сколько примерно символов должна иметь 
+                                переменная.</FONT> <BR><FONT color=#006600  >'В этом случае хватит 
+                                и 20, т.к. Windows обычно устанавливают в</FONT> 
+                                <BR><FONT color=#006600 >' С:\Windows или C:\Win95, и т.д. Т.е. 
+                                сумма символов, скорее</FONT> <BR><FONT 
+                                color=#006600 >' всего 
+                                не превысит 20</FONT> <BR><FONT color=#000000 >WinDir = 
+                                Space(20)</FONT> <BR><FONT color=#000099 
+>Text1.Text=
+                                </FONT><FONT color=#000000 >Left(WinDir, GetWindowsDirectory(WinDir, 
+                                20))</FONT> <BR><FONT color=#006600 >'Т.к. API является 
+                                функцией, то она должна возвращать 
+                                какое-то</FONT> <BR><FONT color=#006600 
+>'значение. В данном 
+                                случае функция GetWindowsDirectory 
+                                возвращает</FONT> <BR><FONT color=#006600 >'длину искомого 
+                                значения. Т.е. если, например, искомое 
+                                значение</FONT> <BR><FONT color=#006600 >' это C:\WINDOWS, то 
+                                функция вернёт значение 10.</FONT> <BR><FONT 
+                                color=#006600 >'Переменная же имеете длину 20. Эти 10 
+                                символов записываются</FONT> <BR><FONT 
+                                color=#006600 >'первыми, а дальше идут 10 пробелов. 
+                                Зачем нам, спрашивается,</FONT> <BR><FONT 
+                                color=#006600 >'лишние 
+                                10 символов? Ведь это используется ненужная 
+                                память...</FONT> <BR><FONT color=#006600 >'Поэтому инструкцией 
+                                Left мы из переменной WinDir вытаскиваем</FONT> 
+                                <BR><FONT color=#006600 >'ровно столько первых символов, сколько 
+                                вообще нужных...</FONT> <br>
+End Sub
+<BR><BR>
+У тебя в текстовом поле появится путь к винду, а что касается деклараций функций, не забывай указывать ByVal, здесь вместо ipBuffer и nSize можно указать любую букву или слово (хоть Suka Bla)
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>ШАГ 73:</h2><h3>Основы Работы с РЕЕСТРОМ Винда:</h3><p class="c2">
+Реестр эта база данных винда (ой, бля я же забыл тебе сказать, что такое базы данных). Ну ладно уговорил, скажу, что это такое: База данных это любой текст, который где - то хранится (например, в текстовом документе). Ну я это точно не знаю т.к. в базах я не спец. А создавать мы их будем в ближайшем будущем,  т.к. щас у меня нет одной проги, без которой не обойтись. Ну хватит определений!!! Уже 2 штуки сказал! Перейдем к делу! Короче в реестре хранятся все настройки юзера. Например разрешение экрана, логин от инет карты, а пароль мы узнаем другим способом, с помощью реестра ты можешь сделать так чтоб твоя прога запускалась при старте винда (т.е. при входе в прогу,  юзер от нее никогда не избавится, короче в нем хранится почти все настройки юзера (и не только, все устройства, расширения файлов...), их можно менять, дополнять.... Но об этом потом. ВСЕ ПОТОМ. А сейчас будем работать с реестром с помощью VB. Но скажу сразу возможности VB ограничены, и это еще сильно сказано. 
+
+
+В VB можно работать только с одним ключем, а этот ключ - самый ненужный ключ во всем Реестре, даже нельзя поместить прогу в автозагрузку, а это унизительно..., НО, все равно, для хранения настроек проги он сойдет.  Начнем.
+<br>
+Прога для работы с реестром находится в Винде, и зовется она RegEdit.EXE. Найди ее. А для ленивых есть в Пуске Раздел "Выполнить", нажми на него, и в текстовом поле впиши regedit и нажми ОК. Перед тобой откуда не возмись открывается окно Редактор реестра. Там находится 6 ключей, но нам они не нужны, т.к. мы работаем без АПИ, а с помощью функций VB, а VB может работать только с одним ключем - <b>HKEY_CURRENT_USER</b>. Нажми на него(или 2 раза по нему, или один раз на плюс). Перед тобой появляется до хрена подключей, но нам они опять не нужны, т.к. МЫ БЕЗ АПИ КАК БЕЗ РУК!!!, но все равно нажми на SOFTWARE(т.е. Софт). И вот оно! То что нам надо! Это ключ VB and VBA Program Setting. В этом ключе Басик чувствует себя как дома! И в этом ключе мы будем работать с помощью VB функцмий. Полный путь к нему: HKEY_CURRENT_USER\SOFTWARE\VB and VBA Program Settings. Прежде чем рассказать о функциях я скажу пару умных слов(НЕ ОПРЕДЕЛЕНИЙ!!!!!!!!!!!!!!!!!!!!!).
+<br>
+Ключ - это таккая хрень, которая находится в самом начале, и начинается на HKEY_(ключей всего 6)<br>
+Подключ - это все что находится в ключе.<br>
+Строковой параметр - Ты наверное заметил, что редактор реестра поделен на 2 части, в первой - Ключи & Подключи, во второй - Строковые параметры, и числовые. А строковые параметры выглядят так: <img src="reestr1.jpg" alt="Строковой параметр"><br>
+Числовые нам вообще пока не нужны, они выглядят почти также, тока синие.
+<br>
+Как всегда сделаем прогу, которая будет сохранять текст в реестр(т.е. в строковой параметр), читать их от туда, создовать навые подключи. Войди в VB, на форму кинь 3 кнопки(У первой Caption = "Сохранить", у 2ой - "Удалить", у 3ей - "Прочитать"), и текстовое поле. Код:<br><br>
+
+
+Private Sub Command1_Click()<br>
+SaveSetting "New Ключ", "Нью Подключ", "Строковой Параметр", "Строковое значение которое принемает параметр"
+<FONT color=Green >'Создаем ключ New Ключ(т.е. подключ), и подключ  Нью Подключ, в подключе Нью Ключ создаем Строковой параметр, а в нем запись.<br></font>
+End Sub<br><br>
+
+Private Sub Command2_Click()<br>
+<FONT color=Green >'Удаляем<br></font>
+DeleteSetting "New Ключ", "Нью Подключ", "Строковой Параметр" 
+<FONT color=Green >'Если ты хочешь удалить сразу всю папку то впиши: DeleteSetting "New Ключ"</font><br>
+
+
+End Sub<br>
+
+Private Sub Command3_Click()<br>
+Text1.Text = GetSetting("New Ключ", "Нью Подключ", "Строковой Параметр")<FONT color=Green >'Читаем в текстовое поле содержимое Строкового параметра</font><br>
+End Sub<br>
+<br>
+Теперь в редакторе реестра нажнми Вид\Обновить, или просто F5.<br>
+<a href="reestr.zip" class="a19">Исходник</a>
+
+
+
+
+
+<h2>ШАГ 74:</h2><h3>Работаем с РЕЕСТРОМ с помощью АПИ:</h3><p class="c2">
+Вот оно! То что нам надо! Теперь перейдем на нормальную работу с реестром. Ура! Открой VB(Standart EXE), создай там модуль и вставь туда этот код:
+<br><br>
+
+
+
+
+
+Public Const REG_SZ As Long = 1<br>
+Public Const REG_DWORD As Long = 4<br>
+Public Const HKEY_LOCAL_MACHINE = &H80000002<br>
+Public Const HKEY_CLASSES_ROOT = &H80000000<br>
+Public Const HKEY_CURRENT_USER = &H80000001<br>
+Public Const HKEY_USERS = &H80000003<br>
+<br><br>
+Public Const ERROR_NONE = 0<br>
+Public Const ERROR_BADDB = 1<br>
+Public Const ERROR_BADKEY = 2<br>
+Public Const ERROR_CANTOPEN = 3<br>
+Public Const ERROR_CANTREAD = 4<br>
+Public Const ERROR_CANTWRITE = 5<br>
+Public Const ERROR_OUTOFMEMORY = 6<br>
+Public Const ERROR_INVALID_PARAMETER = 7<br>
+Public Const ERROR_ACCESS_DENIED = 8<br>
+Public Const ERROR_INVALID_PARAMETERS = 87<br>
+Public Const ERROR_NO_MORE_ITEMS = 259<br>
+Public Const KEY_ALL_ACCESS = &H3F<br>
+Public Const REG_OPTION_NON_VOLATILE = 0<br><br>
+
+Declare Function RegCloseKey Lib "advapi32.dll" (ByVal hKey As Long) As Long
+<br>Declare Function RegCreateKeyEx Lib "advapi32.dll" Alias "RegCreateKeyExA" (ByVal hKey As Long, ByVal lpSubKey As String, ByVal Reserved As Long, ByVal lpClass As String, ByVal dwOptions As Long, ByVal samDesired As Long, ByVal lpSecurityAttributes As Long, phkResult As Long, lpdwDisposition As Long) As Long
+<br>Declare Function RegOpenKeyEx Lib "advapi32.dll" Alias "RegOpenKeyExA" (ByVal hKey As Long, ByVal lpSubKey As String, ByVal ulOptions As Long, ByVal samDesired As Long, phkResult As Long) As Long
+<br>Declare Function RegQueryValueExString Lib "advapi32.dll" Alias "RegQueryValueExA" (ByVal hKey As Long, ByVal lpValueName As String, ByVal lpReserved As Long, lpType As Long, ByVal lpData As String, lpcbData As Long) As Long
+<br>Declare Function RegQueryValueExLong Lib "advapi32.dll" Alias "RegQueryValueExA" (ByVal hKey As Long, ByVal lpValueName As String, ByVal lpReserved As Long, lpType As Long, lpData As Long, lpcbData As Long) As Long
+<br>Declare Function RegQueryValueExNULL Lib "advapi32.dll" Alias "RegQueryValueExA" (ByVal hKey As Long, ByVal lpValueName As String, ByVal lpReserved As Long, lpType As Long, ByVal lpData As Long, lpcbData As Long) As Long
+<br>Declare Function RegSetValueExString Lib "advapi32.dll" Alias "RegSetValueExA" (ByVal hKey As Long, ByVal lpValueName As String, ByVal Reserved As Long, ByVal dwType As Long, ByVal lpValue As String, ByVal cbData As Long) As Long
+<br>Declare Function RegSetValueExLong Lib "advapi32.dll" Alias "RegSetValueExA" (ByVal hKey As Long, ByVal lpValueName As String, ByVal Reserved As Long, ByVal dwType As Long, lpValue As Long, ByVal cbData As Long) As Long
+<br>Declare Function RegDeleteKey& Lib "advapi32.dll" Alias "RegDeleteKeyA" (ByVal hKey As Long, ByVal lpSubKey As String)
+<br>Declare Function RegDeleteValue& Lib "advapi32.dll" Alias "RegDeleteValueA" (ByVal hKey As Long, ByVal lpValueName As String)
+
+
+
+<FONT color=Green >'Создание нового ключа</font><br>
+
+Public Function CreateNewKey(lPredefinedKey As Long, sNewKeyName As String)<br>
+Dim hNewKey As Long<br>
+Dim lRetVal As Long<br>
+lRetVal = RegCreateKeyEx(lPredefinedKey, sNewKeyName, 0&, vbNullString, REG_OPTION_NON_VOLATILE, KEY_ALL_ACCESS, 0&, hNewKey, lRetVal)<br>
+RegCloseKey (hNewKey)<br>
+End Function<br>
+<br>
+<FONT color=Green >'Запись данных в ключ</font><br>
+
+
+Public Function SetKeyValue(lPredefinedKey As Long, sKeyName As String, sValueName As String, vValueSetting As Variant, lValueType As Long)<br>
+Dim lRetVal As Long<br>
+Dim hKey As Long<br>
+<br><br>
+lRetVal = RegOpenKeyEx(lPredefinedKey, sKeyName, 0, KEY_ALL_ACCESS, hKey)<br>
+lRetVal = SetValueEx(hKey, sValueName, lValueType, vValueSetting)<br>
+<br>
+RegCloseKey (hKey)<br>
+End Function<br>
+<br>
+Public Function SetValueEx(ByVal hKey As Long, sValueName As String, lType As Long, vValue As Variant) As Long
+    <br><br>
+Dim lValue As Long<br>
+Dim sValue As String<br>
+<br>
+Select Case lType<br>
+       Case REG_SZ<br>
+            sValue = vValue<br>
+            SetValueEx = RegSetValueExString(hKey, sValueName, 0&, lType, sValue, Len(sValue))<br>
+       Case REG_DWORD<br>
+            lValue = vValue<br>
+            SetValueEx = RegSetValueExLong(hKey, sValueName, 0&, lType, lValue, 4)<br>
+End Select<br>
+<br>
+End Function<br>
+<br>
+<FONT color=Green >'Возвращает значения записанные в ключе(т.е. чтение)</font><br>
+
+
+Public Function QueryValue(lPredefinedKey As Long, sKeyName As String, sValueName As String)<br>
+<br>
+Dim lRetVal As Long<br>
+Dim hKey As Long<br>
+Dim vValue As Variant<br>
+lRetVal = RegOpenKeyEx(lPredefinedKey, sKeyName, 0, KEY_ALL_ACCESS, hKey)<br>
+lRetVal = QueryValueEx(hKey, sValueName, vValue)<br>
+QueryValue = vValue<br>
+RegCloseKey (hKey)<br>
+<br>
+End Function<br>
+<br>
+Function QueryValueEx(ByVal lhKey As Long, ByVal szValueName As String, vValue As Variant) As Long<br>
+<br>
+Dim cch As Long<br>
+Dim lrc As Long<br>
+Dim lType As Long<br>
+Dim lValue As Long<br>
+Dim sValue As String<br>
+<br>
+On Error GoTo QueryValueExError<br>
+    <br>
+<FONT color=Green >'Определение размера и типа считываемых данных</font><br>
+
+lrc = RegQueryValueExNULL(lhKey, szValueName, 0&, lType, 0&, cch)<br>
+If lrc <> ERROR_NONE Then MsgBox "Данных (ключа) не существует!", vbExclamation, Form1.Caption<br>
+Select Case lType<br>
+<FONT color=Green >    'Для символьных</font><br>
+
+
+
+
+    Case REG_SZ:<br>
+    sValue = String(cch, 0)<br>
+    lrc = RegQueryValueExString(lhKey, szValueName, 0&, lType, sValue, cch)<br>
+    If lrc = ERROR_NONE Then<br>
+                        vValue = Left$(sValue, cch)<br>
+       Else<br>
+       vValue = Empty<br>
+    End If<br>
+<FONT color=Green >    'Для числовых</font><br>
+
+
+    Case REG_DWORD:<br>
+    lrc = RegQueryValueExLong(lhKey, szValueName, 0&, lType, lValue, cch)<br>
+    If lrc = ERROR_NONE Then vValue = lValue<br>
+<FONT color=Green >    'Для остальных не поддержанных типов данных</font><br>
+
+
+    Case Else<br>
+    lrc = -1<br>
+    End Select<br>
+QueryValueExExit:<br>
+    QueryValueEx = lrc<br>
+    Exit Function<br>
+QueryValueExError:<br>
+    Resume QueryValueExExit<br>
+End Function<br>
+<br>
+
+<FONT color=Green >'Удаление значений ключа</font><br>
+
+
+Public Function DeleteValue(lPredefinedKey As Long, sKeyName As String, sValueName As String)<br>
+Dim lRetVal As Long<br>
+Dim hKey As Long<br>
+lRetVal = RegOpenKeyEx(lPredefinedKey, sKeyName, 0, KEY_ALL_ACCESS, hKey)<br>
+lRetVal = RegDeleteValue(hKey, sValueName)<br>
+RegCloseKey (hKey)<br>
+End Function<br>
+<br>
+<FONT color=Green >'Удаление ключа</font><br>
+
+
+Public Function DeleteKey(lPredefinedKey As Long, sKeyName As String)<br>
+Dim lRetVal As Long<br>
+lRetVal = RegDeleteKey(lPredefinedKey, sKeyName)<br>
+End Function<br>
+<br>
+
+Все, модуль сделали, и теперь про него можешь забыть. Теперь переключичсь на форму. На нее кинь 4 кнопки(у первой Caption = "Создать", у 2ой = "Запись", у 3ей = "Чтение", у 4ой и 5ой = "Удаление") и текстовое поле. Код:<br>
+<br>
+
+
+Private Sub Command1_Click()<br>
+<FONT color=Green >'Создание ключей</font><br>
+CreateNewKey HKEY_LOCAL_MACHINE, "VB6"<br>
+<FONT color=Green >'Можно создать и подключи</font><br>
+<FONT color=Green >'CreateNewKey HKEY_LOCAL_MACHINE, "VB6\RegistryKey"</font><br>
+End Sub<br><br>
+
+Private Sub Command2_Click()<br>
+<FONT color=Green >'Запись</font><br>
+SetKeyValue HKEY_LOCAL_MACHINE, "VB6", "Proga", "Твои данные", REG_SZ<br>
+End Sub<br>
+
+Private Sub Command3_Click()<br>
+<FONT color=Green >'Чтение</font><br>
+Dim Variable As String<br>
+<br>
+Text1.Text = QueryValue(HKEY_LOCAL_MACHINE, "VB6", "Proga")<br>
+End Sub<br>
+<br>
+Private Sub Command4_Click()<br>
+<FONT color=Green >'Удаление данных из ключа</font><br>
+DeleteValue HKEY_LOCAL_MACHINE, "VB6", "Program"<br>
+End Sub<br>
+<br>
+Private Sub Command5_Click()<br>
+<FONT color=Green >'Удаление ключа</font><br>
+DeleteKey HKEY_LOCAL_MACHINE, "VB6"<br>
+End Sub<br><br>
+
+Вот в этом "маленьком" примере лежат самые основы реестра. <br>
+<a href="reestr_api.zip" title="Работа с реестром" class="a19">Исходник</a></br>
+
+Теперь сделаем прогу которая будет записывать в святую святых РЕЕСТРА нашу прогу(т.е. в подключ Run).
+
+<h2>ШАГ 75:</h2><h3>Запись в святую святых Реестра:</h3><p class="c2">
+
+Святая святых реестра это раздел Run, т.е. наша прога будет запускаться при запуске компа. Что нам для этого надо? Нам нужен Модуль который мы сделали в предыдущем шаге. Его ты можешь скачать <a href="Module1.zip" title="Модуль" class=a19>Здесь</a>. Чтобы подключить его нажми Проэкт(Project)>>Добавить файл(Add File). В появившимся окне выбери наш модуль. Теперь на форму кинь кнопку, при нажатии на нее путь к нашей проге попадает в святую святых реестра.
+<br> Для начала я скажу где хранится раздел Run - HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+. Да, да сюда мы сейчас и будем записывать свою прогу. Кстати, в этом же разделе есть 5-7 папок начинающихся на Run, они тоже сойдут(например RunOnce).Код(ТОЛЬКО НЕ ЗАБУДЬ МОДУЛЬ ПОДКЛЮЧИТЬ!!!!)<br>
+
+<br>
+
+
+Dim q As String<br>
+Private Sub Command1_Click()
+<br>
+q = App.Path + "proga.exe" 
+<FONT color=Green >'Узнаем путь к нашей проге(App.Path), и прибовляем ее название(НЕЗАБУДЬ ЕЕ ПЕРЕИМЕНОВАТЬ В proga)</font><br>
+SetKeyValue HKEY_LOCAL_MACHINE, "SOFTWARE\Microsoft\Windows\CurrentVersion\Run", "Proga", q, REG_SZ
+<FONT color=Green >'Запись!</font><br>
+
+End Sub<br><br>
+
+
+Теперь немного объясню: Первой идет функция SetKeyValue, она нужна для записи(Ты что забыл?), потом главный ключ(HKEY_LOCAL_MACHINE), потом путь к объекту Run(SOFTWARE\Microsoft\Windows\CurrentVersion\Run), потом название строкового параметра(Proga(ты можешь написать хоть Сука бля ламер, это не имеет значения)), а потом путь к проге.
+Вот и все! 
+
+<br>
+<a href="Run.zip" title="Работа с реестром" class="a19">Исходник</a></br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>ШАГ 76:</h2><h3>Полезные советы:</h3><p class="c2">
+Не зная о чем писать, я решил тебе устроить маленький прогрузон, рассказать тебе множество моих советов, и мож они тебе пригодятся.
+<br>
+<h3>1. Полноэкранный режим</h3><p class="c2">
+Чтоб твоя прога была во весь экран необязательно использовать длинные API функции, можно обойтись и без нее.<br>
+Входим в VB(Standart EXE), у формы в свойстве BorderStyle - ставим 0 - None, в Form_Load пишем:<br>
+Private Sub Form_Load()<FONT color=Green > 'При запуске формы:</FONT><br>
+Form1.Width = Screen.Width<FONT color=Green > 'Ширина формы будет равна ширине экрана</FONT><br>
+Form1.Height = Screen.Height<FONT color=Green > 'Высота формы будет равна высоте экрана</FONT><br>
+
+End Sub
+<h3>2. Узнаем разрешение экрана</h3><p class="c2">
+Слава мне!!! Я опять обошелся без API!!! На форму кидаем текстовое поле и кнопку. Код:<br><br>
+Private Sub Command1_Click()<FONT color=Green > 'При нажатии на кнопку:</FONT><br>
+Dim width As String<FONT color=Green > 'Объявляем переменную width как строковую</FONT><br>
+Dim height As String<FONT color=Green > 'Объявляем переменную height как строковую</FONT><br>
+<br>
+width = Screen.width / 15<br>
+height = Screen.height / 15<br>
+Text1.Text = width + "x" + height<br>
+End Sub<br>
+
+<h3>3. Делаем свое Меню</h3><p class="c2">
+Здесь я не буду тебя грузить, скажу саму идею. На форму кидаем Frame. У него убираем свойство Caption, и него кидаем несколько меток. Это и будет твое меню. Сворачиваем фрейм до минимума, оставляем только одну метку, и при нажатии на нее фрейм должен разворачиваться до обычного размера, ну идею ты наверное понял, короче сделай так чтоб она была похожа на обычное меню. У тебя должна получится такая фенька:<br><img src="34.jpg"><br>
+Достоинства этого меню: Ты можешь запихнуть туда картинку, поменять шрифт...
+<h3>4. Запретить запуск двух копий программы </h3><p class="c2">
+Хей перцы! Меня кто - нибудь слышит? Отлично! Тогда я тебе скажу одну полезную штуку, как надо запретить запуск двух копий проги, но не просто запретить, а и еще обасрать, чтоб в следующий раз юзер думал, а потом кликал!<br>
+Private Sub Form_Load() <br>
+If App.PrevInstance = True Then <br>
+MsgBox "Эй ламер поганый, ты что ослеп что ле, я уже запущена!!!",16,"Думай что делаешь!"<br>
+End <br>
+End If <br>
+End Sub<br>
+
+<h3>5. Послать строковое сообщение в любую другую прогу</h3><p class="c2">
+
+Ща я тебе покажу, как надо отсылать свои сообщения в любые другие проги. Тебе надо только указать заголовок той проги, куда ты хочешь отослать свой текст.<br>
+Private Sub Command1_Click()<br>
+AppActivate ("Безымянный") <FONT color=Green > 'Здесь пишем заголовок проги (место Безымянный можешь написать WordPad, Установка связи...)</FONT><br>
+SendKeys ("Эй Блокнот - меня слышно?")  <FONT color=Green > 'Отсылаемый текст</FONT><br>
+End Sub<br>
+
+<h3>6. Узнаем имя своей проги</h3><p class="c2">
+Очень часто(особенно когда в реестре прописываешь) надо знать имя своей проги. Ты скажешь: "А нафига? Я ведь ее назвал, и имя запомнил.". А юзер - то может ее и переименовать, для этого есть свойство ExeName у объекта App.
+
+Private Sub Form_Load()<br>
+Text1.Text = App.EXEName + ".exe"<br>
+End Sub<br>
+<br>
+<h3>7. Узнаем путь к своей проге</h3><p class="c2">
+Иногда надо узнать полный путь к своей проге (например, чтоб прописать ее в реестре...), и для этого в VB есть свойство Path(Путь). На форму кинь Текстовое поле и кнопку.<br>
+Private Sub Command1_Click()<br>
+Text1.Text = App.Path<FONT color=Green > 'В Текстовом поле появится путь к твоей проге</FONT><br>
+End Sub<br>
+
+<h3>8. Делаем автозапуск своей проги</h3><p class="c2">
+Ты наверное заметил, что когда всуешь CD в CD - ROM, происходит Автозапуск. Если у тебя есть пишущий сидюшник, то это как раз для тебя, но если у тебя его нет, ты можешь сделать Autorun для диска C: например, или любого другого диска. Начнем! Я буду рассматривать на примере диска C:, т.к. не у всех сидюшник пишет, но точно также можно делать и для круглых дисков. В диске C: создай текстовой документ, в нем впиши:<br>
+ 
+[autorun]<br>
+open=1.exe<br>
+icon=1.ico<br>
+Здесь Open = путь к файлу,Icon = иконка для диска.
+Сохраняй его как Autorun.inf(он должен сидеть в корневом каталоге диска(у нас C:\)). Входи в Мой комп, жми F5(обновить), и любуйся.
+
+<h3>9. Окуратнее с Оператором DIM</h3><p class="c2">
+Ты наверное заметил, что оператор Dim не обязательно писать пять раз, чтобы объявить пять переменных а можно написать так:<br>
+Dim QW1, QW2, QW3, QW4, QW5 As Long<br> 
+Здесь мы объявляем пять переменных, но всели они будут Long? НЕТ!!! Первые четыре будут Variant, а только последняя будет Long. Если я тебе не говорил в чем раздница между Variant, Long, Integer..., то слушай:<br>
+Variant - жрет памяти очень много, ее используют только начинающие VB программеры(если ты все еще используешь Variant - ТО СРОЧНО ПЕРЕХОДИ НА LONG!!!)
+<br>>
+Integer(8 бит) - Этот тип жрет памяти меньше чем Variant(она вроде 16 бит), но больше чем Long(2 бита).
+<br>
+Long - этот тип жрет памяти меньше всего, и ты если используешь другой, то переходи на него!!!
+<br>
+Это я говорю к тому, что если ты хочешь объявлять переменные в одну строчку, а не в пять, то пиши так:<br>
+Dim QW1 As Long, QW2 As Long, QW3 As Long, QW4 As Long, QW5 As Long
+
+<h3>10. Аварийный выход</h3><p class="c2">
+Иногда, бывает что прога виснет(очень часто это бывает когда цикл зацикливается). Короче, чтоб безопасно выключить прогу надо нажать Ctrl + PauseBreak.
+
+
+
+
+
+
+<h2>ШАГ 77</h2>
+<h3>Инструкция With</h3><p class="c2">
+Чтобы выполнить последовательность команд над одним объектом, не перечисляя его каждый раз, есть инструкция With. Не буду тебе о нем много говорить, а лучше покажу как пользоваться.<br> 
+
+
+  Private Sub Command1_Click()<FONT color=Green > 'При нажатии на кнопку:</FONT><br>
+With Label1<FONT color=Green > Делаем инструкцию With для Метки</FONT><br>
+.Caption = "Сука"<FONT color=Green > 'Меняем надпись</FONT><br>
+.FontSize = 14<FONT color=Green > 'Меняем шрифт</FONT><br>
+.ForeColor = vbRed<FONT color=Green > 'Меняем цвет</FONT><br>
+End With<FONT color=Green > 'Завершаем инструкцию</FONT><br>
+End Sub<br>
+Теперь ты можешь не писать по десять раз имя объекта
+
+
+
+<h2>ШАГ 78:</h2><h3>Использование своего курсора(обычного и анимационного):</h3><p class="c2">
+Для использование своего курсора есть спец АПИ функция. Вот код:<br><br>
+
+
+
+
+Private Declare Function CopyCursor Lib "user32" Alias "CopyIcon" (ByVal hcur As Long) As Long<br>
+Private Declare Function LoadCursorFromFile Lib "user32" Alias "LoadCursorFromFileA" (ByVal lpMyFileName As String) As Long<br>
+Private Declare Function GetCursor Lib "user32" () As Long<br>
+
+Private Declare Function SetSystemCursor Lib "user32" (ByVal hcur As Long, ByVal id As Long) As Long<br>
+Private NewCur, OldCur As Long<br>
+<br>
+
+Private Sub Form_Load()<br>
+
+
+
+NewCur = LoadCursorFromFile("c:\APPSTART.ani")<FONT color=Green >'Там где необходимо запоминаем системный курсор и загружаем анимированный</font><br>
+OldCur = GetCursor()<br>
+OldCur = CopyCursor(OldCur)<br>
+SetSystemCursor NewCur, 32512<br>
+<br>
+
+End Sub<br>
+<br>
+Private Sub Form_Unload(Cancel As Integer)<br>
+If OldCur <> 0 Then SetSystemCursor OldCur, 32512<FONT color=Green >'Выгружаем наш курсор и возращаем стандартный</font><br>
+End Sub<br>
+<br>
+А ты спросишь: "Где ani курсора достать?" Нажми F3 и впиши *.ani, и он должен в папке Windows найти 3 анимированных курсора.
+
+
+<h2>ШАГ 79:</h2>
+
+<h3>API - БЕЗ ДЕКЛАРАЦИЙ!!!</h3><p class="c2">
+У меня для тебя хорошая новость - ТЕПЕРЬ ФУНКЦИИ API НЕ НАДО ДЕКЛАРИРОВАТЬ!!! Теперь можно скачать с моего сайта библиотеку wintlb. Подключив ее большинство API функций не надо декларировать(~700), и самое главное то, что функция, которую ты не будешь декларировать - МЕСТО ЗАНИМАТЬ НЕ БУДЕТ! Для ее подключения войди в Project/Referentces, жми Browse, ищи библиотеку, и подключай ее. Теперь можешь написать, например API для нахождения дирки винда (только без Declare...) <a href="http://vbstreets.narod.ru/wintlb.zip" class="a19">Скачать БИБЛОТЕКУ</a>(Если не будет скачиваться, то зайди на мой сайт(<a href="http://vbstreets.narod.ru" class=a19>vbstreets.narod.ru</A>), и в разделе библиотеки можешь ее скачать)
+
+
+
+
+
+<h2>ШАГ 80:</h2> <h3>Проигрывание файлов любых ФорМатоВ:</h3> <p class="c2">
+Любая прога, даже крутая, без озвучивания будет не прога, а какая - то фигня, но VB сам не может проигрывать звуковые файлы, и для проигрывания звуковых файлов воспользуемся API функцией. На форму кинь 2 кнопки, и впиши код:<br>
+
+<br>
+
+
+
+
+
+
+
+Private Declare Function mciExecute Lib "winmm.dll" (ByVal lpstrCommand As String) As Long<br>
+
+
+
+<font color="green"> 'Чтобы воспроизвести файл:</font><br>
+Private Sub Command2_Click()<br>
+
+ Call mciExecute("play 2.wav")<font color="green"> 'Проигрываем файл 2.wav, он должен находиться в той же папке, где и сама прога(НИКОГДА НЕ ПИШИ ПОЛНЫЙ ПУТЬ - например c:\2.wav, - на вражеском компе, звуков не будет, т.к. комп будет искать на другом компе, в диске c:\ звуковой файл(а его там и нету), а если ты напишешь 2.wav, то он будет искать в той же папке, где и сама прога)</font><br>
+
+End Sub<br>
+<br>
+<font color="green"> 'Чтобы закрыть файл:</font><br>
+
+Private Sub Command1_Click()<br>
+
+ Call mciExecute("close 2.wav")<br>
+
+End Sub<br><br>
+<br>
+При нажатии на 2 кнопку, издастся звук, при нажатии на 1 кнопку он остановится.
+<br>
+<a href="Sound.zip" class="a19">Здесь Исходник</a><br>
+<br>
+Если ты зайдешь на мой сайт, кликни плиз по банеру Porta(сиреневый), мне за это немного бабла отвалется(2 цента). И если ты захочешь поддержать Отечественного производителя(т.е. Меня), то кликай по банеру раз в месяц. А если ты очень богатый, то не просто кликни, а еще что - нибудь купи.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+
+
+
+<em><p class="cc">автор учебника: Падре</em>
+<br>
+Дата создания: 26 Марта 2003 года<br></em>
+<br></p>
+<center>
+<table width=468 height=60 border=2 bordercolor="#4173a3"><td  bordercolor="#4173a3"><center>
+<p class="c2">Место под Банеры
+</td>
+<tr><td>
+<center>
+<a href="INFA.htm" target="0">
+<img src="baner.gif" alt="Официальный сайт учебника - 'Программируем на Visual Basic'" border=0>
+</a></center>
+</td></table>
+
+
+
+
+
+
+</body>
+</html>

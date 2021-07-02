@@ -1,0 +1,445 @@
+
+<html><head>
+<style type="text/css">
+.part2{color:#4173a3;font-weight:900;}
+.part2:hover{color:red;font-weight:880}
+.cd{font-size:18px;color:black;}
+.c2{font-size:18px;color:black;}
+.c1{font-size:45pt;}
+.cc{font-size:13pt;font-weight:bold}
+.t{color:red;}
+.a9{color:#4173a3;font-weight:bold;}
+.a9:hover{color:red;font-weight:880}
+h2{font-size:21pt;font-weight:bold}
+h3{font-size:17pt;font-weight:bold}
+.a19{color:#4173a3;font-size:18px}
+.a19:hover{color:red;font-size:18px}
+body{
+BORDER-RIGHT: 0px;
+SCROLLBAR-FACE-COLOR: #CFDEEB;
+PADDING-BOTTOM: 0px;
+SCROLLBAR-HIGHLIGHT-COLOR: #CFDEEB;
+VERTICAL-ALIGN: middle;
+BORDER-LEFT: 0px;
+SCROLLBAR-SHADOW-COLOR: black;
+SCROLLBAR-ARROW-COLOR: black;
+PADDING-TOP: 0px;
+BORDER-BOTTOM: 0px;
+SCROLLBAR-BASE-COLOR: black;
+scrollbar-3dlight-color: #4173a3;
+scrollbar-dark-shadow-color: #4173a3;}
+</style>
+
+<title>Программируем на Visual Basic'e</title>
+</head>
+<body background="1.jpeg">
+<em >
+<a href="http://vbstreets.narod.ru" class="a9">Главная</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7132" class="a9">Гостевая</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7137" class="a9">Форум</a>
+<a href="INFA.htm" class="a9">INFA</a>
+</em>
+
+<H1 ><font size=6>Программируем на Visual Basic'e:</font></H1>
+
+<p style="font-weight:bold; font-size:21px" >
+
+<a href="vbasic.htm" class="part2">Часть 1</a>/<a href="vbasic2.htm" class="part2">Часть 2</a>/<a href="vbasic3.htm" class="part2">Часть 3</a>/Часть 4/<a href="vbasic5.htm" class="part2">Часть 5</a>/<a href="vbasic6.htm" class="part2">Часть 6</a>/<a href="vbasic7.htm" class="part2">Часть 7</a>/<a href="vbasic8.htm" class="part2">Часть 8</a>/<a href="vbasic9.htm" class="part2">Часть 9</a>/<a href="vbasic10.htm" class="part2">
+Часть 10</a>  /<a href="vbasic11.htm" class="part2">Часть 11</a>/<a href="vbasic12.htm" class="part2">Часть 12</a>/<a href="vbasic13.htm" class="part2">Часть 13</a>
+/<a href="vbasic14.htm" class="part2">Часть 14</a>/<a href="vbasic15.htm" class="part2">Часть 15</a>
+
+
+
+</font>
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>ШАГ 31:</h2><h3>Введение в Анимацию<br></h2><p class="c2">
+Анимация - это движение объектов, и мы будем заставлять двигаться все, что под руку попадется. Например, чтоб заставить двигаться текстовое поле мы сделаем прогу. Входим в VB(Standart EXE), на форму кидаем кнопку, и текстовое поле. Теперь код:<br>
+<br>
+Private Sub Command1_Click()<font color="green"> ' При нажатии на кнопку:<br></font>
+Text1.Left = Text1.Left + 10<font color="green"> ' Текстовое поле. Left равно Текстовое поле. Left+10 - короче текстовое поле при клике будет сдвигаться на десять пикселей, и место текстового поля можно указать любой объект.<br></font>
+End Sub<br><br>
+Вот и все! Здесь ничего сложного нет!
+
+
+
+
+
+
+<h2>ШАГ 32:</h2><h3>Анимация<br></h2><p class="c2">
+Одним из главных объектов анимации, и вообще всего программирования, является Timer, да ты не ослышался это таймер. Вскоре ты поймешь почему. Входим в VB, нажимаем Standart EXE. На форму кидаем 1 кнопку со свойством Caption равным "Пуск", 1 Shape(фигура) со свойством Shape равным 3 - Circle(Круг), и свойством BackStyle равным 1 - Opaque(для закраски фигуры), и 3 Timera со свойством Interval равным 1(это время через которое Timer будет обновляться (мл)), и свойством Enabled равным False(ложь), чтобы выключить Timer, а чтоб включить таймер тебе надо в свойстве Enabled поставить True(И это свойство есть у всех объектов, даже у текстового поля). У тебя должна получиться такая фенька:<br>
+<br>
+<img src="8.5.jpg"><br>
+Теперь код:<br>
+
+Private Sub Command1_Click()<font color="green"> ' При нажатии на кнопку включается Timer1 и Timer3<br></font>
+Timer1.Enabled = True<br>
+Timer3.Enabled = True<br>
+End Sub<br><br>
+
+Private Sub Timer1_Timer()<br>
+Shape1.Left = Shape1.Left + 25<font color="green"> ' Каждую мл Shape1 будет сдвигаться вправо на 25 <br></font>
+End Sub<br>
+<br>
+Private Sub Timer2_Timer()<br>
+Shape1.Left = Shape1.Left - 25<font color="green"> ' Каждую мл Shape1 будет сдвигаться влево на 25 <br></font>
+End Sub<br>
+<br>
+Private Sub Timer3_Timer()<br>
+If Shape1.Left <= -400 Then <font color="green"> 'Если Shape1.Left <= -400(отскок от левой стенке) то<br></font>
+Timer1.Enabled = True<font color="green"> ' Timer1 включается <br></font>
+Timer2.Enabled = False<font color="green"> ' Timer2 выключается <br></font>
+End If<br>
+If Shape1.Left >= 4000 Then <font color="green"> 'Если Shape1.Left <= -400(отскок от правой стенке) то<br></font>
+Timer2.Enabled = True<font color="green"> ' Timer2 включается <br></font>
+Timer1.Enabled = False<font color="green"> ' Timer1 выключается <br></font>
+End If<br>
+<br>
+
+End Sub<br>
+Здесь при нажатии на кнопку круг будет двигаться вправо, потом ударяться об форму, и идти влево. Потом мы сделаем PineBall. <br>Исходник проги можешь скачать  <a href="vb7.zip"class="a19">отсюда</a>
+
+<h2>ШАГ 33:</h2><h3>Фигуры<br></h2><p class="c2">
+Как делать фигуры знает любой дурак (если ты не дурак, то это не читай: "Кликаешь в инспекторе на Shape, и в свойстве объекта Shape выбираешь тип фигуры") Все можешь читать. А как создавать фигуры програмно, знает не каждый, а только избранные. И в этом шаге я научу тебя делать фигуры программно. Начнем с рисования линий.<br>
+Объект.Line (X1, Y1)-(X2, Y1), Color, BF<br>
+x1 - y1,x2 - y2 - это координаты; color - цвет линии; B - задает прямоугольник; F - его закрашивание. Пример: Form1.Line (4444, 444)-(444, 44), vbRed - рисует линию красного цвета.
+<br>
+Тоже самое и с кругами:<br>
+Объект.Circle (x,y),radius,color
+<br>
+Пример: Form1.Circle (1255, 1266), 444, vbRed - рисует на форме круг красного цвета.
+<br>
+Все я больше тебя грузить не буду.
+
+<h2>ШАГ 34:</h2><h3>Компоненты <br></h2><p class="c2">
+В следующем шаге мы сделаем несколько приколов с помощью компонентов, сделаем свой собственный блокнот, и Internet Explorer 7.0. А сейчас будем делать прогу, у которой при нажатии на кнопку будет появляться окно выбора цвета, и при выборе пользователем цвета, цвет текста будет меняться на выбранный, ну если ты нифига не понял, то поймешь потом. Для добавления компонента войди в Project >> Components <br>
+<img src="14.jpg"><br>Там выбери Microsoft Common Dialog Control 6.0, этот компонент один из самых главных.<br><img src="14.1.jpg"><br>
+Теперь на форме размести текстовое поле, кнопку, и CommonDialog с именем CD1.
+Код:<br>
+Private Sub Command1_Click()<br>
+CD1.ShowColor<font color="green"> ' Вызов стандартного окна выбора цвета<br></font>
+Text1.ForeColor = CD1.Color<font color="green"> ' Текст станет таким же цветом какой выбрал юзер<br></font>
+End Sub
+<br><img src="14.2.jpg"><br>Вот что у тебя должно получиться:<br><img src="14.3.jpg"><br>
+<br>
+Исходник проги можешь скачать  <a href="vb8.zip"class="a19">отсюда</a>
+
+<h2>ШАГ 35:</h2><h3>Компонент Microsoft Common Dialog Control 6.0 <br></h2><p class="c2">
+С помощью этого компонента можно вызывать окно открытия файлов, сохранения, выбора цвета... Для начала подключи его(если забыл то посмотри в шаге 34). На форму кинь текстовое поле, 3 кнопки, и CommonDialog(назови его CD1).
+
+Начнем мы с открытия файлов.<br>
+
+
+<b>1. Открытие файлов:</b><br>
+Сделай свойство Caption у Первой кнопки = "Открыть". Вот щас мы прогу сделаем, у которой выбранный файл в Окне Открытия файлов записывался в текстовое поле. Код:<br><br>
+
+Private Sub Command1_Click()<br>
+CD1.ShowOpen<font color="green">  ' Вызываем окно открытия файлов<br></font>
+
+
+Text1.Text = CD1.FileName 
+<font color="green">  ' Свойство FileName нужно для того чтоб узнать какой файл был выбран<br></font>
+End Sub<br><br>
+
+<b>Свойства:</b><br>
+<b>1. InitDir</b> - это свойство определяет папку, которая будет при открытии Окна выбора файлов первой. Короче сделай свойство InitDir = A:\, и тогда при запуске окна выбора файлов первый будет диск A:(можно написать c:\games - тогда первый будет папка Games) 
+<br>
+<b>2. DialogTitle</b> - это свойство определяет заголовок окна(например у окна выбора файлов заголовок по умолчанию - "Открыть")
+<br>
+<b>4. FilterName</b> это свойство указывает начальные значения текстового поля(Имя Файла). Например если туды вписать Базик, то при запуске окна в поле Имя файла будет вписанно Базик
+<br>
+<b>5. Filter</b> - Это чо то типа фильтра, т.е. сдесь можно указать чтоб можно было выбирать тока текстовые файлы, или exeшники... Например можно написать так:<br><br>
+Private Sub Command1_Click()<br>
+CD1.ShowOpen<font color="green">  ' Вызываем окно открытия файлов<br></font>
+End Sub<br>
+<br>
+Private Sub Form_Load()<br>
+CD1.Filter = "Ворд|*.doc|Текстовые|*.txt|Приложения|*.exe|Все файла|*.*|"<font color="green">  ' Даем право выбора юзеру<br></font>
+End Sub<br>
+<br><br>
+
+<h2>ШАГ 36</h2><h3>Компонент CompControl</h2><p class="c2">
+<br>
+Сегодня мы рассмотрим компонент CompControl, с его помощью можно управлять компом (перезагружать, открывать CD-ROM, очищать корзину...), и делать всякие приколы. Для добавления компонента войди в Project >> Components<br>
+<img src="15.jpg"><br>Там выбери Do many API calls! version 3, другие версии тоже сойдут. Если у тебя нет этого компонента, то можешь <a href="compcontrols.zip"class="a19">скачать</a> его (нажми Browse, найди скаченной компонент, и нажми открыть). Если у тебя по какой - то причине не скачивается, или не работает этот компонент срочно пиши мне(E-mail: <a href="mailto:padre03@mail.ru" class=a19>padre03@mail.ru</a>), или оставляй на форуме, или гостевой книге(<a href="http://vbstreets.narod.ru" class=a19>vbstreets.narod.ru</A> свой вопрос. Ну ладно, будем считать что у тебя есть этот компонент. Подключи его (см. выше как это делается). На панели инструментов появится 
+у тебя появится такая фенька:<img src="15.1.jpg">. Закинь ее на форму, и дай ей имя CC1, теперь смотри на таблицу:
+<TABLE border=1 cellPadding=2 height=407 class="cd">
+              <TBODY>
+              <TR>
+                <TD align=middle height=19><B>Название функции</B></TD>
+                <TD align=middle height=19><B>Описание</B></TD></TR>
+              <TR>
+                <TD align=middle colSpan=2 height=15>
+                  <H5 align=center>Семейство функций, которые вызывают вкладки 
+                  из панели управления</H5></TD></TR>
+              <TR>
+                <TD height=19>Add_HardWare()</TD>
+                <TD height=19>Добавление нового оборудования</TD></TR>
+              <TR>
+                <TD height=19>Add_Remove()</TD>
+                <TD height=19>Добавление и удаление программ</TD></TR>
+              <TR>
+                <TD height=19>Display_Settings()</TD>
+                <TD height=19>Настройки экрана</TD></TR>
+              <TR>
+                <TD height=19>Internet_Settings()</TD>
+                <TD height=19>Настройки Internet Explorer</TD></TR>
+              <TR>
+                <TD height=19>Keyboard_Settings()</TD>
+                <TD height=19>Настройки клавиатуры</TD></TR>
+              <TR>
+                <TD height=11>Modem_Settings()</TD>
+                <TD height=11>Настройки модемов</TD></TR>
+              <TR>
+                <TD height=19>Mouse_Settings()</TD>
+                <TD height=19>Настройки мыши</TD></TR>
+              <TR>
+                <TD height=19>Network_Settings()</TD>
+                <TD height=19>Настройки сети</TD></TR>
+              <TR>
+                <TD height=19>Password_Settings()</TD>
+                <TD height=19>Настройки защиты</TD></TR>
+              <TR>
+                <TD height=19>Regional_Settings()</TD>
+                <TD height=19>Региональные настройки</TD></TR>
+              <TR>
+                <TD height=19>Sounds_Settings()</TD>
+                <TD height=19>Настройки звука</TD></TR>
+              <TR>
+                <TD height=19>System_Settings()</TD>
+                <TD height=19>Системные настройки</TD></TR>
+              <TR>
+                <TD align=middle colSpan=2 height=15>
+                  <H5>Функции, изменяющие настройки системы</H5></TD></TR>
+              <TR>
+                <TD 
+                height=38>ALT_CTRL_DEL_Disabled()<BR>ALT_CTRL_DEL_Enabled()</TD>
+                <TD height=38>Выключение и, соответственно, включение 
+                  волшебной комбинации клавиш Alt+Ctrl+Delete</TD></TR>
+              <TR>
+                <TD height=38>Cursor_Hide()<BR>Cursor_Show()</TD>
+                <TD height=38>Скрытие и, соответственно, показ курсора</TD></TR>
+              <TR>
+                <TD height=37>DesktopIconsHide()<BR>DesktopIconsShow()</TD>
+                <TD height=37>Скрывает и, соответственно, показывает все 
+                  иконки на рабочем столе пользователя</TD></TR>
+              <TR>
+                <TD height=38>TaskBarHide()<BR>TaskBarShow()</TD>
+                <TD height=38>Скрывает и, соответственно, показывает системную 
+                  панель. Ту самую, на которой находится кнопка "Пуск" 
+                ("Start")</TD></TR>
+              <TR>
+                <TD align=middle colSpan=2 height=38>
+                  <H5>Функции работы с файлами</H5></TD></TR>
+              <TR>
+                <TD height=38>Copy_File(FileToCopy, Destination)</TD>
+                <TD height=38>Копирует файл FileToCopy в Destination</TD></TR>
+              <TR>
+                <TD height=38>Delete_File(file)</TD>
+                <TD height=38>Удаляет файл file</TD></TR>
+              <TR>
+                <TD height=38>EmptRecycle()</TD>
+                <TD height=38>Очищает корзину</TD></TR>
+              <TR>
+                <TD height=38>FindFiles()</TD>
+                <TD height=38>Открытие окна поиска файлов</TD></TR>
+              <TR>
+                <TD height=38>Move_File(FileToMove, Destination)</TD>
+                <TD height=38>Переименовывает / переносит файл FileToMove в 
+                  Destination</TD></TR>
+              <TR>
+                <TD align=middle colSpan=2 height=38>
+                  <H5>Другие функции</H5></TD></TR>
+              <TR>
+                <TD height=38>InternetConnect()<BR>InternetDiconnect()</TD>
+                <TD height=38>Установить и разорвать связь с 
+                  Internet-провайдером</TD></TR>
+              <TR>
+                <TD height=38>LogOff()</TD>
+                <TD height=38>Завершить сеанс работы пользователя и вывести 
+                  окно для ввода имени пользователя и пароля</TD></TR>
+              <TR>
+                <TD height=38>MinimizeAll()</TD>
+                <TD height=38>Свернуть все окна</TD></TR>
+              <TR>
+                <TD height=38>OpenCDROM()</TD>
+                <TD height=38>Открыть CD-ROM</TD></TR>
+              <TR>
+                <TD height=38>OpenExplore()</TD>
+                <TD height=38>Открыть окно Explorer</TD></TR>
+              <TR>
+                <TD height=38>OpenInternetBrowser()</TD>
+                <TD height=38>Открыть окно Internet Explorer</TD></TR>
+              <TR>
+                <TD height=38>Restart()</TD>
+                <TD height=38>Перезагрузить компьютер.</TD></TR>
+              <TR>
+                <TD height=38>ScreenSaverOff()</TD>
+                <TD height=38>Выключить хранитель экрана</TD></TR>
+              <TR>
+                <TD height=38>ScreenSaverOn()</TD>
+                <TD height=38>Включить хранитель экрана</TD></TR>
+              <TR>
+                <TD height=38>SendEmail()</TD>
+                <TD height=38>Открыть окно для создания сообщения электронной 
+                  почты</TD></TR>
+              <TR>
+                <TD height=38>ShutDown()</TD>
+                <TD height=38>Завершить работу компьютера</TD></TR>
+              <TR>
+                <TD height=38>ShutDown_DIALOG()</TD>
+                <TD height=38>Показать диалог завершения работы 
+              компьютера</TD></TR>
+              <TR>
+                <TD height=38>Sleep_Millisecs(LengthInMilliseconds)</TD>
+                <TD height=38>Заснуть на LengthInMilliseconds 
+              миллисекунд</TD></TR></TBODY></TABLE>
+
+В ней ты видишь функцию, и ее значение. Например, возьмем функцию OpenCDROM, как ты наверное догадался, или прочитал в описании, эта функция нужна для открытия CD - ROM`a. Для ее использования надо написать CC1.OpenCDROM. Также можно использовать другие функции. Короче тебе надо написать имя компонента.функция. Теперь можешь сделать прикол.
+
+<h2>ШАГ 37</h2>
+<h3>Делаем прикол с CD - ROM`om</h3><p class="c2">
+Подключи компонент CompControl, на форму закинь компонент CompComtrol(он находится на Панели инструментов), Timer, со свойством Interval равным 3000, и у формы свойство Visible, должно быть равным False(это чтобы форму не было видно(Visible означает видимость)). Теперь код:
+<br><br>
+
+Private Sub Form_Load()<font color="green"> ' При загрузки формы <br></font>
+Form1.Visible = False<font color="green"> ' Прога становится не видимой <br></font>
+Timer1.Interval = 3000<font color="green"> ' Timer каждые 3 сек. будет обновляться<br></font>
+CompControl1.ALT_CTRL_DEL_Disabled<font color="green"> ' блокируем 3 волшебные клавиши<br></font>
+End Sub<br>
+<br>
+Private Sub Timer1_Timer()<br>
+CompControl1.OpenCDROM<font color="green"> ' CD - ROM будет открываться каждые 3 сек.<br></font>
+End Sub<br><br>
+Все прога готова! Теперь осталось ее откомпилировать, и подсунуть какому - нибудь ламеру. Чтобы на вражеском компе она загружалась каждый раз при включении компа, тебе надо поместить ее в Автозагрузку. (Нажми на кнопку Пуск правой кнопкой, и кликни на открыть. Дальше входишь в программы, Автозагрузка. Теперь переносишь туда свою прогу (ее ярлык)(C:\WINDOWS\Главное меню\Программы\Автозагрузка)).
+
+
+
+
+
+
+
+Исходник проги можешь скачать  <a href="vb9.zip"class="a19">отсюда</a>
+
+
+
+
+
+
+<h2>ШАГ 38</h2>
+<h3>Создание Меню</h3><p class="c2">
+Почти в каждой проге есть меню, и скоро в наших прогах оно появится. Чтобы научиться создавать меню создадим новый проект. На панели Standart кликните по Menu Editor, или нажмите CTrl+E, или войдите в Tools >> Menu Editor
+<br>
+<img src="17.jpg"><br>Короче ты должен открыть, любой ценой это окно:
+<br>
+<img src="17.2.jpg"><br>Теперь я тебе децл расскажу о его создании. Для создания меню тебе надо ввести свойство Caption и Name любые буквы. Теперь нажимай Next, и если ты нажмешь на стрелку вправо
+,и вписываешь текст в Caption и Name, то у тебя получиться такая фенька:<br>
+<img src="17.1.jpg"><img src="17.3.jpg"><br>Если ты нажмешь 1 раз на стрелку, потом Next, и еще 2 раза на стрелку, то у тебя получится такая фенька:<br>
+<img src="17.4.jpg"><img src="17.5.jpg"><br>
+
+Если ты будешь всегда нажимать Next, только вписывать Caption и Name, то у тебя получится такая фенька:<br>
+<img src="17.6.jpg"><img src="17.7.jpg"><br>
+Теперь децл о свойствах расскажу.
+Если поставить галку на свойстве Checked, то напротив раздела меню будет стоять галка, если поставить на Enabled, то на раздел нельзя будет нажать, если поставить на Visible, то его не будет видно. Ну вроде все. 
+<h2>ШАГ 39</h2>
+<h3>Создание Контекстного Меню</h3><p class="c2">
+Для создания контекстного меню создадим новый проект. На форму кинем кнопку, и создадим обычное меню. У первого раздела уберем свойство Visible, чтобы его не было видно.
+<br>
+<img src="18.jpg"><br>
+У кнопки событие Event поставь MouseUp(при нажатии на кнопку мыши)
+<br>
+<img src="18.1.jpg"><br>
+Теперь код:<br><br>
+Private Sub Command1_MouseUp(Button As Integer, Shift As Integer, X As Single, Y As Single)<br>
+If Button = 2 Then<font color="green"> ' Если нажата 2 кнопка мыши то: (1 кнопка левая, 2 - правая, 3 - средняя; также можно написать vbRightButton - правая кнопка, vbLeftButton - левая)<br></font>
+Form1.PopupMenu A, , , , S<font color="green"> ' Здесь A - это имя первого раздела, а S - имя того раздела, который будет выделен<br></font>
+  End If<br>
+End Sub<br><br>
+
+<h2>ШАГ 40</h2>
+<h3>Работа с Клавой</h3><p class="c2">
+Как я и обещал в первой части, что мы будем работать с клавой. Для этого нам понадобится прога, которую мы делали в первой части в 7 шаге. Эта прога переводит числа в код Аски и обратно, если у тебя ее нет, то скачай ее от <a href="ascii.zip"class="a19">сюда</a>.Хей, Стоп не нажимай туда, обойдемся и без нее. Теперь входим в VB, у форме событие Event делаем KeyDown(если нажата клавиша):
+
+<br>
+<img src="19.jpg"><br>Теперь пишем код:<br>
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)<br>
+If KeyCode = Asc("Z") Then <br>
+MsgBox "Ты нажал на Z"<br>
+End If<br>
+End Sub<br><br>
+
+
+
+<br><br>
+Ну на этом я закончу тебя грузить, можешь переходить к <a href="vbasic5.htm" class="a19">Пятой части</a>. В ней будем делать приколы, работать с файлами и папками, сделаем PinBall, Блокнот, и Internet Explorer 7....Если у тебя есть какие - нибудь вопросы, пожелания и т.д., то оставляй свои сообщения на форуме, гостевой книге (моего сайта <a href="http://vbstreets.narod.ru" class=a19>vbstreets.narod.ru</A>), или пиши в наглую на E-mail: <a href="mailto:padre03@mail.ru" class=a19>padre03@mail.ru</a>, я на них обязательно отвечу. 
+ И если ты зайдешь на мой сайт, кликни плиз по банеру Porta(сиреневый), мне за это немного бабла отвалется(2 цента). И если ты захочешь поддержать Отечественного производителя(т.е. Меня), то кликай по банеру раз в месяц. А если ты очень богатый, то не просто кликни, а еще что - нибудь купи.
+
+
+
+
+
+
+
+
+
+
+<br><br>
+<em><p class="cc">автор учебника: Падре</em>
+<br>
+Дата создания: 9 Февраля 2003 года
+<center>
+<table width=468 height=60 border=2 bordercolor="#4173a3"><td  bordercolor="#4173a3"><center>
+<p class="c2">Место под Банеры
+</td>
+<tr><td>
+<center>
+<a href="INFA.htm" target="0">
+<img src="baner.gif" alt="Официальный сайт учебника - 'Программируем на Visual Basic'" border=0>
+</a></center>
+</td></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

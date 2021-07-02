@@ -1,0 +1,215 @@
+<html><head>
+<title> Каскадные таблицы стилей (Cascad Style Sheets)</title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+<h4>1.8. Каскадные таблицы стилей (Cascad Style Sheets)</h4>
+<P ALIGN="JUSTIFY">Каскадные таблицы стилей были предложены w3c(WWW Consorcium) в рамках разработки спецификации HTML 3.0. Однако, реализованы в реально действующих навигаторах они были  только в 1997 году. Фактически, в качестве применяемой HTML-разметки они стали доступны только с версий Netscape Navigator 4.0 и Internet Explorer 4.0.
+<P ALIGN="JUSTIFY">Идея положенная в основу таблиц достаточно проста. К версии 4.0 HTML превращется в язык разметки, опирающийся на контейнерное представление документа, т.е. документ - это множество вложенных в друг друга контейнеров, каждый из которых имеет свои свойства по представлению информации. Многие контейнеры можно сгруппировать в классы однотипных контейнеров, например, заголовки или параграфы. Свойства контейнера, перечисляются в качестве атрибутов тага начала контейнера. При этом у большинства контейнеров, начиная с версии HTML 3.0 набор этих атрибутов типизирован.
+<P ALIGN="JUSTIFY">Контейнеры во многом походят на блоки в универсальный языках программирования. При этом свойства контейнеров можно интерпретировать как переменные, которые принимают определенные значения в пределах каждого из контейнеров. Как и в языках программирования, например в Паскаль, описание свойств можно вынести в специальную секцию данных в начале документа. Такой секцией и является секция описания каскадных стилей. Обычно стиль описывается внутри контейнера STYLE:
+<pre>
+	&lt;style type="text/css">
+	&lt;!-- Описание стилей -->
+	&lt;/style>
+</Pre>
+Вообще говоря, в Netscape поддерживают еще одну нотацию описание таблиц стилей - нотация JavaScript:
+<pre>
+	&lt;style type="text/javascript">
+	&lt;!-- Описание стилей -->
+	&lt;/style>
+</Pre>
+<P ALIGN="JUSTIFY">При описании таблиц стилей мы будем опираться на документацию Netscape, т.к. - это наиболее популярный браузер Internet. Internet Explorer поддерживает только спецификацию w3c.
+<P ALIGN="JUSTIFY">Начнем с простого примера. Нужно описать стили отображения текста в параграфе и заглавии документа:
+<i><P ALIGN="JUSTIFY">Пример 1.28
+</i><pre>
+	&lt;html>
+	&lt;head>
+	style type="text/css">
+	p {color:blue; font-family: times; font-size:10pt;}
+	h1 {color:black; font-size:12pt; font-style:Arial; text-align: center;}
+	&lt;/style>
+	&lt;/head>
+	&lt;body>
+	&lt;h1>Test Style Shits in Communicator&lt;/h1>
+	&lt;p> This is a first part of the document
+	&lt;/body>
+	&lt;/html>
+</Pre>
+<P ALIGN="JUSTIFY">То же самое но в JavaScript-нотации будет выглядеть следующим образом:
+<i><P ALIGN="JUSTIFY">Пример 1.29
+</i><pre>
+	&lt;html>
+	&lt;head>
+	&lt;style type="text/javascript">	tags.p.color="blue";
+	tags.p.fontFamily="times";
+	tags.p.fontSize="10pt";
+	tags.h1.color="black";
+	tags.h1.fontSize="12pt";
+	tags.h1.fontStyle="Arial";
+	tags.h1.textAlign-"center";
+	&lt;/style>
+	&lt;/head>
+	&lt;body>
+	&lt;h1>Test Style Shits in Communicator&lt;/h1>
+	&lt;p> This is a first part of the document
+	&lt;/body>
+	&lt;/html>
+</Pre>
+<P ALIGN="JUSTIFY">Сoзданный таким образом документ будет отображаться следующим образом:
+<i><P ALIGN="CENTER"><a href="http://www.citforum.ru/pictures/it/js_tut/image423.gif">Рис. 1.28. Пример отображения документа с каскадными описателями стилей</a>
+</I><P ALIGN="JUSTIFY">Разберем теперь описатели стилей более подробно. Определим область их применения и способы встраивания в документ.
+<h4><i>Новые HTML-контейнеры</i></h4>
+<P ALIGN="JUSTIFY">С появлением таблиц стилей в языке появилось три новых контейнера: STYLE, LINK, SPAN. Вообще говоря LINK - это не новый таг, а новое применение старого тага.
+<i><P ALIGN="JUSTIFY">Контейнер STYLE</i>(&lt;style type="..."&gt;......&lt;/style&gt;) служит для определения таблицы описания стилей. Хотя в спецификации CSS прямо не говорится, в каком контейнере документа следует применять STYLE, тем не менее, в примерах чаще всего приводится этот контейнер внутри контейнера HEAD.
+<i><P ALIGN="JUSTIFY">Контейнер LINK</i> в контексте описателей стилей применяется для определения внешнего файла с описаниями стилей для данного документа. Например, внешний файл может содержать следующее описание стилей:
+<pre>
+	/* contents of the external style sheets file  css.htm*/
+	p {color:blue; font-family: times; font-size:10pt;}
+	h1 {color:black; font-size:12pt; font-style:Arial; text-align: center;}
+	/* the end of style sheets definition */
+</Pre>
+<P ALIGN="JUSTIFY">Для применения этого описателя стилей в заголовок документа необходимо включить следующий таг:
+<i><P ALIGN="JUSTIFY">Пример 1.30
+</i><pre>
+	&lt;html>
+	&lt;head>
+	&lt;link REL=STYLESHEET TYPE="text/css" HREF=http://localhost/css.htm>
+	&lt;/head>
+	&lt;body>
+	The body of the document should be here.
+	&lt;/body>
+	&lt;/html>
+</Pre>
+<P ALIGN="JUSTIFY">Из данного примера видно, что писание стилей в фале css.htm полностью совпадает с описанием в контейнере STYLE. В тексте файла описания стилей не нужно указывать таги контейнера STYLE.
+<i><P ALIGN="JUSTIFY">Контейнер SPAN</i> применяется для переопределения стиля отображения текущего фрагмента текста и в некотором смысле аналогичен контейнеру FONT. Часто SPAN применяют для достижения типографских эффектов, таких например, как выделение заглавной буквы абзаца:
+<i><P ALIGN="JUSTIFY">Пример 1.31
+</i><pre>
+	&lt;HTML>
+	&lt;!--
+	Author:	Paul Khramtsov
+	Date:	September 19, 1997
+	URL:	http://polyn.kiae.su/Internet/intro.html
+	-->
+	&lt;HEAD>
+	&lt;style TYPE="text/css">
+	FS.all { color:red; font-size: 24pt; font-family: times;}
+	H1 {color:navy; text-transform: uppercase;font-size: 18pt; 
+	font-weight: bold; font-family: times;}
+	H2 {color:navy; font-size: 14pt; font-weight: bold; font-style: italic; 
+	font-family: times;}
+	H3 {color:navy; font-size: 10pt; font-weight: bold; font-family: times;}
+	P  {color:navy; font-size: 12pt; font-family: times; text-align: justify}
+	P.HELP {color:darkgreen; font-size: 10pt; font-family: times; 
+	text-align: justify;}
+	P.LEFT {color:navy; font-size: 12pt; font-family: times; text-align: right;}
+	&lt;/style>
+	&lt;/HEAD>
+	&lt;BODY bgcolor=lightyellow>
+	&lt;center>
+	&lt;h3>Центр информационных технологий&lt;/h3>
+	&lt;h1>Информационные Ресурсы Internet&lt;/h1>
+	&lt;h3>(Учебное пособие для компьютерных непрофессионалов)&lt;/h3>
+	&lt;h3>Храмцов П.Б.&lt;/h2>
+	&lt;h3>Москва, 1997&lt;/h2>
+	&lt;hr>
+	&lt;/center>
+	&lt;p>&lt;span class=FS>C&lt;/span>обществу глобальных компьютерных сетей 
+	Internet в 1995 году исполнилось 25 лет. На настоящий момент - это самый
+	большое информационный ресурс мира. Одновре-менно Internet - это самая 
+	популярная и массовая компьютерная сеть планеты. По оценкам международного 
+	центра координации сетевой деятельности в рамках Internet(Internic-Internet 
+	Information Center) на 1997 год в сети насчитывалось несколько десятков 
+	миллионов постоянно зарегистрированных компьютеров-серверов, которые 
+	откликаются на запросы пользователей 365 дней в году и 24 часа в сутки. Этот 
+	огромный информационный ресурс полностью децентрализован и не подчиняется ни 
+	одному правительству или крупной финансовой компании мира.
+	&lt;/BODY>
+	&lt;/HTML>
+</Pre>
+<P ALIGN="JUSTIFY">В данном примере, контейнер SPAN применен сразу после тага начала параграфа &lt;p&gt;, что позволяет выделить первую букву в отображаемом абзаце:
+<i><P ALIGN="CENTER"><a href="http://www.citforum.ru/pictures/it/js_tut/image424.gif">Рис. 1.29. Эффект от применения контейнера SPAN</a>
+</I><P ALIGN="JUSTIFY">Кроме новых контейнеров таблицы описания стилей привнесли еще и новые атрибуты в известные таги.
+<h4><i>Новые свойства контейнеров HTML</i></h4>
+<P ALIGN="JUSTIFY">Перечень новых атрибутов у тагов HTML следует начать с атрибута STYLE. Этот атрибут используется для определения стиля отображаемого контейнера непосредственно внутри тага начала контейнера:
+<pre>
+	&lt;h3 style="line-hieght:24pt; font-weight:bold; color: blue">The blue text</h3>
+	&lt;h3 style="lineHeight='24pt'; fontWeght='bold'; color='blue'">The blue text</h3>
+</Pre>
+Можно также определить класс стилей и использовать его при помощи атрибута CLASS:
+<pre>
+	&lt;style type="text/css">
+	h3.class1 {font-size:12pt;color=blue}
+	&lt;/style>
+	.....
+	&lt;h3 class="class1">This is a blue text</h3>
+</Pre>
+В данном случае мы определили класс заголовков третьего уровня, но можно определить класс, который можно будет применять к любым контейнерам, а не только к заголовкам:
+<pre>
+	&lt;style type="text/css">
+	all.class1 {font-size:12pt;color=blue}
+	&lt;/style>
+</Pre>
+Kроме определения классов существует еще возможность создания поименованных стилей. Поименованный стиль создается как уточнение какого-либо класса:
+<pre>
+	&lt;style type="text/css">
+	all.class1 {font-size:12pt;color=blue}
+	#C1 { font-size: 20;}
+	&lt;/style>
+	....
+	&lt;h3 class="class1">This is a blue text</h3>
+	&lt;h3 class="class1" id="C1">This is a blue text</h3>
+</Pre>
+<P ALIGN="JUSTIFY">Таким образом, атрибуты контейнеров позволяют связать описатели стилей с содержанием контейнеров и управлять формой отображаемой информации.
+<h4><i>Свойства контейнеров, управляемые описателями стилей</i></h4>
+<P ALIGN="JUSTIFY">Первую группу свойств составляют свойства шрифтов: 
+<DIR>
+<br><tt>font-size, font-family, font-weight, font-style.</tt>
+</DIR>
+<P ALIGN="JUSTIFY">Вторую группу свойств составляют свойства текста: <DIR>
+<br><tt>line-height, text-decoration, text-transform, text-align, text-indent.</tt>
+</DIR>
+<P ALIGN="JUSTIFY">Третью группу свойств составляют свойства блоков текста: <DIR>
+<br><tt>margin-left, margin-right, margin-top, margin-bottom, margin, padding-top, padding-right, padding-bottom, padding-left, paddings, border-top-width, border-bottom-width, border-left-width, border-right-width, border-width, border-style, border-color</tt>
+</DIR>
+<P ALIGN="JUSTIFY">Четвертую группу составляют описатели цвета фона и цвета текста: <DIR>
+<br><tt>color, background-image, background-color.</tt></DIR>
+<P ALIGN="JUSTIFY">Кроме того, существуют свойства определяющие тип пульки у элементов списка и ряд других свойств элементов HTML-разметки.
+<p><center><p>
+<font size=-1>
+<a href="glava1_7.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava2.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

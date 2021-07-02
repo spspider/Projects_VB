@@ -1,0 +1,112 @@
+<html>
+<head>
+
+
+<TITLE>Первые шаги - Ступенька двадцать девятая, фреймы, как делать, чтобы при нажатии на ссылку документ открывался в другом фрейме, окне.</TITLE>    
+<META HTTP-EQUIV="Content-Type" Content="text/html; Charset=Windows-1251">
+<META Name="copyright" Content="Алленова Наталья">
+<META NAME="author" CONTENT="Алленова Наталья Email: seagull@pisem.net"><META NAME="keywords" CONTENT="графика, хтмл, для, начинающий, начинающих, чайников, новичков, просто, основа, основы, страница, домашний, домашняя, сайт, новый, новичок, html, обучение, учеба, пример, веб, мастер, веб-мастер, дизайн, веб-дизайн, вебдизайн, дезайн, веб-дезайн, вебдезайн, дезайнер, дизайнер, ступени, тэги, тэг, теги, тег, аттрибут, атрибуты, парамет, design, web, help, помощь, icq, e-mail, guest, book, guestbook, гостевая, книга, форум, аська, контакт, ссылка, link, links, banner, обмен, баннер, баннерами, банер, baner, друзья, friends, почитать, написать, вопросы, вопрос, ответ, проект, ступени, словарь"> <META NAME="description" CONTENT="Основы хтмл (html) для чайников. Просто, доступно. Создайте свою домашнюю страничку своими руками и без хтмл (html) редакторов. Что может быть проще? Также вы здесь найдете полезные ссылки для вашего сайта, но это уже не главное...">
+
+
+
+</head>
+<body bgcolor="#ffffff" link="#000000" alink="#000000" vlink="#000000">
+
+
+<table>
+
+	<tr>
+	<td width="600">
+<font face="times new roman"><hr noshade size="1">
+<a href="index.html">Главная</a> | <a href="content2.html">Оглавление</a> | <a href="alltags2.html">Словарь</a><hr noshade size="1"><p align="JUSTIFY">
+В этой главе мы поговорим о том, что становиться проблемой для каждого человека, начинающего осваивать фреймы.
+<br><br>
+Итак, обратимся к нашему <a href="primtoframez10.html" target="_blank">примеру</a>. Нажмите на любую из ссылок. Документ, на который введет ссылка, откроется в том же фрейме. А нам бы надо сделать так, чтобы он открылся во фрейме с основным содержанием, а меню осталось в нетронутом виде. Как это сделать?
+<br><br>
+Для начала, господа, познакомьтесь с новым параметром тэга &lt;frame&gt; - name. Пустим name в дело:
+</p></font>
+<img src="step4.gif" align="left" width="20" height="230">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Хождение по фреймам&lt;/title&gt;<br>
+&lt;frameset cols="100,*" border="0"&gt;<br><br>
+&lt;frameset rows="100,*"&gt;<br>
+&lt;frame src="logo.html" scrolling="no" marginwidth="0" marginheight="0"&gt;<br>
+&lt;frame src="menu.html"&gt;<br>
+&lt;/frameset&gt;<br>
+&lt;frame src="content.html" <b>name="window-1"</b>&gt;<br><br>
+&lt;/frameset&gt;<br>
+&lt;/head&gt;<br>
+&lt;/html&gt;</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Параметр name задает имя для фрейма (в нашем случае для того, который содержит документ content.html).<br><br>
+Имя фрейма может быть в дальнейшем использовано для ссылки на него из других документов (фреймов), с помощью параметра тэга  &lt;a&gt; target (target="имя_фрейма").
+<br><br>
+Как это выглядит? Обратимся к документу menu.html. 
+</p></font>
+<img src="step4.gif" align="left" width="20" height="243">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Документ с Меню&lt;/title&gt;<br>
+&lt;body background="cherti3.gif" text="#ffffff" link="#ffffff" alink="#ffffff" vlink="#ffffff"&gt;<br>
+&lt;center&gt;<br>
+&lt;a href="content.html"&gt;Главная&lt;/a&gt;<br>
+&lt;a href="tumki.html"&gt;Тумки&lt;/a&gt;<br>
+&lt;a href="bumki.html"&gt;Бумки&lt;/a&gt;<br> 
+&lt;a href="tururumki.html"&gt;Турурумки&lt;/a&gt;<br> 
+&lt;a href="tra-la-la.html"&gt;Траляля&lt;/a&gt;
+<br>&lt;/center&gt;<br> 
+&lt;/body&gt;<br> 
+&lt;/head&gt;<br>
+&lt;/html&gt;</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Вот такой он, в нашем случае. Теперь для каждой ссылки укажем параметр target="window-1", где window-1 - это имя фрейма, в котором у нас располагается документ с основным содержанием (content.html).<script language="javascript"> 
+u="u1242.91.spylog.com";d=document;nv=navigator;na=nv.appName;p=1; 
+bv=Math.round(parseFloat(nv.appVersion)*100); 
+n=(na.substring(0,2)=="Mi")?0:1;rn=Math.random();z="p="+p+"&rn="+rn;y=""; 
+y+="<a href='http://"+u+"/cnt?f=3&p="+p+"&rn="+rn+"' target=_blank>"; 
+y+="<img src='http://"+u+"/cnt?"+z+ 
+"&r="+escape(d.referrer)+"&pg="+escape(window.location.href)+"' border=0 width=1 height=1 alt='SpyLOG'>"; 
+y+="</a>"; d.write(y);if(!n) { d.write("<"+"!--"); }//--></script><noscript> 
+<a href="http://u1242.91.spylog.com/cnt?f=3&p=1" target=_blank> 
+<img src="http://u1242.91.spylog.com/cnt?p=1" alt='нужная весчь' border='0' width=1 height=1 > 
+</a></noscript><script language="javascript1.2"><!-- 
+if(!n) { d.write("--"+">"); }//--></script>
+
+</p></font>
+<img src="step4.gif" align="left" width="20" height="248">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Документ с Меню&lt;/title&gt;<br>
+&lt;body background="cherti3.gif" text="#ffffff" link="#ffffff" alink="#ffffff" vlink="#ffffff"&gt;<br>
+&lt;center&gt;<br>
+&lt;a href="content.html" <b>target="window-1"</b>&gt;Главная&lt;/a&gt;<br>
+&lt;a href="tumki.html" <b>target="window-1"</b>&gt;Тумки&lt;/a&gt;<br>
+&lt;a href="bumki.html" <b>target="window-1"</b>&gt;Бумки&lt;/a&gt;<br> 
+&lt;a href="tururumki.html" <b>target="window-1"</b>&gt;Турурумки&lt;/a&gt;<br> 
+&lt;a href="tra-la-la.html" <b>target="window-1"</b>&gt;Траляля&lt;/a&gt;
+<br>&lt;/center&gt;<br> 
+&lt;/body&gt;<br> 
+&lt;/head&gt;<br>
+&lt;/html&gt; (<a href="primtoframez12.html" target="_blank">прим</a>.)</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Теперь, все ссылки открываются в нужном нам фрейме, а меню никуда не исчезает, при этом мы не приложили никаких особых усилий, а только изменили немного два документа :).
+<br><br>
+Бывают ситуации, когда нам нужно, чтобы открываемый документ открылся во все окно, для этого надо параметру target задать значение _top:
+</p></font>
+<tt>&lt;a href="project.html" <b>target="_top"</b>&gt;Мой проект о рыбках&lt;/a&gt;</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Страница с проектом о рыбках откроется в полное окно, закрыв (уничтожив) остальные кадры (фреймы).
+</p>
+<center><a href="28step2.html">Назад</a> | <a href="30step2.html">Шагнуть на следующую ступеньку</a></center>
+</font>
+
+
+</td>
+
+	</tr>
+ </table>
+
+
+</body>
+</html>

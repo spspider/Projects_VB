@@ -1,0 +1,90 @@
+<html>
+<head>
+
+
+<TITLE>Первые шаги - Ступенька двадцать пятая, учимся создавать фреймы.</TITLE>    
+<META HTTP-EQUIV="Content-Type" Content="text/html; Charset=Windows-1251">
+<META Name="copyright" Content="Алленова Наталья">
+<META NAME="author" CONTENT="Алленова Наталья Email: seagull@pisem.net"><META NAME="keywords" CONTENT="графика, хтмл, для, начинающий, начинающих, чайников, новичков, просто, основа, основы, страница, домашний, домашняя, сайт, новый, новичок, html, обучение, учеба, пример, веб, мастер, веб-мастер, дизайн, веб-дизайн, вебдизайн, дезайн, веб-дезайн, вебдезайн, дезайнер, дизайнер, ступени, тэги, тэг, теги, тег, аттрибут, атрибуты, парамет, design, web, help, помощь, icq, e-mail, guest, book, guestbook, гостевая, книга, форум, аська, контакт, ссылка, link, links, banner, обмен, баннер, баннерами, банер, baner, друзья, friends, почитать, написать, вопросы, вопрос, ответ, проект, ступени, словарь"> <META NAME="description" CONTENT="Основы хтмл (html) для чайников. Просто, доступно. Создайте свою домашнюю страничку своими руками и без хтмл (html) редакторов. Что может быть проще? Также вы здесь найдете полезные ссылки для вашего сайта, но это уже не главное...">
+
+
+
+</head>
+<body bgcolor="#ffffff" link="#000000" alink="#000000" vlink="#000000">
+
+
+<table>
+
+	<tr>
+	<td width="600">
+<font face="times new roman"><hr noshade size="1">
+<a href="index.html">Главная</a> | <a href="content2.html">Оглавление</a> | <a href="alltags2.html">Словарь</a><hr noshade size="1"><p align="JUSTIFY">Прежде, чем что-нибудь предпринимать дальше, надо решить по какому принципу мы будем размещать наши документы, и вообще, какие документы мы будем показывать посетителю одновременно. Предлагаю классический вариант - logo.html, menu.html, content.html - о котором я упоминала в предыдущей главе.
+<br><br>
+Расположить мы можем это по разному, вот для примера четыре варианта из множества возможных:
+<br><br>
+<img src="logomenucontent.gif" border="0">
+<br><br>
+Итак, сначала создадим такой вариант:
+<br><br>
+<img src="logomenucontent1.gif" border="0">
+</p></font>
+<img src="step4.gif" align="left" width="20" height="165">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Хождение по фреймам&lt;/title&gt;<br>
+&lt;frameset <b>rows="100,*,150"</b>&gt;<br>
+<b>&lt;frame src="logo.html"&gt;<br>
+&lt;frame src="content.html"&gt;<br>
+&lt;frame src="menu.html"&gt;</b><br>
+&lt;/frameset&gt;<br>
+&lt;/head&gt;<br>
+&lt;/html&gt; (<a href="primtoframez.html" target="_blank">прим.</a>)</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Теперь мне следует объясниться...<br><br>
+Начнем с параметра rows - в нашем примере это выглядит так: rows="100,*,150" - а если перевести, то мы получим следующее - "... наш документ делиться на несколько рядов (строк). <i>Высота</i> первого ряда  - 100 пикселов, третьего - 150, а второй занимает все оставшееся пространство", - полагаю, здесь должно быть все ясно.
+<br><br>
+Тэг frame сообщает броузеру какие же документы у нас будут в каждом ряду (строке). В нашем случае: первый ряд - logo.html (документ с логотипом), второй ряд - займет документ с непосредственным содержанием (content.html), а третий - меню.  Если вы хотите, чтобы меню было во втором ряду, то вам следует поменять его местами с content.html
+<br><br>
+</p></font>
+<img src="step4.gif" align="left" width="20" height="165">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Хождение по фреймам&lt;/title&gt;<br>
+&lt;frameset rows="100,*,150"&gt;<br>
+&lt;frame src="logo.html"&gt;<br>
+<b>&lt;frame src="menu.html"&gt;<br>
+&lt;frame src="content.html"&gt;</b><br>
+&lt;/frameset&gt;<br>
+&lt;/head&gt;<br>
+&lt;/html&gt; (<a href="primtoframez2.html" target="_blank">прим.</a>)</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Посмотрите что у нас получилось. Опаньки... Поменять-то мы их местами - поменяли, а вот теперь надо задать новые значения параметру rows, чтобы меню у нас снова занимало только 150 пикселов по высоте, а содержание - все остальное:
+<br><br>
+</p></font>
+<img src="step4.gif" align="left" width="20" height="165">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Хождение по фреймам&lt;/title&gt;<br>
+&lt;frameset rows="100,<b>150,*</b>"&gt;<br>
+&lt;frame src="logo.html"&gt;<br>
+&lt;frame src="menu.html"&gt;<br>
+&lt;frame src="content.html"&gt;<br>
+&lt;/frameset&gt;<br>
+&lt;/head&gt;<br>
+&lt;/html&gt; (<a href="primtoframez3.html" target="_blank">прим.</a>)</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Вот теперь другое дело:) Все-таки от перемены мест слагаемых кое-что меняется...
+
+</p>
+<center><a href="24step2.html">Назад</a> | <a href="26step2.html">Шагнуть на следующую ступеньку</a></center>
+</font>
+
+
+</td>
+
+	</tr>
+ </table>
+
+
+</body>
+</html>

@@ -1,0 +1,520 @@
+
+
+
+<html><head>
+<style type="text/css">
+.part2{color:#4173a3;font-weight:900;}
+.part2:hover{color:red;font-weight:880}
+.cd{font-size:18px;color:black;}
+.c2{font-size:18px;color:black;}
+.c1{font-size:45pt;}
+.cc{font-size:13pt;font-weight:bold}
+.t{color:red;}
+.a9{color:#4173a3;font-weight:bold;}
+.a9:hover{color:red;font-weight:880}
+h2{font-size:21pt;font-weight:bold}
+h3{font-size:17pt;font-weight:bold}
+.a19{color:#4173a3;font-size:18px}
+.a19:hover{color:red;font-size:18px}
+body{
+BORDER-RIGHT: 0px;
+SCROLLBAR-FACE-COLOR: #CFDEEB;
+PADDING-BOTTOM: 0px;
+SCROLLBAR-HIGHLIGHT-COLOR: #CFDEEB;
+VERTICAL-ALIGN: middle;
+BORDER-LEFT: 0px;
+SCROLLBAR-SHADOW-COLOR: black;
+SCROLLBAR-ARROW-COLOR: black;
+PADDING-TOP: 0px;
+BORDER-BOTTOM: 0px;
+SCROLLBAR-BASE-COLOR: black;
+scrollbar-3dlight-color: #4173a3;
+scrollbar-dark-shadow-color: #4173a3;}
+</style>
+
+<title>Программируем на Visual Basic'e</title>
+</head>
+<body background="1.jpeg">
+<em >
+<a href="http://vbstreets.narod.ru" class="a9">Главная</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7132" class="a9">Гостевая</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7137" class="a9">Форум</a>
+<a href="INFA.htm" class="a9">INFA</a>
+</em>
+
+<H1 ><font size=6>Программируем на Visual Basic'e:</font></H1>
+
+<p style="font-weight:bold; font-size:21px" >
+
+<a href="vbasic.htm" class="part2">Часть 1</a>/<a href="vbasic2.htm" class="part2">Часть 2</a>/<a href="vbasic3.htm" class="part2">Часть 3</a>/<a href="vbasic4.htm" class="part2">Часть 4</a>/<a href="vbasic5.htm" class="part2">Часть 5</a>/<a href="vbasic6.htm" class="part2">Часть 6</a>/<a href="vbasic7.htm" class="part2">Часть 7</a>/<a href="vbasic8.htm" class="part2">Часть 8</a>/<a href="vbasic9.htm" class="part2">
+Часть 9</a>/<a href="vbasic10.htm" class="part2">Часть 10</a>/<a href="vbasic11.htm" class="part2">Часть 11</a>/<a href="vbasic12.htm" class="part2">Часть 12</a>/Часть 13/<a href="vbasic14.htm" class="part2">Часть 14</a>/<a href="vbasic15.htm" class="part2">Часть 15</a></font>
+</p>
+
+
+
+
+
+<h2>ШАГ 121</h2>
+<h3>Операторы цикла</h3><p class="c2">
+В первой части я уже говорил об операте цикла со счетчиком, но тока не подробно. А вот теперь будем базарить не тока об операторе цикла со счетчиком, а операторе цикла с условием.
+Об операторе цикла со счетчиком я не буду много говорить, т.к. все нужное я сказал в 1 части, НО если ты зациклился на операторе цикла со счетчиком то почитай на моем сайте в разделе статьи(Начинающим). Ну короче посмотри оператор цикла со счетчиком в первой части(тока обязательно посмотри, т.к. он нам пригодится). А теперь по - базарим о операторе цикла с условием.<br>
+Оператор цикла с условием имеет такой синтаксис:<br>
+<b>Do</b> 
+<br><br>
+<b>Loop</b><br>  
+Вот даже можешь сделать прогу:<br>
+<br>
+Private Sub Form_Load()<br>
+<b>Do</b> 
+<br>MsgBox "Цикл"<br>
+<b>Loop</b><br>  
+End Sub<br><br>
+Запусти(F5). Ну чо завис? Теперь тебя спасет тока Ctrl+PauseBreak. Теперь мы подошли к сути этого шага - к условию! Есть 2 вида условия это:<br><br>
+Do Until x = 0 <br>
+MsgBox "Цикл"<br>
+Loop<br><br>
+Если x <> 0 то цикл будет повторятся, до тех пор, пока x = 0<br>
+и второй вид:<br><br>
+
+
+Do While x = 0<br>
+MsgBox "Цикл"<br>
+Loop<br>
+<br>
+Если x = 0 то цикл будет повторятся, до тех пор, пока x <> 0(я использую тока этот вариант, и все примеры будут на нем)<br>
+Ну, это вроде и все, тока старина Билл придумал еще и функцию DoEvents, она нужна чтоб цикл не зацикливался. Ну чтоб все это понять сделаем прогу. На форму кинь текстовое поле, и 2 кнопки(у первой Caption = "Пуск", у второй = "Стоп"). Вот код:<br><br>
+
+Dim x As Long <br><br>
+
+Private Sub Command1_Click()<br>
+x = 0<br>
+Do While x = 0<font color="green"> ' Если X = 0 то цикл повторятся</font><br>
+DoEvents<font color="green"> ' Это чтоб цикл не зациклился, если ее не напишишь то комп будет виснуть</font><br>
+Text1.Text = Text1.Text + 1<font color="green"> ' Каждый раз когда цикл будет повторяться текст в текстовом поле будет на 1 увеличиваться</font><br>
+Loop<br>
+End Sub<br><br>
+
+Private Sub Command2_Click()<br>
+x = 1<font color="green"> ' При нажатии на кнопку цикл останавливается</font><br>
+End Sub<br>
+<br>
+Private Sub Form_Load()<br>
+x = 0<br>
+Text1.Text = 0<br>
+End Sub<br>
+<br>
+Из этого примера видно что оператор цикла повторяется быстрее чем таймер, а значит теперь можно сделать нормальный PineBall, который не будет тормоза довать.<br>
+<a href="Do.zip" class="a19">Скачать Исходник</a>
+
+<h2>ШАГ 122</h2>
+<h3>Делаем основу PineBall`a  </h3><p class="c2">
+На форму кинь кнопку(Enabled=False), и PictureBox(Enabled = False, и Picture = "Картинка в виде мячика") и Text1(Enabled=False, Text = 0, Visible = False). Код:<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Dim MoveLeft As Boolean<br>
+Dim MoveRight As Boolean 
+<font color="green"> 'Тип Boolean озночает то что переменная может принемать тока 2 значения True и False</font><br>
+Dim MBall As Boolean<br><br>
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer) 
+<font color="green"> 'При нажатии на кнопку</font><br>
+If KeyCode = vbKeyF2 Then MoveBall
+ <font color="green"> 'Эсли нажата клав. F2 то запускаем шарик(т.е. функцию MoveBall)</font><br>
+
+If KeyCode = vbKeyLeft Then 
+<font color="green"> 'Если нажата стрелка влево то:</font><br>
+
+MoveRight = False 
+<font color="green">'Останавливаем(если он запущен) цикл, который биту перемещает в противоположное место</font><br>
+Do While MoveRight = False
+<font color="green">  'Делаем цикл до тех пор пока MoveLeft = False</font><br>
+
+DoEvents
+<font color="green"> ' Это чтоб система реагировала на сигналы</font><br>
+Command1.Left = Command1.Left - 1 
+<font color="green"> ' Перемещаем кнопку</font><br>
+
+Text1.Text = Text1.Text - 1
+<font color="green"> 
+'Это немного цикл тормозит, а то бита очень быстро перемещается</font><br>
+MoveBall 
+<font color="green">'Запускаем функцию MoveBall</font><br>
+
+Loop<br>
+End If<br>
+<br>
+
+<font color="green"> ' Сдесь тоже самое тока наоборот</font><br>
+
+If KeyCode = vbKeyRight Then<br>
+MoveLeft = False<br>
+Do While MoveLeft = False<br>
+DoEvents<br>
+Command1.Left = Command1.Left + 1<br>
+Text1.Text = Text1.Text + 1<br>
+MoveBall<br>
+Loop<br>
+End If<br>
+
+<font color="green"> 'Остонавливаем биту если нажата стрелка вниз</font><br>
+If KeyCode = vbKeyDown Then<br>
+MoveLeft = True<br>
+MoveRight = True<br>
+Do<br>
+DoEvents<br>
+MoveBall<br>
+Loop<br>
+End If<br>
+
+End Sub<br>
+<br>
+Private Sub Form_Load()<br>
+
+<font color="green"> 'Устанавливаем начальные значения</font><br>
+MoveRight = True<br>
+MoveLeft = True<br>
+MBall = False<br>
+End Sub<br><br>
+
+Function MoveBall() 
+<font color="green">'Функция MoveBall</font><br>
+
+
+If MBall = False Then 
+<font color="green"> 'Если MBall = False то двигаем мячь вниз</font><br>
+Ball.Top = Ball.Top + 1<br>
+Else 
+
+<font color="green"> 'Если MBall <> False то двигаем мячь вверх</font><br>
+Ball.Top = Ball.Top - 1<br>
+End If<br>
+If Ball.Left - Command1.Left < 150 And Ball.Left - Command1.Left >= -320 And Ball.Top >= Command1.Top - 255 Then
+<font color="green">  'Если мячь ударяется от левый край биты то</font><br>
+MBall = True 
+<font color="green"> 'Посылаем его вверх</font><br>
+End If<br>
+End Function<br><br>
+
+
+Все, остальное сам доделай. Если сделаешь то шли мне на мыло, я помещю исходник на сайт в раздел Исходники.<br>
+Недоделанный Исходник качай<a href="PineBall.zip" class="a19"> сдесь</a>
+
+
+
+
+<h2>ШАГ 123</h2>
+<h3>FileSystemObject - <font color="red">FSO</font>. Начало</h3><p class="c2">
+FSO - это расширенные возможности работы с файлами, папками и дисководами. С помощью FSO можно создовать папки(и файлы), удалять, копировать, перемищать, смотреть дату создания, изменения... Короче до хрена возможностей.
+<br>
+В FSO есть 4 объета:<br><br>
+<b>Drive</b> - это всякие дисководы, логические, физические, присоедененные диски, и им подобные<br>
+<b>Folder</b> - это папки<br>
+<b>File</b> - это файлы<br>
+<b>FileSystemObject</b> - это основной объект группы, с полными методами, которые позволяют проводить операции над файлами, папками...<br><br>
+Ну короче не буду тянуть, чтобы его подключить к проэкту нажми на Проэкт(Project)>>Ссылки(Reference), найди там библиотеку Microsoft Scriptig Runtime, и отметь ее. Пока все. В следующем шаге начнем с ней работать, а это было чо то типо введения.
+
+<h2>ШАГ 124</h2>
+<h3>Подключение и объявление FSO</h3><p class="c2">
+Подключи библиотеку Microsoft Scriptig Runtime(как это делать смотри выше). 
+<br>
+Чтобы создать объект FileSystemObject, надо объявить переменную как объект FSO:<br>
+Dim fso As New FileSystemObject<br>
+Все, объект создан.
+Теперь чтобы получить объект к файлу, папке, дисководу существует метод Get:
+<br>
+<b>GetFile</b> - к файлу<br>
+<b>GetFolder</b> к папке<br>
+<b>GetDrive</b> - к дискооду<br>
+<br>
+Например, щас мы получим доступ к папке:<br>
+Dim f As File <font color="green"> ' Прежде чем присваивать, надо объявить переменную. Если ты работаешь с папками то Folder, если с файлами, то File, если с дисководом то Drive</font><br>
+Set f = fso.GetFile("c:\1") <font color="green"> ' Присваевываем к переменной f доступ к папке(ил не доступ, я вообще в этих словах запутался)</font><br>
+Ну пока все, теперь переходим к практике.
+<h2>ШАГ 125</h2>
+<h3>Работаем с папками</h3><p class="c2">
+Подключи библиотеку Microsoft Scriptig Runtime, на форму кинь 4 кнопки, 6 меток. Щас мы сделаем прогу, которая будет создовать, удалять, копировать, перемещать, выводить размер, дату создания.... Пример я представлял двумя способами, ты можешь использовать какой хочешь. Код:<br><br>
+
+Dim fso As New FileSystemObject, f As Folder<font color="green"> ' Создаем объект FSO и объявляем переменную f для работы с папками</font><br>
+<br>
+
+Private Sub Command1_Click()<br>
+fso.CreateFolder ("c:\111111") 
+<font color="green"> ' Для создания папки есть метод CreateFolder</font><br>
+End Sub<br><br>
+
+Private Sub Command2_Click()<br>
+
+<font color="green"> ' Способ 1</font><br>
+Set f = fso.GetFolder("c:\111111")<br>
+f.Delete True<br>
+<font color="green"> ' Способ 2</font><br>
+
+
+'fso.DeleteFolder ("c:\111111")<br>
+End Sub<br><br>
+
+Private Sub Command3_Click()<br>
+
+<font color="green"> ' Способ 1</font><br>
+Set f = fso.GetFolder("c:\111111")<br>
+f.Copy "c:\games\"<br>
+
+<font color="green"> ' Способ 2</font><br>
+'fso.CopyFolder "c:\111111", "c:\games\"<br>
+End Sub<br><br>
+
+Private Sub Command4_Click()<br>
+
+<font color="green"> ' Способ 1</font><br>
+Set f = fso.GetFolder("c:\111111")<br>
+f.Move "c:\games\" 
+<font color="green"> ' Тока не забывай в самом конце папки ставить "\", а то при перемещении и копировании не сработает</font><br>
+<font color="green"> ' Способ 2</font><br>
+
+
+'fso.MoveFolder "c:\111111", "c:\games\"<br>
+End Sub<br><br>
+
+Private Sub Form_Load()<br>
+<font color="green"> ' Узнаем есть папка 111111, если нет то сообщаем(метод возвращает False), а если есть то выводим все данные о ней(метод возвращает True)</font><br>
+
+If fso.FolderExists("c:\111111") = True Then<br>
+<br>
+Set f = fso.GetFolder("c:\111111")<br>
+<font color="green"> ' Дата создания</font><br>
+
+Label1.Caption = "Файл создан:" & f.DateCreated<br>
+<font color="green"> ' Дата изменения</font><br>
+
+Label2.Caption = "Файл изменен: " & f.DateLastModified<br>
+<font color="green"> ' Дата открытия</font><br>
+
+Label3.Caption = "Файл открыт:" & f.DateLastAccessed<br>
+<font color="green"> ' Имя папки родителя</font><br>
+
+Label4.Caption = "Папка родичь(т.е. та папка в которой эта папка находится): " & f.ParentFolder<br>
+<font color="green"> ' Путь к папке</font><br>
+
+Label5.Caption = "Путь: " & f.Path<br>
+<font color="green"> ' Размер</font><br>
+
+Label6.Caption = "Размер: " & f.Size / 1024 <font color="green"> ' Сдесь я написал / 1024, чтоб в килибайты перевести</font><br>
+<br>
+Else<br>
+MsgBox "Такой папки не существует", 16, ""<br>
+End If<br>
+End Sub<br><br>
+
+По началу может показаться что пример сложный, т.к. много всяких новых методов, НО не обязательно их помнить(ты чо думаешь что я их все наизусть знаю?), просто ставишь имя переменной(сдесь f), потом точку, и у тебя список выподает,  в нем всего штук 10 методов, а по названию можно определить нужный.
+Исходник качай <a href="FSOFolder.zip" class="a19">Отсюда</a>
+<h2>ШАГ 126</h2>
+<h3>Работаем с дисководами, сидюками, и им подобным</h3><p class="c2">
+С помощью FSO можно узновать полную инфу о сидиках и им подобных. Вот код(тока не забывай подключать библиотеку для работы с FSO):<br><br>
+
+
+
+
+
+
+Dim fso As New FileSystemObject, D As Drive<br>
+
+Private Sub Form_Load()<br>
+Set D = fso.GetDrive("c:") <font color="green"> ' Узнаем есть диск в сидюке(ил подключен диск) ил нету. Если есть то метод возращает True, если нет то False</font><br>
+If D.IsReady = True Then<br>
+<br><br>
+Label1.Caption = "Всего места: " & D.TotalSize / 1024 / 1024 / 1024  
+<font color="green"> ' Узнаем кол - во свободного места, сдесь я написал / 1024 / 1024 / 1024 - это перевод из байтов в гигобайты</font><br>
+
+
+
+
+Label2.Caption = "На диске свободно: " & D.AvailableSpace / 1024 / 1024 / 1024 
+
+<font color="green">  ' Узнаем кол - во свободного места, сдесь я написал / 1024 / 1024 / 1024 - это перевод из байтов в гигобайты(можно использовать и FreeSpace, эффект такой же)</font><br>
+
+
+
+<font color="green"> ' чтобы узнать сколько занято надо от кол- ва места на диске отнять кол - во свободного места</font><br>
+
+
+Label3.Caption = "На диске занято: " & (D.TotalSize - D.AvailableSpace) / 1024 / 1024 / 1024<br>
+
+Label4.Caption = "Буквенное обозначение диска: " & D.DriveLetter 
+<font color="green">' Узнаем буквенное обозначение диска</font><br>
+
+
+
+Label5.Caption = "Файловая система: " & D.FileSystem 
+<font color="green"> ' Узнаем файловую систему</font><br>
+
+
+Label6.Caption = "серийный номер: " & D.SerialNumber
+<font color="green">  ' Узнаем серийный номер диска</font><br>
+
+Else
+<font color="green"> ' Если сидюк недоступен, то выводим сообщение</font><br>
+
+
+MsgBox "Сидюк не доступен"<br>
+End If<br>
+End Sub<br><br>
+
+
+Исходник качай <a href="FSODrive.zip" class="a19">Отсюда</a>
+
+
+<h2>ШАГ 127</h2>
+<h3>Работаем текстовыми файлами при помощи FSO</h3><p class="c2">
+На форму кинь текстовое поле(MultiLine = True), 4 кнопки(у 1ой Caption = "Создать txt", у 2ой = "Удалить", у 3ей = "Запись", у 4ой = "Чтение"). Размести библиотеку для работы с FSO. Код:<br><br>
+
+
+Dim fso As New FileSystemObject, f As File, txt As TextStream
+<font color="green">  ' Тип TextStream нужен для работы с текстовыми файлами, тока не путай его с File(это для работы со всеми файлами)</font><br><br>
+
+
+Private Sub Command1_Click()<br>
+Set txt = fso.CreateTextFile("c:\1.txt")<font color="green"> ' Создаем текстовой файл</font><br> 
+End Sub<br><br>
+
+Private Sub Command2_Click()<br>
+fso.DeleteFile ("c:\1.txt") <font color="green"> ' Удаляем текстовой файл</font><br>
+End Sub<br><br>
+
+Private Sub Command3_Click()<br>
+Set f = fso.GetFile("c:\1.txt")<font color="green"> ' Получаем доступ к файлу</font><br> 
+Set txt = f.OpenAsTextStream(ForWriting) <font color="green"> ' Открываем(в скобках это тип записи(ну как и у оператора Open); ForAppending - Добавление записей к уже существующем в файле(тоже самое что и Append в операторе Open); ForWriting - это запись по новому(тоже что и Output у оператора Open) ; ForReading - это для чтения файлов(тоже что Input у Open`a))</font><br>
+
+txt.Write (Text1.Text) <font color="green"> ' Записываем в файл содержимое текстового поля(можно использовать и метод WriteLine)</font><br>
+txt.Close <font color="green"> ' Закрываем</font><br>
+End Sub<br><br>
+
+Private Sub Command4_Click()<br>
+Set f = fso.GetFile("c:\1.txt")<font color="green"> ' Получаем доступ к файлу</font><br> 
+Set txt = f.OpenAsTextStream(ForReading) <font color="green"> ' Открываем</font><br>
+Text1.Text = txt.ReadLine <font color="green"> ' Читаем содержимое файла в текстовое поле</font><br>
+txt.Close <font color="green"> ' Закрываем</font><br>
+End Sub<br><br>
+
+У текстовых файлов почти такие же свойства и методы как и у папок(узнать размер, путь, имя...), так же как и папки их можно копировать и перемещать, поэтому я не буду про это писать. Тут ни чего сложного нет. А вот задание:
+<br>
+Короче добавь к этому примеру еще 2 кнопки(Копировать и Переместить), и напиши код для копирования и перемещения текстового файла.
+
+
+
+Исходник качай <a href="FSOFile.zip" class="a19">Отсюда</a>
+
+
+
+
+<h2>ШАГ 128</h2>
+<h3>Создание Клиента & Сервера DDE на VB</h3><p class="c2">
+Ну для начала я расскажу для чего это вообще нужно. Вся эта фигня нужна для того чтоб устанавливать связь между двумя разными приложениями (Клиентом & Сервером), например мы будем делать проект, в котором будет 2 проги (Клиент & Сервер), изменив текст в Сервере он, изменится и в Клиенте (Ты наверное думаешь: "Нахрен мне это надо?" - это тебе надо! Когда мы будем делать Chat(через пару шагов (Пока я взял чей - то перевод, но в следующих обновлениях я постараюсь сам написать о создании Chat`a, да и вообще о Winsock))).Для начала создадим Сервер, он будет посылать сообщения Клиенту.<br>
+<b>Создаем Сервер</b>
+<br>
+Войди в VB(Standart EXE), на форму кинь текстовое поле. Переименуй проект в Server(
+для этого войти в Project/Project1 Properties... и в открывшемся окне, в поле Project Name - введи любое имя. (подробнее читай в 26 Шаге), форму переименуй в Servak(Name), свойство LinkMode = 1 - Source, LinkTopic = Client - это имя формы клиента.<br>
+<img src = "DDE.JPG" title = "Свойства формы"><br>
+
+Сервак готов!!! Теперь сделаем Клиента. <br>
+<b>Создаем Клиент</b><br>
+Войди в VB(Standart EXE), на форму кинь текстовое поле. Форму переименуй в Client, и введи код:<br>
+Private Sub Form_Load()<br>
+Text1.LinkTopic = "Server|Client"<font color="green"> 'Здесь Server это имя проекта Сервера (мы вроде так его назвали?), а Client - имя формы клиента</font><br>
+Text1.LinkItem = "Text1"<font color="green"> 'Имя Текстового поля Сервера</font><br>
+Text1.LinkMode = 1<font color="green"> '1 - означает Автомат (не в прямом смысле:-))), т.е. при изменение текста в Сервере, в Клиенте тоже будет меняться (Автоматом)</font><br>
+End Sub<br>
+Теперь запускай сервер, а потом клиент. При изменение текста в сервере, в клиенте он тоже изменится. Это была подготовка к созданию таково же приложения только на разных компах (через инет).<br>  Исходник проги качай <a href="dde.zip" class="a19">Отсюда</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>ШАГ 129</h2>
+<h3>Работа с<font color=red> HELP`</font>ом. Начало:</h3><p class="c2">
+
+Почти все проги содержат справку, в ней написанно как с прогой работать. В следующих шагах мы будем создовать хелп, и внедрять в свои проги.<br>
+Есть 2 вида хелпа:<br>
+ Первый создается с помощью спец. компилятора CHM, его ты можешь скачать с моего сайта в разделе проги. Этот компилятор преобразовывает файлы написанные на HTML в CHM.
+<br>
+Второй вид хелпа создается при помощи проги <B>Help Workshop</b>, она постовляется вместе с VB(у меня она находиться в <b>Пуск>>Программы>>Microsoft Visual Studio 6.0>>Microsoft Visual Studio 6.0 Tools>>HelpWorkShop</b>).
+(Ил можешь найти прогу <b>HCW.exe</b>).<br>
+Тока для создания этого хелпа тебе еще понадобиться прога Microsoft Word 98 и выше(она с офисом постовляется), если нет Worda, то подайдет любой RTF редактор.<br>
+
+<h2>ШАГ 130</h2>
+<h3>Создания хелпа с помощью компилятора</h3><p class="c2">
+Для начала скачай с моего сайта(<a href="http://vbstreets.narod.ru" title="Перейти" class=qw1>vbstreets.narod.ru</a></b> в разделе <b>Проги</b>) прогу - <b>Компилятор CHM</b>, и создай страницу(если не знаешь как, то ищи справочник по HTML). Открой прогу, нажми на кнопку <b>Обзор</b> напротив поля <b>Web-страничка(in)</b>. Выбери страницу(*.htm ил *.html), и нажми на OK. Теперь жми на кнопку <b>Собрать</b>. И все! Справка создана!
+<br>
+P.S. В этой проге можно еще и делать обратную операцию, т.е. из CHM в HTML.  
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+
+
+
+
+<em><p class="cc">автор учебника: Падре</em>
+<br>
+Дата создания: 22 мая 2003 года<br></em>
+<br></p>
+
+
+<center>
+<table width=468 height=60 border=2 bordercolor="#4173a3"><td  bordercolor="#4173a3"><center>
+<p class="c2">Место под Банеры
+</td>
+<tr><td>
+<center>
+<a href="INFA.htm" target="0">
+<img src="baner.gif" alt="Официальный сайт учебника - 'Программируем на Visual Basic'" border=0>
+</a></center>
+</td></table>
+
+
+
+
+
+
+
+</body>
+</html>

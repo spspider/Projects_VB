@@ -1,0 +1,14 @@
+Line 11: Class MSMask.MaskEdBox of control TiK was not a loaded control class.
+Line 36: Class MSMask.MaskEdBox of control Ti1 was not a loaded control class.
+Line 17: The property name _ExtentX in TiK is invalid.
+Line 18: The property name _ExtentY in TiK is invalid.
+Line 19: The property name _Version in TiK is invalid.
+Line 20: The property name MaxLength in TiK is invalid.
+Line 21: The property name Mask in TiK is invalid.
+Line 22: The property name PromptChar in TiK is invalid.
+Line 42: The property name _ExtentX in Ti1 is invalid.
+Line 43: The property name _ExtentY in Ti1 is invalid.
+Line 44: The property name _Version in Ti1 is invalid.
+Line 45: The property name MaxLength in Ti1 is invalid.
+Line 46: The property name Mask in Ti1 is invalid.
+Line 47: The property name PromptChar in Ti1 is invalid.

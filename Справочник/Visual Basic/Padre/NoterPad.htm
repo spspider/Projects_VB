@@ -1,0 +1,101 @@
+
+
+
+<html><head>
+<style type="text/css">
+.part2{color:#4173a3;font-weight:900;}
+.part2:hover{color:red;font-weight:880}
+.cd{font-size:18px;color:black;}
+.c2{font-size:18px;color:black;}
+.c1{font-size:45pt;}
+.cc{font-size:13pt;font-weight:bold}
+.t{color:red;}
+.a9{color:#4173a3;font-weight:bold;}
+.a9:hover{color:red;font-weight:880}
+h2{font-size:21pt;font-weight:bold}
+h3{font-size:17pt;font-weight:bold}
+.a19{color:#4173a3;font-size:18px}
+.a19:hover{color:red;font-size:18px}
+body{
+BORDER-RIGHT: 0px;
+SCROLLBAR-FACE-COLOR: #CFDEEB;
+PADDING-BOTTOM: 0px;
+SCROLLBAR-HIGHLIGHT-COLOR: #CFDEEB;
+VERTICAL-ALIGN: middle;
+BORDER-LEFT: 0px;
+SCROLLBAR-SHADOW-COLOR: black;
+SCROLLBAR-ARROW-COLOR: black;
+PADDING-TOP: 0px;
+BORDER-BOTTOM: 0px;
+SCROLLBAR-BASE-COLOR: black;
+scrollbar-3dlight-color: #4173a3;
+scrollbar-dark-shadow-color: #4173a3;}
+</style>
+
+<title>Программируем на Visual Basic'e</title>
+</head>
+<body background="1.jpeg">
+<em >
+<a href="http://vbstreets.narod.ru" class="a9">Главная</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7132" class="a9">Гостевая</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7137" class="a9">Форум</a>
+<a href="INFA.htm" class="a9">INFA</a>
+</em>
+
+<H1 ><font size=6>Программируем на Visual Basic'e:</font></H1>
+
+
+<br>
+<h3>Подробнее о создании Блокнота:</h3><p class="c2">
+У тебя должно быть Меню. Вот его пункты:<br>
+Файл<br>
+....Создать(Очищение текстового поля)<br>
+....Открыть<br>
+....Сохранить(это при помощи Open...)<br>
+....Сохранить как(это при помощи Common Dialog Control(ShowSave))<br>
+....Выход<br>
+Правка<br>
+....Вырезать<br>
+....Копировать<br>
+....Вставить<br>
+....Удалить<br>
+....Дата/время<br>
+Справка<br>
+....О Проге<br><br>
+Ну и все(это пока), могу только сказать, про сохранить как:<br><br>
+
+Private Sub Command1_Click()<br>
+CD.ShowSave<font color="green"> 'Вызываем окно Сохранения файла<br></font>
+<font color="green"> 'Сохраняем выбранный файл<br></font>
+Open CD.FileName + ".txt" For Output As FreeFile<br>
+Print Text1.Text<br>
+Close FreeFile<br>
+End Sub
+<br><br>
+Private Sub Form_Load()<br>
+CD.FileName = "Безымянный*.txt"<font color="green"> 'При вызове окна Сохранения файла в поле "Имя" будет написано Безымянный<br><br></font>
+CD.Filter = "*.txt"<font color="green"> 'В поле Тип - *.txt<br>></font>
+End Sub<br>
+Ну вроде все, делай... Только не забудь что при растягивании/развертывании окна текстовое поле тоже должно растягиватся.
+<br>
+Можешь посмотреть исходник на моем сайте.
+<br><br>
+<br><br>
+
+
+<br><br>
+
+
+<center>
+<table width=468 height=60 border=2 bordercolor="#4173a3"><td  bordercolor="#4173a3"><center>
+<p class="c2">Место под Банеры
+</td>
+<tr><td>
+<center>
+<a href="INFA.htm" target="0">
+<img src="baner.gif" alt="Официальный сайт учебника - 'Программируем на Visual Basic'" border=0>
+</a></center>
+</td></table>
+
+</body>
+</html>

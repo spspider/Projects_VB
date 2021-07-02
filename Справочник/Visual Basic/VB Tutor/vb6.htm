@@ -1,0 +1,271 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB Tutorial -> Часть #6</title>
+</head>
+<style> body {scrollbar-3dlight-color:white; scrollbar-arrow-color:white; scrollbar-base-color:black;scrollbar-darkshadow-color:black;scrollbar-track-color:#000000;scrollbar-highlight-color:black;scrollbar-shadow-color:white}
+a {text-decoration:none;color:white}
+a:hover {text-decoration:underline}
+</style>
+
+
+
+</head>
+
+<body bgcolor="#000000">
+
+<script language = "javascript">
+window.status = "CopyLeft (v) Loginov Vladimir"
+</script>
+
+<left><A Href="index.htm"><img src="logocb.jpg" alt="Мастерская Visual Basic" border="0"></A></left>
+
+<table width="100%" bordercolor="#ffffff" align="center" cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td width="150" align="left" valign="top"><table cellspacing="0" cellpadding="3" border="0">
+<tr>
+<td> <A Href="vb1.htm"><img src="arrow.gif" alt="Часть #1" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb1.htm">Часть #1</a></font></td>
+</tr>
+<tr>
+<td><a href="vb2.htm"><img src="arrow.gif" alt="Часть #2" border="0"></a></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb2.htm">Часть #2</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb3.htm"><img src="arrow.gif" alt="Часть #3" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><A Href="vb3.htm">Часть #3</A></font></td>
+</tr>
+<tr>
+<td><A Href="vb5.htm"><img src="arrow.gif" alt="Часть #4" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb4.htm">Часть #4</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb5.htm"><img src="arrow.gif" alt="Часть #5" border="0"></A></td>
+<td><a href="vb5.htm"><font face="Courier New,Arial,Verdana">Часть #5</a></font></td>
+</tr>
+<td><img src="arrow.gif" alt="Часть #6" border="0"></td>
+<td><font size="3" color="gray" size="3" face="Courier New,Arial,Verdana">Часть #6</font></td>
+<tr>
+<td><A Href="vb7.htm"><img src="arrow.gif" alt="Часть #7" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb7.htm">Часть #7</a></font></td>
+<tr>
+<td><A Href="api.htm"><img src="arrow.gif" alt="API" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="api.htm">API</a></font></td>
+<tr>
+<td><A Href="author.htm"><img src="arrow.gif" alt="Автор" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="author.htm">Автор</a></font></td>
+
+
+
+
+</table>
+</td>
+<td align="left" valign="top">
+<table cellspacing="2" cellpadding="2" border="0" align="left" valign="top">
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">
+<img src="arrow.gif" alt="пошевелись!" border="0">&nbsp;пора пошевелить мышью!
+<br>Ты, наверное, уже и без меня знаешь о дополнительных компонентах, а об их использовании я тебе и поведаю.
+<br>
+<br><img src="arrow.gif" alt="CommonDialog" border="0"> CommonDialog
+<br>CommonDialog нужен прежде всего для вызова стандартных диалоговых окон ([Сохранить как...] [Изменить шрифт] [Открыть] [Выбрать цвет] и т.п.)
+<br>Для начала нужно его подключить, для этого на панели инструментов кликни правой кнопком мыши и выбери [Компоненты...] и ставь галку в чекбосе напротив [Microsoft Common Dialog Control], затем жми [Применить] и у тебя на форме появиться пиктограмма. На форме размещается как и стандартный компонент.
+<br>
+<br><img src="arrow.gif" alt="CommonDialog -> ShowColor" border="0"> CommonDialog -> ShowColor
+<br>Сейчас мы будем изменять цвет фона метки.
+<br>
+<br>Обзови размещённый на форме CommonDialog как CD1, размести на форме саму метку и кнопочку. При нажатии на кнопку будет появляться диалог выбора цвета (как в МСПаинте). Вот код:
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>CD1.ShowColor 'вызываем окно выбора цвета
+<br>Label1.BackColor = CD1.Color 'цвет фона метки будет равен выбранному цвету
+<br>End Sub</font>
+<br>
+<br>С этим я думаю понятно всё - цвет может принимать любой графический объект (метка, текстовое поле, файллист, шрифт и т.п.)
+<br>
+<br><img src="arrow.gif" alt="CommonDialog -> ShowFont" border="0"> CommonDialog -> ShowFont
+<br>По названию понятно, что свойство ShowFont надобно для определения шрифта. На той же форме, что мы использовали для прошлого примера размести текстовое поле. Вот код с пояснениями:
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>CD1.Flags = cdlCFBoth Or cdlCFEffects Or cdlCFLimitSize Or cdlCFTTOnly Or dlCFForceFontExist
+<br>CD1.Min = 8 'минимальный размер шрифта
+<br>CD1.Max = 22 'максимальный размер шрифта
+<br>CD1.ShowFont 'открываем диалог шрифтов
+<br>Text1.FontName = CD1.FontName 'имя шрифта для текстового поля будет равно выбранному в диалоге
+<br>Text1.FontBold = CD1.FontBold 'таже редиска, но для тольщены (жирный или нет)
+<br>Text1.FontItalic = CD1.FontItalic '~, но для наклона
+<br>Text1.FontStrikethru = CD1.FontStrikethru '~, для зачёркнуттости
+<br>Text1.FontUnderline = CD1.FontUnderline '~, для подчёркнуттости
+<br>Text1.FontSize = CD1.FontSize 'собственно размер шрифта
+<br>Text1.ForeColor = CD1.Color 'и его цвет
+<br>End Sub</font>
+<br>
+<br>Пояснения подробны и понятны будут даже последнему ламо, а ты как кодер, проглотив этот пример, переходи к следующему.
+<br>
+<br><img src="arrow.gif" alt="CommonDialog -> ShowOpen" border="0"> CommonDialog -> ShowOpen
+<br>А это вызывает диалог [Открыть]. Всё идентично:
+<br><font face="Courier New">
+<br>Private Sub Form_Load()
+<br>CD1.DialogTitle = "Открыть файл" 'меняем заголовок дилога на нужный нам (по умолчанию /Открыть/)
+<br>CD1.InitDir = "D:\VBKoding" 'с этой папки мы и начнём искать файлы (по умолчанию из папки с прогой)
+<br>CD1.Filter = "Нот-Пад|*.txt|Тех-Пад|*.lvi|Ворд-Пад|*.rtf|Все файлы|*.*|" 'типы файлов для открытия
+<br>CD1.FileName = "Гуру в хрущёвке" 'конкретизируем...
+<br>End Sub
+<br>
+<br>Private Sub Command1_Click()
+<br>CD1.ShowOpen 'открываем диалог [Открыть]
+<br>End Sub</font>
+<br>
+<br>Все свойства, что я прописал в /Form_Load/ можно указывать и в панели свойств.
+<br>
+<br><img src="arrow.gif" alt="CommonDialog -> ShowSave" border="0"> CommonDialog -> ShowSave
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>CD1.ShowSave 'вызов диалога сохранения
+<br>Open CD1.FileName + ".txt" For Output As FreeFile 'ну и сохраняем выбранный файл
+<br>Print Text1.Text 'а откуда остальное ты должен знать сам -
+<br>Close FreeFile 'я учил!
+<br>End Sub</font>
+<br>
+<br>Со всем этим ты просто обязан разобраться! ...или я не прав? 
+<br>
+<br><img src="arrow.gif" alt="MMControl" border="0"> MMControl
+<br>По человечески - мультимелиа контрол. 
+<br>В компонентах [Microsoft Multimedia Control]. Как ты и сам понял, служит для просмотра/проигрывания мультимедиа файлов. Как всегда всё лучше объяснит код.
+<br>Размести на форме CommonDialog (назови его CD1), MMControl (MC1), кнопочку для открытия файлов и PictureBox (это будет наш экран). В коде напиши следующее:
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>CD1.ShowOpen 'вызов диалога открытия
+<br>MC1.FileName = CD1.FileName 'приравниваем файлы
+<br>MC1.Command = "open" 'в MC1 команда [Открыть]
+<br>MC1.hWndDisplay = Picture1.hWnd 'делаем экран
+<br>End Sub</font>
+<br>
+<br>Самое непонятное - hWnd, это манипулятор окна - с ним мы познакомимся, когда будем проходить API.
+<br>С помощью той проги, что сейчас написал можно слушать музыку (попробуй этот ну "очень разборчивый проигрыватель").
+<br>Поэкспериментируй со свойством MMC (Custom).
+<br>
+<br><img src="arrow.gif" alt="TextToSpech" border="0"> TextToSpeach
+<br>У тебя наверное была такая прога, которая могла проговаривать текст, с помощью TextToSpeach мы сами такую замастрячим.
+<br>Расположи на форме текстовое поле, кнопку и в компонентах найди [Microsoft Voice Text]. На панели инструментов появиться рот - назови его TTS1 (при произношении на форме он будет шевелиться, но это очень раздражет - можешь сделать его невидимым). 
+<br>Код должен получиться таким:
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>TTS1.Speak Text1.Text 'произносим содержимое текстового поля
+<br>End Sub</font>
+<br>
+<br>Только не думай заставлять её говорить по-русски!
+<br>
+<br>{<A Href="govorilka.zip">исходный файл</A>}
+<br>
+<br>С дополнительными компонентами пока всё, но к одному из них мы ещё вернёмся, когда будем проходить API.
+<br>
+<br><img src="arrow.gif" alt="Работаем с клавиатурой" border="0"> Работаем с клавиатурой
+<br>С мышом мы уже работали, когда делали Popup Menu, но клавиатура была не тронута, исправим эту маленькую неточность.
+<br>Каждая кнопка имеет номер и имя:
+<br>
+<br><font face="Courier New">vbKeyF1 - От [F1]
+<br>...
+<br>vbKeyF12 - До [F12]
+<br>
+<br>vbKeyA - От [A]
+<br>...
+<br>vbKeyZ - До [Z](Латинские буквы(заглавные и обычные))
+<br>
+<br>vbKeyBack - [BackSpace]
+<br>
+<br>vbKeyInsert - [Insert]
+<br>vbKeyHome - [Home]
+<br>vbKeyPageUp - [Page Up]
+<br>vbKeyDelete - [Delete]
+<br>VbKeyEnd - [End]
+<br>VbKeyPageDown - [Page Down]
+<br>
+<br>vbKeyNumlock - [Num Lock]
+<br>vbKeyCapital - [Caps Lock]
+<br>
+<br>vbKeyEscape - [Esc]
+<br>vbKeyReturn - [Enter]
+<br>vbKeySpace - [Пробел]
+<br>
+<br>vbKeyShift - [Shift]
+<br>vbKeyTab - [TAB]
+<br>VbKeyControl - [CTRL]
+<br>vbKeyMenu - [ALT]
+<br>
+<br>VbKeyLeft - [Стрелка влево]
+<br>VbKeyRight - [Стрелка в право]
+<br>VbKeyDown - [Стрелка в низ]
+<br>VbKeyUp - [Стрелка вверх]</font>
+<br>
+<br>Также, все символы можно представить в кодеровке /Asc/, эту нужно для доступа к клавиатуре, простенький код поможет тебе разобраться:
+<br>
+<br><font face="Courier New">Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+<br>If KeyCode = Asc("S") Then MsgBox "Нажата [S]", 64, "Нажата кнопка"
+<br>End Sub</font>
+<br>
+<br>Сначала выбераем соответствующее событие, и пишем код.
+<br>Можно не переводить в кнопки в код /Asc/, а просто воспользоваться "именами кнопок", так как это удобнее.
+<br>
+<br><img src="arrow.gif" alt="Печать" border="0"> Печать
+<br>Очень важно бывает распечатать документ. Можно распечатать форму, но этим глупо заниматься, мы будем распечатывать содержимое тексьового поля.
+<br>Делается это так:
+<br>
+<br><font face="Courier New">Printer.Print Text1.Text 'вместо текстового поля можно вставить любой объект</font>
+<br>
+<br>Если печать будет слишком близка к верхнему краю - прогони строчку, а можешь и не одну:
+<br>
+<br><font face="Courier New">Printer.Print " ";</font>
+<br>
+<br>Можно устанавливать качество печати от чернового до лучшего режима - черновая печать(1) -> низкое качество(2) -> среднее качество(3) -> высокое качество(4)
+<br>Можно установить это всё строчкой:
+<br>
+<br><font face="Courier New">Printer.PrintQuality = 4 'наивысшее качество печати</font>
+<br>
+<br>Ещё одно: если ты не знаешь сколько у тебя установлено проинтеров можешь узнать это так:
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>Label1.Caption = Printers.Count
+<br>End Sub</font>
+<br>
+<br>Вопросов возникнуть не должно (у тебя то точно!).
+<br>
+<br><img src="arrow.gif" alt="Заливка формы градиентом" border="0"> Заливка формы градиентом
+<br>Так уж получилось, что в этой части мы страдаем всякой ерундой, поэтому заливку градиентом мы тоже не можем обойти стороной.
+<br>Вот код со всеми подробностями
+<br>
+<br><font face="Courier New">Private Sub Form_load()
+<br>AutoRedraw = False
+<br>End Sub
+<br>
+<br>Private Sub Form_Paint()
+<br>Dim lY As Long
+<br>Dim lScaleHeight As Long
+<br>Dim lScaleWidth As Long
+<br>
+<br>ScaleMode = vbPixels 'единицу измерения устанавливаем равной пикселу
+<br>lScaleHeight = ScaleHeight 'всего пикселов в высоту
+<br>lScaleWidth = ScaleWidth 'всего пикселов в ширину
+<br>DrawStyle = vbInvisible 'стиль заливки и рисования
+<br>FillStyle = vbFSSolid
+<br>For lY = 0 To lScaleHeight 'цикл закраски
+<br>FillColor = RGB(0, 0, 255 - (lY * 255) \ lScaleHeight)
+<br>Line (-1, lY - 1)-(lScaleWidth, lY + 1), , B
+<br>Next lY
+<br>End Sub</font>
+<br>
+<br><img src="arrow.gif" alt="Красиво выходим из проги" border="0"> Красиво выходим из проги
+<br>Нужно просто с событием /Unload/ замастрячить такой код:
+<br>
+<br><font face="Courier New">Private Sub Form_Unload(Cancel As Integer)
+<br>Form1.WindowState = 1
+<br>End Sub</font>
+<br>
+<br>Ну хватит тащить кота за хвост! Со <A Href="vb7.htm">следующей</A> части будем проходить API.
+
+</font></td>   
+</tr>          
+</td>          
+</table>       
+               
+</body>        
+</html>        

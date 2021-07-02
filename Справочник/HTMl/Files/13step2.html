@@ -1,0 +1,66 @@
+<html>
+<head>
+
+
+<TITLE>Первые шаги - Ступенька тринадцатая, еще о ссылках, в новом окне, открыть документ, картинку, рисунок, болшой, маленький, нажать, открывается.</TITLE>    
+<META HTTP-EQUIV="Content-Type" Content="text/html; Charset=Windows-1251">
+<META Name="copyright" Content="Алленова Наталья">
+<META NAME="author" CONTENT="Алленова Наталья Email: seagull@pisem.net"><META NAME="keywords" CONTENT="графика, хтмл, для, начинающий, начинающих, чайников, новичков, просто, основа, основы, страница, домашний, домашняя, сайт, новый, новичок, html, обучение, учеба, пример, веб, мастер, веб-мастер, дизайн, веб-дизайн, вебдизайн, дезайн, веб-дезайн, вебдезайн, дезайнер, дизайнер, ступени, тэги, тэг, теги, тег, аттрибут, атрибуты, парамет, design, web, help, помощь, icq, e-mail, guest, book, guestbook, гостевая, книга, форум, аська, контакт, ссылка, link, links, banner, обмен, баннер, баннерами, банер, baner, друзья, friends, почитать, написать, вопросы, вопрос, ответ, проект, ступени, словарь"> <META NAME="description" CONTENT="Основы хтмл (html) для чайников. Просто, доступно. Создайте свою домашнюю страничку своими руками и без хтмл (html) редакторов. Что может быть проще? Также вы здесь найдете полезные ссылки для вашего сайта, но это уже не главное...">
+
+
+
+</head>
+<body bgcolor="#ffffff" link="#000000" alink="#000000" vlink="#000000">
+
+
+<table>
+
+	<tr>
+	<td width="600">
+<font face="times new roman"><hr noshade size="1">
+<a href="index.html">Главная</a> | <a href="content2.html">Оглавление</a> | <a href="alltags2.html">Словарь</a><hr noshade size="1"><p align="JUSTIFY">
+Если вы уже достаточно попутешествовали по интернету, то вы должны были заметить, что ссылка может быть не только на документ с расширением *.html, но и на многие другие (*.doc, *.mp3, *.jpg, *.gif, *.txt, *.zip, *.exe  и т.д:) Как это делается? Да все по тому же принципу:
+<br><br></font>
+<tt>&lt;a href="http://www.melody.ru/music.mp3"&gt; скачать песню &lt;/a&gt;</tt>
+<br><br><font face="times new roman">
+Если адрес указан таким способом:
+<br><br></font>
+<tt>&lt;a href="http://www.melody.ru/"&gt; музыкальный сайт &lt;/a&gt;</tt>
+<br><br><font face="times new roman">
+То это означает, что в указаном каталоге есть файл вроде index.html, который загрузится по умолчанию.
+<br><br>
+Но поговорим особо о картинках, многие из вас, наверное, сталкивались с таким явлением: когда жмешь на маленькую картинку, то загружается большая в том же или в новом окне. Как это делается? Тут никаких хитростей: делаем ссылкой картинку (допустим small.jpg) и ссылаемся на другую картинку (допустим big.jpg):<br><br></font>
+<tt>&lt;a href="big.jpg"&gt; &lt;img src="small.jpg"&gt; &lt;/a&gt;</tt>
+<br><br><font face="times new roman">
+В этом случае большая картинка откроется в том же окне. Но как же сделать так, чтобы картинка (или любой другой файл-документ) открылась в новом окне? Дело в том, что у тэга &lt;a&gt;&lt;/a&gt; есть параметр target:</font>
+</p><tt>
+&lt;a href="big.jpg" target="_blank"&gt; &lt;img src="small.jpg"&gt; &lt;/a&gt;</tt>
+<br><br>
+<p align="JUSTIFY"><font face="times new roman">
+Итак, target="_blank" - указывает на то, что документ (картинка в нашем случае), на который ведет ссылка, откроется в новом окне броузера (Explorer`а).
+В наш большой пример я это вводить не буду. Т.к. не хочу заводить большие картинки на сайте, и т.к. вы должны уже сами все подставлять и сами эксперементировать:)<script language="javascript"> 
+u="u1242.91.spylog.com";d=document;nv=navigator;na=nv.appName;p=1; 
+bv=Math.round(parseFloat(nv.appVersion)*100); 
+n=(na.substring(0,2)=="Mi")?0:1;rn=Math.random();z="p="+p+"&rn="+rn;y=""; 
+y+="<a href='http://"+u+"/cnt?f=3&p="+p+"&rn="+rn+"' target=_blank>"; 
+y+="<img src='http://"+u+"/cnt?"+z+ 
+"&r="+escape(d.referrer)+"&pg="+escape(window.location.href)+"' border=0 width=1 height=1 alt='SpyLOG'>"; 
+y+="</a>"; d.write(y);if(!n) { d.write("<"+"!--"); }//--></script><noscript> 
+<a href="http://u1242.91.spylog.com/cnt?f=3&p=1" target=_blank> 
+<img src="http://u1242.91.spylog.com/cnt?p=1" alt='нужная весчь' border='0' width=1 height=1 > 
+</a></noscript><script language="javascript1.2"><!-- 
+if(!n) { d.write("--"+">"); }//--></script>
+<br><br>
+Вот мы уже почти одолели первый лестничный пролет. Осталось еще несколько ступенек, на которых мы ознакомимся с тэгами нужными, но менее часто употребляемыми, чем тэги, которые мы уже изучили.  
+
+</p>
+
+<center><a href="12step2.html">Назад</a> | <a href="14step2.html">Шагнуть на следующую ступеньку</a></center></font>
+
+</td>
+
+	</tr>
+ </table>
+
+</body>
+</html>

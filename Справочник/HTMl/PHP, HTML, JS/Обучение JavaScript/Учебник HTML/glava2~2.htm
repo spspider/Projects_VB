@@ -1,0 +1,471 @@
+<html><head>
+
+
+
+
+
+
+<title>Примеры скриптов </title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4>2.11. Примеры скриптов</h4>
+<P ALIGN="JUSTIFY">Теоретизировать на предмет написания скриптов на JavaScrip можно долго. Но самый продуктивный способ получения представления о языке - это разбор примеров. Если посмотреть на список этих примеров, который можно найти в соответствующей директории Yahoo, то больше всего там различного сорта калькуляторов. Разберем программу такого же типа, только это будет не калькулятор, а программа обучения устному счету.
+<i><P ALIGN="JUSTIFY">Пример 2.3
+</i><pre>
+	&lt;HTML&gt;
+	&lt;!--
+	Author:&#9;Pavel Khramtsov
+	Date:&#9;February 23, 1996
+	URL:&#9;http://144.206.192.100/radleg/mo_input.htm
+	--&gt;
+	&lt;HEAD&gt;
+	&lt;TITLE&gt;Проверка устного счета.&lt;/TITLE&gt;
+	&lt;SCRIPT LANGUGE="JavaScript"&gt;
+	&lt;!--
+	var max_value = 0
+	var operand1 = 0
+	var operand2 = 0
+	var result = 0
+	var flag = 0
+	var sign = "+"
+	var input = ""
+	var v_date = new Date()
+	var number = v_date.getTime()
+	&nbsp;
+	function init(factor) {
+	        var today = new Date()
+	        return (factor*today.getTime()/1000)%30000
+	}
+	//Инициализировать счетчик случайных чисел.
+	&nbsp;
+	IX = init(2)
+	IY = init(3)
+	IZ = init(4)
+	&nbsp;
+	//2, 3, and 4 below were arbitrarily chosen.
+	//They put some distance between the initial values of IX, IY, and IZ
+	&nbsp;
+	//Датчик случайных чисел.
+	&nbsp;
+	function random() {
+	        IX = Math.floor(171 * IX % 30269)
+	        IY = Math.floor(172 * IY % 30307)
+	        IZ = Math.floor(170 * IZ % 30323)
+	        return ( IX/30269.0 + IY/30307.0 + IZ/30323.0 ) % 1.0
+	}
+	&nbsp;
+	//Выбрать сложение или вычитание.
+	&nbsp;
+	function set_sign(x)
+	         {
+	          if( x == "+")
+	            {
+	             flag = 0
+	             sign = "+"
+	            }
+	          if( x == "-")
+	            {
+	             flag = 1
+	             sign = "-"
+	            }
+	          return true
+	         }
+	&nbsp;
+	// Определить первый операнд.
+	&nbsp;
+	function f_operand()
+	         {
+	          operand1 = random()*max_value
+	          return parseInt(operand1)
+	         }
+	&nbsp;
+	// Определить второй операнд.
+	&nbsp;
+	function s_operand()
+	         {
+	          if(flag == 0)
+	            {
+	             operand2 = random() * (max_value-operand1)
+	            }
+	          else
+	            {
+	             operand2 = random() * operand1
+	            }
+	          return parseInt(operand2)
+	         }
+	&nbsp;
+	// Проверить введенные данные.
+	&nbsp;
+	function input_sign(x)
+	         {
+	          if(x == 10)
+	            {
+	             if(flag == 0)
+	               {
+	                if( operand1+operand2 == parseInt(input))
+	                  {
+	                   window.document.test.r0.value = "Молодец!"
+	                  }
+	                else
+	                  {
+	                   window.document.test.r0.value = "Думай!?"
+	                   window.document.test.input = ""; input = ""
+	                  }
+	               }
+	             if(flag == 1)
+	               {
+	                if( operand1-operand2 == parseInt(input) )
+	                  {
+	                   window.document.test.r0.value ="__-__-_р!"
+	                  }
+	                else
+	                  {
+	                   window.document.test.r0.value = "Думай!?"
+	                   window.document.test.input = ""; input = ""
+	                  }
+	               }
+	             return true
+	            }
+	          input += x
+	          window.document.test.result.value = input
+	          return true
+	         }
+	&nbsp;
+	// Генерация варианта.
+	&nbsp;
+	function main_calc()
+	         {
+	          operand1 = f_operand()
+	          window.document.test.op1.value = operand1
+	          operand2 = s_operand()
+	          window.document.test.op2.value = operand2
+	          window.document.test.s_sign.value = sign
+	          input = ""
+	          window.document.test.input = ""
+	          window.document.test.r0.value = " ??? "
+	          return true
+	         }
+	// --&gt;
+	&lt;/SCRIPT&gt;
+	&lt;/HEAD&gt;
+	&lt;BODY&gt;
+	&lt;CENTER&gt;
+	&lt;H1&gt;Математический тест&lt;/H1&gt;
+	&lt;HR&gt;
+	&lt;FORM NAME=test&gt;
+	&lt;TABLE BORDER=0&gt;
+	&lt;TR&gt;
+	&lt;TD&gt;&lt;INPUT NAME=i10 TYPE=button VALUE="0-10"
+		onClick="max_value=10"&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=i20 TYPE=button VALUE="0-20" 
+		onClick="max_value=20"&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=i100 TYPE=button VALUE="0-100" 
+		onClick="max_value=100"&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=i+ TYPE=button VALUE=" + " 
+		onClick="set_sign('+')"&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=i- TYPE=button VALUE=" - " 
+		onClick="set_sign('-')"&gt;&lt;/TD&gt;
+	&lt;/TR&gt;
+	&lt;/TABLE&gt;
+	&lt;HR&gt;
+	&lt;TABLE BORDER=0&gt;
+	&lt;TR&gt;
+	&lt;TD&gt;&lt;INPUT NAME=op1 SIZE=2 MAXLENGTH=2&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=s_sign SIZE=1 MAXLENGTH=1&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=op2 SIZE=2 MAXLENGTH=2&gt;&lt;/TD&gt;
+	&lt;TD&gt;=&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=result SIZE=3 MAXLENGTH=3&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=award TYPE=button VALUE=" ? " onClick="main_calc()"&gt;
+	&lt;TD&gt;&lt;INPUT NAME=r0 VALUE=" ??? "&gt;
+	&lt;/TR&gt;
+	&lt;/TABLE&gt;
+	&lt;HR&gt;
+	&lt;TABLE BORDER=2&gt;
+	&lt;TR&gt;
+	&lt;TD&gt;&lt;INPUT NAME=b1 TYPE=button VALUE=" 1 " onClick="input_sign('1')"&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=b2 TYPE=button VALUE=" 2 " onClick="input_sign('2')"&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=b3 TYPE=button VALUE=" 3 " onClick="input_sign('3')"&gt;&lt;/TD&gt;
+	&lt;/TR&gt;
+	&lt;TR&gt;
+	&lt;TD&gt;&lt;INPUT NAME=b4 TYPE=button VALUE=" 4 " onClick="input_sign('4')"&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=b5 TYPE=button VALUE=" 5 " onClick="input_sign('5')"&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=b6 TYPE=button VALUE=" 6 " onClick="input_sign('6')"&gt;&lt;/TD&gt;
+	&lt;/TR&gt;
+	&lt;TR&gt;
+	&lt;TD&gt;&lt;INPUT NAME=b7 TYPE=button VALUE=" 7 " onClick="input_sign('7')"&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=b8 TYPE=button VALUE=" 8 " onClick="input_sign('8')"&gt;&lt;/TD&gt;
+	&lt;TD&gt;&lt;INPUT NAME=b9 TYPE=button VALUE=" 9 " onClick="input_sign('9')"&gt;&lt;/TD&gt;
+	&lt;/TR&gt;
+	&lt;TR&gt;
+	&lt;TD&gt;&lt;INPUT NAME=b0 TYPE=button VALUE=" 0 " onClick="input_sign('0')"&gt;&lt;/TD&gt;
+	&lt;TD COLSPAN=2&gt;&lt;INPUT NAME=bs TYPE=button VALUE=" OK " onClick="input_sign('10')"&gt;
+	&lt;/TD&gt;&lt;/TR&gt;
+	&lt;/TABLE&gt;
+	&lt;/FORM&gt;
+	&lt;/CENTER&gt;
+	&lt;HR&gt;
+	&lt;/BODY&gt;
+	&lt;/HTML&gt;</Pre>
+<P ALIGN="JUSTIFY">Приведенный здесь пример содержит датчик случайных чисел (функции init и rand), таблицу, реализующую функции кнопок клавиатуры, и блок проверки результата вычислений. После загрузки программы пользователь должен выбрать тип вычислений (+,-), интервал вычислений (в пределах 10, 20, 100) и нажать кнопку "?" для генерации примера. После ввода с отображаемой клавиатуры числа пользователь нажимает на символ "=", что означает "исполнить", и система проверяет правильность ответа. Если ответ правильный, то программа поздравляет фразой "Молодец!", если нет - "Думай!?". В системе Windows 3.x нет встроенного датчика случайных чисел, поэтому стандартная функция rand в этой версии JavaScript не реализована. Используемый в данной программе датчик был позаимствован из телеконференции по JavaScript. В скрипте кроме этого используются объект типа "дата" и его методы, а также встроенные функции контроля вводимых данных. Как видно из примера обращение к полям HTML-формы представляет из себя обращение к структуре, корнем которой является объект окно, в котором определен объект документ, внутри которого определена форма и ее поля и атрибуты полей. Не у всех полей можно менять значения атрибутов, так, например, атрибут VALUE в кнопке не меняет своего значения, если только не перезагрузить страницу.
+ <P ALIGN="JUSTIFY">Другим часто встречающимся примером является бегущая строка. Строка может бежать либо в поле статуса (низ экрана), либо внутри поля формы. Рассмотрим такой пример.
+<i><P ALIGN="JUSTIFY">Пример 2.4. Бегущая строка
+</i><pre>
+	&lt;HTML&gt;
+	&lt;!-- ady@demos.su, Saturday, January 20, 1996 7:23:31 PM--&gt;
+	&lt;!-- Demos WWW cover page --&gt;
+	&lt;HEAD&gt;
+	&lt;TITLE&gt;Welcome to Demos Company - Moscow, Russia&lt;/TITLE&gt;
+	&nbsp;
+	&lt;!-- yet another scroller. (C) 1996 Dmitry Altukhov, ady@demos.su --&gt;
+	&lt;!--
+	&nbsp;
+	     Use this code for whatever purposes... provided that you
+	     retain the copyright notice. I accept no responsibility for any disasters
+	     caused by this monster. Cannot guess any other cool places for scrollers.
+	     And MSIE marquee emulation in JS?!
+	     Er... Mozilla clears windows too slow in JS...
+	--&gt;
+	&nbsp;
+	&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+	&lt;!-- roll it
+	&nbsp;
+	var rate, pos=0;
+	function roll() {
+	&#9;var loop, top, msg1;
+	        var msg="Hello World";
+	        for(var i=0; i&lt;10; i++)
+	           {
+	            msg = msg + ("  Hello World");
+	           }
+	//move on, make a scrolly... and who said that scrollers suck?! ;-)
+	&nbsp;
+	        top=(130/msg.length)+1;
+	&#9;for(loop=0; loop&lt;top; loop++) msg+=" "+msg;
+	&#9;msg1=msg.substring (pos, pos+130); window.defaultStatus=msg1; 
+	if (pos++ == 130) pos=0;
+	&nbsp;
+	//come on, the poor thing can't roll any faster... buy a Ferrari. ;-)
+	&nbsp;
+	&#9;rate=setTimeout("roll()",30);
+	}
+	&nbsp;
+	// that's all folks ;-)
+	// end --&gt;
+	&lt;/SCRIPT&gt;
+	&lt;/HEAD&gt;
+	&lt;BODY BACKGROUND="back.gif" BGCOLOR="#FFFFFF" TEXT="#000040"
+	 LINK="#000080" VLINK="#400080" ALINK="#FF0000" onLoad="roll()"&gt;
+	.....
+	&lt;/BODY&gt;
+	&lt;/HTML&gt;</Pre>
+ <P ALIGN="JUSTIFY">Здесь приведен фрагмент страницы компании Демос разработанный Дмитрием Алтуховым (andy@demos.su). Как видно из этого примера, прокрутка осуществляется за счет изменения содержания отображаемой переменной msg1. Запускается бегущая строка в момент загрузки страницы по событию onLoad. Из комментария к примеру следует, что автор не несет ответственность за проблемы, которые может данный скрипт породить при его отображении программой просмотра на компьютере пользователя. Собственно проблема вызвана применением функции setTimeout. Изначально предполагалось, что программа просмотра, которая поддерживает JavaScript будет исполняться в среде многопотоковых операционных систем. В этом случае к моменту порождения нового потока старый уже завершится и setTimeout будет таким образом порождать последовательно исполняемые потоки. Однако, при реализации JavaScript в Netscape Navigator 2.0 не все было выполнено аккуратно, и setTimeout стала просто "пожирать" ресурсы компьютера. Системы Windows 3.x вообще не являются много поточными и в них просто происходит переполнение стека при выполнении данного скрипта. Весь вопрос заключается только в том, как быстро "упадет" система, что зависит от объема исполняемой по setTimeout функции. Самое лучше, что можно посоветовать, если вдруг на экране появляется прокрутка - поскорее покинуть такую страницу. Справедливости ради следует отметить, что прокрутку можно организовать и другими способами, поэтому ее появление не обязательно должно вызывать крах системы или крах программы просмотра.
+<P ALIGN="JUSTIFY">Прокручивать можно и вертикальные фрагменты. Достигается это за счет использования полей типа TEXTAREA.
+<i><P ALIGN="JUSTIFY">Пример 2.5
+</i><pre>
+	&lt;HTML&gt;
+	&lt;!--
+	Author:&#9;Pavel Khramtsov
+	Date:&#9;February 25, 1996
+	--&gt;
+	&lt;HEAD&gt;
+	&lt;TITLE&gt;Text Block Scrolling&lt;/TITLE&gt;
+	&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+	var line_beak = "\n"
+	var screen = ""
+	&nbsp;
+	//                   1234567890123456789012345678901234567890
+	    screen += "Будем прокручивать			"
+	    screen += "Данный фрагмент текста			"
+	    screen += "В поле типа				"
+	    screen += "TEXTAREA                                	"
+	    screen += "формы term				"
+	&nbsp;
+	    for(i=0;i&lt;6;i++)
+	    screen += "                                         "
+	&nbsp;
+	var i=0
+	var j=40
+	flag = 0
+	function scroll()
+	         {
+	          if( flag== 0 )
+	            {
+	             display_str = ""
+	             for(k=0;k&lt;11;k++)
+	                {
+	                 display_str += screen.substring(i,j)
+	                 i +=40;j = i + 40
+	                 if(i&gt;400) i = 0
+	                }
+	      window.document.term.work_field.value = display_str
+	             i += 40 ; if(i&gt;400) i =0
+	            }
+	          id = setTimeout("scroll()",1000)
+	          return true
+	         }
+	function change_button()
+	         {
+	          if(flag==0)
+	            {
+	             flag = 1
+	             return true
+	            }
+	          if(flag == 1)
+	            {
+	             flag = 0
+	             return false
+	            }
+	         }
+	&lt;/SCRIPT&gt;
+	&lt;/HEAD&gt;
+	&lt;BODY onLoad="scroll()"&gt;
+	&lt;CENTER&gt;
+	&lt;H1&gt;Text Block Scrolling.&lt;/H1&gt;
+	&lt;HR&gt;
+	&lt;FORM NAME=term&gt;
+	&lt;TEXTAREA NAME=work_field COLS=40 ROWS=10 WRAP=ON&gt;&lt;/TEXTAREA&gt;
+	&lt;P&gt;
+	&lt;INPUT NAME=alarm VALUE="Start/Stop" TYPE=button onClick="change_button()"&gt;
+	&lt;/FORM&gt;
+	&lt;/CENTER&gt;
+	&lt;HR&gt;
+	&lt;/BODY&gt;
+	&lt;/HTML&gt;</Pre>
+<P ALIGN="JUSTIFY">Собственно все организовано также, как и в предыдущем примере, только прокрутка осуществляется в поле формы, для этого поля введен параметр переноса текста на новую строку, ширина поля подобрана под размер выводимых строк. Прокрутка осуществляется как по событию onLoad, так и при нажатии на кнопку "Start/Stop". В этом случае не надо немедленно покидать страницу с прокруткой, а достаточно просто ее остановить.
+<P ALIGN="JUSTIFY">Другой часто встречающийся пример на страницах со скриптами JavaScript - идущие часы:
+<i><P ALIGN="JUSTIFY">Пример 2.6
+</i><pre>
+	&lt;HTML&gt;
+	&lt;HEAD&gt;
+	&lt;TITLE&gt; type_Document_Title_here &lt;/TITLE&gt;
+	&lt;SCRIPT LANGUAGE="JavaScript"&gt;
+	&lt;!--
+	var i=0
+	adv_message = "                                         "
+	advert = "Russian Research Center \"Kurchatov Institute\""
+	adv_message += advert
+	adv_message += "                                       "
+	adv_length = advert.length
+	function move_clock()
+	              {
+	&nbsp;
+	// Clock
+	day = new Date()
+	clock_screen = day.getHours()+":"+day.getMinutes()+":"+day.getSeconds()
+	document.kuku.f_clock.value = clock_screen
+	&nbsp;
+	// Rolling Field
+	document.kuku.adv_string.value = adv_message.substring(i,i+45)
+	document.kuku.i_field.value = i
+	i++
+	if( i == adv_length + 44 ) i = 0
+	id = setTimeout("move_clock()",100)
+	}
+	// end --&gt;
+	&lt;/SCRIPT&gt;
+	&lt;/HEAD&gt;
+	&lt;BODY onLoad="move_clock()"&gt;
+	This is the start point:&lt;BR&gt;
+	&lt;a href="#next"&gt;
+	This the document start point.&lt;/a&gt;
+	kukuku
+	&lt;a name=next&gt;
+	&lt;FORM NAME=kuku onSubmit="alert('You submit data to server')" METHOD="GET"&gt; 
+	&lt;INPUT TYPE=SUBMIT NAME=SABMIT VALUE=SUBMIT&gt; Make a clock 
+	here:  &lt;INPUT NAME=f_clock maxlength=8 size=8&gt; &lt;P&gt; &lt;INPUT 
+	NAME=adv_string maxlength=45 size=45&gt; &lt;INPUT NAME=i_field size=10&gt; 
+	&lt;/FORM&gt;
+	&lt;/BODY&gt;
+	&lt;/HTML&gt;
+	</Pre>
+<i><P ALIGN="JUSTIFY">Пример 2.7. Минимизация, максимизация окна и его удаление.
+</i><pre>
+	&lt;HTML&gt;
+	&lt;!--
+	Author:&#9;HTMLed User
+	Date:&#9;May 16, 1996
+	--&gt;
+	&lt;HEAD&gt;
+	&lt;title&gt;Iconize&lt;/title&gt;
+	&lt;script language="JavaScript"&gt;
+	function make_icon()
+	            {
+	window.open("test_icon.htm","test_icon","resizable=yes,scrollbars=no,
+	width=50,height=70")
+	             window.close()
+	            }
+	&lt;/script&gt;
+	&lt;/HEAD&gt;
+	&lt;BODY&gt;
+	&lt;h1&gt;minimize page&lt;/h1&gt;
+	&lt;form name=icon&gt;
+	&lt;input name=icon_button type=button value=icon onClick="make_icon()"&gt;
+	&lt;/form&gt;
+	&lt;/BODY&gt;
+	&lt;/HTML&gt;
+	</Pre>
+<i><P ALIGN="JUSTIFY">Пример 2.8. Максимизация окна:
+</i><pre>
+	&lt;HTML&gt;
+	&lt;!--
+	Author: Pavel Khramtsov
+	Date:&#9;May 16, 1996
+	--&gt;
+	&lt;HEAD&gt;
+	&lt;script&gt;
+	function max_window()
+	             {
+	window.open("iconize.htm","new","toolbar=yes,scrollbars=yes,directories=yes,
+	status=yes,menubar=yes,resizable=yes,location=yes,width=700,height=500")
+	              window.close()
+	             }
+	&lt;/script&gt;
+	&lt;/HEAD&gt;
+	&lt;BODY&gt;
+	&lt;center&gt;
+	&lt;a href="" onClick="max_window()"&gt;&lt;img src=back.jpg&gt;&lt;/a&gt;
+	&lt;/center&gt;
+	&lt;/BODY&gt;
+	&lt;/HTML&gt;
+</pre>
+<p><center><p>
+<font size=-1>
+<a href="glava2~1.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava2~3.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

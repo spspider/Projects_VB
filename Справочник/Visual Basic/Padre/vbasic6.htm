@@ -1,0 +1,333 @@
+
+<html><head>
+<style type="text/css">
+.part2{color:#4173a3;font-weight:900;}
+.part2:hover{color:red;font-weight:880}
+.cd{font-size:18px;color:black;}
+.c2{font-size:18px;color:black;}
+.c1{font-size:45pt;}
+.cc{font-size:13pt;font-weight:bold}
+.t{color:red;}
+.a9{color:#4173a3;font-weight:bold;}
+.a9:hover{color:red;font-weight:880}
+h2{font-size:21pt;font-weight:bold}
+h3{font-size:17pt;font-weight:bold}
+.a19{color:#4173a3;font-size:18px}
+.a19:hover{color:red;font-size:18px}
+body{
+BORDER-RIGHT: 0px;
+SCROLLBAR-FACE-COLOR: #CFDEEB;
+PADDING-BOTTOM: 0px;
+SCROLLBAR-HIGHLIGHT-COLOR: #CFDEEB;
+VERTICAL-ALIGN: middle;
+BORDER-LEFT: 0px;
+SCROLLBAR-SHADOW-COLOR: black;
+SCROLLBAR-ARROW-COLOR: black;
+PADDING-TOP: 0px;
+BORDER-BOTTOM: 0px;
+SCROLLBAR-BASE-COLOR: black;
+scrollbar-3dlight-color: #4173a3;
+scrollbar-dark-shadow-color: #4173a3;}
+</style>
+
+<title>Программируем на Visual Basic'e</title>
+</head>
+<body background="1.jpeg">
+<em >
+<a href="http://vbstreets.narod.ru" class="a9">Главная</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7132" class="a9">Гостевая</a>
+<a href="http://gb.lpt.ru/gb.php?bid=7137" class="a9">Форум</a>
+<a href="INFA.htm" class="a9">INFA</a>
+</em>
+
+<H1 ><font size=6>Программируем на Visual Basic'e:</font></H1>
+
+<p style="font-weight:bold; font-size:21px" >
+
+<a href="vbasic.htm" class="part2">Часть 1</a>/<a href="vbasic2.htm" class="part2">Часть 2</a>/<a href="vbasic3.htm" class="part2">Часть 3</a>/<a href="vbasic4.htm" class="part2">Часть 4</a>/<a href="vbasic5.htm" class="part2">Часть 5</a>/Часть 6/<a href="vbasic7.htm" class="part2">Часть 7</a>/<a href="vbasic8.htm" class="part2">Часть 8</a>/<a href="vbasic9.htm" class="part2">Часть 9</a>/<a href="vbasic10.htm" class="part2">
+Часть 10</a>  /<a href="vbasic11.htm" class="part2">Часть 11</a>/<a href="vbasic12.htm" class="part2">Часть 12</a>/<a href="vbasic13.htm" class="part2">Часть 13</a>
+/<a href="vbasic14.htm" class="part2">Часть 14</a>/<a href="vbasic15.htm" class="part2">Часть 15</a>
+
+
+</font>
+</p>
+<h2>ШАГ 51:</h2>
+<h3>Формы</h3><p class="c2">
+Форму, как и некоторые другие объекты можно скрывать и показывать, делать копии.... <BR>
+Для скрытия формы можно использовать Visible(установив False), но можно и Hide(Form1.Hide), а чтобы показать, нужно использовать свойство Show(Form1.Show).Чтобы форму размножить, будем использовать свойство Show. Код:
+<br><br>
+Dim a As New Form1<font color="green"> 'Объявляем переменную a как новую форму<br></font>
+Private Sub Command1_Click()<font color="green"> ' При нажатии на кнопку:<br></font>
+a.Show<font color="green"> ' Будет показываться новая форма<br></font>
+End Sub<br>
+<br>
+Теперь создадим дочерние окно. Войдем в VB, на форму не чего кидать не будем, а войдем в Project >> Add Midi Form, и перед тобой открывается дочернее окно.<br>
+
+<br>
+<img src="20.jpg">
+<img src="20.1.jpg"><br>
+Теперь у формы в окне свойств, у свойства MIDIChild ставим True. Создаем меню. У первого раздела свойство Caption будет Файл, у первого подраздела Создать, и имя New, а у второго подраздела свойство Caption будет Выход, и имя Exit. У тебя получиться такая фенька:
+
+
+<br>
+
+<img src="20.2.jpg"><br>
+<br>
+Теперь пишем код:<br>
+Private Sub Exit_Click()<font color="green"> ' При нажатии на Выход<br></font>
+Unload Me<font color="green"> ' Прога закрывается<br></font>
+End Sub<br><br>
+
+Private Sub New_Click()<font color="green"> ' При нажатии на Создать<br></font>
+Dim a As New Form1<font color="green"> ' объявляется переменная a как новая форма<br></font>
+a.Show<font color="green"> ' Будет показываться новая форма<br></font>
+End Sub
+
+
+<h2>ШАГ 52:</h2><h3>Мультимедиа. Автомат<br></h2><p class="c2">
+Для работы со звуом, и все что с ним связанно есть компонент Microsot Multimedia Control 6.0. С помощью него можно проигрывать звуковые и видео файлы. Подключи этот компонент, и за одно Common Dialog. Щас сделаем прогу, котоая будет проигрывать звуковые файлы. На форму кинь кнопу(Caption = "Открыть"), MMControl(Name= "MM"), CommonDialog(Name = "CD"). Код:<br><br>
+
+
+Private Sub Command1_Click()<br>
+CD.ShowOpen<font color="green"> ' Вызываем окно открытия файлов</font><br>
+MM.FileName = CD.FileName<font color="green"> ' Открываем выбранный файл</font><br>
+MM.Command = "open"<font color="green"> ' Запускаем</font><br>
+End Sub<br>
+<br>
+Теперь выбери любой звуковой файл, и нажми на Play. Тока в этом примере все кнопки выбираются автоматом, и от тебя ни чо не зависит. В следующем шаге мы будем делать все это тока в ручную.<br>
+Исходник - 
+<a href="MultiMediaAuto.zip" class="a19">Здесь</a><br>
+
+<h2>ШАГ 53:</h2><h3>Убираем лишнии кнопки<br></h2><p class="c2">
+Чтобы убрать не нужные кнопки на MMControl, кинь его на форму, потом нажми на него правой кнопкой мыши, и выбери в меню - "Properties", потом в появившимся окне нажми на закладку Control. 
+<br><img src="MMControl.jpg"><br>
+Сдесь на против кнопки стоят 2 флажка. Первый Enabled - это активность кнопки, если галка стоит, то кнопка будет активна, если нет, то не активна. Второй Visible - это видимость, если галка стоит то кнопку будет видно, если нет...<br>
+Тока на забудь выключить свойство AutoEnabled = False, а то у тебя будут кнопки автоматом становится активными и не активными...<br>
+Так же можно делать и вручную, например:<br><br>
+Private Sub Form_Load()<br>
+MM.AutoEnable = False<font color="green"> ' Выключаем AutuEnabled</font><br>
+MM.PrevEnabled = True<font color="green"> ' Делаем первую кнопку активной</font><br>
+MM.PrevVisible = True<font color="green"> ' И видимой</font><br>
+End Sub<br><br>
+
+
+
+
+<h2>ШАГ 54:</h2><h3>Проигрывание видео файлов<br></h2><p class="c2">
+Чтобы спомощью VB смотреть видео, сделаем прогу. На форму кинь кнопку(Caption = "Открыть"), CommonDialog(Name = CD1), MMControl(Name= "MM"), и Picture(сдесь будет Video ролики показыватся) <br><br>
+Private Sub Command1_Click()<br>
+CD1.ShowOpen<font color="green"> ' Вызываем окно открытия файлов</font><br>
+MM.FileName = CD1.FileName<font color="green"> ' Открываем выбранный файл</font><br>
+MM.Command = "open"<font color="green"> ' Запускаем</font><br>
+MM.hWndDisplay = Picture1.hWnd<br>
+End Sub<br><br>
+Теперь запускай прогу, ищи видео(почти на любом CD), и любуйся.<br>
+<br><img src="Video.jpg"><br>
+<br>
+Исходник - 
+<a href="Video.zip" class="a19">Здесь</a><br>
+
+
+<h2>ШАГ 55:</h2><h3>Атрибуты файлов<br></h2><p class="c2">
+Ты наверное когда - нибудь видел, что в свойствах файла есть 3 атрибута - Только чтение, Скрытый, Архивный, там же можно поставить галку на любой из атрибутов. В VB тоже можно это сделать. Вот как:<br><br>
+
+SetAttr "C:\Чел.exe", vbReadOnly <font color="green"> 'Поставить атрибут "Только чтение"</font> <br>
+SetAttr "C:\Чел.exe", GetAttr("C:\Scan Port.exe") And (Not vbReadOnly) <font color="green"> 'Очистить атрибут "Только чтение"</font><br>
+<br><br>
+
+SetAttr "C:\Чел.exe", vbArchive  <font color="green"> 'Поставить атрибут "Архивный"</font><br>
+SetAttr "C:\Чел.exe", GetAttr("C:\Scan Port.exe") And (Not vbArchive) <font color="green"> 'Очистить атрибут "Архивный"</font><br><br>
+
+
+SetAttr "C:\Чел.exe", vbHidden <font color="green"> 'Поставить атрибут "Скрытый"</font><br>
+SetAttr "C:\Чел.exe", GetAttr("C:\Scan Port.exe") And (Not vbHidden)<font color="green"> 'Очистить атрибут "Скрытый" </font><br><br>
+<h2>ШАГ 56:</h2><h3>Задание<br></h2><p class="c2">
+Усовершенствуй Чудо Блокнот, который ты сделал в 5 Части, добавь в раздел Правка разделы:
+
+
+<br>
+Вырезать<br>
+Копировать<br>
+Вставить<br>
+Удалить<br>
+Выделить Все<br>
+Дата/Время<br>
+<br>
+В раздел Файл - Печать<br>
+И сделай раздел Поиск<br>
+
+<br>
+
+
+
+
+
+<h2>ШАГ 57</h2>
+<h3>Компонент Microsoft Windows Common Control 6.0</h3><p class="c2">
+В этом компоненте есть много всякой всячины, но самые нормальные это 2 объекта: Slider и ProgressBar. И мы щас сделаем прогу. Подключи этот компонент, но форму кинь Slider и ProgressBar, и таймер. Вот что у тебя должно получиться:<br><br><img src="MWCD6.jpg"><br><br>
+Теперь о свойствах:<br>
+<b>Value</b> - это свойство есть у обоих объектов, у Slider это положение ползунка, т.е. если Value = 5 то ползунок будет на 5 отметен. А у ProgressBar это синий квадрат.
+<b>Max</b> - это свойство есть тоже у обоих объектов, у Slider это сколько будет отметен, а у ProgressBar это вместимость.
+<br>
+Ну а остальные свойства ты уже должен знать. Теперь код:<br>
+<br>
+Dim x As Long<font color="green"> ' Объявляем переменную для хранения чисел</font><br>
+<br>
+Private Sub Form_Load()<br>
+x = 0<br>
+End Sub<br><br>
+
+Private Sub Slider1_Click()<br>
+x = Slider1.Value<font color="green"> ' При передвижении ползунка x будет равен положению ползунка</font><br>
+End Sub<br><br>
+
+Private Sub Timer1_Timer()<br>
+On Error GoTo Error:<font color="green"> ' Если происходит ошибка то пропускаем это место</font><br>
+ProgressBar1.Value = ProgressBar1.Value + x<font color="green"> ' Если отжата то выключаем</font><br>
+Error:<br>
+If Err.Number = 380 Then ProgressBar1.Value = 0<font color="green"> ' Если отжата то выключаем</font><br>
+End Sub<br><br>
+Есть еще свойство Scrolling, если оно будет равным 1 ccScrollongSmooth то объект ProgressBar изменит свой вид.<br>
+Исходник качай<a href="MWCD6.zip" class="a19"> сдесь</a>
+
+
+
+
+
+<h2>ШАГ 58</h2>
+<h3>Вставляем в кнопку картинку</h3><p class="c2">
+Очень часто при создания файлов типо Setup, надо в кнопку всунуть картинку. На форму кинь кнопку, сделай ее размером побольше. Свойство Style = "1-Graphical", и свойство Picture = "картинка(любую)". Теперь у кнопки будет картинка. 
+А у кнопки есть еще свойство DownPicture, оно нужно для того, чтоб при нажатии на кнопку, у нее менялась картинка. для нее тоже найди какую - нибудь картинку(желательно для этих свойств картинки с типом *.ico и *.cur, т.к. там размеры оптимальные). Вот что у тебя должно получиться:<br><br>
+
+<img src="button.jpg" title="Ну как?"> <img src="button1.jpg" title="Кнопка нажата">
+<br>
+<a href="button.zip" class="a19">Скачать Исходник</a>
+
+
+
+
+<h2>ШАГ 59</h2>
+<h3>Коды клавишь</h3><p class="c2">
+В этом Шаге представленны коды основных клавиш клавы. Например, у CTRL ваще не определяется ASCII код. Вот он:(Начнем с верхушки клавы)<br><br>
+
+<b>vbKeyF1</b> - От F1<br>
+<b>...</b><br>
+<b>vbKeyF12</b> - До F12<br>
+<br>
+<b>vbKeyA</b> - От A<br>
+<b>...</b><br>
+<b>vbKeyZ</b> - До Z(тока англиские буквы(заглавные и обычные))<br><br>
+
+<b>vbKeyBack</b> - BackSpace<br><br>
+<b>vbKeyInsert</b> - Insert<br>
+<b>vbKeyHome</b> - Home<br>
+<b>vbKeyPageUp</b> - Page Up<br>
+
+<b>vbKeyDelete</b> - Delete<br>
+
+<b>VbKeyEnd</b> - End<br>
+<b>VbKeyPageDown</b> - Page Down<br><br>
+
+<b>vbKeyNumlock</b> - Num Lock<br>
+
+
+<b>vbKeyCapital</b> - Caps Lock<br><br>
+
+<b>vbKeyEscape</b> - Esc<br>
+<b>vbKeyReturn</b> - Enter<br>
+<b>vbKeySpace</b> - Пробел<br><br>
+<b>vbKeyShift</b> - Shift<br>
+<b>vbKeyTab</b> - TAB<br>
+
+<b>VbKeyControl</b> - CTRL<br>
+<b>vbKeyMenu</b> - ALT<br>
+<br>
+
+<b>VbKeyLeft</b> - Стрелка влево<br>
+<b>VbKeyRight</b> - Стрелка в право<br>
+<b>VbKeyDown</b> - Стрелка в низ<br>
+<b>VbKeyUp</b> - Стрелка вверх<br><br>
+
+
+Ну вроде и все, а пользоватся ими также как и ASCII кодами:<br>
+Private Sub Text1_KeyDown(KeyCode As Integer, Shift As Integer)<br>
+If KeyCode = vbKeySpace Then MsgBox "Нажат пробел"<font color="green"> ' Если нажат пробел то выскакивает сообщение</font><br>
+End Sub<br><br>
+Остальные ASCII символы ты можешь посмотреть <a href="Ascii Коды.htm" class="a19">Здесь</a>
+
+
+<h2>ШАГ 60</h2>
+<h3>CommonDialog. Метод ShowFont</h3><p class="c2">
+Метод ShowFont нужен для вызова стандартного окна выбора шрифтоф. Щас сделаем прогу, в которой при нажатии на кнопку появится это окно. На форму кинь CommonDialog(Name = CD1), и кнопку. Вот код:<br>
+
+
+
+
+
+<br>
+
+Private Sub Form_Load()<br>
+CD1.FontName = "Arial" <font color="green"> ' Устанавливаем начальные значения для CD1</font><br>
+End Sub<br><br>
+
+Private Sub Command1_Click()<br>
+<font color="green"> 'Устанавливаем тип отображения диалогов окна Font</font><br>
+CD1.Flags = cdlCFBoth Or cdlCFEffects Or cdlCFLimitSize Or cdlCFTTOnly Or dlCFForceFontExist<br>
+
+<font color="green"> 'Устанавливаем значения минимального и максимального размера шрифта(они будут отображаться в поле Размер)</font><br>
+CD1.Min = 8 <font color="green"> ' Минимальный размер шрифта</font><br>
+CD1.Max = 22 <font color="green"> ' Максимальный размер шрифта</font><br>
+
+
+CD1.ShowFont <font color="green"> ' Вызываем окно выбора шрифтов</font><br>
+
+<font color="green"> 'Присваиваем выбранные свойства(к примеру текстовому полю)</font><br>
+
+Text1.FontName = CD1.FontName <font color="green"> ' Имя шрифта в текстовом поле будет равно выбранному</font><br>
+
+Text1.FontBold = CD1.FontBold <font color="green"> ' Если юзер ставить в окне выбора шрифтов Жирный, то в текстовом поле будет тоже жирный шрифт</font><br>
+
+Text1.FontItalic = CD1.FontItalic<font color="green"> ' Если юзер ставить в окне выбора шрифтов Курсив, то в текстовом поле будет тоже Курсивный шрифт</font><br> 
+
+Text1.FontSize = CD1.FontSize <font color="green"> ' Размер шрифта</font><br>
+
+Text1.FontStrikethru = CD1.FontStrikethru <font color="green"> ' Если юзер ставит галку на зачеркнутый, то в текстовом поле будет тоже зачеркнутый текст</font><br>
+Text1.FontUnderline = CD1.FontUnderline <font color="green"> ' Если юзер ставит галку на подчеркнутый, то в текстовом поле будет тоже подчеркнутый текст
+</font><br>
+Text1.ForeColor = CD1.Color  <font color="green"> ' Устанавливаем выбранный цвет шрифта
+</font><br>
+End Sub<br><br>
+
+<br>
+<a href="CDFont.zip" class="a19">Исходник</a>
+
+
+<br>
+<br>
+
+
+
+
+
+<em><p class="cc">автор учебника: Падре</em>
+<br>
+Дата создания: 12 апреля 2003 года<br></em>
+<br></p>
+<center>
+<table width=468 height=60 border=2 bordercolor="#4173a3"><td  bordercolor="#4173a3"><center>
+<p class="c2">Место под Банеры
+</td>
+<tr><td>
+<center>
+<a href="INFA.htm" target="0">
+<img src="baner.gif" alt="Официальный сайт учебника - 'Программируем на Visual Basic'" border=0>
+</a></center>
+</td></table>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<scheme>
+	<name>	
+		<text language="en-UK">Infected Mushroom - MP3</text>
+	</name>
+<soundlist>
+	<s alias="BirthdayReminder"			file="BirthdayReminder.mp3"/>
+	<s alias="ContactSignIn"			file="ContactSignsIn.MP3"/>
+	<s alias="ContactSignOut"			file="ContactSignsOut.MP3"/>
+	<s alias="ContactAdded"				file="YouAddedSomeoneToYourList.MP3"/>
+	<s alias="AddedByContact"			file="SomeoneAddedYou.MP3"/>
+	<s alias="IncomingXtra"				file="IncomingXtra.MP3"/>
+	<s alias="IncomingTzer"				file="IncomingTzer.MP3"/>				
+	<s alias="IncomingSMS"				file="IncomingSMS.MP3"/>					
+	<s alias="IncomingIM"				file="IncomingIM.MP3"/>
+	<s alias="IncomingFile"				file="IncomingFile.MP3"/>	
+	<s alias="IncomingChat"				file="IncomingChat.MP3"/>
+	<s alias="IncomingMail"				file="IncomingMail.MP3"/>
+	<s alias="IncomingAlert"			file="IncomingAlert.MP3"/>
+	<s alias="OutgoingIM"				file="OutgoingIM.MP3"/>
+	<s alias="TypingIM"					file="TypingIM.wav"/>				
+	<s alias="OutgoingSMS"				file="OutgoingSMS.MP3"/>					
+	<s alias="FileTransferDone"			file="FileTransferDone.MP3"/>
+	<s alias="FileTransferFailed"		file="FileTransferFailed.MP3"/>
+	<s alias="UserSignIn"				file="ISignIn.MP3"/>
+	<s alias="UserSignOut"				file="ISignOut.MP3"/>
+	<s alias="IncomingCall"				file="IncomingCall.MP3"/>
+	<s alias="DigitsPressed"			file="DigitsPressed.MP3"/>				
+	<s alias="DialButtonPressed"		file="DialButtonPressed.MP3"/>
+	<s alias="CallConnected"			file="CallConnected.MP3"/>
+	<s alias="CallRinging"				file="CallRinging.MP3"/>
+	<s alias="CallBusy"					file="CallBusy.MP3"/>
+	<s alias="CallWaiting"				file="CallWaiting.MP3"/>				
+	<s alias="CallOnHold"				file="CallOnHold.MP3"/>
+	<s alias="CallHangup"				file="CallHangup.MP3"/>
+	<s alias="CallError"				file="CallError.MP3"/>
+	<s alias="SystemSound"				file="System.MP3"/>
+</soundlist>
+</scheme>

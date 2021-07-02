@@ -1,0 +1,109 @@
+<html><head>
+
+
+
+
+
+
+<title> Методы объектов и свойства объектов. Управление потоком вычислений</title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4>2.2. Методы объектов и свойства объектов. Управление потоком вычислений</h4>
+<P ALIGN="JUSTIFY">Каждый из этих классов имеет функции управления объектами класса - методы. Самыми главными их этих методов являются те, которые позволяют переназначать значения объектов. Делается это обычно по операции присваивания. Вообще, все типы операторов, которые поддерживаются обычными языками программирования, реализованы JavaScript (+,-,*, /, %, &gt;&gt;,&lt;&lt;, +=, -=, ...). При этом оператор сложения "+" при работе со строками означает конкатенацию последних, т.е. добавление в конец строки новую строку:
+<pre>
+	s = "string1"+"string2"</pre>
+<P ALIGN="JUSTIFY">Кроме операций с числами и описаний стандартных классов в JavaScript есть команды управления потоком вычислений:
+<UL>
+<i><li>break</i> - принудительный выход из цикла;
+<pre>
+	while(i &amp;lt 6)
+	{
+	if(i==3) break;
+	}
+</pre>
+<i><li>continue</i> - переход в конец цикла;
+<pre>
+	while(i &amp;lt 6)
+	{
+	if(i==3) continue;
+	}
+</pre>
+<i><li>for</i> - цикл;
+<pre>
+	for(i=0;i&lt;9;i++)
+	{
+	...
+	}
+</pre>
+<i><li>for</i> - цикл свойств объекта (переменных определенных в классе);
+<pre>
+	for(i in obj)
+	{
+	str = obj[i]
+	}
+</pre>
+<i><li>if..else</i> - условный оператор;
+<pre>
+	if(i&gt;0)
+	{
+	...
+	}
+	else
+	{
+	...
+	}
+</pre>
+<i><li>wile</i> - условный цикл;
+<pre>
+	wile(j==k)
+	{
+	j++;
+	k--;
+	}
+</pre>
+<i><li>var</i> - оператор объявления переменной.</ul>
+<pre>
+	var kuku = "kuku"</Pre>
+<P ALIGN="JUSTIFY">Тип переменной определяется по присвоенному ей значению.
+<P ALIGN="JUSTIFY">Перечисленные здесь операторы не представляют полного перечня операторов JavaScript, но их вполне достаточно для выполнения практических занятий.
+<p><center><p>
+<font size=-1>
+<a href="glava2_1.htm">Назад</a> | <a href="index.htm">Содержание</a> | <a href="glava2_3.htm">Вперед</a></font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

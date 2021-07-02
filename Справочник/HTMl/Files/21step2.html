@@ -1,0 +1,97 @@
+<html>
+<head>
+
+
+<TITLE>Первые шаги - Ступенька двадцать первая, как создавать таблицы.</TITLE>    
+<META HTTP-EQUIV="Content-Type" Content="text/html; Charset=Windows-1251">
+<META Name="copyright" Content="Алленова Наталья">
+<META NAME="author" CONTENT="Алленова Наталья Email: seagull@pisem.net"><META NAME="keywords" CONTENT="графика, хтмл, для, начинающий, начинающих, чайников, новичков, просто, основа, основы, страница, домашний, домашняя, сайт, новый, новичок, html, обучение, учеба, пример, веб, мастер, веб-мастер, дизайн, веб-дизайн, вебдизайн, дезайн, веб-дезайн, вебдезайн, дезайнер, дизайнер, ступени, тэги, тэг, теги, тег, аттрибут, атрибуты, парамет, design, web, help, помощь, icq, e-mail, guest, book, guestbook, гостевая, книга, форум, аська, контакт, ссылка, link, links, banner, обмен, баннер, баннерами, банер, baner, друзья, friends, почитать, написать, вопросы, вопрос, ответ, проект, ступени, словарь"> <META NAME="description" CONTENT="Основы хтмл (html) для чайников. Просто, доступно. Создайте свою домашнюю страничку своими руками и без хтмл (html) редакторов. Что может быть проще? Также вы здесь найдете полезные ссылки для вашего сайта, но это уже не главное...">
+
+
+
+</head>
+<body bgcolor="#ffffff" link="#000000" alink="#000000" vlink="#000000">
+
+
+<table>
+
+	<tr>
+	<td width="600">
+<font face="times new roman"><hr noshade size="1">
+<a href="index.html">Главная</a> | <a href="content2.html">Оглавление</a> | <a href="alltags2.html">Словарь</a><hr noshade size="1"><p align="JUSTIFY">
+Итак, мы остановились на такой таблице:
+<br><br>
+<img src="20tab4.gif">
+
+<br><br>
+Давайте, подумаем, что же еще можно сделать с ней... хм... ну, например можно избавиться от пространства между ячейками таблицы:<br><br>
+<img src="21tab.gif">
+
+<br><br>
+
+Такая красота достигается с помощью атрибута cellspacing, равного нулю:
+
+</font></p>
+
+<tt>
+&lt;table <b>cellspacing=0</b>&gt;<br>
+&lt;tr&gt;<br>
+&lt;td height="35" bgcolor="#FFCC33" colspan="2"&gt; &lt;center&gt;1x1&lt;/center&gt; &lt;/td&gt;<br>
+
+&lt;td width="50" bgcolor="#336699" rowspan="2"&gt; &lt;center&gt;1x2&lt;/center&gt; &lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;tr&gt;<br>
+&lt;td height="35" width="50" bgcolor="#336699"&gt; &lt;center&gt;2x1&lt;/center&gt; &lt;/td&gt;<br>
+&lt;td width="50" bgcolor="#FFCC33"&gt; &lt;center&gt;2x2&lt;/center&gt; &lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;/table&gt;
+</tt><br><p align="JUSTIFY"><font face="times new roman">
+Можно наооборот увеличить пространство между ячейками, допустим пусть cellspacing=5, тогда получим такое:
+<br><br>
+<img src="22tab.gif">
+
+<br><br>
+Как видите, и то, и другое мы можем использовать как дизайнерский прием, т.к. даже уже на наших примерах это смотриться не стандартно.
+<br><br>
+Обычно атрибут cellspacing, рассматривается в руководствах и учебниках в паре с атрибутом cellpadding, который добаляет свободное пространство между содержимым ячейки и ее границами. Чтобы было видно нагляднее я для начала прижму текст ячеек первого ряда к верху, в нижнего - к низу, используя атрибут valign:
+
+
+<br><br>
+<img src="23tab.gif">
+
+<br><br>
+Теперь зададим атрибут cellpadding=5:
+
+<br><br>
+<img src="24tab.gif">
+
+<br><br>
+Вот теперь всем должно стать понятно, что такое пространство между содержимым ячейки и ее границами, и что делает тэг cellpadding. Сравним получившееся с предыдущей таблицей: мы прекрасненько видим, что у нас добавилось пространство по бокам, снизу и сверху, причем это пространство никакими картинками и текстом заполнено быть не может, как и пространство между ячейками, когда мы задаем cellspacing. 
+<br><br>
+Для тех, кто все еще не может составить код сам - вот он (для последнего варианта таблицы):
+</font></p>
+
+<tt>
+&lt;table <b>cellpadding=5</b>&gt;<br>
+&lt;tr&gt;<br>
+&lt;td height="35" bgcolor="#FFCC33" colspan="2" <b>valign="top"</b>&gt; &lt;center&gt;1x1&lt;/center&gt; &lt;/td&gt;<br>
+
+&lt;td width="50" bgcolor="#336699" rowspan="2" <b>valign="top"</b>&gt; &lt;center&gt;1x2&lt;/center&gt; &lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;tr&gt;<br>
+&lt;td height="35" width="50" bgcolor="#336699" <b>valign="bottom"</b>&gt; &lt;center&gt;2x1&lt;/center&gt; &lt;/td&gt;<br>
+&lt;td width="50" bgcolor="#FFCC33" <b>valign="bottom"</b>&gt; &lt;center&gt;2x2&lt;/center&gt; &lt;/td&gt;<br>
+&lt;/tr&gt;<br>
+&lt;/table&gt;
+</tt><br><p align="JUSTIFY"><font face="times new roman">
+Теперь я могу с чистой совестью завершить этот урок и перейти к следующему, в котором мы узнаем о вложенных таблицах.
+</p><center><a href="20step2.html">Назад</a> | <a href="22step2.html">Шагнуть на следующую ступеньку</a></center></font>
+
+</td>
+
+	</tr>
+ </table>
+
+
+</body>
+</html>

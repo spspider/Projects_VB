@@ -1,0 +1,20 @@
+APE:
+======
+Advanced Platform Engine
+==========================
+
+Programming:
+~~~~~~~~~~~~
+Chris Gilbert
+
+Graphics:
+~~~~~~~~~
+Chris Gilbert
+
+Additional Help:
+~~~~~~~~~~~~~~~~
+D.R.Hall
+
+
+
+APE - 1999 Chris Gilbert

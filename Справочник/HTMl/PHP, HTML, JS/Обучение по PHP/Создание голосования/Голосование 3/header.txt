@@ -1,0 +1,5 @@
+<html>
+<head>
+<title>WOscripts.com - CGI scripts - Baltic Poll</title>
+</head>
+<body>

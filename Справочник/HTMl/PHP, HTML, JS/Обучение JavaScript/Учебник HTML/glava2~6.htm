@@ -1,0 +1,314 @@
+<html><head>
+
+
+
+
+
+
+<title> Гипертекстовые ссылки и картинки</title>
+		    <style type="text/css">
+A.noneline { font-family: Arial, Serif; text-decoration: none; }
+FONT.arial { font-family: Arial, Serif; }
+TD.arial   { font-family: Arial, Serif; }
+TH.arial   { font-family: Arial, Serif; }
+PRE        { font-family: Monospace; color: navy; }
+SAMP       { font-family: Monospace; color: navy; }
+TT         { font-family: Monospace; color: navy; }
+VAR        { font-family: Monospace; color: navy; }
+</style>
+</head>
+<body bgcolor="#FFF5EE" text="#000000" link="#FF0000" alink="#FF0000" vlink="#A52A2A">
+<basefont size="3">
+<center>
+<table width=100% border=0 cellpadding=0>
+<tr valign=top><td class=arial><a href="http://www.citforum.ru/"><img height=50 width=150 src="_pic_/logo3D.gif" alt="Server for Information Technologies" border=0></a><br>
+</td>
+<td align=right class=arial>
+<font size="-2">
+Сервер поддерживается<br>
+<a class=noneline href="http://www.citmgu.ru">Центром Информационных Технологий</a><br>
+(095) 932-9212, 932-9213, 939-0783<br>
+E-mail: <a class=noneline href="mailto:info@citforum.ru?Subject='From page topic CIT-FORUM'">info@citforum.ru</a></font>
+</tr>
+<tr>
+<th colspan=2 class=arial>
+<font color=#000080 size=2><a href="http://www.citforum.ru" class=noneline>Сервер Информационных Технологий</a> содержит море(!) аналитической информации</font>
+<hr noshade>
+</th>
+</tr>
+</table>
+</center>
+
+<h4>2.15. Гипертекстовые ссылки и картинки</h4>
+<P ALIGN="JUSTIFY">Гипертекстовые ссылки и картинки - это свойства объекта "документ", который в свою очередь является частью объекта "окно". И гипертекстовые ссылки, и картинки составляют встроенные массивы, к которым можно обращаться по индексу. Рассмотрим несколько примеров программирования массивов гипертекстовых ссылок и картинок.
+<h4><i>Просмотр фотографий образцов через список гипертекстовых ссылок</i></h4>
+<P ALIGN="JUSTIFY">Вся страница размечается как таблица, состоящая из одной строки в две ячейки. В первой ячейке размещается список выбора альтернатив, во второй ячейке размещаются картинки, выбранные при помощи списка альтернатив. Все элементы списка помечены как гипертекстовые ссылки. У каждой ссылки определено событие onSelect. Для того, чтобы не происходил переход к другой странице, а выполнялась только обработка события, в поле href необходимо определить вызов JavaScript. Ниже приведен пример реализации такой компоновки и пример кода самой страницы.
+<i><P ALIGN="JUSTIFY">Пример 2.21.</i> Изменение картинки через гипертекстовую ссылку
+<pre>
+	&lt;HTML&gt;
+	&lt;HEAD&gt;
+	&lt;TITLE&gt;HTTPD\HTDOCS\JAVASCR\EXAMPLE1&lt;/TITLE&gt;
+	&lt;SCRIPT&gt;
+	&lt;!-- Защитили текст скрипта от старых браузеров
+	function l_image(a)
+	         {
+	          document.images[1].src=a 
+	         }
+	// --&gt;
+	&lt;/SCRIPT&gt;
+	&lt;/HEAD&gt;
+	&lt;BODY TEXT="#000000" BGCOLOR="#FFFFCC" LINK="#0000EE" VLINK="#551A8B" ALINK="#FF0000"&gt;
+	&lt;H1&gt;
+	&lt;FONT COLOR="#000099"&gt;Просмотр фотографий образцов&lt;/FONT&gt;
+	&lt;/H1&gt;
+	&lt;center&gt;
+	&lt;TABLE COLS=2 WIDTH="100%" &gt;
+	&lt;CAPTION&gt;
+	&lt;FONT COLOR="#000099" SIZE=+2&gt;Образцы бытовой техники&lt;/FONT&gt;
+	&lt;/CAPTION&gt;
+	&lt;TR&gt;
+	&lt;TD&gt;
+	&lt;UL&gt;
+	&lt;LI&gt;&lt;A HREF="javascript:l_image('freeze.gif')"&gt;Холодильник&lt;/A&gt; &lt;/LI&gt;
+	&lt;LI&gt;&lt;A HREF="javascript:l_image('dust.gif')"&gt;Пылесосы&lt;/LI&gt;
+	&lt;LI&gt;&lt;A HREF="javascript:l_image('toster.gif')"&gt;Тостер&lt;/LI&gt;
+	&lt;LI&gt;&lt;A HREF="javascript:l_image('cook.gif')"&gt;Варочный стол&lt;/LI&gt;
+	&lt;LI&gt;&lt;A HREF="javascript:l_image('oven.gif')"&gt;Духовка&lt;/LI&gt;
+	&lt;LI&gt;&lt;A HREF="javascript:l_image('wash.gif')"&gt;Стиральная машина&lt;/LI&gt;
+	&lt;LI&gt;&lt;A HREF="javascript:l_image('dishwash.gif')"&gt;Посудомоечная машина&lt;/LI&gt;
+	&lt;/UL&gt;
+	&lt;/TD&gt;
+	&lt;TD ALIGN=CENTER VALIGN=CENTER&gt;&lt;IMG SRC="dust.gif" NAME="tool" &gt; &lt;/TD&gt;
+	&lt;/TR&gt;
+	&lt;/TABLE&gt;
+	&lt;/center&gt;
+	&lt;/BODY&gt;
+	&lt;/HTML&gt;</Pre>
+<P ALIGN="JUSTIFY">В данном примере при выборе гипертекстовой ссылки происходит вызов функции l_image(), которая изменяет значение атрибута SRC в контейнере IMG. Таким образом, можно организовать просмотр различных товаров в одном единственном графическом окне.
+<h4><i>Изменение картинки путем выбора предмета из списка.</i></h4>
+<P ALIGN="JUSTIFY">Вся страница размечается как таблица, состоящая из одного столбца в две ячейки. В первой ячейке размещается выпадающее меню выбора альтернатив, во второй ячейке размещаются картинки, выбранные при помощи списка альтернатив. При выборе альтернативы из меню происходит событие onChange, которое вызывает функцию l_image. Ниже приведен пример реализации такой компоновки и пример кода самой страницы.
+<i><P ALIGN="JUSTIFY">Пример 2.22.</i> Выбор картинки из списка
+<pre>
+	&lt;!-- элементы заголовка --&gt;
+	...
+	&lt;SCRIPT&gt;
+	&lt;!-- Защитили текст скрипта от старых браузеров
+	pictures = new Array()
+	for(i=0;i&lt;8;i++)
+	   {
+	    pictures[i] = new Image()
+	    if(i==0) pictures[i].src = "freeze.gif"
+	    if(i==1) pictures[i].src = "dust.gif"
+	    if(i==2) pictures[i].src = "toster.gif"
+	    if(i==3) pictures[i].src = "cook.gif"
+	    if(i==4) pictures[i].src = "oven.gif"
+	    if(i==5) pictures[i].src = "wash.gif"
+	    if(i==6) pictures[i].src = "dishwash.gif"
+	   }
+	function l_image()
+	   {
+	    document.images[1].src = pictures[document.form1.item.selectedIndex].src
+	   }
+	// --&gt;
+	&lt;/SCRIPT&gt;
+	&nbsp;
+	                               [ На начало страницы ] 
+	&nbsp;
+	Фрагмент HTML-разметки с вызовом функции изменения картинки: 
+	&nbsp;
+	&lt;center&gt;
+	&lt;TABLE COLS=2 WIDTH="100%" &gt;
+	&lt;CAPTION&gt;
+	  &lt;FONT COLOR="#000099" SIZE=+2&gt;Образцы бытовой техники&lt;/FONT&gt;
+	&lt;/CAPTION&gt;
+	  &lt;TR&gt;
+	    &lt;th&gt;
+	      &lt;form name=form1&gt;
+	      &lt;select name=item onChange=l_image()&gt;
+	        &lt;option&gt;Холодильник
+	        &lt;option selected&gt;Пылесос
+	        &lt;option&gt;Тостер
+	        &lt;option&gt;Варочный стол
+	        &lt;option&gt;Духовка
+	        &lt;option&gt;Cтиральная машина
+	        &lt;option&gt;Посудомоечная машина
+	      &lt;/select&gt;
+	      &lt;/form&gt;
+	    &lt;/th&gt;
+	  &lt;/tr&gt;
+	  &lt;tr&gt;
+	    &lt;th ALIGN=CENTER VALIGN=CENTER&gt;&lt;IMG SRC="dust.gif" NAME="tool" &gt; &lt;/th&gt;
+	  &lt;/TR&gt;
+	&lt;/TABLE&gt;
+	[ &lt;a href=#top&gt;На начало страницы&lt;/a&gt; ]
+	&lt;HR&gt;
+	&lt;/center&gt;</Pre>
+<P ALIGN="JUSTIFY">В данном примере картинка выбирается как элемент списка. При этом происходит событие onChange, и по нему определяют, какой именно элемент был отобран.
+<h4><i>Листание картинок и их автоматический просмотр</i></h4>
+<P ALIGN="JUSTIFY">Вся страница размечается как таблица, состоящая из одного столбца в две ячейки. В первой ячейке размещаются три кнопки управления просмотром картинок "Вперед", "Старт/Стоп", "Назад". Во второй ячейке размещаются картинки, выбранные путем листания. Листание осуществляется кнопками "Вперед" и "Назад". Возможен и другой вариант выбора картинки, когда система сама через некоторый промежуток времени периодически меняет картинки. Для этого следует сначала запустить автоматическую смену картинок, нажав на кнопку "Старт/Стоп", а потом, когда будет показана нужная картинка, остановить автоматическое листание, снова нажав на кнопку "Старт/Стоп". Ниже приведен пример реализации такой компоновки и пример кода самой страницы.
+<i><P ALIGN="JUSTIFY">Пример 2.23.</i> Листание и прокрутка картинок
+<pre>
+	&lt;SCRIPT&gt;
+	&lt;!-- Защитили текст скрипта от старых браузеров
+	pictures = new Array()
+	for(i=0;i&lt;8;i++)
+	   {
+	    pictures[i] = new Image()
+	    if(i==0) pictures[i].src = "freeze.gif"
+	    if(i==1) pictures[i].src = "dust.gif"
+	    if(i==2) pictures[i].src = "toster.gif"
+	    if(i==3) pictures[i].src = "cook.gif"
+	    if(i==4) pictures[i].src = "oven.gif"
+	    if(i==5) pictures[i].src = "wash.gif"
+	    if(i==6) pictures[i].src = "dishwash.gif"
+	   }
+	n=0;
+	flag=0;
+	function next_image()
+	   {
+	    if(flag==0)
+	      {
+	       n++;if(n&gt;6) n=0;
+	       document.images[1].src = pictures[n].src
+	      }
+	   }
+	function back_image()
+	   {
+	    if(flag==0)
+	      {
+	       n--;if(n&lt;0) n=6;
+	       document.images[1].src = pictures[n].src
+	      }
+	   }
+	function scroll_image()
+	   {
+	    if(flag==1)
+	      {
+	       n++;if(n&gt;6) n=0;
+	       document.images[1].src = pictures[n].src
+	      }
+	    setTimeout("scroll_image()",1500);
+	   }
+	function start_stop()
+	   {
+	    if(flag==0)
+	      {
+	       flag=1
+	      }
+	    else
+	      {
+	       flag=0
+	      }
+	   }
+	// --&gt;
+	&lt;/SCRIPT&gt;
+	&nbsp;
+	                               [ На начало страницы ]
+	&nbsp;
+	&lt;TABLE COLS=2 WIDTH="100%" &gt;
+	&lt;CAPTION&gt;
+	  &lt;FONT COLOR="#000099" SIZE=+2&gt;Образцы бытовой техники&lt;/FONT&gt;
+	&lt;/CAPTION&gt;
+	  &lt;TR&gt;
+	    &lt;th&gt;
+	      &lt;form name=form1&gt;
+	      &lt;input name=f type=button value=Вперед onClick=next_image()&gt;
+	      &lt;input name=ss type=button value="Старт/Стоп"
+		 onClick=start_stop()&gt;
+	      &lt;input name=b type=button value=Назад onClick=back_image()&gt;
+	      &lt;/form&gt;
+	    &lt;/th&gt;
+	  &lt;/tr&gt;
+	  &lt;tr&gt;
+	  &lt;th ALIGN=CENTER VALIGN=CENTER&gt;&lt;IMG SRC="dust.gif" NAME="tool" &gt; &lt;/th&gt;
+	  &lt;/TR&gt;
+	&lt;/TABLE&gt;</Pre>
+<P ALIGN="JUSTIFY">В этом примере мы используем те же средства, что использовали и для организации скроллинга. Алгоритм останова и запуска прокрутки тот же, что и при скроллинге окна.
+<h4>Пример использования client-site imagemap</h4>
+<P ALIGN="JUSTIFY">В данном примере мы хотим показать возможность изменения картинки imagemap с одновременным изменением гипертекстовых ссылок, связанных с этой картинкой. Такая возможность существует только в том случае, если все картинки, которые мы хотим использовать в качестве imagemap, имеют одинаковую компоновку. Мы реализуем просмотр вариантов в виде горизонтального меню в верхней строке таблицы и imagemap - в нижней строке таблицы, т.к. наша картинка имеет формат ландшафта.
+<i><P ALIGN="JUSTIFY">Пример 2.24.</i> Динамический imagemap
+<pre>
+	&lt;SCRIPT&gt;
+	&lt;!-- Защитили текст скрипта от старых браузеров
+	function print_form(a)
+	         {
+	          document.form1.kuku.value = a
+	         }
+	function set_image(a)
+	         {
+	          if(a == "bosh")
+	            {
+	             document.form1.kuku.value= "Техника фирмы Bosh."
+	             document.links[5].href = "javascript:print_form(\'Refregarator: Bosh-10245(-24C;Remote Control)\')"
+	             document.links[6].href = "javascript:print_form(\'Aero-Filter: Bosh-1212(Steel Filter)\')"
+	             document.links[7].href = "javascript:print_form(\'Oven: Bosh-3432(Варочный стол + духовка)\')"
+	             document.links[8].href = "javascript:print_form(\'Wash mashine: Bosh-2343(Dry Mode)\')"
+	             document.links[9].href = "javascript:print_form(\'Dish wash machine: Bosh-DW-44\')" 
+	             document.links[10].href = "javascript:print_form(\'Water pipe: Bosh(Steel + Ceramic)\')"
+	            }
+	          if(a == "Indesit")
+	            {
+	             document.form1.kuku.value= "Техника фирмы Indesit."
+	             document.links[5].href = "javascript:print_form(\'Indesit-105(-18C)\')"
+	             document.links[6].href = "javascript:print_form(\'Indesit-101(Steel Filter)\')"
+	             document.links[7].href = "javascript:print_form(\'Indesit-3432(Варочный стол + духовка)\')"
+	             document.links[8].href = "javascript:print_form(\'Indesit-343(Wash only)\')"
+	             document.links[9].href = "javascript:print_form(\'Indesit-DWR-Safe\')" 
+	             document.links[10].href = "javascript:print_form(\'No in the frame\')"
+	            }
+	          if(a == "candy")
+	            {
+	             document.form1.kuku.value= "Техника фирмы Candy."
+	             document.links[5].href = "javascript:print_form(\'Candy-122(-24C;Hidden model)\')"
+	             document.links[6].href = "javascript:print_form(\'Candy-12(Steel Filter + Carbone Filter)\')"
+	             document.links[7].href = "javascript:print_form(\'Candy(Варочный стол + духовка)\')"
+	             document.links[8].href = "javascript:print_form(\'Candy-343(Dry Mode)\')"
+	             document.links[9].href = "javascript:print_form(\'Candy-DWR Elite\')" 
+	             document.links[10].href = "javascript:print_form(\'Candy(Ceramic)\')"
+	            }
+	          document.images[1].src= a+".gif"
+	         }
+	// --&gt;
+	&lt;/SCRIPT&gt;
+	&nbsp;
+	                               [ На начало страницы ]
+	&nbsp;
+	&lt;MAP name=kitchen_map&gt;
+	  &lt;area name=freeze shape=rect coords="14,11,88,171" href="javascript:void(0)"&gt;
+	  &lt;area name=aero shape=rect coords="179,12,238,58" href="javascript:void(0)"&gt; 
+	  &lt;area name=oven shape=rect coords="179,95,237,172" href="javascript:void(0)"&gt;
+	  &lt;area name=dry shape=rect coords="239,95,297,173" href="javascript:void(0)"&gt;
+	  &lt;area name=wash shape=rect coords="297,96,370,173" href="javascript:void(0)"&gt;
+	  &lt;area name=kran shape=rect coords="90,95,138,172" href="javascript:void(0)"&gt;
+	&lt;/map&gt;
+	&lt;TABLE border=0&gt;
+	&lt;CAPTION&gt;
+	  &lt;FONT COLOR="#000099" SIZE=+2&gt;Образцы бытовой техники&lt;/FONT&gt;
+	&lt;/CAPTION&gt;
+	  &lt;TR&gt;
+	    &lt;TH&gt;
+	    &lt;a href="javascript:set_image('bosh')"&gt;Bosh&lt;/a&gt;
+	    &lt;/th&gt;
+	    &lt;th&gt;
+	    &lt;a href="javascript:set_image('idezit')"&gt;Indesit&lt;/a&gt;
+	    &lt;/th&gt;
+	    &lt;th&gt;
+	    &lt;a href="javascript:set_image('candy')"&gt;Candy&lt;/a&gt;
+	    &lt;/th&gt;
+	  &lt;/TR&gt;
+	  &lt;TR&gt; 
+	    &lt;th colspan=3&gt;&lt;IMG SRC="Bosh.gif" NAME="tool" USEMAP=#kitchen_map&gt;&lt;/th&gt;
+	  &lt;/TR&gt;
+	  &lt;tr&gt;&lt;th colspan=3&gt;&lt;form name=form1&gt;&lt;input name=kuku size=40 value=Выбери набор техники.&gt;&lt;/form&gt;&lt;/th&gt;&lt;/tr&gt;
+	&lt;/TABLE&gt;</Pre>
+<P ALIGN="JUSTIFY">В данном примере меняются не только картинки, но и стеки гипертекстовых ссылок под ними. Для каждой новой картинки определяются свои собственные гипертекстовые ссылки.
+<p><center><p>
+<font size=-1>
+<a href="glava2~5.htm">Назад</a> | <a href="index.htm">Содержание</a> </font></center></p>
+</p>
+<hr noshade>
+<center>
+<font size=1 class=arial>
+Comments: <a href="mailto:info@citmgu.ru?Subject='From bottom of CIT FORUM'" class=noneline>info@citmgu.ru</a><br>
+Copyright &copy; <a href="http://www.citmgu.ru/" class=noneline>CIT</a>
+</font></center></body></html>

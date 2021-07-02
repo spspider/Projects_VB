@@ -1,0 +1,418 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB Tutorial -> Часть #2</title>
+</head>
+<style> body {scrollbar-3dlight-color:white; scrollbar-arrow-color:white; scrollbar-base-color:black;scrollbar-darkshadow-color:black;scrollbar-track-color:#000000;scrollbar-highlight-color:black;scrollbar-shadow-color:white}
+a {text-decoration:none;color:white}
+a:hover {text-decoration:underline}
+</style>
+
+
+
+</head>
+
+<body bgcolor="#000000">
+
+<script language = "javascript">
+window.status = "CopyLeft (v) Loginov Vladimir"
+</script>
+
+<left><A Href="index.htm"><img src="logocb.jpg" alt="Мастерская Visual Basic" border="0"></A></left>
+
+<table width="100%" bordercolor="#ffffff" align="center" cellspacing="2" cellpadding="2" border="1">
+<tr>
+<td width="150" align="left" valign="top"><table cellspacing="0" cellpadding="3" border="0">
+<tr>
+<td> <A Href="vb1.htm"><img src="arrow.gif" alt="Часть #1" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb1.htm">Часть #1</a></font></td>
+</tr>
+<tr>
+<td><img src="arrow.gif" alt="Часть #2" border="0"></td>
+<td><font size="3" color="gray" face="Courier New,Arial,Verdana">Часть #2</font></td>
+</tr>
+<tr>
+<td><A Href="vb3.htm"><img src="arrow.gif" alt="Часть #3" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb3.htm">Часть #3</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb4.htm"><img src="arrow.gif" alt="Часть #4" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb4.htm">Часть #4</a></font></td>
+</tr>
+<tr>
+<td><A Href="vb5.htm"><img src="arrow.gif" alt="Часть #5" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb5.htm">Часть #5</a></font></td>
+</tr>
+<td><A Href="vb6.htm"><img src="arrow.gif" alt="Часть #6" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb6.htm">Часть #6</a></font></td>
+<tr>
+<td><A Href="vb7.htm"><img src="arrow.gif" alt="Часть #7" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="vb7.htm">Часть #7</a></font></td>
+<tr>
+<td><A Href="api.htm"><img src="arrow.gif" alt="API" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="api.htm">API</a></font></td>
+<tr>
+<td><A Href="author.htm"><img src="arrow.gif" alt="Автор" border="0"></A></td>
+<td><font size="3" face="Courier New,Arial,Verdana"><a href="author.htm">Автор</a></font></td>
+
+
+
+
+</table>
+</td>
+<td align="left" valign="top">
+<table cellspacing="2" cellpadding="2" border="0" align="left" valign="top">
+<tr>
+<td><font color="#ffffff" size="2" face="Verdana">
+<img src="arrow.gif" alt="Дата" border="0">&nbsp;ты терпелив!<br>Надеюсь ты разобрался с объектами прошлой части, так как сегодня мы будем рассматривать DriveListBox; DirListBox; FileListBox; Image. Вот так они выглядят в VB:
+<br><Img Src="ddfi.gif" Border="0">
+Начнём с первого:<br>
+[DriveListBox] Драйв служит для отображения и выбора доступных дисков компьютера.<br><br>
+[DirListBox] Лист директорий служит для отображения и выбора доступных каталогов компьютера.<br><br>
+[FileListBox] Лист файлов служит для отображения и выбора доступных файлов на дисках и в каталогах.
+<br><img src="arrow.gif" alt="Свойство" border="0"> Pattern: типы файлов для отображения. Например:<br><br>
+<font face="Courier New">File1.Pattern = "*.txt;*.bat;*.cfg"</font>
+<br><br>
+[Image] Изображение является основным средством просмотра графических изображений.
+<br><img src="arrow.gif" alt="Свойство" border="0"> Strech: размер изображения: False - объект подстраивается под размер картинки; True - картинка принимает размер объекта.
+<br><br>
+Давай с изученными объектами замострячим прогу. Это будет просмотрщик графических файлов. Создавай стандартный проект и размещай на ней четыре описанных в этой части объекта + чекбокс с кнопкой. Итак, приступим:
+<br><br><font face="Courier New">Private Sub Form_Load()
+<br>File1.Pattern = "*.bmp;*.jpg;*.jpeg;*.gif;*.wmf" 'Типы файлов, которые будут отображаться в Листе Файлов
+<br>End Sub
+<br>
+<br>Private Sub Dir1_Change()
+<br>On Error Resume Next 'Если возникнет ошибка (а она возникнет) переходим к следующему
+<br>File1.Path = Dir1.Path
+<br>End Sub
+<br>
+<br>Private Sub Drive1_Change()
+<br>On Error Resume Next
+<br>Dir1.Path = Drive1.Drive
+<br>End Sub
+<br>
+<br>Private Sub File1_Click()
+<br>On Error Resume Next
+<br>File1.Path = Dir1.Path
+<br>b = Dir1.Path 'b - Пути к файлам
+<br>If Right(b, 1) = "\" Then 'Если путь заканчивается слэшем то...
+<br>a = Dir1.Path + File1.FileName
+<br>Else 'А если нет тогда
+<br>a = Dir1.Path + "\" + File1.FileName
+<br>End If 'Загружаем картинку из файла с путем [a]
+<br>Image1 = LoadPicture(a)
+<br>End Sub</font>
+<br>
+<br>Я думаю тебя только удивила строчка <font face="Courier New">/On Error Resume Next/</font>. Попробуй без этой строчки выбери недоступный диск (невставленный флопп), ругается? естественно. Вот мы и плавно перешли к отладке.
+<br>{<A Href="viewer.zip">исходный файл</A>}
+<br>
+<br><Img Src="arrow.gif" Border="0">Отладка.
+<br><br><Img Src="arrow.gif" Border="0"> Игнорирование ошибок.
+<br>Мы уже встречались с командой игнорирования ошибок, это команда <font face="Courier New">/On Error Resume Next/</font>. Пример у тебя уже есть.
+<br>
+<br><Img Src="arrow.gif" Border="0"> Перескок ошибок.
+<br>При возникновении ошибоки прога автоматом будет перескакивать на заданную позицию. Делается это командой <font face="Courier New">/On Error GoTo metka/</font>, где <font face="Courier New">/metka/</font> это позиция для перескока. Чтобы ты разобрался давай разберём пример.
+<br>Размести на стандартном проекте Драйв и Лист директорий. Вот и код:
+<font face="Courier New"><br>Private Sub Drive1_Change()
+<br>On Error GoTo metka 'Перескакиваем на метку metka: /:/ обязателно!!!
+<br>Dir1.Path = Drive1.Drive
+<br>MsgBox "Вот и перескочил...", 64, "Перескок"
+<br>metka: ' Вот сюда и будет произведён перескок
+<br>End Sub</font>
+<br>
+<br>С этим, я думаю, всё понятно. Давай изучим Операторы, с Условным оператором ты уже знаком, но всё - же, мы его рассмотрим.
+<br>
+<br><Img Src="arrow.gif" Border="0"> Операторы.
+<br>
+<br>Любая мало-мальски серьёзная программа держиться на операторах (помнишь нашу игру "Угадай число"). В VB операторов четыре, но я пока знаю только три, это:
+<br>- Условный оператор
+<br>- Условный оператор (Select Case)
+<br>- Оператор цикла со счётчиком
+<br>
+<br><Img Src="arrow.gif" Border="0"> Условный оператор.
+<br>Условный оператор является основным оператором. Любые коммерческие (да и доморощенные) проги не обходятся без этого оператора. Общий вид оператора:
+<br>
+<br><font face="Courier New">If условие Then следствие</font>
+<br>или
+<br><br><font face="Courier New">If условие Then 
+<br>следствие1
+<br>следствие2
+<br>следствие...
+<br>Else 'если условие не выполняется, то...
+<br>следствиеX
+<br>End If</font>
+<br>
+<br>Для полного усвоения разберём пример:
+<br>Размести на форме две радиокнопки, чекбокс, и две кнопки. Код:
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>If Option1.Value = True Then MsgBox "Выбрана мышь", 64, "Условие"
+<br>If Option2.Value = True Then
+<br>MsgBox "Выбрана Клавиатура", 64, "Условие"
+<br>Command1.Caption = "Выбирай ещё!"
+<br>End If
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()
+<br>If Check1.Value = 1 Then
+<br>MsgBox "Флажок поставлен", 64, "Условие"
+<br>Else
+<br>MsgBox "Флажок снят", 64, "Условие"
+<br>End If
+<br>End Sub</font>
+<br>
+<br>Ты понял, зачем я повторил про Условный оператор - с конструкцией с Else мы ещё не встречались.
+<br>
+<br>{<A Href="if-then.zip">исходный файл</A>}
+<br>
+<br><Img Src="arrow.gif" Border="0"> Условный оператор (Select Case)
+<br>Оператором Select Case можно заменить стандартный Условный оператор. Выигрыш только в размере кода. Общий вид оператора:
+<br>
+<br><font face="Courier New">Select Case переменная или выражение
+<br>Case условие1
+<br>следствие1
+<br>Case условие2
+<br>следствие2
+<br>...
+<br>Case Else
+<br>End Select</font>
+<br>
+<br>Почти тоже самое, но немного попроще, хотя для меня проще стандартный условный оператор. Пример аналогичен прошлому. Код примера:
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>a = Option1.Value
+<br>Select Case a
+<br>Case True
+<br>MsgBox "Выбрана мышь", 64, "Условие"
+<br>Case False
+<br>MsgBox "Выбрана Клавиатура", 64, "Условие"
+<br>Command1.Caption = "Выбирай ещё!"
+<br>End Select
+<br>End Sub</font>
+<br>
+<br>Тебя должна была удивить переменная, так вот - переменной будет изменяемый объект а условием его значения.
+<br>
+<br>{<A Href="sel-case.zip">исходный файл</A>}
+<br>
+<br><Img Src="arrow.gif" Border="0"> Оператор цикла со счётчиком
+<br>Этот оператор нужен для выполнения одного действия несколько раз. Общий вид оператора:
+<br>
+<br><font face="Courier New">For переменная = начальное значение To конечное значение
+<br>следствие
+<br>Next переменная</font>
+<br>
+<br>Должно быть ясно, что выполнив действие раз, функция <font face="Courier New">/Next/</font> повторяет действие, пока переменная не будет равна конечному значению.
+<br>Сейчас мы разберём пример, в котором на Сообщении будет отображаться количество считанных единиц.
+<br>
+<br>Private Sub Command1_Click()
+<br>For i = 1 To 5
+<br>MsgBox "считано: " & i & "", vbInformation, "Состояние"
+<br>Next i
+<br>End Sub
+<br>
+<br>{<A Href="for-next.zip">исходный файл</A>}
+<br>
+<br><Img Src="arrow.gif" Border="0"> Оператор цикла с условием
+<br>Общий вид оператора:
+<br>
+<br><font face="Courier New">Do
+<br>действие
+<br>Loop</font>
+<br>
+<br>/Loop/ - дословно "Круг", т. е. после выполнения действия, это действие будет повторяться до тех пор, пока не выполниться определённое условие. Чтобы ты полностью разобрался давай замастрячим прогу.
+<br>
+<br><font face="Courier New">Private Sub Form_Load
+<br>Do
+<br>MsgBox "что-бы цикл завершился нажми [Ctrl]+[Pause/Break]",64,"цикл"
+<br>Loop</font>
+<br>
+<br>Теперь разберёмся с главным - условием. Всего их два типа:
+<br><font face="Courier New">- Until переменная=значение</font> (цикл будет повторяться с тех пор, когда переменная не будет равна значению) Запись: <font face="Courier New">Do Until переменная=значение</font>
+<br><font face="Courier New">- While переменная=значение</font> (цикл будет повторяться только тогда, когда переменная будет равна значению) Запись: <font face="Courier New">Do While переменная=значение</font>
+<br>
+<br>Чтобы не запутаться - пользуйся только одним типом, проще всего второй. 
+<br>Что-бы цикл не "зацикливался" есть функция /DoEvents/
+<br>Чтобы ты совсем разобрался давай сделаем прогу. На форме расположи текстовое поле и две кнопки: [Старт] и [Стоп]
+<br>Вот код:
+<br>
+<br><font face="Courier New">Dim a As Long
+<br>
+<br>Private Sub Command1_Click()
+<br>a = 0
+<br>Do While a = 0 'Если a будет равен 0, то...
+<br>DoEvents
+<br>Text1.Text = Val(Text1.Text) + 1 '...к цифровому значению текстового поля прибавляем по единице
+<br>Loop 'Круг
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()
+<br>a = 1 'a будет равно 1, т. е. не равно нулю.
+<br>End Sub</font>
+<br>
+<br>Итак, мы запустили цикл приравняв переменную к значению 0, а остановили приравняв переменную к значению не удавлетворяющее условие цикла (1).
+<br>
+<br>{<A Href="do-loop.zip">исходный файл</A>}
+<br>
+<br><Img Src="arrow.gif" Border="0"> Логические операторы
+<br>Всего Логических операторов четыре, это:
+<br>
+<br>- And (и)
+<br>- Or (или)
+<br>- Xor (или)
+<br>- Not (не)
+<br>
+<br>Я не могу дать точного определения, с этим поможет разобраться небольшая прога.
+<br>Размести на форме три кнопки, а теперь впиши этот код:
+<br>
+<br><font face="Courier New">Dim a, b As String
+<br>
+<br>Private Sub Command1_Click()
+<br>a = "Мышь"
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()
+<br>b = "Клавиатура"
+<br>End Sub
+<br>
+<br>Private Sub Command3_Click()
+<br>If a = "Мышь" Xor b = "Клавиатура" Then MsgBox "Выбрана мышь или клавиатура", 64, "Лог. опер Xor"
+<br>If a = "Мышь" And b = "Клавиатура" Then MsgBox "Выбрана мышь и клавиатура", 64, "Лог. Опер. And"
+<br>If Not a = "Мышь" Then MsgBox "Мышь не выбрана", 64, "Лог. опер. Not"
+<br>End Sub</font>
+<br>
+<br>Вопросы могут начаться с первой срочки - так вот, однотипные переменные можно объявлять через запятую. НО! Только последняя переменная будет как String, а остальные как Variant! Ну а если ты хочешь однотипные переменные объявить в одну строчку, то делается это так:  <font face="Courier New">Dim a As Stirng, b As String</font>
+<br>Теперь перейдём к Логическим операторам.
+<br>Перевожу код на человеческий язык:
+<br>Нажатием первой кнопки мы присваиваем переменной a значение "Мышь"
+<br>Нажатием второй кнопки мы присваиваем переменной b значение "Клавиатура"
+<br>Если переменной a или b присвоено значение, то выскакивае сообщение об этом
+<br>Если и переменной a, и переменнной b присвоены значения, то выскакивает сообщение об этом
+<br>Если переменной a не присвоено значение, то выскакивает сообщение об этом
+<br>
+<br><Img Src="!.gif" Border="0"> Логические операторы Xor и Or идентичны.
+<br>
+<br>{<A Href="log-oper.zip">исходный файл</A>}
+<br>
+<br><Img Src="arrow.gif" Border="0"> Функции
+<br>Функции иногда пригождаются, например когда ты не хочешь писать один и тот же код несколько раз. Для начала нужно просто объявить Функцию, а потом писать её имя в нужных тебе местах. Общий вид функции:
+<br>
+<br><font face="Courier New">Function имя функции()
+<br>код замены
+<br>End Function</font>
+<br>
+<br>Код замены можно вставлять потом там, где он нужен. Полностью разобраться нам поможет пример.
+<br>Размести на форме две кнопки и пиши следущее:
+<br>
+<br><font face="Courier New">Function abc()
+<br>MsgBox "Теперь видно, как мы упростили код", 64, "Функция abc"
+<br>End Function
+<br>
+<br>Private Sub Command1_Click()
+<br>abc
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()
+<br>abc
+<br>End Sub</font>
+<br>
+<br>Мы прописали одну функцию двум кнопкам, т. е. мы упростили код.
+<br>
+<br>{<A Href="functions.zip">исходный файл</A>}
+<br>
+<br><Img Src="arrow.gif" Border="0"> Формы
+<br>С Формами я тебе наказывал разобраться ещё в прошлой части - надеюсь, ты так и сделал. Сегодня я тебя научу добавлять и связывать Формы в проекте.
+<br>Создай новый проект и кликни правой кнопкой мыши в плане проекта, выбери [Добавить] -> [Форма] и у тебя в проекте появится новая Форма. Вторую форму видно не будет, для этого в коде первой Формы по событию [Load] запиши следующий код:
+<br>
+<br><font face="Courier New">Form2.Show</font>
+<br>
+<br>Также можно менять свойства Формы. Размести на каждой Форме по кнопке и впиши в первую следующий код:
+<br>
+<br><font face="Courier New">Form2.Command1.Caption = "Кнопка"</font>
+<br>По нажатию на эту кнопку на кнопке второй формы будет написано "Кнопка". Теперь давай размножим первую форму, для чего в кнопку второй формы напишем код:
+<br>
+<br><font face="Courier New">Dim a As New Form1
+<br>a.Show</font>
+<br>
+<br>То есть мы объявили переменную a как новую форму идентичную первой Форме. Код полностью:
+<br>
+<br>Для первой формы:
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>Form2.Command1.Caption = "Кнопка"
+<br>End Sub
+<br>
+<br>Private Sub Form_Load()
+<br>Form2.Show
+<br>End Sub</font>
+<br>
+<br>Для второй формы:
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>Dim a As New Form1
+<br>a.Show
+<br>End Sub</font>
+<br>
+<br>Если ты так ничего и не понял посмотришь в исходник, но и если это не поможет или ты думаешь, что Visual Basic не для тебя - дольше можешь не читать.
+<br>
+<br>{<A Href="forms.zip">исходный файл</A>}
+<br>
+<br><Img Src="arrow.gif" Border="0"> Операции
+<br>Сразу перечислю наиболее важные и ты сам всё поймёшь:
+<br>
+<br> + (сложение)
+<br> - (вычитание)
+<br> * (умножение)
+<br> / (деление)
+<br> ^ (возведение в степень)
+<br> & (сложение строки со сторкой или числом)
+<br> Sqr (извлечение корня)
+<br>
+<br>Всё итак ясно - давай замастрячим калькулятор.
+<br>На форме размести три текстовых поля, и шесть кнопок с числовыми операциями и одну кнопку для сброса. Вот код:
+<br>
+<br><font face="Courier New">Private Sub Command1_Click()
+<br>On Error Resume Next
+<br>Text3.Text = Val(Text1.Text) + Val(Text2.Text)
+<br>End Sub
+<br>
+<br>Private Sub Command2_Click()
+<br>On Error Resume Next
+<br>Text3.Text = Val(Text1.Text) - Val(Text2.Text)
+<br>End Sub
+<br>
+<br>Private Sub Command3_Click()
+<br>On Error Resume Next
+<br>Text3.Text = Val(Text1.Text) * Val(Text2.Text)
+<br>End Sub
+<br>
+<br>Private Sub Command4_Click()
+<br>On Error Resume Next
+<br>Text3.Text = Val(Text1.Text) / Val(Text2.Text)
+<br>End Sub
+<br>
+<br>Private Sub Command5_Click()
+<br>Text3.Text = "0"
+<br>End Sub
+<br>
+<br>Private Sub Command6_Click()
+<br>On Error Resume Next
+<br>Text3.Text = Val(Text1.Text) ^ Val(Text2.Text)
+<br>End Sub
+<br>
+<br>Private Sub Command7_Click()
+<br>On Error Resume Next
+<br>Text3.Text = Sqr(Text1.Text)
+<br>End Sub </font>
+<br>
+<br>Без комментариев...
+<br>
+<br>{<A Href="kalc.zip">исходный файл</A>}
+<br>
+<br><Img Src="!.gif" Border="0"> Задание: Сделай кнопочный калькулятор с одним текстовым полем.
+<br>
+<br>Если ты всё понял в этой части, значит, я не зря писал этот учебник и вообще учил Visual Basic. Многие кодеры говорят, что VB умирает, но такие как ты только доказывают обратное! Ты можешь смело переходить к <A Href="vb3.htm">следующей части</A>.
+</font></td>   
+</tr>          
+</td>          
+</table>       
+               
+</body>        
+</html>        

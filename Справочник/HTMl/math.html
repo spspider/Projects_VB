@@ -1,0 +1,604 @@
+<!doctype HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link rel="stylesheet" href="feg.css" type="text/css">
+<title><code>Math</code></title></head>
+
+<BODY>
+<TABLE WIDTH="100%" BORDER="0" CELLSPACING="4"><TR><TD VALIGN="TOP">
+<h5><a href="javpkg.html">Назад</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="netscape.html">Вперёд</a></h5></TD></TR><TR>
+<TD><h3>Ядро JavaScript 1.5. Справочник.</h3></TD></TR></TABLE><BR>
+<P><A NAME="Math"></A><h1>Math</h1><p>&nbsp;</p><P><A NAME="1193139"></A><p>
+Встроенный объект, содержащий методы и свойства математических констант и 
+функций. Например, в объекте <code>Math</code> свойство <A HREF="#1193490"><code>PI</code></A> имеет значение pi.</p><p>&nbsp;</p><P>
+<p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1193145"></A><i>Объект ядра</i></TD></TR><TR><TD><P>
+<A NAME="1193149"></A><I>Реализован в</I></TD><TD><P><A NAME="1193151"></A>JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P>
+<A NAME="1201615"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1201617"></A>ECMA-262</TD></TR></TABLE></p><h6><BR>
+<A NAME="1193152"></A><A NAME="Created by"></A>Создание</h6><P><BR>
+<A NAME="1193156"></A>Объект <A HREF="#1193138"><code>Math</code></A> это предопределённый объект 
+верхнего уровня в JavaScript. Вы можете автоматически получать доступ к нему 
+без использования конструктора или вызова метода.<h6><BR><A NAME="1193157"></A><A NAME="Description"></A>
+Описание<A NAME="1193158"></A></h6>
+<p>Все свойства и методы объекта <code>Math</code> 
+являются статическими/static. Вы обращаетесь к константе <code>PI</code> как <code>Math.PI</code> 
+и можете вызывать функцию синуса как <code>Math.sin(x)</code>, где <code>x</code> это аргумент 
+метода. Константы определены с полной точностью вещественных чисел в JavaScript.</p><P>&nbsp;<P>
+<A NAME="1193162"></A>Часто бывает удобно использовать оператор <A HREF="stmt.html#1004910"><code>with</code></A>,
+когда раздел кода использует несколько констант и методов <code>Math</code>, 
+тогда нет необходимости вводить "Math" каждый раз. Например,<P>&nbsp;<P><A NAME="1193163"></A>
+<code>with (<code>Math</code>) {<br>&nbsp;&nbsp;&nbsp;a = <code>PI</code> * r*r<br>&nbsp;&nbsp;&nbsp;y = r*sin(theta)<br>
+&nbsp;&nbsp;&nbsp;x = r*cos(theta)<br>}</code><P><BR><A NAME="1193164"></A><A NAME="Property Summary"></A>
+<h6>Свойства. Резюме.</h6><A NAME="1193226"></A><P><p><BR><P><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR BGCOLOR="#CCCCCC" ALIGN=LEFT VALIGN=TOP><TH VALIGN=TOP ALIGN=LEFT><A NAME="1193167"></A><P ALIGN="center">Свойство</TH>
+<TH VALIGN=TOP ALIGN=LEFT><A NAME="1193169"></A><P ALIGN="center"><h6>Описание</h6></TH></TR><TR>
+<TD><A NAME="1193174"></A><code><A HREF="#1193363">E</A></code></TD><TD><P><A NAME="1193176"></A>
+Константа Эйлера и база натуральных логарифмов, приблизительно 2.718.</TD></TR><TR>
+<TD><A NAME="1216179"></A><code><A HREF="#1216604">LN2</A></code></TD><TD><i></i><P>
+<A NAME="1216181"></A>Натуральный логарифм из 2, приблизительно 0.693.</TD></TR><TR>
+<TD><A NAME="1193181"></A><code><A HREF="#1193389">LN10</A></code></TD><TD><P>
+<A NAME="1193183"></A>Натуральный логарифм из 10, приблизительно 2.302.</TD></TR><TR>
+<TD><A NAME="1216068"></A><code><A HREF="#1193465">LOG2E</A></code></TD><TD><P>
+<A NAME="1216070"></A>С базой 2, логарифм E (приблизительно 1.442).</TD></TR><TR>
+<TD><A NAME="1193195"></A><code><A HREF="#1217093">LOG10E</A></code></TD><TD><P>
+<A NAME="1193197"></A>С базой 10, логарифм E (приблизительно 0.434).</TD></TR><TR>
+<TD><A NAME="1193209"></A><code><A HREF="#1193490"><code>PI</code></A></code></TD><TD><P>
+<A NAME="1193211"></A>Отношение окружности к диаметру, приблизительно 3.14159.</TD></TR><TR>
+<TD><A NAME="1193216"></A><code><A HREF="#1193515">SQRT1_2</A></code></TD><TD><P>
+<A NAME="1193218"></A>Квадратный корень из 1/2; приблизительно 0.707.</TD></TR><TR>
+<TD><A NAME="1193223"></A><code><A HREF="#1193540">SQRT2</A></code></TD><TD><P>
+<A NAME="1193225"></A>Квадратный корень из 2, приблизительно 1.414.</TD></TR></TABLE></p>
+<P><BR>&nbsp;<h6><A NAME="1193227"></A><A NAME="Method Summary"></A>Методы. Резюме.<A NAME="1193359"></A></h6>
+<P>&nbsp;<P><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR BGCOLOR="#CCCCCC" ALIGN=LEFT VALIGN=TOP><TH VALIGN=TOP ALIGN=LEFT><A NAME="1193230"></A>
+<P ALIGN="center">Метод</TH><TH VALIGN=TOP ALIGN=LEFT><A NAME="1193232"></A>
+<P ALIGN="center"><h6>Описание</h6></TH></DIV></TR><TR><TD><A NAME="1193237"></A>
+<code><A HREF="#1195395">abs</A></code></TD><TD><P>
+<A NAME="1193239"></A>Возвращает абсолютное значение числа.</TD></TR><TR>
+<TD><A NAME="1193244"></A><code><A HREF="#1195429">acos</A></code></TD><TD><P>
+<A NAME="1193246"></A>Возвращает арккосинус числа (в радианах).</TD></TR><TR>
+<TD><A NAME="1193251"></A><code><A HREF="#1195485">asin</A></code></TD><TD><P>
+<A NAME="1193253"></A>Возвращает арксинус числа (в радианах).</TD></TR><TR>
+<TD><A NAME="1193258"></A><code><A HREF="#1195541">atan</A></code></TD><TD><P><A NAME="1193260"></A>
+Возвращает арктангенс числа (в радианах).</TD></TR><TR><TD><A NAME="1193265"></A>
+<code><A HREF="#1195597">atan2</A></code></TD><TD><P><A NAME="1193267"></A>
+Возвращает арктангенс частного аргументов.</TD></TR><TR><TD><A NAME="1193272"></A>
+<code><A HREF="#1195654">ceil</A></code></TD><TD><P><A NAME="1193274"></A>
+Возвращает наименьшее целое число, больше или равное данному числу.</TD></TR><TR><TD><A NAME="1193279"></A>
+<code><A HREF="#1195695">cos</A></code></TD><TD><P><A NAME="1193281"></A>Возвращает косинус числа.</TD></TR><TR>
+<TD><A NAME="1193286"></A><code><A HREF="#1196408">exp</A></code></TD><TD><P><A NAME="1193288"></A>
+Возвращает E<SUP>number</SUP>, где <code>number</code> это аргумент, а E константа Эйлера,
+база натуральных логарифмов.</TD></TR><TR><TD><A NAME="1193293"></A><code><A HREF="#1196455">floor</A></code></TD><TD><P>
+<A NAME="1193295"></A>
+Возвращает наибольшее целое, меньше или равное данному числу.</TD></TR><TR><TD><A NAME="1193300"></A>
+<code><A HREF="#1196917">log</A></code></TD><TD><P><A NAME="1193302"></A>
+Возвращает натуральный логарифм (база E) числа.</TD></TR><TR><TD><A NAME="1193307"></A>
+<code><A HREF="#1197362">max</A></code></TD><TD><P><A NAME="1193309"></A>
+Возвращает большее из двух чисел.</TD></TR><TR><TD><A NAME="1193314"></A>
+<code><A HREF="#1197403">min</A></code></TD><TD><P><A NAME="1193316"></A>
+Возвращает меньшее из двух чисел.</TD></TR><TR><TD><A NAME="1193321"></A>
+<code><A HREF="#1197651">pow</A></code></TD><TD><P><A NAME="1193323"></A>
+Возвращает base степени <code>exponent</code>, то есть, <code>base<SUP>exponent</SUP></code>.</TD></TR><TR><TD><A NAME="1193328"></A>
+<code><A HREF="#1197697">random</A></code></TD><TD><P><A NAME="1193330"></A>
+Возвращает псевдослучайное число в диапазоне от 0 до 1.</TD></TR><TR><TD><A NAME="1193335"></A>
+<code><A HREF="#1197725">round</A></code></TD><TD><P><A NAME="1193337"></A>
+Возвращает значение числа, округлённого до ближайшего целого.</TD></TR><TR><TD><A NAME="1193342"></A>
+<code><A HREF="#1197769">sin</A></code></TD><TD><P><A NAME="1193344"></A>Синус числа.</TD></TR><TR>
+<TD><A NAME="1193349"></A><code><A HREF="#1197825">sqrt</A></code></TD><TD><P>
+<A NAME="1193351"></A>Квадратный корень числа.</TD></TR><TR><TD><A NAME="1193356"></A>
+<code><A HREF="#1194346">tan</A></code></TD><TD><P><A NAME="1193358"></A>Тангенс числа.</TD></TR></TABLE>
+<P>&nbsp;<P><A NAME="1205814"></A>Кроме того, этот объект наследует методы <A HREF="object.html#1193628"><code>watch</code></A> 
+и <A HREF="object.html#1193499"><code>unwatch</code></A> из <A HREF="object.html#1193136"><code>Object</code></A>.<P>&nbsp;<P><BR>
+<P><A NAME="1195395"></A><A NAME="abs"></A><h4>abs</h4><hr><P>&nbsp;<P><A NAME="1195412"></A>
+Возвращает абсолютное значение числа.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><P>
+<A NAME="1195398"></A><I>Метод из</I></TD><TD><P><A NAME="1195403"></A><A HREF="#1193138"><code>Math</code></A></TD></TR><TR>
+<TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1195405"></A><I>Static</I></TD></TR><TR><TD><P><A NAME="1195409"></A>
+<I>Реализован в</I>&nbsp;</TD><TD><P><A NAME="1195411"></A>JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P>
+<A NAME="1201648"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1201650"></A>ECMA-262</TD></TR></TABLE></p><P><BR>
+<A NAME="1195413"></A><A NAME="Syntax"></A><h6>Синтаксис</h6><A NAME="1195414"></A><code>abs(<I>x</I>)</code>
+<h6><BR><A NAME="1195415"></A><A NAME="Parameters"></A>Параметр<BR></h6>
+<P><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><A NAME="1195418"></A><code>x</code></TD><TD><P>
+<A NAME="1195420"></A>Число.</TD></TR></TABLE></p><h6><BR><A NAME="1195422"></A><A NAME="Examples"></A>Пример<BR>
+&nbsp;</h6><P><A NAME="1195423"></A>Эта 
+функция возвращает абсолютное значение переменной <code>x</code>:<P>&nbsp;<P><A NAME="1195424"></A>
+<code>function getAbs(x) {<br>&nbsp;&nbsp;&nbsp;return Math.abs(x)<br>}</code><P><BR>
+<A NAME="1195425"></A><A NAME="Description"></A><h6>Описание</h6><p>
+<A NAME="1195426"></A>Поскольку <code>abs</code> это static-метод из <code>Math</code>, 
+Вы всегда используете его так: <code>Math.abs()</code>, а не как метод <code>Math</code>-объекта, 
+созданного Вами.</p><p>&nbsp;</p><P><BR><P><A NAME="1195429"></A><A NAME="acos"></A><h4>acos</h4><hr><P><A NAME="1195446"></A>
+<p>Возвращает арккосинус числа (в радианах).</p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><P>
+<A NAME="1195432"></A><I>Метод из</I>&nbsp;</TD><TD><P><A NAME="1195437"></A>
+<A HREF="#1193138"><code>Math</code></A></TD></TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1195439"></A>
+<I>Static</I></TD></TR><TR><TD><P><A NAME="1195443"></A><I>Реализован в</I></TD><TD><P><A NAME="1195445"></A>
+JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1201669"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1201671"></A>
+ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1195447"></A><A NAME="Syntax"></A><h6>Синтаксис</h6><A NAME="1195448"></A>
+<code>acos(<I>x</I>)</code><P><BR><A NAME="1195449"></A><A NAME="Parameters"></A>
+<h6>Параметр<A NAME="1195455"></A></h6><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR>
+<TD><A NAME="1195452"></A><code>x</code></TD><TD><P><A NAME="1195454"></A>Число.</TD></TR></TABLE></p>
+<P><BR><A NAME="1195456"></A><A NAME="Description"></A><h6>Описание<A NAME="1195457"></A></h6><p>
+Метод <code>acos</code> возвращает числовое значение от 0 до pi радиан. Если значение <code>number</code>
+находится вне этого диапазона, возвращается <code>NaN</code> Not a Number/&quot;не число&quot;).</p><P>
+<A NAME="1195458"></A>Поскольку acos это static-метод из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.acos()</code>, а не как метод <code>Math</code>-объекта, 
+созданного Вами.<P><BR><A NAME="1195459"></A><A NAME="Examples"></A><h6>Примеры<A NAME="1195460"></A></h6><p>&nbsp;</p><p>
+Эта функция возвращает арккосинус переменной <code>x</code>:</p><p>&nbsp;</p><P><A NAME="1195461"></A>
+<code>function getAcos(x) {<br>&nbsp;&nbsp;&nbsp;return Math.acos(x)<br>}</code><P>&nbsp;<P>
+<A NAME="1195462"></A>Если Вы передаёте -1 в <code>getAcos</code>, 
+он возвращает 3.141592653589793; если передаёте 2, возвращает <code>NaN</code>,
+поскольку 2 - вне диапазона.<P><BR><A NAME="1195463"></A><A NAME="See also"></A>
+<h6>См. также<A NAME="1195482"></A></h6><p><A HREF="#1195485"><code>Math.asin</code></A>,
+<A HREF="#1195541"><code>Math.atan</code></A>, <A HREF="#1195597"><code>Math.atan2</code></A>,
+<A HREF="#1195695"><code>Math.cos</code></A>, <A HREF="#1197769"><code>Math.sin</code></A>,
+<A HREF="#1194346"><code>Math.tan</code></A>.</p><p>&nbsp;</p><P><BR><P><A NAME="1195485"></A><A NAME="asin"></A>
+<h4>asin</h4><hr><P>&nbsp;<P>
+<A NAME="1195502"></A>Возвращает арксинус числа (в радианах).<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><P>
+<A NAME="1195488"></A><I>Метод из</I></TD> <TD><P><A NAME="1195493"></A>
+<A HREF="#1193138"><code>Math</code></A></TD></TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1>
+<P><A NAME="1195495"></A><I>Static</I></TD></TR><TR><TD><P><A NAME="1195499"></A>
+<I>Реализован в</I></TD><TD><P><A NAME="1195501"></A>JavaScript 1.0, NES 2.0</TD>
+</TR><TR><TD><P><A NAME="1201682"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1201684"></A>
+ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1195503"></A><A NAME="Syntax"></A><h6>Синтаксис</h6>
+<A NAME="1195504"></A><code>asin(<I>x</I>)</code><P><BR><A NAME="1195505"></A><A NAME="Parameters"></A>
+<h6>Параметр<BR></h6><P><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR>
+<TD><A NAME="1195508"></A><code>x</code></TD><TD><P><A NAME="1195510"></A>Число.</TD></TR></TABLE></p><P><BR><A NAME="1195512"></A>
+<A NAME="Description"></A><h6>Описание<A NAME="1195513"></A></h6>
+<p>Метод <code>asin</code> возвращает числовое значение в диапазоне от -pi/2 до pi/2 радиан. Если
+значение <code>number</code> вне этого диапазона, возвращается <code>NaN</code>.</p><P>&nbsp;<P>
+<A NAME="1195514"></A>Поскольку <code>asin</code> это static-метод из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.asin()</code>, а не как метод <code>Math</code>-объекта, созданного Вами.<P><BR><A NAME="1195515"></A><A NAME="Examples"></A>
+<h6>Примеры</h6><BR><p><A NAME="1195516"></A>Эта функция возвращает арксинус переменной x:</p>
+<p>&nbsp;</p><P><A NAME="1195517"></A><code>function getAsin(x) {<br>
+&nbsp;&nbsp;&nbsp;return Math.asin(x)<br>}</code><P>&nbsp;<P>
+<A NAME="1195518"></A>Если Вы передаёте в <code>getAsin</code> 
+значение 1, он возвращает 1.570796326794897 (pi/2); если Вы передаёте 2, он возвращает <code>NaN</code>,
+поскольку 2 находится вне диапазона.<P><BR><A NAME="1195519"></A><A NAME="See also"></A><h6>См. также</h6>
+<A NAME="1195538"></A><p><A HREF="#1195429"><code>Math</code>.acos</A>,
+<A HREF="#1195541"><code>Math.atan</code></A>, <A HREF="#1195597"><code>Math.atan2</A>,
+<A HREF="#1195695"><code>Math.cos</code></A>, <A HREF="#1197769"><code>Math.sin</code></A>,
+<A HREF="#1194346"><code>Math.tan</code></A>.</p><p>&nbsp;</p><P><BR><P><A NAME="1195541"></A><A NAME="atan"></A>
+<h4>atan</h4><hr><P>&nbsp;<P>
+<A NAME="1195558"></A>Возвращает арктангенс числа (в радианах).<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><P>
+<A NAME="1195544"></A><I>Метод из</I></TD><TD><P><A NAME="1195549"></A>
+<A HREF="#1193138"><code>Math</code></A></TD></TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1195551"></A>
+<I>Static</I></TD></TR><TR><TD><P><A NAME="1195555"></A><I>Реализован в</I>&nbsp;</TD><TD><P><A NAME="1195557"></A>
+JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1201695"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1201697"></A>
+ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1195559"></A><A NAME="Syntax"></A><h6>Синтаксис</h6>
+<A NAME="1195560"></A><code>atan(<I>x</I>)</code><P><BR><A NAME="1195561"></A><A NAME="Parameters"></A>
+<h6>Параметр<A NAME="1195567"></A></h6><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR>
+<TD><A NAME="1195564"></A><code>x</code></TD><TD><P><A NAME="1195566"></A>Число.</TD></TR></TABLE></p><P><BR><A NAME="1195568"></A><A NAME="Description"></A>
+<h6>Описание<A NAME="1195569"></A></h6><p>Метод <code>atan</code> возвращает числовое значение от -pi/2 до pi/2 в радианах.</p><P>
+&nbsp;<P><A NAME="1195570"></A>Поскольку atan это static-метод из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.atan()</code>, а не как метод <code>Math</code>-объекта, 
+созданного Вами.<P><BR><A NAME="1195571"></A><A NAME="Examples"></A><h6>Пример<A NAME="1195572"></A></h6><p>
+Возвращает арктангенс переменной <code>x</code>:</p><p>&nbsp;</p><P><A NAME="1195573"></A>
+<code>function getAtan(x) {<br>&nbsp;&nbsp;&nbsp;return Math.atan(x)<br>}</code><P>&nbsp;<P>
+<A NAME="1195574"></A>Если Вы передаёте в <code>getAtan</code> 
+значение 1, он возвращает 0.7853981633974483; если передаёте .5, оно возвратит 0.4636476090008061.<P><BR><A NAME="1195575"></A><A NAME="See also"></A>
+<h6>См. также</h6>
+<A NAME="1195594"></A><p><A HREF="#1195429"><code>Math.acos</code></A>,
+<A HREF="#1195485"><code>Math.asin</code></A>, <A HREF="#1195597"><code>Math.atan2</code></A>,
+<A HREF="#1195695"><code>Math.cos</code></A>, <A HREF="#1197769"><code>Math.sin</code></A>,
+<A HREF="#1194346"><code>Math.tan</code></A>.</p><p>&nbsp;</p><P><BR><P><A NAME="1195597"></A><A NAME="atan2"></A>
+<h4>atan2</h4><hr><P>&nbsp;<P>
+<A NAME="1195614"></A>Возвращает арктангенс частного своих аргументов.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><P>
+<A NAME="1195600"></A><I>Метод из</I></TD><TD><P><A NAME="1195605"></A>
+<A HREF="#1193138"><code>Math</code></A></TD></TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1195607"></A>
+<I>Static</I></TD></TR><TR><TD><P><A NAME="1195611"></A><I>Реализован в</I></TD><TD><P><A NAME="1195613"></A>
+JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1201757"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1201759"></A>
+ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1195615"></A><A NAME="Syntax"></A><h6>Синтаксис</h6>
+<A NAME="1195616"></A>
+<code>atan2(<I>y</I>, <I>x</I>)</code><P><BR><A NAME="1195617"></A><A NAME="Parameters"></A>
+<h6>Параметр<A NAME="1195623"></A></h6><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR>
+<TD><A NAME="1195620"></A><code>y, x</code></TD><TD><P><A NAME="1195622"></A>Число.</TD></TR></TABLE></p><P><BR><A NAME="1195624"></A><A NAME="Description"></A>
+<h6>Описание<A NAME="1195625"></A></h6><p>Метод <code>atan2</code> возвращает числовое значение в диапазоне от -pi до pi, представляющее угол 
+тета точки (x,y). Это угол в направлении по часовой стрелке, измеренный в радианах, между положительной осью X и точкой (x,y). 
+Обратите внимание, что аргументы этой функции передают сначала y-координату, а затем x-координату.</p>
+<P>&nbsp;<P><A NAME="1195626"></A><code>atan2</code> предаёт раздельно аргументы <code>x</code> 
+и <code>y</code>, а <code>atan</code> передаёт частное этих двух аргументов.<P>&nbsp;<P>
+<A NAME="1195627"></A>Поскольку <code>atan2</code> это static-метод из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.atan2()</code>, а не как метод <code>Math</code>-объекта, 
+созданного Вами.<P><BR><A NAME="1195628"></A><A NAME="Examples"></A><h6>Пример</h6>&nbsp;<p>
+<A NAME="1195629"></A>Следующая функция возвращает угол полярной координаты:</p><p>&nbsp;</p>
+<P><A NAME="1195630"></A>
+<code>function getAtan2(x,y) {<br>&nbsp;&nbsp;&nbsp;return Math.atan2(x,y)<br>}</code><P>&nbsp;<P>
+<A NAME="1195631"></A>Если Вы передаёте в <code>getAtan2</code> 
+значения (90,15), он возвратит 1.4056476493802699; если передаёте (15,90), он 
+возвращает 0.16514867741462683.<P><BR><A NAME="1195632"></A><A NAME="See also"></A><h6>См. также</h6>
+<A NAME="1195651"></A><p><A HREF="#1195429"><code>Math.acos</code></A>,
+<A HREF="#1195485"><code>Math.asin</code></A>, <A HREF="#1195541"><code>Math.atan</code></A>,
+<A HREF="#1195695"><code>Math.cos</code></A>, <A HREF="#1197769"><code>Math.sin</code></A>,
+<A HREF="#1194346"><code>Math.tan</code></A>.</p><p>&nbsp;</p><P><BR><P><A NAME="1195654"></A><A NAME="ceil"></A>
+<h4>ceil</h4><hr><P>&nbsp;<P>
+<A NAME="1195672"></A>Возвращает наименьшее целое, больше или равное данному числу.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1195658"></A><I>Метод из</I></TD><TD><P><A NAME="1195663"></A>
+<A HREF="#1193138"><code>Math</code></A></TD></TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1195665"></A>
+<I>Static</I></TD></TR><TR><TD><P><A NAME="1195669"></A><I>Реализован в</I></TD><TD><P><A NAME="1195671"></A>
+JavaScript 1.0, NES 2.0</TD></TR><TR> <TD><P><A NAME="1201809"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1201811"></A>
+ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1195673"></A><A NAME="Syntax"></A><h6>Синтаксис</h6><A NAME="1195674"></A>
+<code>ceil(<I>x</I>)</code><P><BR><A NAME="1195675"></A><A NAME="Parameters"></A>
+<h6>Параметр<A NAME="1195681"></A></h6><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR>
+<TD><A NAME="1195678"></A><code>x</code></TD><TD><P><A NAME="1195680"></A>Число.</TD></TR></TABLE></p><P><BR><A NAME="1195682"></A><A NAME="Description"></A>
+<h6>Описание<A NAME="1195683"></A></h6><p>Поскольку <code>ceil</code> это static-метод из <code>Math</code>, 
+Вы всегда используете его так: <code>Math.ceil()</code>, а не как метод <code>Math</code>-объекта, созданного Вами.</p>
+<P><BR><A NAME="1195684"></A><A NAME="Examples"></A><h6>Примеры</h6><BR><A NAME="1195685"></A><p>
+Эта функция возвращает наименьшее целое, больше или равное переменной <code>x</code>:</p><p>&nbsp;</p>
+<P><A NAME="1195686"></A><code>function getCeil(x) {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.ceil(x)<br>}</code><P>&nbsp;<P>
+<A NAME="1195687"></A>Если Вы передадите 45.95 в <code>getCeil</code>, 
+он возвратит 46; если -45.95, он возвратит -45.<P><BR><A NAME="1195688"></A><A NAME="See also"></A>
+<h6>См. также</h6>
+<A NAME="1195692"></A><p><A HREF="#1196455"><code>Math.floor</code></A>.</p><p>&nbsp;</p><P><BR><P><A NAME="1195695"></A><A NAME="cos"></A>
+<h4>cos</h4><hr><P>&nbsp;<P><A NAME="1195713"></A>Возвращает 
+косинус числа.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><P><A NAME="1195699"></A>
+<I>Метод из</I></TD><TD><P><A NAME="1195704"></A>
+<A HREF="#1193138"><code>Math</code></A></TD></TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1>
+<P><A NAME="1195706"></A><I>Static</I></TD></TR><TR><TD><P><A NAME="1195710"></A><I>Реализован в</I></TD><TD><P>
+<A NAME="1195712"></A>JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1201822"></A><I>Версия ECMA</I></TD><TD><P>
+<A NAME="1201824"></A>ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1195714"></A><A NAME="Syntax"></A><h6>Синтаксис</h6>
+<A NAME="1195715"></A><code>cos(<I>x</I>)</code><P><BR><A NAME="1195716"></A><A NAME="Parameters"></A>
+<h6>Параметр<A NAME="1195722"></A></h6><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR>
+<TD><A NAME="1195719"></A><code>x</code></TD><TD><P><A NAME="1195721"></A>Число.</TD></TR></TABLE></p><P><BR><A NAME="1195723"></A><A NAME="Description"></A>
+<h6>Описание<A NAME="1195724"></A></h6><p>Метод <code>cos</code> возвращает числовое значение в диапазоне от -1 до 1, представляющее косинус
+угла.</p><P>&nbsp;<P><A NAME="1195725"></A>Поскольку <code>cos</code> это static-метод из <code>Math</code>, 
+Вы всегда используете его так: <code>Math.cos()</code>, а не как метод <code>Math</code>-объекта, 
+созданного Вами.<P><BR><A NAME="1195726"></A><A NAME="Examples"></A><h6>Пример<A NAME="1195727"></A></h6><p>
+Эта функция возвращает косинус переменной <code>x</code>:</p><P><A NAME="1195728"></A>
+<code>function getCos(x) {<br>&nbsp;&nbsp;&nbsp;return Math.cos(x)<br>}</code><P>&nbsp;<P>
+<A NAME="1195729"></A>Если <code>x</code> равен 2*<code>Math.PI</code>, <code>getCos</code> возвращает 1; если <code>x</code>
+равен <code>Math</code>.<code>PI</code>, метод <code>getCos</code> возвращает -1.<P><BR><A NAME="1195730"></A><A NAME="See also"></A>
+<h6>См. также<A NAME="1195746"></A></h6><p><A HREF="#1195429"><code>Math.acos</code></A>,
+<A HREF="#1195485"><code>Math.asin</code></A>, <A HREF="#1195541"><code>Math.atan</code></A>,
+<A HREF="#1195597"><code>Math.atan2</code></A>, <A HREF="#1197769"><code>Math.sin</code></A>,
+<A HREF="#1194346"><code>Math.tan</code></A>.</p><p>&nbsp;</p><P><BR><P><A NAME="1193363"></A><A NAME="E"></A>
+<h4>E</h4><hr><P>&nbsp;<P>
+<A NAME="1193381"></A>Константа Эйлера и база натуральных логарифмов, приблизительно 2.718.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><P><A NAME="1193367"></A>
+<I>Свойство из</I></TD><TD><P><A NAME="1193372"></A><A HREF="#1193138"><code>Math</code></A></TD></TR><TR>
+<TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1193374"></A><I>Static, Read-only\Только-для-</I><i>Чтения</i></TD></TR><TR><TD><P><A NAME="1193378"></A>
+<I>Реализован в</I></TD><TD><P><A NAME="1193380"></A>JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1201892"></A>
+<I>Версия ECMA</I></TD><TD><P><A NAME="1201894"></A>ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1201530"></A><A NAME="Description"></A>
+<h6>Описание<A NAME="1201531"></A></h6><p>Поскольку <code>E</code> это static-свойство из <code>Math</code>, 
+Вы всегда используете его так:<code>Math.E</code>, а не как свойство <code>Math</code>-объекта, созданного Вами.</p>
+<P><BR><A NAME="1193382"></A><A NAME="Examples"></A><h6>Пример<A NAME="1193383"></A></h6><p>
+Эта функция возвращает константу Эйлера:</p><p>&nbsp;</p><P><A NAME="1193384"></A>
+<code>function getEuler() {<br>&nbsp;&nbsp;&nbsp;return Math.E<br>}</code><P><BR><P>&nbsp;<P>
+<A NAME="1196408"></A><A NAME="exp"></A><h4>exp</h4><hr><P>&nbsp;<P><A NAME="1196410"></A>Возвращает E<SUP>x</SUP>, 
+где <code>x</code> это аргумент, а <code>E</code> 
+это константа Эйлера, база натуральных логарифмов.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><P>
+<A NAME="1196413"></A><I>Метод из</I></TD><TD><P><A NAME="1196418"></A><A HREF="#1193138"><code>Math</code></A></TD></TR><TR>
+<TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1196420"></A><I>Static</I></TD></TR><TR><TD><P><A NAME="1196424"></A>
+<I>Реализован в</I></TD><TD><P><A NAME="1196426"></A>JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1201909"></A>
+<I>Версия ECMA</I></TD><TD><P><A NAME="1201911"></A>ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1196427"></A>
+<A NAME="Syntax"></A><h6>Синтаксис</h6>
+<A NAME="1196428"></A><code>exp(x)</code><P><BR><A NAME="1196429"></A><A NAME="Parameters"></A>
+<h6>Параметр<A NAME="1196435"></A></h6><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR>
+<TD><A NAME="1196432"></A><code>x</code></TD><TD><P><A NAME="1196434"></A>Число.</TD></TR></TABLE></p><P><BR><A NAME="1196436"></A><A NAME="Description"></A>
+<h6>Описание<A NAME="1196437"></A></h6>
+<p>Поскольку <code>exp</code> это static-метод из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.exp()</code>, а не как метод <code>Math</code>-объекта, созданного Вами.</p>
+<P><BR><A NAME="1196438"></A><A NAME="Examples"></A><h6>Пример<A NAME="1196439"></A></h6><p>
+Эта функция возвращает экспоненциальное значение переменной <code>x</code>:</p><p>&nbsp;</p><P>
+<A NAME="1196440"></A><code>function getExp(x) {<br>
+&nbsp;&nbsp;&nbsp;return Math.exp(x)<br>}</code><P>&nbsp;<P><A NAME="1196441"></A>Если 
+Вы передаёте в <code>getExp</code> значение 1, он возвращает 2.718281828459045.<P><BR><A NAME="1196442"></A><A NAME="See also"></A>
+<h6>См. также<A NAME="1196452"></A></h6><p><A HREF="#1193363"><code>Math.E</code></A>,
+<A HREF="#1196917"><code>Math.log</code></A>, <A HREF="#1197651"><code>Math.pow</code></A>.</p><p>&nbsp;</p><P>
+<BR><P><A NAME="1196455"></A><A NAME="floor"></A><h4>floor</h4><hr><P>&nbsp;<P>
+<A NAME="1196472"></A>Возвращает наибольшее целое, меньше или равное данному числу.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1196458"></A><I>Метод из</I></TD><TD><P><A NAME="1196463"></A><A HREF="#1193138"><code>Math</code></A></TD>
+</TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1196465"></A><I>Static</I></TD></TR><TR><TD><P><A NAME="1196469"></A>
+<I>Реализован в</I></TD><TD><P><A NAME="1196471"></A>JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1201918"></A>
+<I>Версия ECMA</I></TD><TD><P><A NAME="1201920"></A>ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1196473"></A>
+<A NAME="Syntax"></A><h6>Синтаксис</h6><A NAME="1196474"></A>
+<code>floor(<I>x</I>)</code><P><BR>
+<A NAME="1196475"></A><A NAME="Parameters"></A><h6>Параметр<A NAME="1196481"></A></h6><p>
+<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><A NAME="1196478"></A><code>x</code></TD>
+<TD><P><A NAME="1196480"></A>Число.</TD></TR></TABLE></p><P><BR><A NAME="1196482"></A><A NAME="Description"></A>
+<h6>Описание<A NAME="1196483"></A></h6><p>Поскольку <code>floor</code> это static-метод из <code>Math</code>, 
+Вы всегда используете его так: <code>Math.floor()</code>, а не как метод <code>Math</code>-объекта, созданного Вами.</p>
+<P><BR><A NAME="1196484"></A><A NAME="Examples"></A><h6>Пример<A NAME="1196485"></A></h6><p>Эта 
+функция возвращает <code>floor</code>-значение переменной <code>x</code>:</p><p>&nbsp;</p><P><A NAME="1196486"></A>
+<code>function getFloor(x) {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.floor(x)<br>
+}</code><P>&nbsp;<P>
+<A NAME="1196487"></A>Если Вы передаёте 45.95 в <code>getFloor</code>, он возвращает 45; если передаёте -45.95, он возвращает -46.<P>
+<BR><A NAME="1196488"></A><A NAME="See also"></A><h6>См. также</h6>
+<A NAME="1196492"></A><p><A HREF="#1195654"><code>Math.ceil</code></A>.</p><p>&nbsp;</p><P><BR><P><A NAME="1216604"></A>
+<A NAME="LN2"></A><h4>LN2</h4><hr><P>&nbsp;<P>
+<A NAME="1216625"></A>Натуральный логарифм от 2, приблизительно 0.693.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1216607"></A><I>Свойство из</I></TD><TD><P><A NAME="1216612"></A><A HREF="#1193138"><code>Math</code></A></TD>
+</TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1216614"></A><I>Static, Read-only</I></TD></TR><TR><TD>
+<P><A NAME="1216618"></A><I>Реализовано в</I></TD><TD><P><A NAME="1216620"></A>JavaScript 1.0, NES 2.0</TD></TR>
+<TR><TD><P><A NAME="1216622"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1216624"></A>ECMA-262</TD></TR></TABLE>
+</p><P><BR><A NAME="1216626"></A><A NAME="Examples"></A><h6>Пример<A NAME="1216627"></A></h6><p>
+Эта функция возвращает натуральный логарифм от 2:</p><p>&nbsp;</p><P><A NAME="1216628"></A>
+<code>function getNatLog2() {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.LN2<br>
+}</code><P><BR><A NAME="1216629"></A><A NAME="Description"></A><h6>Описание<A NAME="1216630"></A></h6>
+<p>Поскольку <code>LN2</code> это static-свойство из <code>Math</code>, Вы всегда
+используете его так: <code>Math.LN2</code>, а не как свойство <code>Math</code>-объекта, созданного Вами.</p>
+<p>&nbsp;</p><P><BR><P><A NAME="1193389"></A><A NAME="LN10"></A><h4>LN10</h4><hr><P>&nbsp;<P>
+<A NAME="1193407"></A>Натуральный логарифм от 10, приблизительно 2.302.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1193393"></A><I>Свойство из</I></TD><TD><P><A NAME="1193398"></A><A HREF="#1193138"><code>Math</code></A></TD>
+</TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1193400"></A><I>Static, Только-для-Чтения</I></TD></TR>
+<TR><TD><P><A NAME="1193404"></A><I>Реализовано в</I></TD><TD><P><A NAME="1193406"></A>JavaScript 1.0, NES 2.0</TD>
+</TR><TR><TD><P><A NAME="1201931"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1201933"></A>ECMA-262</TD></TR></TABLE>
+</p><P><BR><A NAME="1193408"></A><A NAME="Examples"></A><h6>Пример<A NAME="1193409"></A></h6><p>Эта 
+функция возвращает натуральный логарифм от 10:</p><p>&nbsp;</p><P><A NAME="1193410"></A>
+<code>function getNatLog10() {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.LN10<br>
+}</code><P><BR><A NAME="1193411"></A><A NAME="Description"></A><h6>Описание<A NAME="1193412"></A></h6><p>
+Поскольку <code>LN10</code> это static-свойство из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.LN10</code>, а не как свойство <code>Math</code>-объекта, созданного Вами.</p>
+<P><BR><P>&nbsp;<P><A NAME="1196917"></A><A NAME="log"></A><h4>log</h4><hr><P>&nbsp;<P>
+<A NAME="1196934"></A>Возвращает натуральный логарифм (база E) числа.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1196920"></A><I>Метод из</I></TD><TD><P><A NAME="1196925"></A>
+<A HREF="#1193138"><code>Math</code></A></TD></TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1196927"></A>
+<I>Static</I></TD></TR><TR><TD><P><A NAME="1196931"></A><I>Реализован в</I></TD><TD><P><A NAME="1196933"></A>
+JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1201993"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1201995"></A>
+ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1196935"></A><A NAME="Syntax"></A><h6>Синтаксис</h6>
+<A NAME="1196936"></A><code>log(<I>x</I>)</code><P><BR><A NAME="1196937"></A><A NAME="Parameters"></A>
+<h6>Параметр</h6><A NAME="1196943"></A><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><A NAME="1196940"></A><code>x</code></TD><TD><P><A NAME="1196942"></A>Число.</TD></TR></TABLE></p>
+<P><BR><A NAME="1196944"></A><A NAME="Description"></A><h6>Описание<A NAME="1205911"></A></h6>
+<p>Если <code>number</code> имеет отрицательное значение, <code>return</code>-значение будет всегда <code>NaN</code>.</p>
+<P>&nbsp;<P><A NAME="1196946"></A>Поскольку <code>log</code> это static-метод из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.log()</code>, а не как метод <code>Math</code>-объекта, созданного Вами.<P>
+<BR><A NAME="1196947"></A><A NAME="Examples"></A><h6>Пример<A NAME="1196948"></A></h6><p>
+Эта функция возвращает натуральный логарифм переменной <code>x</code>:</p><p>&nbsp;</p><P><A NAME="1196949"></A>
+<code>function getLog(x) {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.log(x)<br>
+}</code><P>&nbsp;<P>
+<A NAME="1196950"></A>Если вы передаёте в <code>getLog</code> значение 10, он возвращает 2.302585092994046; если Вы передаёте значение 0, от 
+возвращает <code>-Infinity</code>; если передаёте -1, возвращает <code>NaN</code>, поскольку -1 находится вне диапазона.<P>
+<BR><A NAME="1196951"></A><A NAME="See also"></A><h6>См. также</h6>
+<A NAME="1196958"></A><p><A HREF="#1196408"><code>Math.exp</code></A>,
+<A HREF="#1197651"><code>Math.pow</code></A>.</p><p>&nbsp;</p><P><BR><P><A NAME="1193465"></A><A NAME="LOG2E"></A>
+<h4>LOG2E</h4><hr><P>&nbsp;<P>
+<A NAME="1193482"></A>База 2, логарифм E (приблизительно 1.442).<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1193468"></A><I>Свойство из</I></TD><TD><P><A NAME="1193473"></A><A HREF="#1193138"><code>Math</code></A></TD>
+</TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1193475"></A><I>Static, Только-для-Чтения</I></TD></TR>
+<TR><TD><P><A NAME="1193479"></A><I>Реализован в</I></TD><TD><P><A NAME="1193481"></A>JavaScript 1.0, NES 2.0</TD>
+</TR><TR><TD><P><A NAME="1202007"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1202009"></A>ECMA-262</TD></TR></TABLE>
+</p><P><BR><A NAME="1193483"></A><A NAME="Examples"></A><h6>Пример<A NAME="1193484"></A></h6><p>Эта 
+функция возвращает логарифм Е с базой 2:</p><p>&nbsp;</p><P><A NAME="1193485"></A>
+<code>function getLog2e() {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math.LOG2E</code><br>}</code><P><BR><A NAME="1193486"></A><A NAME="Description"></A>
+<h6>Описание<A NAME="1193487"></A></h6><p>Поскольку <code>LOG2E</code> это static-свойство из <code>Math</code>, 
+Вы всегда используете его так: <code>Math.LOG2E</code>, а не как свойство <code>Math</code>-объекта, созданного Вами.</p>
+<P><BR><P><A NAME="1217093"></A><A NAME="LOG10E"></A><h4>LOG10E</h4><hr><P>&nbsp;<P>
+<A NAME="1217114"></A>База 10, логарифм E (приблизительно 0.434).<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1217096"></A><I>Свойство из</I></TD><TD><P><A NAME="1217101"></A><A HREF="#1193138"><code>Math</code></A></TD>
+</TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1217103"></A><I>Static, Read-only</I></TD></TR><TR><TD>
+<P><A NAME="1217107"></A><I>Реализован в</I></TD><TD><P><A NAME="1217109"></A>JavaScript 1.0, NES 2.0</TD></TR>
+<TR><TD><P><A NAME="1217111"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1217113"></A>ECMA-262</TD></TR></TABLE></p>
+<P><BR><A NAME="1217115"></A><A NAME="Examples"></A><h6>Пример<A NAME="1217116"></A></h6><p>Эта 
+функция возвращает логарифм Е с базой 10:</p><p>&nbsp;</p><P><A NAME="1217117"></A>
+<code>function getLog10e() {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.LOG10E<br>
+}</code><P><BR><A NAME="1217118"></A><A NAME="Description"></A><h6>Описание<A NAME="1217119"></A></h6><p>
+Поскольку <code>LOG10E</code> это static-свойство из <code>Math</code>, Вы всегда используете его так:
+<code>Math.LOG10E</code>, а не как свойство <code>Math</code>-объекта, созданного Вами.</p><p>&nbsp;</p>
+<P><BR><P><A NAME="1197362"></A><A NAME="max"></A><h4>max</h4><hr><P>&nbsp;<P>
+<A NAME="1197380"></A>Возвращает наибольшее из двух чисел.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1197366"></A><I>Метод из</I></TD><TD><P><A NAME="1197371"></A>
+<A HREF="#1193138"><code>Math</code></A></TD></TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1197373"></A>
+<I>Static</I></TD></TR><TR><TD><P><A NAME="1197377"></A><I>Реализован в</I></TD><TD><P><A NAME="1197379"></A>
+JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1202016"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1202018"></A>
+ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1197381"></A><A NAME="Syntax"></A><h6>Синтаксис</h6><A NAME="1197382"></A>
+<code>max(<I>x</I>,<I>y</I>)</code><P><BR><A NAME="1197383"></A><A NAME="Parameters"></A>
+<h6>Параметры</h6><A NAME="1197389"></A><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><A NAME="1197386"></A><code>x, y</code></TD><TD><P><A NAME="1197388"></A>Числа.</TD></TR></TABLE></p>
+<P><BR><A NAME="1197390"></A><A NAME="Description"></A><h6>Описание<A NAME="1197391"></A></h6>
+<p>Поскольку <code>max</code> это static-метод из <code>Math</code>,
+Вы всегда используете его так: <code>Math.max()</code>, а не как метод <code>Math</code>-объекта, созданного Вами.</p>
+<P><BR><A NAME="1197392"></A><A NAME="Examples"></A><h6>Пример<A NAME="1197393"></A></h6><p>
+Эта функция вычисляет переменные <code>x</code> и <code>y</code>:</p><p>&nbsp;</p><P><A NAME="1197394"></A>
+<code>function getMax(x,y) {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.max(x,y)<br>
+}</code><P>&nbsp;<P><A NAME="1197395"></A>Если Вы передаёте в <code>getMax</code>
+значения 10 и 20, он возвращает 20; если передаёте значения -10 и -20, возвратит -10.<P><BR><A NAME="1197396"></A>
+<A NAME="See also"></A><h6>См. также</h6>
+<A NAME="1197400"></A><p><A HREF="#1197403"><code>Math.min</code></A>.</p><p>&nbsp;</p><P><BR><P>
+<A NAME="1197403"></A><A NAME="min"></A><h4>min</h4><hr><P>&nbsp;<P><A NAME="1197420"></A>Возвращает 
+наименьшее из двух чисел.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><P><A NAME="1197406"></A>
+<I>Метод из</I></TD><TD><P><A NAME="1197411"></A><A HREF="#1193138"><code>Math</code></A></TD></TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1>
+<P><A NAME="1197413"></A><I>Static</I></TD></TR><TR><TD><P><A NAME="1197417"></A><I>Реализован в</I></TD><TD>
+<P><A NAME="1197419"></A>JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1202118"></A><I>Версия ECMA</I></TD>
+<TD><P><A NAME="1202120"></A>ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1197421"></A><A NAME="Syntax"></A>
+<h6>Синтаксис</h6><A NAME="1197422"></A>
+<code>min(<I>x</I>,<I>y</I>)</code><P><BR><A NAME="1197423"></A><A NAME="Parameters"></A>
+<h6>Параметры<A NAME="1197429"></A></h6><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><A NAME="1197426"></A><code>x, y</code></TD><TD><P><A NAME="1197428"></A>Числа.</TD></TR></TABLE></p>
+<P><BR><A NAME="1197430"></A><A NAME="Description"></A><h6>Описание<A NAME="1197431"></A></h6><p>
+Поскольку <code>min</code> это static-метод из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.min()</code>, а не как метод <code>Math</code>-объекта, созданного Вами.</p>
+<P><BR><A NAME="1197432"></A><A NAME="Examples"></A><h6>Пример<A NAME="1197433"></A></h6>
+<p>Эта функция вычисляет переменные <code>x</code> и <code>y</code>:</p><p>&nbsp;</p><P><A NAME="1197434"></A>
+<code>function getMin(x,y) {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.min(x,y)<br>
+}</code><P>&nbsp;<P>
+<A NAME="1197435"></A>Если Вы передаёте в <code>getMin</code>
+значения 10 и 20, он возвратит 10; если передаёте значения -10 и -20, он возвратит -20.<P>
+<BR><A NAME="1197436"></A><A NAME="See also"></A><h6>См. также</h6>
+<A NAME="1197440"></A><p><A HREF="#1197362"><code>Math.max</code></A>.</p><p>&nbsp;</p><P><BR><P><A NAME="1193490"></A>
+<A NAME="<code>PI</code>"></A><h4>PI</h4><hr><P><A NAME="1193491"></A><p>
+Отношение длины окружности к её диаметру, приблизительно 3.14159.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1193494"></A><I>Свойство из</I></TD><TD><P><A NAME="1193499"></A><A HREF="#1193138"><code>Math</code></A></TD>
+</TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1193501"></A><I>Static, Read-only</I></TD></TR><TR><TD>
+<P><A NAME="1193505"></A><I>Реализовано в</I></TD><TD><P><A NAME="1199147"></A>JavaScript 1.0, NES 2.0</TD></TR>
+<TR><TD><P><A NAME="1202151"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1202153"></A>ECMA-262</TD></TR></TABLE></p>
+<P><BR><A NAME="1193508"></A><A NAME="Examples"></A><h6>Примеры<A NAME="1193509"></A></h6><p>
+Эта функция возвращает значение <code>pi</code>:</p><p>&nbsp;</p><P><A NAME="1193510"></A>
+<code>function getPi() {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.<code>PI</code><br>
+}</code><P><BR><A NAME="1193511"></A><A NAME="Description"></A><h6>Описание<A NAME="1193512"></A></h6><p>
+Поскольку <code>PI</code> это static-метод из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.PI</code>, а не как свойство <code>Math</code>-объекта, созданного Вами.</p><p>&nbsp;</p>
+<P><BR><P><A NAME="1197651"></A><A NAME="pow"></A><h4>pow</h4><hr><P>&nbsp;<P>
+<A NAME="1197668"></A>Возвращает <code>base</code> для степени <code>exponent</code>, то 
+есть, <code>base<SUP>exponent</SUP></code>.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1197654"></A><I>Метод из</I></TD><TD><P><A NAME="1197659"></A><A HREF="#1193138"><code>Math</code></A></TD>
+</TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1197661"></A><I>Static</I></TD></TR><TR><TD><P><A NAME="1197665"></A>
+<I>Реализован в</I></TD><TD><P><A NAME="1197667"></A>JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1202180"></A>
+<I>Версия ECMA</I></TD><TD><P><A NAME="1202182"></A>ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1197669"></A>
+<A NAME="Syntax"></A><h6>Синтаксис</h6><A NAME="1197670"></A><code>pow(<I>x</I>,<I>y</I>)</code><P><BR>
+<A NAME="1197671"></A><A NAME="Parameters"></A><h6>Параметры<A NAME="1197681"></A></h6><p>
+<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><A NAME="1197674"></A>
+<code>base</code></TD><TD><P><A NAME="1197676"></A>Число базы.</TD></TR><TR><TD><A NAME="1197678"></A>
+<code>exponent</code></TD><TD><P><A NAME="1197680"></A>Экспонента, на которую увеличивается <code>base</code>.</TD>
+</TR></TABLE></p><P><BR><A NAME="1197682"></A><A NAME="Description"></A><h6>Описание</h6>
+<p>Поскольку <code>pow</code> это static-метод из <code>Math</code>, 
+Вы всегда используете его так: <code>Math.pow()</code>, а не как метод <code>Math</code>-объекта, созданного Вами.</p>
+<P><BR><A NAME="1197684"></A><A NAME="Examples"></A><h6>Примеры</h6><BR><A NAME="1197685"></A>
+<code>function raisePower(x,y) {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.pow(x,y)<br>
+}</code><P>&nbsp;<P>
+<A NAME="1197686"></A>Если <code>x</code> равен 7 и <code>y</code> равен 2, <code>raisePower</code>
+возвратит 49 (7 в степени 2).<P>&nbsp;<P><BR><A NAME="1197687"></A><A NAME="See also"></A>
+<h6>См. также<A NAME="1197694"></A></h6><p><A HREF="#1196408"><code>Math.exp</code></A>,
+<A HREF="#1196917"><code>Math.log</code></A>.</p><p>&nbsp;</p><P><BR><P><A NAME="1197697"></A><A NAME="random"></A>
+<h4>random</h4><hr><P>&nbsp;<P>
+<A NAME="1197698"></A>Возвращает псевдослучайное число в диапазоне от 0 до 1. Генератор случайных 
+чисел работает от текущего времени, как в Java.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1197701"></A><I>Метод из</I></TD><TD><P><A NAME="1197706"></A><A HREF="#1193138"><code>Math</code></A></TD>
+</TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1197708"></A><I>Static</I></TD></TR><TR><TD><P><A NAME="1197712"></A>
+<I>Реализован в</I></TD><TD><P><A NAME="1197714"></A>JavaScript 1.0, NES 2.0: только Unix.<P><A NAME="1199337"></A>
+<P><A NAME="1199338"></A>JavaScript 1.1, NES 2.0: все платформы.</TD></TR><TR><TD><P><A NAME="1202205"></A>
+<I>Версия ECMA</I></TD><TD><P><A NAME="1202207"></A>ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1197715"></A>
+<A NAME="Syntax"></A><h6>Синтаксис</h6><A NAME="1197716"></A><code>random()</code><P><BR><A NAME="1197717"></A><A NAME="Parameters"></A>
+<h6>Параметры<A NAME="1197718"></A></h6><p>Отсутствуют.</p><P><BR><A NAME="1197719"></A><A NAME="Description"></A>
+<h6>Описание<A NAME="1197720"></A></h6><p>Поскольку <code>random</code> это static-метод 
+из <code>Math</code>, Вы всегда используете его так: <code>Math.random()</code>, а не как метод 
+<code>Math</code>-объекта, созданного Вами.</p><P><BR><A NAME="1197721"></A><A NAME="Examples"></A><h6>Пример</h6>
+<A NAME="1197722"></A><code>//Возвращает случайное число в диапазоне от 0 до 1</code><p>
+<code><br>function getRandom() {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.random()<br>
+}</code></p><p>&nbsp;</p><P><BR><P><A NAME="1197725"></A><A NAME="round"></A><h4>round</h4><hr><P>&nbsp;<P>
+<A NAME="1197742"></A>Возвращает число, округлённое до ближайшего целого.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1197728"></A><I>Метод из</I></TD><TD><P><A NAME="1197733"></A><A HREF="#1193138"><code>Math</code></A></TD>
+</TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1197735"></A><I>Static</I></TD></TR><TR><TD><P><A NAME="1197739"></A>
+<I>Реализован в</I></TD><TD><P><A NAME="1197741"></A>JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1202226"></A>
+<I>Версия ECMA</I></TD><TD><P><A NAME="1202228"></A>ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1197743"></A>
+<A NAME="Syntax"></A><h6>Синтаксис</h6><A NAME="1197744"></A><code>round(<I>x</I>)</code><P><BR><A NAME="1197745"></A><A NAME="Parameters"></A>
+<h6>Параметр</h6><A NAME="1197751"></A><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR>
+<TD><A NAME="1197748"></A><code>x</code></TD><TD><P><A NAME="1197750"></A>Число.</TD></TR></TABLE></p><P><BR>
+<A NAME="1197752"></A><A NAME="Description"></A><h6>Описание<A NAME="1197753"></A></h6><p>
+Если дробная часть числа составляет .5 или больше, аргумент округляется до 
+ближайшего целого в сторону увеличения. Если дробная часть числа меньше .5, аргумент округляется до ближайшего целого в сторону уменьшения.</p><P>&nbsp;<P>
+<A NAME="1197754"></A>Поскольку <code>round</code> это static-метод из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.round()</code>, а не как метод <code>Math</code>-объекта, созданного Вами.<P>
+<BR><A NAME="1197755"></A><A NAME="Examples"></A><h6>Примеры</h6><BR><A NAME="1198138"></A>
+<code>//Возвращает 20<br>
+x=<code>Math</code>.round(20.49)</code><p>&nbsp;</p>
+<P><A NAME="1197757"></A>
+<code>//</code><code>Возвращает</code><code> 21<br>
+x=<code>Math</code>.round(20.5)</code><P>&nbsp;<P><A NAME="1197758"></A>
+<code>//</code><code>Возвращает</code><code> -20<br>
+x=<code>Math</code>.round(-20.5)</code><P>&nbsp;<P><A NAME="1197759"></A>
+<code>//</code><code>Возвращает</code><code> -21<br>
+x=<code>Math</code>.round(-20.51)</code><P>&nbsp;<P><BR>
+<P><A NAME="1197769"></A><A NAME="sin"></A><h4>sin</h4><hr><P>&nbsp;<P><A NAME="1197786"></A>Возвращает 
+синус числа.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><P><A NAME="1197772"></A>
+<I>Метод из</I></TD><TD><P><A NAME="1197777"></A><A HREF="#1193138"><code>Math</code></A></TD></TR><TR>
+<TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1197779"></A><I>Static</I></TD></TR><TR><TD><P><A NAME="1197783"></A>
+<I>Реализован в</I></TD><TD><P><A NAME="1197785"></A>JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1202243"></A>
+<I>Версия ECMA</I></TD><TD><P><A NAME="1202245"></A>ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1197787"></A>
+<A NAME="Syntax"></A><h6>Синтаксис</h6><A NAME="1197788"></A><code>sin(<I>x</I>)</code><P><BR>
+<A NAME="1197789"></A><A NAME="Parameters"></A>
+<h6>Параметр</h6><A NAME="1197795"></A><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR>
+<TD><A NAME="1197792"></A><code>x</code></TD><TD><P><A NAME="1197794"></A>Число.</TD></TR></TABLE></p><P><BR>
+<A NAME="1197796"></A><A NAME="Description"></A><h6>Описание<A NAME="1197797"></A></h6>
+<p>Метод <code>sin</code> возвращает число в диапазоне от -1 до 1, представляющее синус аргумента.</p><P>&nbsp;<P>
+<A NAME="1197798"></A>Поскольку <code>sin</code> это static-метод из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.sin()</code>, а не как метод <code>Math</code>-объекта, созданного Вами.<P>
+<BR><A NAME="1197799"></A><A NAME="Examples"></A><h6>Примеры<A NAME="1197800"></A></h6><p>
+Эта функция возвращает синус переменной <code>x</code>:</p><p>&nbsp;</p><P><A NAME="1197801"></A>
+<code>function getSine(x) {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.sin(x)<br>
+}</code><P>&nbsp;<P><A NAME="1197802"></A>Если Вы передаёте в <code>getSine</code>
+значение <code>Math.PI/2</code>, он возвратит 1.<P><BR><A NAME="1197803"></A><A NAME="See also"></A>
+<h6>См. также<A NAME="1197819"></A></h6><p><A HREF="#1195429"><code>Math.acos</code></A>,
+<A HREF="#1195485"><code>Math.asin</code></A>, <A HREF="#1195541"><code>Math.atan</code></A>,
+<A HREF="#1195597"><code>Math.atan2</code></A>, <A HREF="#1195695"><code>Math.cos</code></A>,
+<A HREF="#1194346"><code>Math.tan</code></A>.</p><p>&nbsp;</p><P><BR><P><A NAME="1197825"></A><A NAME="sqrt"></A>
+<h4>sqrt</h4><hr><P>&nbsp;<P>
+<A NAME="1197843"></A>Возвращает квадратный корень числа.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1197829"></A><I>Метод из</I></TD><TD><P><A NAME="1197834"></A>
+<A HREF="#1193138"><code>Math</code></A></TD></TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1197836"></A>
+<I>Static</I></TD></TR><TR><TD><P><A NAME="1197840"></A><I>Реализован в</I></TD><TD><P><A NAME="1197842"></A>
+JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1202260"></A><I>Версия ECMA</I></TD><TD><P>
+<A NAME="1202262"></A>ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1197844"></A><A NAME="Syntax"></A>
+<h6>Синтаксис</h6><A NAME="1197845"></A><code>sqrt(<I>x</I>)</code><P><BR><A NAME="1197846"></A><A NAME="Parameters"></A>
+<h6>Параметр<A NAME="1197852"></A></h6><p><TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><A NAME="1197849"></A><code>x</code></TD><TD><P><A NAME="1197851"></A>Число.</TD></TR></TABLE></p>
+<P><BR><A NAME="1197853"></A><A NAME="Description"></A><h6>Описание<A NAME="1197854"></A></h6><p>
+Если <code>number</code> это отрицательное значение, <code>sqrt</code> возвращает <code>NaN</code>.</p><P>&nbsp;<P>
+<A NAME="1197855"></A>Поскольку <code>sqrt</code> это static-метод из <code>Math</code>, 
+Вы всегда используете его так: <code>Math.sqrt()</code>, а не как метод <code>Math</code>-объекта, созданного Вами.<P>
+<BR><A NAME="1197856"></A><A NAME="Examples"></A><h6>Примеры<A NAME="1197857"></A></h6><p>
+Эта функция возвращает квадратный корень переменной <code>x</code>:</p><p>&nbsp;</p><P><A NAME="1197858"></A>
+<code>function getRoot(x) {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.sqrt(x)<br>
+}</code><P>&nbsp;<P>
+<A NAME="1197859"></A>Если Вы передаёте в <code>getRoot</code>
+значение 9, он возвращает 3; если передаёте 2, возвращает 1.414213562373095.<P><BR><P>&nbsp;<P><A NAME="1193515"></A><A NAME="SQRT1_2"></A>
+<h4>SQRT1_2</h4><hr><P>&nbsp;<P>
+<A NAME="1193516"></A>Квадратный корень из 1/2, приблизительно 0.707.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1193519"></A><I>Свойство из</I></TD><TD><P><A NAME="1193524"></A><A HREF="#1193138"><code>Math</code></A></TD>
+</TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1193526"></A><I>Static, Read-only</I></TD></TR><TR><TD>
+<P><A NAME="1193530"></A><I>Реализовано в</I></TD><TD><P><A NAME="1193532"></A>JavaScript 1.0, NES 2.0</TD></TR>
+<TR><TD><P><A NAME="1202273"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1202275"></A>ECMA-262</TD></TR></TABLE></p>
+<P><BR><A NAME="1193533"></A><A NAME="Examples"></A><h6>Пример<A NAME="1193534"></A></h6><p>
+Эта функция возвращает 1, делённая на квадратный корень из 2:</p><p>&nbsp;</p><P><A NAME="1193535"></A>
+<code>function getRoot1_2() {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.SQRT1_2<br>
+}</code><P><BR><A NAME="1193536"></A><A NAME="Description"></A><h6>Описание<A NAME="1193537"></A></h6>
+<p>Поскольку <code>SQRT1_2</code> это static-свойство из <code>Math</code>, 
+Вы всегда используете его так: <code>Math.SQRT1_2</code>, а не как свойство <code>Math</code>-объекта, 
+созданного Вами.</p><p>&nbsp;</p><P><BR><P><A NAME="1193540"></A><A NAME="SQRT2"></A><h4>SQRT2</h4><hr><P>&nbsp;<P>
+<A NAME="1193557"></A>Квадратный корень из 2, приблизительно 1.414.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1193543"></A><I>Свойство из</I></TD><TD><P><A NAME="1193548"></A><A HREF="#1193138"><code>Math</code></A></TD>
+</TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1193550"></A><I>Static, Read-only</I></TD></TR><TR>
+<TD><P><A NAME="1193554"></A><I>Реализовано в</I></TD><TD><P><A NAME="1193556"></A>JavaScript 1.0, NES 2.0</TD>
+</TR><TR><TD><P><A NAME="1202282"></A><I>Версия ECMA</I></TD><TD><P><A NAME="1202284"></A>ECMA-262</TD></TR></TABLE>
+</p><P><BR><A NAME="1193558"></A><A NAME="Examples"></A><h6>Примеры<A NAME="1193559"></A></h6>
+<p>Эта функция возвращает квадратный корень из 2:</p><p>&nbsp;</p><P><A NAME="1193560"></A>
+<code>function getRoot2() {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.SQRT2<br>
+}</code><P><BR><A NAME="1193561"></A><A NAME="Description"></A><h6>Описание<A NAME="1193562"></A></h6><p>
+Поскольку <code>SQRT2</code> это static-свойство из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.SQRT2</code>, а не как свойство <code>Math</code>-объекта, созданного Вами.</p><p>&nbsp;</p><P>
+<BR><P><A NAME="1194346"></A><A NAME="tan"></A><h4>tan</h4><hr><P>&nbsp;<P>
+<A NAME="1194363"></A>Возвращает тангенс числа.<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0">
+<TR><TD><P><A NAME="1194349"></A><I>Метод из</I></TD><TD><P><A NAME="1194354"></A><A HREF="#1193138"><code>Math</code></A></TD>
+</TR><TR><TD VALIGN=TOP COLSPAN=2 ROWSPAN=1><P><A NAME="1194356"></A><I>Static</I></TD></TR><TR><TD><P><A NAME="1194360"></A>
+<I>Реализован в</I></TD><TD><P><A NAME="1194362"></A>JavaScript 1.0, NES 2.0</TD></TR><TR><TD><P><A NAME="1202291"></A>
+<I>Версия ECMA</I></TD><TD><P><A NAME="1202293"></A>ECMA-262</TD></TR></TABLE></p><P><BR><A NAME="1194364"></A>
+<A NAME="Syntax"></A><h6>Синтаксис</h6><A NAME="1194365"></A><code>tan(<I>x</I>)</code><P><BR>
+<A NAME="1194366"></A><A NAME="Parameters"></A><h6>Параметр<A NAME="1194372"></A><BR></h6><P>
+<TABLE WIDTH="90%" BORDER="1" CELLPADDING="5" CELLSPACING="0"><TR><TD><A NAME="1194369"></A>
+<code>x</code></TD><TD><P><A NAME="1194371"></A>Число.</TD></TR></TABLE></p><P><BR><A NAME="1194373"></A>
+<A NAME="Description"></A><h6>Описание<A NAME="1194374"></A></h6><p>
+Метод <code>tan</code> возвращает числовое значение, представляющее тангенс угла.</p><P>&nbsp;<P>
+<A NAME="1194375"></A>Поскольку <code>tan</code> это static-метод из <code>Math</code>, Вы всегда 
+используете его так: <code>Math.tan()</code>, а не как метод <code>Math</code>-объекта, созданного Вами.<P><BR>
+<A NAME="1194376"></A><A NAME="Examples"></A><h6>Пример<A NAME="1194377"></A></h6><p>
+Эта функция возвращает тангенс переменной <code>x</code>:</p><p>&nbsp;</p><P><A NAME="1194378"></A>
+<code>function getTan(x) {<br>
+&nbsp;&nbsp;&nbsp;return <code>Math</code>.tan(x)<br>
+}</code><P><BR><A NAME="1194380"></A><A NAME="See also"></A><h6>См. также</h6>
+<A NAME="1194396"></A><p><A HREF="#1195429"><code>Math.acos</code></A>,
+<A HREF="#1195485"><code>Math.asin</code></A>, <A HREF="#1195541"><code>Math.atan</code></A>,
+<A HREF="#1195597"><code>Math.atan2</code></A>, <A HREF="#1195695"><code>Math.cos</code></A>,
+<A HREF="#1197769"><code>Math.sin</code></A>.</p><p>&nbsp;</p><P>&nbsp;<P>
+   
+<h5><a href="javpkg.html">Назад</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="netscape.html">Вперёд</a></h5><HR NOSHADE SIZE="1">
+<p><font face="Arial, Helvetica, sans-serif" SIZE="1">
+Copyright © 2000 <a href="http://www.netscape.com">Netscape Communications Corp.</a> 
+Все права зарезервированы.</FONT></p>
+<P ALIGN="RIGHT"><font face="Arial, Helvetica, sans-serif" SIZE="1">
+Дата последнего обновления: 28 сентября 2000 г.</FONT></p>
+</BODY>
+</HTML>

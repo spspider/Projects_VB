@@ -1,0 +1,99 @@
+<html>
+<head>
+
+
+<TITLE>Первые шаги - Ступенька двадцать седьмая, учимся создавать фреймы.</TITLE>    
+<META HTTP-EQUIV="Content-Type" Content="text/html; Charset=Windows-1251">
+<META Name="copyright" Content="Алленова Наталья">
+<META NAME="author" CONTENT="Алленова Наталья Email: seagull@pisem.net"><META NAME="keywords" CONTENT="графика, хтмл, для, начинающий, начинающих, чайников, новичков, просто, основа, основы, страница, домашний, домашняя, сайт, новый, новичок, html, обучение, учеба, пример, веб, мастер, веб-мастер, дизайн, веб-дизайн, вебдизайн, дезайн, веб-дезайн, вебдезайн, дезайнер, дизайнер, ступени, тэги, тэг, теги, тег, аттрибут, атрибуты, парамет, design, web, help, помощь, icq, e-mail, guest, book, guestbook, гостевая, книга, форум, аська, контакт, ссылка, link, links, banner, обмен, баннер, баннерами, банер, baner, друзья, friends, почитать, написать, вопросы, вопрос, ответ, проект, ступени, словарь"> <META NAME="description" CONTENT="Основы хтмл (html) для чайников. Просто, доступно. Создайте свою домашнюю страничку своими руками и без хтмл (html) редакторов. Что может быть проще? Также вы здесь найдете полезные ссылки для вашего сайта, но это уже не главное...">
+
+
+
+</head>
+<body bgcolor="#ffffff" link="#000000" alink="#000000" vlink="#000000">
+
+
+<table>
+
+	<tr>
+	<td width="600">
+<font face="times new roman"><hr noshade size="1">
+<a href="index.html">Главная</a> | <a href="content2.html">Оглавление</a> | <a href="alltags2.html">Словарь</a><hr noshade size="1"><p align="JUSTIFY">
+В этой главе мы разберемся, как расположить документы в окне следующим образом:
+<br><br>
+<img src="logomenucontent2.gif"  border="0" align="center"> или <img src="logomenucontent4.gif"  border="0" align="center">
+<br><br>
+В предыдущей главе я сказала, что мы можем делить окно только на ряды или колонки. Тогда как же расположить наши документы в окне так, как указано на рисунках? А разве я говорила, что ряд в свою очередь нельзя разбить на несколько колонок, а колонку на несколько рядов? Нет, не говорила :Ъ.
+<br><br>
+Начнем с первого рисунка:
+<br><br>
+<img src="logomenucontent2.gif"  border="0">
+<br><br>
+Каким образом мы будем делить окно? - На ряды. В первом ряду у нас будет располагаться logo.html, а второй ряд мы поделим на две колонки, в которых будут располагаться документы menu.html и content.html.  
+</p></font>
+<img src="step4.gif" align="left" width="20" height="150">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Хождение по фреймам&lt;/title&gt;<br>
+&lt;frameset rows="100,*"&gt;<br>
+&lt;frame src="logo.html"&gt;<br>
+&lt;<b>???</b>&gt;<br>
+&lt;/frameset&gt;<br>
+&lt;/head&gt;<br>
+&lt;/html&gt;</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Принцип построения ясен, только вот как обозначить ряд, разбитый на две колонки? Тут нам поможет господин Frameset.
+</p></font>
+<img src="step4.gif" align="left" width="20" height="230">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Хождение по фреймам&lt;/title&gt;<br>
+&lt;frameset rows="100,*"&gt;<br><br>
+&lt;frame src="logo.html"&gt;<br>
+<b>&lt;frameset cols="150,*"&gt;<br>
+&lt;frame src="menu.html"&gt;<br>
+&lt;frame src="content.html"&gt;<br>
+&lt;/frameset&gt;</b><br><br>
+&lt;/frameset&gt;<br>
+&lt;/head&gt;<br>
+&lt;/html&gt; (<a href="primtoframez5.html" target="_blank">прим.</a>)</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Для тех, кто не уследил за движениями моих рук, поясняю. Первый ряд мы оформили как положено, при помощи тэга frame. Во втором ряду на сцену выгодит тэг &lt;frameset&gt;&lt;/frameset&gt;.  
+<br><br>
+С помощью параметра cols тэга &lt;frameset&gt;&lt;/frameset&gt; мы делим второй ряд на две колонки (первая шириной 150 пикселов, вторая по ширине занимает все оставшееся пространство). А тэги &lt;frame&gt;, которые содержит &lt;frameset&gt;&lt;/frameset&gt; определяют какие документы будут показаны в колонках (menu.html и content.html).
+<br><br>
+Теперь разберем вариант, изображенный на втором рисунке:
+<br><br>
+<img src="logomenucontent4.gif"  border="0">
+<br><br>
+Здесь мы будем делить окно на колонки. Вторая колонка будет содержать в себе документ content.html (содержание), а первую колонку мы разобьем на два ряда, и поместим в них документы logo.html и menu.html.
+</p></font>
+<img src="step4.gif" align="left" width="20" height="230">
+<tt>&lt;html&gt;<br>
+&lt;head&gt;<br>
+&lt;title&gt;Хождение по фреймам&lt;/title&gt;<br>
+&lt;frameset cols="100,*"&gt;<br><br>
+&lt;frameset rows="100,*"&gt;<br>
+&lt;frame src="logo.html"&gt;<br>
+&lt;frame src="menu.html"&gt;<br>
+&lt;/frameset&gt;<br>
+&lt;frame src="content.html"&gt;<br><br>
+&lt;/frameset&gt;<br>
+&lt;/head&gt;<br>
+&lt;/html&gt; (<a href="primtoframez6.html" target="_blank">прим.</a>)</tt> 
+<br><br><p align="JUSTIFY"><font face="times new roman">
+Вот так. Ничего сложного здесь нет:)
+
+</p>
+<center><a href="26step2.html">Назад</a> | <a href="28step2.html">Шагнуть на следующую ступеньку</a></center>
+</font>
+
+
+</td>
+
+	</tr>
+ </table>
+
+
+</body>
+</html>

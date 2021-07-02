@@ -1,0 +1,7 @@
+frmGame = 0, 0, 0, 0, C, 44, 58, 631, 500, C
+modSettings = 0, 0, 0, 0, C
+modRegistry = 0, 0, 0, 0, C
+dlgRazmer = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+dlgWinners = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+dlgCongrat = 0, 0, 0, 0, C, 0, 0, 0, 0, C
+dlgAbout = 0, 0, 0, 0, C, 22, 29, 609, 471, C

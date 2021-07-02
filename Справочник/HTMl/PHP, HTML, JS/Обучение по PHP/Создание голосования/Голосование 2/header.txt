@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>Голосование</title>
+</head>
+<body>
+
+<script language="JavaScript">
+<!--
+/*
+<!--VirtualAvenueBanner-->
+*/
+file://-->
+</script>
+<font face="arial">
